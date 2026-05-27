@@ -295,7 +295,7 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
 .chat-btn-pulse{position:absolute;inset:-4px;border:1px solid rgba(200,165,90,.28);animation:chatpulse 2.5s ease-out infinite}
 .chat-btn-lbl{position:absolute;bottom:calc(100% + 10px);right:0;background:rgba(255,252,248,.97);border:1px solid var(--bdr);color:var(--goldD);padding:.3rem .9rem;font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateY(6px);transition:all var(--micro);pointer-events:none}
 .chat-btn:hover .chat-btn-lbl{opacity:1;transform:translateY(0)}
-.chat-win{position:absolute;bottom:calc(100% + 1rem);right:0;width:375px;height:530px;background:rgba(10,6,2,.97);border:1px solid rgba(200,165,90,.2);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px rgba(200,165,90,.12);opacity:0;transform:translateY(20px) scale(.93);transition:.38s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
+.chat-win{position:absolute;bottom:calc(100% + 1rem);right:0;width:375px;height:min(530px,80vh);background:rgba(10,6,2,.97);border:1px solid rgba(200,165,90,.2);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px rgba(200,165,90,.12);opacity:0;transform:translateY(20px) scale(.93);transition:.38s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
 .chat-win.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
 .chat-head{padding:1rem 1.25rem;background:rgba(15,9,3,.98);border-bottom:1px solid rgba(200,165,90,.18);display:flex;align-items:center;gap:.9rem}
 .chat-avatar{width:36px;height:36px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:#0A0603;flex-shrink:0}
@@ -769,7 +769,7 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
   <div class="wrap">
     <div style="text-align:center" class="rv">
       <span class="eyebrow">Our Commitment</span>
-      <h2 class="sec-title">No Reviews Yet. Here's What We <em>Guarantee</em> Instead.</h2>
+      <h2 class="sec-title">Our <em>Guarantee</em> to Every Client</h2>
       <p class="sec-sub" style="margin:0 auto">We're a new agency — and we're not going to pretend otherwise. What we can offer is something most established agencies won't: your success is directly tied to ours. These aren't marketing promises. They are commitments we put in writing.</p>
     </div>
     <div class="why-grid" style="margin-top:3.5rem">
@@ -900,7 +900,7 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
             </div>
           </div>
         </div>
-        <a class="ci" href="https://mail.google.com/mail/?view=cm&fs=1&to=cedarstonedigital77@gmail.com" target="_blank" rel="noopener noreferrer" style="cursor:pointer;text-decoration:none">
+        <a class="ci" href="mailto:cedarstonedigital77@gmail.com" target="_blank" rel="noopener noreferrer" style="cursor:pointer;text-decoration:none">
           <div class="ci-icon icon">
             <svg viewBox="0 0 24 24" width="20" height="20" stroke="var(--gold)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
@@ -931,6 +931,7 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
           </select>
         </div>
         <div class="fg"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Tell us about your business or project..." required></textarea></div>
+        <input type="text" name="_honey" style="display:none">
         <button class="form-btn" id="formBtn" type="submit">Send Message →</button>
       </form>
     </div>
@@ -969,7 +970,7 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
       <ul>
         <li><a href="tel:0820613598">082 061 3598</a></li>
         <li><a href="https://wa.me/27820613598" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></li>
-        <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=cedarstonedigital77@gmail.com" target="_blank" rel="noopener noreferrer">cedarstonedigital77@gmail.com</a></li>
+        <li><a href="mailto:cedarstonedigital77@gmail.com" target="_blank" rel="noopener noreferrer">cedarstonedigital77@gmail.com</a></li>
         <li><a href="#hero">Back to top ↑</a></li>
       </ul>
       <div style="display:flex;gap:.75rem;margin-top:1.25rem">
