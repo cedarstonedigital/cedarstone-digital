@@ -1334,5 +1334,485 @@ function handleSubmit(e) {
   }, 5000);
 }
 </script>
+
+<!-- ══ JARVIS CHATBOT ══════════════════════════════════ -->
+<style>
+/* ── Chat trigger button ── */
+#jarvis-trigger {
+  position:fixed; bottom:2rem; right:2rem; z-index:2000;
+  width:64px; height:64px; border-radius:50%;
+  background:var(--grad2);
+  border:none; cursor:pointer;
+  box-shadow:0 6px 28px rgba(196,98,45,0.50);
+  display:flex; align-items:center; justify-content:center;
+  transition:var(--morph);
+  animation:jarvisPulse 2.8s infinite;
+}
+#jarvis-trigger:hover { transform:scale(1.12); box-shadow:0 10px 38px rgba(196,98,45,0.60); }
+#jarvis-trigger svg { transition:transform 0.35s ease; }
+#jarvis-trigger.open svg.icon-chat { display:none; }
+#jarvis-trigger.open svg.icon-close { display:block !important; }
+
+/* ── Chat window ── */
+#jarvis-window {
+  position:fixed; bottom:6.5rem; right:2rem; z-index:1999;
+  width:370px; max-width:calc(100vw - 2rem);
+  background:var(--white);
+  border-radius:24px;
+  box-shadow:0 24px 80px rgba(61,28,2,0.22), 0 0 0 1px var(--bdr);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+  transform:scale(0.88) translateY(20px);
+  opacity:0; pointer-events:none;
+  transform-origin:bottom right;
+  transition:transform 0.4s cubic-bezier(0.34,1.26,0.64,1), opacity 0.3s ease;
+  max-height:560px;
+}
+#jarvis-window.open {
+  transform:scale(1) translateY(0);
+  opacity:1; pointer-events:all;
+}
+
+/* ── Header ── */
+.jv-header {
+  background:var(--grad3);
+  padding:1rem 1.2rem;
+  display:flex; align-items:center; gap:0.9rem;
+  flex-shrink:0;
+}
+.jv-avatar-wrap {
+  position:relative; width:46px; height:46px; flex-shrink:0;
+}
+.jv-avatar-3d {
+  width:46px; height:46px;
+  perspective:120px;
+}
+.jv-cube {
+  width:100%; height:100%;
+  position:relative; transform-style:preserve-3d;
+  animation:rotateCube 7s linear infinite;
+  border-radius:12px;
+}
+.jv-face {
+  position:absolute; inset:0; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem;
+}
+.jv-face.f  { transform:translateZ(23px); background:linear-gradient(135deg,#C4622D,#C9962C); }
+.jv-face.ba { transform:rotateY(180deg) translateZ(23px); background:#8B6500; opacity:0.5; }
+.jv-face.r  { transform:rotateY(90deg)  translateZ(23px); background:#3D1C02; opacity:0.4; }
+.jv-face.l  { transform:rotateY(-90deg) translateZ(23px); background:#3D1C02; opacity:0.4; }
+.jv-face.t  { transform:rotateX(90deg)  translateZ(23px); background:#C9962C; opacity:0.45; }
+.jv-face.b  { transform:rotateX(-90deg) translateZ(23px); background:#2C1810; opacity:0.3; }
+.jv-online {
+  position:absolute; bottom:1px; right:1px;
+  width:12px; height:12px; border-radius:50%;
+  background:#40916c; border:2px solid var(--espresso);
+  animation:blink 2.2s infinite;
+}
+.jv-info { flex:1; }
+.jv-name { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; color:white; }
+.jv-role { font-size:0.73rem; color:rgba(255,255,255,0.55); margin-top:0.1rem; }
+.jv-status { font-size:0.7rem; color:#6fcf97; font-weight:500; }
+
+/* ── Messages ── */
+.jv-messages {
+  flex:1; overflow-y:auto; padding:1.1rem;
+  display:flex; flex-direction:column; gap:0.75rem;
+  scroll-behavior:smooth;
+  min-height:200px; max-height:320px;
+}
+.jv-messages::-webkit-scrollbar { width:4px; }
+.jv-messages::-webkit-scrollbar-thumb { background:var(--beige); border-radius:2px; }
+
+/* bubbles */
+.msg { display:flex; gap:0.55rem; align-items:flex-end; max-width:92%; }
+.msg.bot { align-self:flex-start; }
+.msg.user { align-self:flex-end; flex-direction:row-reverse; }
+.msg-bubble {
+  padding:0.7rem 0.95rem; border-radius:18px;
+  font-size:0.86rem; line-height:1.55; max-width:100%;
+}
+.bot .msg-bubble {
+  background:var(--warm); color:var(--text);
+  border-bottom-left-radius:4px;
+}
+.user .msg-bubble {
+  background:var(--grad2); color:white;
+  border-bottom-right-radius:4px;
+}
+.msg-time { font-size:0.68rem; color:var(--muted); margin-bottom:2px; white-space:nowrap; }
+.bot-ico {
+  width:28px; height:28px; border-radius:50%;
+  background:var(--grad2); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* Typing indicator */
+.typing { display:flex; align-items:center; gap:4px; padding:0.6rem 0.9rem; }
+.typing span {
+  width:7px; height:7px; border-radius:50%;
+  background:var(--muted); display:inline-block;
+  animation:typingDot 1.2s infinite ease-in-out;
+}
+.typing span:nth-child(2) { animation-delay:0.2s; }
+.typing span:nth-child(3) { animation-delay:0.4s; }
+
+/* ── Quick replies ── */
+.jv-quick {
+  padding:0 1.1rem 0.65rem;
+  display:flex; flex-wrap:wrap; gap:0.45rem;
+  flex-shrink:0;
+}
+.qr {
+  background:var(--warm); color:var(--text);
+  border:1px solid var(--bdr); border-radius:30px;
+  padding:0.32rem 0.8rem; font-size:0.76rem;
+  font-weight:500; cursor:pointer;
+  font-family:'Inter',sans-serif;
+  transition:all 0.2s ease;
+  white-space:nowrap;
+}
+.qr:hover { background:var(--gold); color:white; border-color:var(--gold); }
+
+/* ── Input bar ── */
+.jv-input-bar {
+  display:flex; align-items:center; gap:0.6rem;
+  padding:0.85rem 1rem;
+  border-top:1px solid var(--bdr);
+  background:var(--cream); flex-shrink:0;
+}
+#jv-input {
+  flex:1; border:none; background:transparent;
+  font-family:'Inter',sans-serif; font-size:0.88rem;
+  color:var(--text); outline:none;
+}
+#jv-input::placeholder { color:var(--muted); }
+#jv-send {
+  width:36px; height:36px; border-radius:50%;
+  background:var(--grad2); border:none; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0; transition:var(--morph);
+}
+#jv-send:hover { transform:scale(1.12); }
+
+/* ── Animations ── */
+@keyframes jarvisPulse {
+  0%,100% { box-shadow:0 6px 28px rgba(196,98,45,0.50), 0 0 0 0 rgba(196,98,45,0.35); }
+  50%      { box-shadow:0 6px 28px rgba(196,98,45,0.50), 0 0 0 14px rgba(196,98,45,0); }
+}
+@keyframes blink {
+  0%,100% { opacity:1; } 50% { opacity:0.4; }
+}
+@keyframes typingDot {
+  0%,80%,100% { transform:scale(0.7); opacity:0.4; }
+  40%          { transform:scale(1.1); opacity:1; }
+}
+
+/* Mobile tweak */
+@media(max-width:420px) {
+  #jarvis-window { right:1rem; bottom:5.5rem; width:calc(100vw - 2rem); }
+  #jarvis-trigger { right:1rem; bottom:1rem; }
+}
+</style>
+
+<!-- Trigger button -->
+<button id="jarvis-trigger" aria-label="Chat with Jarvis">
+  <svg class="icon-chat" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" style="display:none;">
+    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+  </svg>
+</button>
+
+<!-- Chat window -->
+<div id="jarvis-window" role="dialog" aria-label="Jarvis chat assistant">
+  <!-- Header -->
+  <div class="jv-header">
+    <div class="jv-avatar-wrap">
+      <div class="jv-avatar-3d">
+        <div class="jv-cube">
+          <div class="jv-face f">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+          </div>
+          <div class="jv-face ba"></div>
+          <div class="jv-face r"></div>
+          <div class="jv-face l"></div>
+          <div class="jv-face t"></div>
+          <div class="jv-face b"></div>
+        </div>
+      </div>
+      <div class="jv-online"></div>
+    </div>
+    <div class="jv-info">
+      <div class="jv-name">Jarvis</div>
+      <div class="jv-role">Popsy's Virtual Concierge</div>
+      <div class="jv-status">● Online now</div>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div class="jv-messages" id="jv-messages"></div>
+
+  <!-- Quick replies -->
+  <div class="jv-quick" id="jv-quick"></div>
+
+  <!-- Input -->
+  <div class="jv-input-bar">
+    <input id="jv-input" type="text" placeholder="Type a message…" autocomplete="off">
+    <button id="jv-send" aria-label="Send">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+/* ══ JARVIS CHATBOT ENGINE ══════════════════════════ */
+(function() {
+  const trigger  = document.getElementById('jarvis-trigger');
+  const win      = document.getElementById('jarvis-window');
+  const msgsEl   = document.getElementById('jv-messages');
+  const quickEl  = document.getElementById('jv-quick');
+  const inputEl  = document.getElementById('jv-input');
+  const sendBtn  = document.getElementById('jv-send');
+  let opened     = false;
+  let typingEl   = null;
+
+  /* ── Knowledge base ─────────────────────────────── */
+  const KB = [
+    {
+      patterns: [/\b(hi|hello|hey|howzit|sawubona|good morning|good afternoon|good evening|hola|greetings)\b/i],
+      reply: () => "Hello! 👋 Welcome to Popsy's Guesthouse. I'm Jarvis, your virtual concierge. How can I help you today?",
+      quick: ['Room types', 'Check-in time', 'Prices', 'Location', 'Amenities'],
+    },
+    {
+      patterns: [/\b(room|rooms|accommodation|stay|sleep|bed|unit)\b/i],
+      reply: () => "We have three room types:\n\n🏠 <b>Standard Room</b> — From R400/night. Flat-screen TV, private bathroom, free WiFi.\n\n🍳 <b>Self-Catering Unit</b> — From R550/night. Full kitchen, microwave, fridge & kettle.\n\n✨ <b>Deluxe Room</b> — From R700/night. Walk-in shower, separate toilet, hairdryer & bath sheets.\n\nWould you like to book one?",
+      quick: ['Book a room', 'Check-in time', 'Amenities', 'Prices'],
+    },
+    {
+      patterns: [/\b(price|prices|cost|rate|rates|how much|fee|fees|affordable|cheap|expensive)\b/i],
+      reply: () => "Our room rates start from:\n\n• Standard Room — <b>from R400/night</b>\n• Self-Catering Unit — <b>from R550/night</b>\n• Deluxe Room — <b>from R700/night</b>\n\nAll rooms include free WiFi and private parking. Would you like to make a booking?",
+      quick: ['Book a room', 'Room types', 'Contact us'],
+    },
+    {
+      patterns: [/\b(check.?in|checkin|arrive|arrival)\b/i],
+      reply: () => "Check-in at Popsy's Guesthouse is from <b>2:00 PM</b> onwards. 🏨\n\nOur 24-hour front desk team will be ready to welcome you whenever you arrive. Need any other info?",
+      quick: ['Check-out time', 'Parking', 'Location'],
+    },
+    {
+      patterns: [/\b(check.?out|checkout|leave|departure|depart)\b/i],
+      reply: () => "Check-out time is by <b>11:00 AM</b>. ⏰\n\nIf you need a late check-out, please contact us directly on <b>084 072 5953</b> and we'll do our best to accommodate you.",
+      quick: ['Check-in time', 'Contact us', 'Amenities'],
+    },
+    {
+      patterns: [/\b(wifi|wi-fi|internet|data|connect|network)\b/i],
+      reply: () => "Yes! We offer <b>free high-speed WiFi</b> throughout the guesthouse. 📶\n\nYou'll receive the WiFi details at check-in. Perfect for both business and leisure guests.",
+      quick: ['Parking', 'Room types', 'Amenities'],
+    },
+    {
+      patterns: [/\b(park|parking|car|vehicle|drive|garage)\b/i],
+      reply: () => "Great news — we offer <b>free private parking</b> on the premises! 🚗\n\nYour vehicle will be safe with our 24-hour security on site. No extra charge.",
+      quick: ['Security', 'WiFi', 'Location'],
+    },
+    {
+      patterns: [/\b(secur|safe|safety|guard|cctv|camera)\b/i],
+      reply: () => "Your safety is our top priority. We have <b>24/7 security</b> on site, including a safety deposit box in rooms. 🛡️\n\nYou can rest easy at Popsy's Guesthouse.",
+      quick: ['Parking', 'Amenities', 'Book a room'],
+    },
+    {
+      patterns: [/\b(kitchen|cook|cooking|microwave|fridge|kettle|food|meal|eat)\b/i],
+      reply: () => "Our <b>Self-Catering Units</b> come with a fully equipped kitchen including:\n\n• Microwave\n• Electric kettle\n• Refrigerator\n• Cooking facilities\n\nPerfect for guests who prefer to cook their own meals. Available from R550/night. 🍳",
+      quick: ['Book self-catering', 'Prices', 'Room types'],
+    },
+    {
+      patterns: [/\b(amenit|facilit|feature|include|includ)\b/i],
+      reply: () => "Here's what we offer at Popsy's Guesthouse:\n\n📶 Free WiFi · 🚗 Free Parking\n🛡 24/7 Security · 🏥 Front Desk 24hrs\n📺 Flat-Screen TV · 🔒 Safety Deposit Box\n🚿 Private Bathroom · 🍳 Kitchenette (selected rooms)\n\nAny other questions?",
+      quick: ['Room types', 'Prices', 'Book a room'],
+    },
+    {
+      patterns: [/\b(where|location|address|direction|map|find|get there|gps|navigate)\b/i],
+      reply: () => "We're located at:\n\n📍 <b>239 Commissioner Street, Johannesburg, 2094</b>\n\nRight in the Johannesburg CBD — walking distance from:\n• Museum of African Design (6 min)\n• Arts on Main (8 min)\n• Carlton Centre (13 min)\n\nO.R. Tambo Airport is about 14 miles away.",
+      quick: ['Book a room', 'Contact us', 'Check-in time'],
+    },
+    {
+      patterns: [/\b(near|attract|around|sight|visit|tourism|museum|art|carlton|mall)\b/i],
+      reply: () => "Popsy's Guesthouse is brilliantly located near:\n\n🎨 Museum of African Design — 6 min walk\n🖼 Arts on Main — 8 min walk\n🏢 Carlton Centre — 13 min walk\n🎰 Gold Reef City & Casino — 4.9 miles\n🏛 Apartheid Museum — 5 miles\n✈️ O.R. Tambo Airport — 14 miles\n\nJohannesburg has so much to explore!",
+      quick: ['Location', 'Book a room', 'Contact us'],
+    },
+    {
+      patterns: [/\b(pet|dog|cat|animal)\b/i],
+      reply: () => "We're sorry — unfortunately <b>pets are not allowed</b> at Popsy's Guesthouse. 🐾\n\nIf you have any other questions, I'm happy to help!",
+      quick: ['Room types', 'Amenities', 'Book a room'],
+    },
+    {
+      patterns: [/\b(book|reserv|enquir|enquiry|inquiry|availab)\b/i],
+      reply: () => "Ready to book? You have two easy options:\n\n📝 <b>Fill in our booking form</b> on this page (scroll to the Contact section)\n📞 <b>Call us directly</b> on 084 072 5953\n\nWe'll confirm your reservation as soon as possible!",
+      quick: ['Room types', 'Prices', 'Go to booking form'],
+    },
+    {
+      patterns: [/\b(call|phone|number|contact|reach|whatsapp|email|tel)\b/i],
+      reply: () => "You can reach us directly on:\n\n📞 <b>084 072 5953</b>\n\nOur 24-hour front desk team is always available to assist you. You can also use the booking form on this page.",
+      quick: ['Book a room', 'Location', 'Check-in time'],
+    },
+    {
+      patterns: [/\b(rating|review|rated|guest|opinion|score)\b/i],
+      reply: () => "We're proud to have a <b>perfect 10/10 rating</b> from our guests! ⭐⭐⭐⭐⭐\n\nOur guests consistently love the cleanliness, security, location, and value for money. Come experience it for yourself!",
+      quick: ['Book a room', 'Prices', 'Room types'],
+    },
+    {
+      patterns: [/\b(thank|thanks|thank you|thx|cheers|appreciate)\b/i],
+      reply: () => "You're very welcome! 😊 It's my pleasure to help.\n\nIf you have any other questions about Popsy's Guesthouse, feel free to ask. We look forward to welcoming you!",
+      quick: ['Book a room', 'Contact us', 'Room types'],
+    },
+    {
+      patterns: [/\b(bye|goodbye|see you|later|ciao|ttyl)\b/i],
+      reply: () => "Goodbye! 👋 We hope to welcome you at Popsy's Guesthouse soon.\n\nFeel free to chat again anytime. Have a wonderful day!",
+      quick: ['Book a room', 'Contact us'],
+    },
+  ];
+
+  /* ── Quick-reply actions ─────────────────────────── */
+  const QR_MAP = {
+    'Room types':           "What room types do you have?",
+    'Check-in time':        "What is the check-in time?",
+    'Check-out time':       "What is the check-out time?",
+    'Prices':               "What are your prices?",
+    'Location':             "Where are you located?",
+    'Amenities':            "What amenities do you offer?",
+    'Parking':              "Do you have parking?",
+    'WiFi':                 "Do you have WiFi?",
+    'Security':             "How is the security?",
+    'Contact us':           "How can I contact you?",
+    'Book a room':          "I'd like to book a room.",
+    'Book self-catering':   "I'd like to book a self-catering unit.",
+    'Go to booking form':   '__SCROLL_CONTACT__',
+  };
+
+  /* ── Helpers ─────────────────────────────────────── */
+  function now() {
+    return new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
+  }
+
+  function addMsg(text, who) {
+    const wrap = document.createElement('div');
+    wrap.className = `msg ${who}`;
+    if (who === 'bot') {
+      wrap.innerHTML = `
+        <div class="bot-ico">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <div>
+          <div class="msg-bubble">${text.replace(/\n/g, '<br>')}</div>
+          <div class="msg-time">${now()}</div>
+        </div>`;
+    } else {
+      wrap.innerHTML = `
+        <div>
+          <div class="msg-bubble">${text}</div>
+          <div class="msg-time" style="text-align:right">${now()}</div>
+        </div>`;
+    }
+    msgsEl.appendChild(wrap);
+    msgsEl.scrollTop = msgsEl.scrollHeight;
+    return wrap;
+  }
+
+  function showTyping() {
+    const wrap = document.createElement('div');
+    wrap.className = 'msg bot';
+    wrap.innerHTML = `
+      <div class="bot-ico">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+      </div>
+      <div class="msg-bubble typing"><span></span><span></span><span></span></div>`;
+    msgsEl.appendChild(wrap);
+    msgsEl.scrollTop = msgsEl.scrollHeight;
+    return wrap;
+  }
+
+  function setQuick(labels) {
+    quickEl.innerHTML = '';
+    (labels || []).forEach(label => {
+      const btn = document.createElement('button');
+      btn.className = 'qr'; btn.textContent = label;
+      btn.addEventListener('click', () => handleQuick(label));
+      quickEl.appendChild(btn);
+    });
+  }
+
+  function handleQuick(label) {
+    const text = QR_MAP[label];
+    if (!text) return;
+    if (text === '__SCROLL_CONTACT__') {
+      document.getElementById('contact').scrollIntoView({ behavior:'smooth' });
+      toggleChat(false);
+      return;
+    }
+    addMsg(label, 'user');
+    setQuick([]);
+    botReply(text);
+  }
+
+  /* ── Core reply logic ────────────────────────────── */
+  function botReply(userText) {
+    const tEl = showTyping();
+    const delay = 700 + Math.random() * 600;
+    setTimeout(() => {
+      tEl.remove();
+      let matched = null;
+      for (const item of KB) {
+        if (item.patterns.some(p => p.test(userText))) { matched = item; break; }
+      }
+      if (matched) {
+        addMsg(matched.reply(), 'bot');
+        setQuick(matched.quick || []);
+      } else {
+        addMsg("I'm not sure about that, but I'd love to help! 😊 You can:\n\n📞 Call us on <b>084 072 5953</b>\n📝 Use the booking form on this page\n\nOr try asking me about rooms, prices, check-in, amenities, or our location!", 'bot');
+        setQuick(['Room types', 'Prices', 'Location', 'Contact us']);
+      }
+    }, delay);
+  }
+
+  /* ── Send message ────────────────────────────────── */
+  function send() {
+    const text = inputEl.value.trim();
+    if (!text) return;
+    addMsg(text, 'user');
+    inputEl.value = '';
+    setQuick([]);
+    botReply(text);
+  }
+
+  sendBtn.addEventListener('click', send);
+  inputEl.addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+
+  /* ── Toggle window ───────────────────────────────── */
+  function toggleChat(forceOpen) {
+    opened = forceOpen !== undefined ? forceOpen : !opened;
+    trigger.classList.toggle('open', opened);
+    win.classList.toggle('open', opened);
+    if (opened && msgsEl.children.length === 0) {
+      // Greeting on first open
+      setTimeout(() => {
+        addMsg("Hello! 👋 I'm <b>Jarvis</b>, your virtual concierge at Popsy's Guesthouse. How can I assist you today?", 'bot');
+        setQuick(['Room types', 'Prices', 'Check-in time', 'Location', 'Amenities']);
+      }, 300);
+    }
+    if (opened) setTimeout(() => inputEl.focus(), 420);
+  }
+
+  trigger.addEventListener('click', () => toggleChat());
+})();
+</script>
 </body>
 </html>
