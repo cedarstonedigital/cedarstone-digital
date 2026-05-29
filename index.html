@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CedarStone Digital | Website Design, AI Automation & SEO South Africa</title>
+<title>CedarStone Digital (Pty) Ltd | Website Design, AI Automation & SEO South Africa</title>
 <meta name="description" content="CedarStone Digital — South Africa's AI-powered digital agency. Custom website design, AI automation, SEO, and intelligent digital solutions for South African businesses. Free consultation. Call 082 061 3598.">
 <meta name="keywords" content="CedarStone Digital, CedarStone, Cedar Stone Digital, website design South Africa, web development South Africa, AI automation South Africa, SEO South Africa, digital agency South Africa, website builder South Africa, AI chatbot South Africa, custom website South Africa, affordable website South Africa, small business website South Africa">
 <meta name="robots" content="index, follow">
@@ -431,6 +431,29 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
 .wa-float-lbl{background:rgba(255,252,248,.97);border:1px solid var(--bdr);color:var(--goldD);padding:.3rem .9rem;font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateX(6px);transition:all var(--micro);pointer-events:none}
 .wa-float:hover .wa-float-lbl{opacity:1;transform:translateX(0)}
 
+/* ── REVIEWS ── */
+#reviews{background:var(--sec1)}
+.reviews-empty{text-align:center;padding:3.5rem 2rem;border:1px dashed rgba(200,165,90,.28);background:rgba(200,165,90,.03);margin:3rem 0 2.5rem}
+.reviews-empty p{color:var(--muted);font-size:.9rem;font-weight:300;line-height:1.8;margin-bottom:1.5rem}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin:3rem 0}
+.review-card-submitted{padding:2rem;border:1px solid var(--bdr);background:var(--card);position:relative}
+.review-card-submitted::before{content:'\201C';font-family:'Playfair Display',serif;font-size:4rem;color:var(--gold);opacity:.22;position:absolute;top:.5rem;left:1.25rem;line-height:1}
+.rev-stars-display{display:flex;gap:3px;margin-bottom:1rem}
+.rev-stars-display svg{width:14px;height:14px;fill:var(--gold)}
+.rev-quote{font-size:.875rem;color:var(--muted);line-height:1.82;font-weight:300;margin-bottom:1.25rem;padding-top:1.25rem}
+.rev-author-name{font-weight:600;font-size:.85rem;color:var(--ink)}
+.rev-author-biz{font-size:.72rem;color:var(--dim);margin-top:.1rem}
+/* Star rating input */
+.star-rating{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:.25rem;margin-top:.25rem}
+.star-rating input{display:none}
+.star-rating label{font-size:1.5rem;color:rgba(200,165,90,.3);cursor:pointer;transition:color var(--micro);line-height:1}
+.star-rating label:hover,.star-rating label:hover~label,.star-rating input:checked~label{color:var(--gold)}
+.review-form-wrap{max-width:680px;margin:0 auto;padding:2.5rem;border:1px solid var(--bdr);background:var(--card)}
+.review-form-wrap h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:.4rem}
+.review-form-wrap p{color:var(--muted);font-size:.85rem;line-height:1.75;font-weight:300;margin-bottom:1.5rem}
+.google-rev-row{text-align:center;margin-top:2.5rem;display:flex;flex-direction:column;align-items:center;gap:.75rem}
+.google-rev-row p{font-size:.8rem;color:var(--dim);font-weight:300}
+
 /* ── REDUCED MOTION (Skill guideline) ── */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -515,6 +538,7 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#why">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="nav-cta">Get Started</a></li>
   </ul>
@@ -804,6 +828,65 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
 
 <div class="divider"></div>
 
+<!-- ══ REVIEWS ══ -->
+<section id="reviews">
+  <div class="wrap">
+    <div style="text-align:center" class="rv">
+      <span class="eyebrow">Client Reviews</span>
+      <h2 class="sec-title">What Our <em>Clients Say</em></h2>
+      <p class="sec-sub" style="margin:0 auto">We're building our track record one client at a time. Be among the first — and hold us to every standard we've promised.</p>
+    </div>
+
+    <!-- Empty state shown until reviews exist -->
+    <div class="reviews-empty rv" id="reviewsDisplay">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(200,165,90,.45)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin:0 auto 1rem;display:block"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <p>No reviews yet — be our first client to share your experience.<br>Every review is read personally by our founders.</p>
+    </div>
+
+    <!-- Leave a Review form -->
+    <div class="review-form-wrap rv">
+      <h3>Leave a Review</h3>
+      <p>Worked with us? We'd love to hear about your experience. Reviews are sent directly to our team and published after verification.</p>
+      <form id="reviewForm" novalidate>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.1rem">
+          <div class="fg"><label for="rv-name">Your Name</label><input id="rv-name" name="name" type="text" placeholder="e.g. Sipho Dlamini" required></div>
+          <div class="fg"><label for="rv-company">Business / Company</label><input id="rv-company" name="company" type="text" placeholder="e.g. Dlamini Consulting"></div>
+        </div>
+        <div class="fg" style="margin-bottom:1.1rem">
+          <label>Star Rating</label>
+          <div class="star-rating" role="radiogroup" aria-label="Star rating">
+            <input type="radio" id="s5" name="rating" value="5"><label for="s5" title="5 stars">★</label>
+            <input type="radio" id="s4" name="rating" value="4"><label for="s4" title="4 stars">★</label>
+            <input type="radio" id="s3" name="rating" value="3"><label for="s3" title="3 stars">★</label>
+            <input type="radio" id="s2" name="rating" value="2"><label for="s2" title="2 stars">★</label>
+            <input type="radio" id="s1" name="rating" value="1"><label for="s1" title="1 star">★</label>
+          </div>
+        </div>
+        <div class="fg" style="margin-bottom:1.1rem"><label for="rv-msg">Your Review</label><textarea id="rv-msg" name="review" placeholder="Tell us about your experience working with CedarStone Digital..." required style="min-height:110px"></textarea></div>
+        <input type="text" name="_honey" style="display:none" aria-hidden="true">
+        <button class="form-btn" id="rvBtn" type="submit" style="width:100%">Submit Review →</button>
+      </form>
+      <div id="rv-success" style="display:none;text-align:center;padding:2rem 1rem">
+        <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem">Thank you!</div>
+        <p style="color:var(--muted);font-size:.875rem;font-weight:300;line-height:1.75">Your review has been received and will be published after verification by our team.</p>
+      </div>
+    </div>
+
+    <!-- Google Reviews link -->
+    <div class="google-rev-row rv">
+      <p>Also find us and leave a review on Google</p>
+      <a href="https://g.page/r/cedarstonedigital/review" target="_blank" rel="noopener noreferrer"
+        style="display:inline-flex;align-items:center;gap:.65rem;border:1px solid var(--gold);color:var(--goldD);padding:.6rem 1.5rem;font-size:.8rem;font-weight:600;letter-spacing:.5px;text-decoration:none;background:rgba(200,165,90,.04);transition:all var(--morph)"
+        onmouseover="this.style.background='rgba(200,165,90,.1)'" onmouseout="this.style.background='rgba(200,165,90,.04)'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Review Us on Google
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- ══ PROCESS ══ -->
 <section id="process">
   <div class="wrap">
@@ -931,7 +1014,8 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
           </select>
         </div>
         <div class="fg"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Tell us about your business or project..." required></textarea></div>
-        <input type="text" name="_honey" style="display:none">
+        <input type="text" name="_honey" style="display:none" aria-hidden="true">
+        <p style="font-size:.72rem;color:var(--dim);font-weight:300;line-height:1.6">By submitting this form you agree to our <a href="terms.html" target="_blank" style="color:var(--goldD);text-underline-offset:3px">Terms &amp; Conditions</a>.</p>
         <button class="form-btn" id="formBtn" type="submit">Send Message →</button>
       </form>
     </div>
@@ -987,7 +1071,7 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
     </div>
   </div>
   <div class="f-bot">
-    <p>© <span id="copy-yr"></span> CedarStone Digital. All rights reserved.</p>
+    <p>© <span id="copy-yr"></span> CedarStone Digital (Pty) Ltd. All rights reserved. &nbsp;·&nbsp; <a href="terms.html" style="color:var(--dim);text-decoration:none;transition:color var(--micro)" onmouseover="this.style.color='var(--goldD)'" onmouseout="this.style.color='var(--dim)'">Terms &amp; Conditions</a></p>
     <div class="pw">Powered by <span>Jarvis AI</span></div>
   </div>
 </footer>
@@ -1407,6 +1491,39 @@ function sendMsg(){
   setTimeout(function(){ clearTyping(); addMsg('bot',getReply(txt)); },850+Math.random()*500);
 }
 function suggest(txt){ document.getElementById('chatInput').value=txt; sendMsg(); }
+
+/* ── REVIEW FORM ── */
+(function(){
+  var form = document.getElementById('reviewForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = document.getElementById('rvBtn');
+    var name    = document.getElementById('rv-name').value.trim();
+    var company = document.getElementById('rv-company').value.trim();
+    var msg     = document.getElementById('rv-msg').value.trim();
+    var rating  = (form.querySelector('input[name="rating"]:checked') || {}).value || 'Not selected';
+    if (!name || !msg) { alert('Please enter your name and review.'); return; }
+    btn.textContent = 'Submitting…'; btn.disabled = true;
+    fetch('https://formsubmit.co/ajax/cedarstonedigital77@gmail.com', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({
+        _subject: 'New Client Review — CedarStone Digital',
+        name: name, company: company, rating: rating + ' stars', review: msg
+      })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(){
+      form.style.display = 'none';
+      document.getElementById('rv-success').style.display = 'block';
+    })
+    .catch(function(){
+      btn.textContent = 'Submit Review →'; btn.disabled = false;
+      alert('Something went wrong. Please email us at cedarstonedigital77@gmail.com');
+    });
+  });
+})();
 </script>
 
 <script type="application/ld+json">
@@ -1414,6 +1531,7 @@ function suggest(txt){ document.getElementById('chatInput').value=txt; sendMsg()
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "CedarStone Digital",
+  "legalName": "CedarStone Digital (Pty) Ltd",
   "alternateName": ["Cedar Stone Digital", "CedarStone"],
   "description": "CedarStone Digital is a South African AI-powered digital agency offering custom website design, AI automation, SEO optimisation, internal AI assistants, document intelligence, conversational AI, review management, and graphic design for small and medium businesses.",
   "telephone": "+27820613598",
