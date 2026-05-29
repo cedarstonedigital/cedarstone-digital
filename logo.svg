@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <!-- Transparent background version — use on light surfaces -->
+
+  <!-- Outer diamond -->
+  <polygon points="200,18 382,200 200,382 18,200" fill="none" stroke="url(#grad)" stroke-width="7"/>
+  <!-- Inner diamond faint ring -->
+  <polygon points="200,38 362,200 200,362 38,200" fill="none" stroke="rgba(200,165,90,.2)" stroke-width="2.5"/>
+
+  <!-- Cedar tree — 4 tiers -->
+  <polygon points="200,68 169,138 231,138" fill="url(#grad)" opacity=".96"/>
+  <polygon points="200,112 125,206 275,206" fill="url(#grad)" opacity=".88"/>
+  <polygon points="200,162 80,288 320,288" fill="url(#grad)" opacity=".80"/>
+  <!-- Trunk -->
+  <rect x="188" y="288" width="24" height="32" rx="3.5" fill="#C8A55A" opacity=".92"/>
+
+  <!-- Stone boulder -->
+  <path d="M112,318 L138,294 L200,288 L262,294 L288,318 L285,354 Q254,376 200,380 Q146,376 115,354 Z"
+    fill="none" stroke="url(#grad)" stroke-width="5"/>
+  <!-- Stone texture lines -->
+  <path d="M132,330 Q166,322 198,328" stroke="#C9A84C" stroke-width="1.8" fill="none" opacity=".35"/>
+  <path d="M202,328 Q234,322 268,330" stroke="#C9A84C" stroke-width="1.8" fill="none" opacity=".35"/>
+  <path d="M122,348 Q161,340 200,346 Q239,340 278,348" stroke="#C9A84C" stroke-width="1.6" fill="none" opacity=".30"/>
+
+  <!-- Kintsugi cracks — gold veins -->
+  <path d="M138,294 Q166,330 158,360 Q154,372 162,380" stroke="#C9A84C" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+  <path d="M158,360 Q138,366 118,378" stroke="#C9A84C" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".72"/>
+  <path d="M242,196 Q258,228 252,262 Q248,280 256,300" stroke="#C9A84C" stroke-width="4.5" fill="none" stroke-linecap="round" opacity=".84"/>
+  <path d="M252,262 Q274,270 292,254" stroke="#C9A84C" stroke-width="2.8" fill="none" stroke-linecap="round" opacity=".65"/>
+  <path d="M174,136 Q168,162 172,188" stroke="#C9A84C" stroke-width="2.4" fill="none" stroke-linecap="round" opacity=".55"/>
+  <path d="M270,324 Q282,344 276,362" stroke="#C9A84C" stroke-width="2.2" fill="none" stroke-linecap="round" opacity=".50"/>
+  <!-- Kintsugi fill patches -->
+  <path d="M138,294 Q166,330 158,360 Q138,366 118,378 Z" fill="#C9A84C" opacity=".18"/>
+  <path d="M242,196 Q258,228 252,262 Q274,270 292,254 Z" fill="#C9A84C" opacity=".14"/>
+
+  <!-- Corner accent dots -->
+  <circle cx="200" cy="18"  r="10" fill="#E2C98A"/>
+  <circle cx="382" cy="200" r="10" fill="#E2C98A"/>
+  <circle cx="200" cy="382" r="10" fill="#E2C98A"/>
+  <circle cx="18"  cy="200" r="10" fill="#E2C98A"/>
+
+  <defs>
+    <linearGradient id="grad" x1="18" y1="18" x2="382" y2="382" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#E2C98A"/>
+      <stop offset="100%" stop-color="#C8A55A"/>
+    </linearGradient>
+  </defs>
+</svg>
