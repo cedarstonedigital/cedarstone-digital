@@ -50,7 +50,9 @@
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#1A1108;color:var(--ink);overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:#1A1108;color:var(--ink);overflow-x:clip}
+/* overflow-x:clip prevents horizontal scroll without creating a scroll container —
+   overflow-x:hidden causes iOS Safari to trap position:fixed elements off-screen */
 
 /* Video fills viewport — watermark already cropped in background.mp4 */
 #bgVideoWrap{
@@ -875,7 +877,7 @@ footer{background:rgba(255,252,248,.95);backdrop-filter:var(--blur);-webkit-back
     <!-- Google Reviews link -->
     <div class="google-rev-row rv">
       <p>Also find us and leave a review on Google</p>
-      <a href="https://g.page/r/cedarstonedigital/review" target="_blank" rel="noopener noreferrer"
+      <a href="https://www.google.com/search?q=CedarStone+Digital+%28Pty%29+Ltd+South+Africa" target="_blank" rel="noopener noreferrer"
         style="display:inline-flex;align-items:center;gap:.65rem;border:1px solid var(--gold);color:var(--goldD);padding:.6rem 1.5rem;font-size:.8rem;font-weight:600;letter-spacing:.5px;text-decoration:none;background:rgba(200,165,90,.04);transition:all var(--morph)"
         onmouseover="this.style.background='rgba(200,165,90,.1)'" onmouseout="this.style.background='rgba(200,165,90,.04)'">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
