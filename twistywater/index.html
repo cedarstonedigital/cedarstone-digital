@@ -7,7 +7,7 @@
 <meta name="description" content="TwistyWater — naturally infused still water in four flavours: Lemon, Fresh Mint, Rosemary & Lemon, and Cucumber. Zero sugar. Zero calories. All twist.">
 <meta property="og:title" content="TwistyWater — Dynamic. Healthy. Refreshing.">
 <meta property="og:description" content="Naturally infused water in four flavours. Zero sugar, zero calories, all twist.">
-<meta property="og:image" content="assets/hero-poster.png">
+<meta property="og:image" content="assets/hero-poster.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -87,6 +87,7 @@
     letter-spacing:.42em;text-transform:uppercase;color:rgba(237,244,245,.85);
     animation:rise .9s .3s cubic-bezier(.2,.8,.2,1) both;
   }
+  @media(max-width:480px){.hero-copy p{letter-spacing:.22em;font-size:11px}}
   .scroll-cue{
     position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;
     background:none;border:0;color:rgba(237,244,245,.75);cursor:pointer;
@@ -267,9 +268,9 @@
 
 <!-- ===== Hero ===== -->
 <header class="hero" id="top">
-  <img class="poster" src="assets/hero-poster.png" alt="" aria-hidden="true">
-  <video autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.png">
-    <source src="assets/hero.mp4" type="video/mp4">
+  <img class="poster" src="assets/hero-poster.webp" alt="" aria-hidden="true">
+  <video autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.webp">
+    <source src="assets/hero-web.mp4" type="video/mp4">
   </video>
   <div class="hero-copy">
     <svg class="mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
@@ -296,7 +297,7 @@
     <button class="panel" role="listitem" data-flavour="lemon"
       style="--panel-a:#F8DD5F;--panel-b:#E3B41F;--label:#4A3A03" aria-haspopup="dialog">
       <span class="inner">
-        <img class="can" src="assets/can-lemon-cut.png" alt="TwistyWater with a hint of Lemon">
+        <img class="can" src="assets/can-lemon-cut.webp" alt="TwistyWater with a hint of Lemon">
         <span class="label"><span class="name">Lemon</span><br><span class="cta">Tap to explore</span></span>
       </span>
     </button>
@@ -304,7 +305,7 @@
     <button class="panel" role="listitem" data-flavour="mint"
       style="--panel-a:#57C48D;--panel-b:#1E8A58;--label:#04331E" aria-haspopup="dialog">
       <span class="inner">
-        <img class="can" src="assets/can-mint-cut.png" alt="TwistyWater with fresh Mint">
+        <img class="can" src="assets/can-mint-cut.webp" alt="TwistyWater with fresh Mint">
         <span class="label"><span class="name">Fresh Mint</span><br><span class="cta">Tap to explore</span></span>
       </span>
     </button>
@@ -312,7 +313,7 @@
     <button class="panel" role="listitem" data-flavour="rosemary"
       style="--panel-a:#A49CDD;--panel-b:#6C63AC;--label:#221D4A" aria-haspopup="dialog">
       <span class="inner">
-        <img class="can" src="assets/can-rosemary-cut.png" alt="TwistyWater infused with Rosemary and Lemon">
+        <img class="can" src="assets/can-rosemary-cut.webp" alt="TwistyWater infused with Rosemary and Lemon">
         <span class="label"><span class="name">Rosemary &amp; Lemon</span><br><span class="cta">Tap to explore</span></span>
       </span>
     </button>
@@ -320,7 +321,7 @@
     <button class="panel" role="listitem" data-flavour="cucumber"
       style="--panel-a:#B4DA83;--panel-b:#77A344;--label:#26400C" aria-haspopup="dialog">
       <span class="inner">
-        <img class="can" src="assets/can-cucumber-cut.png" alt="TwistyWater with cucumber infusion">
+        <img class="can" src="assets/can-cucumber-cut.webp" alt="TwistyWater with cucumber infusion">
         <span class="label"><span class="name">Cucumber</span><br><span class="cta">Tap to explore</span></span>
       </span>
     </button>
@@ -367,8 +368,8 @@ const FLAVOURS = {
     name: "Lemon",
     strap: "With a hint of lemon",
     a: "#F8DD5F", b: "#E9B915", ink: "#3D2F02",
-    can: "assets/can-lemon-cut.png",
-    sprite: "assets/sprite-lemon.png",
+    can: "assets/can-lemon-cut.webp",
+    sprite: "assets/sprite-lemon.webp",
     story: "The original twist. Sun-ripened lemons, cold-pressed the day they arrive, folded into glacial still water. Bright on the nose, clean on the finish — no sugar hiding anywhere.",
     notes: ["Bright citrus", "Cold-pressed", "Clean finish"],
     facts: [["0", "Sugar"], ["0", "Calories"], ["500ml", "Slim can"], ["100%", "Natural"]],
@@ -378,8 +379,8 @@ const FLAVOURS = {
     name: "Fresh Mint",
     strap: "With fresh mint",
     a: "#57C48D", b: "#157A4B", ink: "#03301C",
-    can: "assets/can-mint-cut.png",
-    sprite: "assets/sprite-mint.png",
+    can: "assets/can-mint-cut.webp",
+    sprite: "assets/sprite-mint.webp",
     story: "Garden mint, picked young and steeped cold so it stays green and alive. It drinks like a deep breath — cool from the first sip, calm at the finish.",
     notes: ["Cool & crisp", "Cold-steeped", "Garden fresh"],
     facts: [["0", "Sugar"], ["0", "Calories"], ["500ml", "Slim can"], ["100%", "Natural"]],
@@ -389,8 +390,8 @@ const FLAVOURS = {
     name: "Rosemary & Lemon",
     strap: "The botanical twist",
     a: "#A79FE0", b: "#5D5498", ink: "#1D1843",
-    can: "assets/can-rosemary-cut.png",
-    sprite: "assets/sprite-rosemary.png",
+    can: "assets/can-rosemary-cut.webp",
+    sprite: "assets/sprite-rosemary.webp",
     story: "Our most grown-up twist. Piney, floral rosemary balanced with a squeeze of lemon — herbaceous, faintly sweet, and impossibly clean. The one that turns water drinkers into believers.",
     notes: ["Herbaceous", "Floral", "Faintly citrus"],
     facts: [["0", "Sugar"], ["0", "Calories"], ["500ml", "Slim can"], ["100%", "Natural"]],
@@ -400,8 +401,8 @@ const FLAVOURS = {
     name: "Cucumber",
     strap: "With cucumber infusion",
     a: "#BCDE8E", b: "#6E9C3C", ink: "#233D0A",
-    can: "assets/can-cucumber-cut.png",
-    sprite: "assets/sprite-cucumber.png",
+    can: "assets/can-cucumber-cut.webp",
+    sprite: "assets/sprite-cucumber.webp",
     story: "Spa water, out of the spa. Cool cucumber pressed slow and cold, so all you get is that green, just-sliced freshness. The quietest of the four — and the one you finish first.",
     notes: ["Green & cool", "Slow-pressed", "Spa clean"],
     facts: [["0", "Sugar"], ["0", "Calories"], ["500ml", "Slim can"], ["100%", "Natural"]],
