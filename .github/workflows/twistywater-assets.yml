@@ -2,6 +2,12 @@ name: Fetch TwistyWater assets
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - claude/sesotho-fashioning-file-d7d3dr
+    paths:
+      - twistywater/assets-manifest.txt
+      - .github/workflows/twistywater-assets.yml
 
 permissions:
   contents: write
