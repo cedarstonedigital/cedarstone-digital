@@ -204,40 +204,46 @@
     from{transform:translate(0,0) rotate(var(--r0,0deg)) scale(var(--s,1))}
     to{transform:translate(var(--dx,30px),var(--dy,-46px)) rotate(var(--r1,18deg)) scale(var(--s,1))}
   }
+  /* everything fits one screen: can on the side, info beside it, no scrolling */
   .overlay .content{
-    position:relative;z-index:2;max-width:1200px;margin:0 auto;
-    display:grid;grid-template-columns:minmax(280px,1fr) 1.2fr;gap:clamp(28px,5vw,80px);
-    padding:clamp(84px,12vh,130px) clamp(22px,5vw,64px) clamp(64px,8vh,100px);
-    align-items:center;min-height:100vh;min-height:100svh;
+    position:relative;z-index:2;max-width:1160px;margin:0 auto;
+    display:grid;grid-template-columns:minmax(200px,.8fr) 1.3fr;gap:clamp(20px,4vw,64px);
+    padding:clamp(56px,9svh,84px) clamp(20px,4vw,56px) clamp(16px,4svh,40px);
+    align-items:center;height:100svh;overflow:hidden;
   }
-  @media(max-width:820px){.overlay .content{grid-template-columns:1fr;text-align:center;padding-top:96px}}
-  .overlay .can-stage{display:flex;justify-content:center}
+  .overlay .can-stage{display:flex;justify-content:center;align-self:center;min-height:0}
   .overlay .can-stage img{
-    width:clamp(220px,26vw,360px);
+    max-height:min(72svh,560px);width:auto;max-width:100%;
     filter:drop-shadow(0 40px 60px rgba(0,0,0,.35));
     animation:float 6s ease-in-out infinite;
   }
-  .overlay .eyebrow{font-size:12px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;opacity:.72}
-  .overlay h2{font-family:'Dancing Script',cursive;font-size:clamp(46px,7vw,88px);font-weight:700;line-height:1.05;margin:8px 0 18px}
-  .overlay .story{font-size:clamp(15px,1.5vw,18px);font-weight:300;line-height:1.75;max-width:56ch}
-  @media(max-width:820px){.overlay .story{margin:0 auto}}
-  .notes{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 6px}
-  @media(max-width:820px){.notes{justify-content:center}}
+  .overlay .eyebrow{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;opacity:.72}
+  .overlay h2{font-family:'Dancing Script',cursive;font-size:clamp(34px,5.4svh,64px);font-weight:700;line-height:1.05;margin:6px 0 12px}
+  .overlay .story{font-size:clamp(13px,1.9svh,17px);font-weight:300;line-height:1.6;max-width:56ch}
+  .notes{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
   .note{
-    font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-    padding:8px 16px;border-radius:999px;border:1.5px solid currentColor;opacity:.85;
+    font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    padding:6px 13px;border-radius:999px;border:1.5px solid currentColor;opacity:.85;
   }
   .facts{
-    margin-top:30px;display:grid;grid-template-columns:repeat(4,auto);gap:clamp(16px,3vw,44px);
-    justify-content:start;
+    margin-top:clamp(14px,2.6svh,26px);display:grid;grid-template-columns:repeat(4,auto);
+    gap:clamp(14px,3vw,40px);justify-content:start;
   }
-  @media(max-width:820px){.facts{justify-content:center}}
-  @media(max-width:480px){.facts{grid-template-columns:repeat(2,auto);row-gap:22px}}
-  .fact .v{font-size:clamp(22px,3vw,32px);font-weight:700}
-  .fact .k{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;opacity:.66;margin-top:4px}
-  .overlay .ingredients{margin-top:30px;font-size:13px;opacity:.78;line-height:1.7;max-width:58ch}
-  @media(max-width:820px){.overlay .ingredients{margin-left:auto;margin-right:auto}}
-  .overlay .ingredients strong{letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+  .fact .v{font-size:clamp(19px,3svh,28px);font-weight:700}
+  .fact .k{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.66;margin-top:3px}
+  .overlay .ingredients{margin-top:clamp(12px,2.4svh,24px);font-size:clamp(11px,1.6svh,13px);opacity:.78;line-height:1.55;max-width:58ch}
+  .overlay .ingredients strong{letter-spacing:.14em;text-transform:uppercase;font-size:10px}
+  @media(max-width:820px){
+    .overlay .content{
+      grid-template-columns:37% 1fr;gap:16px;
+      padding:64px 16px 14px;
+    }
+    .overlay .can-stage img{max-height:min(58svh,420px)}
+    .overlay h2{font-size:clamp(26px,4.6svh,38px)}
+    .overlay .story{font-size:clamp(12px,1.7svh,14px);line-height:1.55}
+    .facts{grid-template-columns:repeat(2,auto);row-gap:10px;column-gap:26px}
+    .note{font-size:9.5px;padding:5px 10px}
+  }
 
   /* ---------- Footer ---------- */
   footer{
@@ -280,9 +286,7 @@
 <!-- ===== Hero ===== -->
 <header class="hero" id="top">
   <img class="poster" src="assets/hero-poster.webp" alt="" aria-hidden="true">
-  <video autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.webp">
-    <source src="assets/hero-web.mp4" type="video/mp4">
-  </video>
+  <video autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.webp"></video>
   <div class="hero-copy">
     <svg class="mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
       <circle cx="18" cy="18" r="15.5" stroke="#fff" stroke-width="1.6" opacity=".5"/>
@@ -503,9 +507,23 @@ addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 40),
 document.querySelectorAll("[data-scroll]").forEach(el =>
   el.addEventListener("click", () => document.querySelector(el.dataset.scroll)?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" })));
 
-// hide the video element gracefully if the file isn't there yet
+// hero video: portrait phones get the vertical cut so all four cans stay in frame
 const vid = document.querySelector(".hero video");
+const posterImg = document.querySelector(".hero .poster");
 vid.addEventListener("error", () => vid.remove(), true);
+const portrait = window.matchMedia("(max-aspect-ratio: 4/5)");
+function setHeroSource(){
+  const src = portrait.matches ? "assets/hero-mobile.mp4" : "assets/hero-web.mp4";
+  const poster = portrait.matches ? "assets/hero-poster-mobile.webp" : "assets/hero-poster.webp";
+  if (vid.getAttribute("src") === src) return;
+  vid.setAttribute("poster", poster);
+  posterImg.src = poster;
+  vid.setAttribute("src", src);
+  vid.load();
+  vid.play().catch(() => {});
+}
+setHeroSource();
+portrait.addEventListener("change", setHeroSource);
 </script>
 </body>
 </html>

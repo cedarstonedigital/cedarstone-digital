@@ -1,6 +1,8 @@
 # TwistyWater generated media (Higgsfield CDN) — fetched into twistywater/assets/ by the
 # "Fetch TwistyWater assets" workflow.
 hero.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_183149_bd6f6aab-6011-4dea-a471-dd97ca5a117b.mp4
+hero-portrait-src.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_192741_207e9c84-a286-49b5-8e86-a56ce44b8dee.mp4
+hero-poster-portrait.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_192537_16ab756e-334e-4c42-ae38-139e3d9d1898.png
 hero-poster.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_182522_2365a876-7e5f-4350-8e5e-fb52e5e6eac5.png
 can-lemon-cut.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_183945_bac81190-1131-405a-b87b-fb7adcbecae0.png
 can-mint-cut.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_183958_6bf734da-21c6-4080-bb67-1dc9184f800f.png
