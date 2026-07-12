@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TwistyWater — Dynamic. Healthy. Refreshing.</title>
+<meta name="description" content="TwistyWater — naturally infused still water in four flavours: Lemon, Fresh Mint, Rosemary & Lemon, and Cucumber. Zero sugar. Zero calories. All twist.">
+<meta property="og:title" content="TwistyWater — Dynamic. Healthy. Refreshing.">
+<meta property="og:description" content="Naturally infused water in four flavours. Zero sugar, zero calories, all twist.">
+<meta property="og:image" content="assets/hero-poster.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  :root{
+    --ink:#062730;
+    --deep:#06222B;
+    --deep-2:#0B3541;
+    --foam:#EDF4F5;
+    --silver:#DFE7E9;
+    --swirl:#2A8FA9;
+    --swirl-bright:#3FB4CF;
+
+    --lemon:#F5CF3A;      --lemon-deep:#B98F0A;  --lemon-soft:#FDF3C8;
+    --mint:#43B27A;       --mint-deep:#197146;   --mint-soft:#D8F3E4;
+    --rosemary:#8E86C9;   --rosemary-deep:#57508F;--rosemary-soft:#E9E6F7;
+    --cucumber:#9CC96B;   --cucumber-deep:#5E8A33;--cucumber-soft:#EAF5DB;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--deep);
+    color:var(--foam);
+    overflow-x:hidden;
+  }
+  body.locked{overflow:hidden}
+  ::selection{background:var(--swirl);color:#fff}
+  img{max-width:100%}
+  button{font-family:inherit}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:60;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px clamp(20px,4vw,48px);
+    transition:background .4s ease, backdrop-filter .4s ease;
+  }
+  .nav.scrolled{background:rgba(6,34,43,.82);backdrop-filter:blur(14px)}
+  .nav .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--foam)}
+  .nav .brand svg{width:26px;height:26px}
+  .nav .brand span{font-family:'Dancing Script',cursive;font-size:24px;font-weight:700;letter-spacing:.5px}
+  .nav .links{display:flex;gap:26px;align-items:center}
+  .nav .links a{
+    color:rgba(237,244,245,.62);text-decoration:none;font-size:13px;font-weight:500;
+    letter-spacing:.06em;text-transform:uppercase;transition:color .2s;
+  }
+  .nav .links a:hover{color:#fff}
+  @media(max-width:640px){.nav .links a:not(.pill){display:none}}
+  .nav .pill{
+    color:var(--ink)!important;background:var(--foam);border-radius:999px;
+    padding:9px 20px;font-weight:600;transition:transform .2s, box-shadow .2s;
+  }
+  .nav .pill:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(63,180,207,.35)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .hero video,.hero .poster{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:saturate(1.12) contrast(1.04);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(6,34,43,.42) 0%,rgba(6,34,43,.12) 42%,rgba(6,34,43,.78) 100%);
+  }
+  .hero-copy{position:relative;z-index:2;text-align:center;padding:0 24px;transform:translateY(-4vh)}
+  .hero-copy .mark{width:64px;height:64px;margin:0 auto 14px;animation:swirl-in 1.2s cubic-bezier(.2,.8,.2,1) both}
+  .hero-copy h1{
+    font-family:'Dancing Script',cursive;font-weight:700;
+    font-size:clamp(56px,10vw,124px);line-height:1;
+    text-shadow:0 6px 40px rgba(0,0,0,.45);
+    animation:rise .9s .15s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .hero-copy p{
+    margin-top:18px;font-size:clamp(12px,1.6vw,15px);font-weight:600;
+    letter-spacing:.42em;text-transform:uppercase;color:rgba(237,244,245,.85);
+    animation:rise .9s .3s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .scroll-cue{
+    position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;
+    background:none;border:0;color:rgba(237,244,245,.75);cursor:pointer;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  }
+  .scroll-cue svg{animation:bob 2.2s ease-in-out infinite}
+  .scroll-cue:hover{color:#fff}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  @keyframes swirl-in{from{opacity:0;transform:rotate(-160deg) scale(.4)}to{opacity:1;transform:none}}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+  /* ---------- Tagline strip ---------- */
+  .pillars{
+    background:var(--deep-2);
+    padding:clamp(56px,9vh,110px) clamp(20px,6vw,72px);
+    display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,64px);
+  }
+  @media(max-width:760px){.pillars{grid-template-columns:1fr;gap:36px}}
+  .pillar{text-align:center}
+  .pillar h3{
+    font-size:clamp(20px,2.6vw,28px);font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--swirl-bright);
+  }
+  .pillar p{margin-top:10px;color:rgba(237,244,245,.6);font-size:15px;font-weight:300;line-height:1.65;max-width:34ch;margin-left:auto;margin-right:auto}
+
+  /* ---------- Flavours — diagonal cans ---------- */
+  .flavours{position:relative;background:var(--deep);padding:clamp(64px,10vh,120px) 0 0}
+  .flavours .heading{text-align:center;padding:0 24px;margin-bottom:clamp(40px,6vh,72px)}
+  .flavours .heading h2{font-family:'Dancing Script',cursive;font-size:clamp(40px,6vw,72px);font-weight:700}
+  .flavours .heading p{margin-top:10px;color:rgba(237,244,245,.55);letter-spacing:.3em;text-transform:uppercase;font-size:12px;font-weight:600}
+  .lineup{display:flex;width:100%;min-height:78vh}
+  @media(max-width:860px){.lineup{flex-direction:column;min-height:unset}}
+  .panel{
+    position:relative;flex:1;cursor:pointer;border:0;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--panel-a);
+    transition:flex .45s cubic-bezier(.2,.8,.2,1);
+    padding:0;
+  }
+  .panel::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(160deg,var(--panel-a) 0%,var(--panel-b) 100%);
+    transition:opacity .4s;opacity:.94;
+  }
+  .panel::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.28),transparent 62%);
+    opacity:0;transition:opacity .4s;
+  }
+  .panel:hover,.panel:focus-visible{flex:1.5}
+  .panel:hover::after,.panel:focus-visible::after{opacity:1}
+  .panel .inner{
+    position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px;
+    padding:clamp(44px,7vh,84px) 18px;width:100%;
+  }
+  /* the diagonal: each can sits lower than the previous */
+  .panel:nth-child(1) .inner{transform:translateY(calc(var(--stagger) * 0))}
+  .panel:nth-child(2) .inner{transform:translateY(calc(var(--stagger) * 1))}
+  .panel:nth-child(3) .inner{transform:translateY(calc(var(--stagger) * 2))}
+  .panel:nth-child(4) .inner{transform:translateY(calc(var(--stagger) * 3))}
+  .lineup{--stagger:4.5vh}
+  @media(max-width:860px){.lineup{--stagger:0px}}
+  .panel .can{
+    width:clamp(120px,11vw,190px);filter:drop-shadow(0 26px 34px rgba(0,0,0,.42));
+    transform-origin:50% 90%;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
+    animation:float 5.2s ease-in-out infinite;
+  }
+  .panel:nth-child(2) .can{animation-delay:-1.3s}
+  .panel:nth-child(3) .can{animation-delay:-2.6s}
+  .panel:nth-child(4) .can{animation-delay:-3.9s}
+  .panel:hover .can,.panel:focus-visible .can{transform:scale(1.07) rotate(-3deg)}
+  @keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+  .panel .label{text-align:center;color:var(--label,#fff)}
+  .panel .label .name{font-family:'Dancing Script',cursive;font-size:clamp(24px,2.6vw,34px);font-weight:700;text-shadow:0 2px 14px rgba(0,0,0,.25)}
+  .panel .label .cta{
+    display:inline-block;margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.24em;
+    text-transform:uppercase;opacity:.85;border-bottom:1px solid currentColor;padding-bottom:3px;
+  }
+
+  /* ---------- Flavour overlay ---------- */
+  .overlay{
+    position:fixed;inset:0;z-index:80;display:none;overflow-y:auto;overscroll-behavior:contain;
+    background:linear-gradient(150deg,var(--f-a) 0%,var(--f-b) 100%);
+    color:var(--f-ink);
+  }
+  .overlay.open{display:block;animation:overlay-in .5s cubic-bezier(.2,.8,.2,1)}
+  @keyframes overlay-in{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+  .overlay .close{
+    position:fixed;top:20px;right:22px;z-index:90;width:46px;height:46px;border-radius:50%;
+    border:1.5px solid currentColor;background:transparent;color:inherit;cursor:pointer;
+    font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;
+    transition:transform .25s, background .25s;
+  }
+  .overlay .close:hover{transform:rotate(90deg);background:rgba(255,255,255,.25)}
+  .sprites{position:fixed;inset:0;pointer-events:none;z-index:1}
+  .sprite{
+    position:absolute;will-change:transform;opacity:.9;
+    animation:drift var(--dur,14s) ease-in-out var(--delay,0s) infinite alternate;
+  }
+  @keyframes drift{
+    from{transform:translate(0,0) rotate(var(--r0,0deg)) scale(var(--s,1))}
+    to{transform:translate(var(--dx,30px),var(--dy,-46px)) rotate(var(--r1,18deg)) scale(var(--s,1))}
+  }
+  .overlay .content{
+    position:relative;z-index:2;max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:minmax(280px,1fr) 1.2fr;gap:clamp(28px,5vw,80px);
+    padding:clamp(84px,12vh,130px) clamp(22px,5vw,64px) clamp(64px,8vh,100px);
+    align-items:center;min-height:100vh;
+  }
+  @media(max-width:820px){.overlay .content{grid-template-columns:1fr;text-align:center;padding-top:96px}}
+  .overlay .can-stage{display:flex;justify-content:center}
+  .overlay .can-stage img{
+    width:clamp(220px,26vw,360px);
+    filter:drop-shadow(0 40px 60px rgba(0,0,0,.35));
+    animation:float 6s ease-in-out infinite;
+  }
+  .overlay .eyebrow{font-size:12px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;opacity:.72}
+  .overlay h2{font-family:'Dancing Script',cursive;font-size:clamp(46px,7vw,88px);font-weight:700;line-height:1.05;margin:8px 0 18px}
+  .overlay .story{font-size:clamp(15px,1.5vw,18px);font-weight:300;line-height:1.75;max-width:56ch}
+  @media(max-width:820px){.overlay .story{margin:0 auto}}
+  .notes{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 6px}
+  @media(max-width:820px){.notes{justify-content:center}}
+  .note{
+    font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    padding:8px 16px;border-radius:999px;border:1.5px solid currentColor;opacity:.85;
+  }
+  .facts{
+    margin-top:30px;display:grid;grid-template-columns:repeat(4,auto);gap:clamp(16px,3vw,44px);
+    justify-content:start;
+  }
+  @media(max-width:820px){.facts{justify-content:center}}
+  @media(max-width:480px){.facts{grid-template-columns:repeat(2,auto);row-gap:22px}}
+  .fact .v{font-size:clamp(22px,3vw,32px);font-weight:700}
+  .fact .k{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;opacity:.66;margin-top:4px}
+  .overlay .ingredients{margin-top:30px;font-size:13px;opacity:.78;line-height:1.7;max-width:58ch}
+  @media(max-width:820px){.overlay .ingredients{margin-left:auto;margin-right:auto}}
+  .overlay .ingredients strong{letter-spacing:.14em;text-transform:uppercase;font-size:11px}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:#041B22;padding:52px clamp(20px,5vw,64px);
+    display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+  }
+  footer .brand{display:flex;align-items:center;gap:10px}
+  footer .brand svg{width:22px;height:22px}
+  footer .brand span{font-family:'Dancing Script',cursive;font-size:22px;font-weight:700}
+  footer p{color:rgba(237,244,245,.38);font-size:12px;letter-spacing:.04em}
+  footer .fine{display:flex;gap:22px}
+  footer .fine a{color:rgba(237,244,245,.38);font-size:12px;text-decoration:none;transition:color .2s}
+  footer .fine a:hover{color:rgba(237,244,245,.8)}
+
+  /* ---------- Motion safety ---------- */
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Nav ===== -->
+<nav class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="TwistyWater home">
+    <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+      <circle cx="18" cy="18" r="15.5" stroke="#3FB4CF" stroke-width="2" opacity=".55"/>
+      <path d="M18 7c6.5 0 11 4.6 11 10.6 0 6.5-6 10.9-11 7.6-3.8-2.5-8.6-3.4-7.2-9 1.2-4.8 5.4-3.6 6.6-.4 1.3 3.4-.5 6.4-3.8 5.6" stroke="#3FB4CF" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <span>TwistyWater</span>
+  </a>
+  <div class="links">
+    <a href="#flavours">Flavours</a>
+    <a href="#why">Why Twisty</a>
+    <a class="pill" href="#flavours">Explore</a>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<header class="hero" id="top">
+  <img class="poster" src="assets/hero-poster.png" alt="" aria-hidden="true">
+  <video autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.png">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-copy">
+    <svg class="mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+      <circle cx="18" cy="18" r="15.5" stroke="#fff" stroke-width="1.6" opacity=".5"/>
+      <path d="M18 7c6.5 0 11 4.6 11 10.6 0 6.5-6 10.9-11 7.6-3.8-2.5-8.6-3.4-7.2-9 1.2-4.8 5.4-3.6 6.6-.4 1.3 3.4-.5 6.4-3.8 5.6" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/>
+    </svg>
+    <h1>TwistyWater</h1>
+    <p>Dynamic&nbsp;·&nbsp;Healthy&nbsp;·&nbsp;Refreshing</p>
+  </div>
+  <button class="scroll-cue" data-scroll="#flavours">
+    <span>The flavours</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</header>
+
+<!-- ===== Flavours ===== -->
+<section class="flavours" id="flavours">
+  <div class="heading">
+    <h2>Pick your twist</h2>
+    <p>Four infusions · zero sugar · zero calories</p>
+  </div>
+
+  <div class="lineup" role="list">
+    <button class="panel" role="listitem" data-flavour="lemon"
+      style="--panel-a:#F8DD5F;--panel-b:#E3B41F;--label:#4A3A03" aria-haspopup="dialog">
+      <span class="inner">
+        <img class="can" src="assets/can-lemon-cut.png" alt="TwistyWater with a hint of Lemon">
+        <span class="label"><span class="name">Lemon</span><br><span class="cta">Tap to explore</span></span>
+      </span>
+    </button>
+
+    <button class="panel" role="listitem" data-flavour="mint"
+      style="--panel-a:#57C48D;--panel-b:#1E8A58;--label:#04331E" aria-haspopup="dialog">
+      <span class="inner">
+        <img class="can" src="assets/can-mint-cut.png" alt="TwistyWater with fresh Mint">
+        <span class="label"><span class="name">Fresh Mint</span><br><span class="cta">Tap to explore</span></span>
+      </span>
+    </button>
+
+    <button class="panel" role="listitem" data-flavour="rosemary"
+      style="--panel-a:#A49CDD;--panel-b:#6C63AC;--label:#221D4A" aria-haspopup="dialog">
+      <span class="inner">
+        <img class="can" src="assets/can-rosemary-cut.png" alt="TwistyWater infused with Rosemary and Lemon">
+        <span class="label"><span class="name">Rosemary &amp; Lemon</span><br><span class="cta">Tap to explore</span></span>
+      </span>
+    </button>
+
+    <button class="panel" role="listitem" data-flavour="cucumber"
+      style="--panel-a:#B4DA83;--panel-b:#77A344;--label:#26400C" aria-haspopup="dialog">
+      <span class="inner">
+        <img class="can" src="assets/can-cucumber-cut.png" alt="TwistyWater with cucumber infusion">
+        <span class="label"><span class="name">Cucumber</span><br><span class="cta">Tap to explore</span></span>
+      </span>
+    </button>
+  </div>
+</section>
+
+<!-- ===== Pillars ===== -->
+<section class="pillars" id="why">
+  <div class="pillar">
+    <h3>Dynamic</h3>
+    <p>Water that moves the way you do. Crisp infusions with real character, made for training days and long ones.</p>
+  </div>
+  <div class="pillar">
+    <h3>Healthy</h3>
+    <p>Nothing to confess. Zero sugar, zero calories, zero sweeteners — just still spring water and a natural twist.</p>
+  </div>
+  <div class="pillar">
+    <h3>Refreshing</h3>
+    <p>Chilled, it drinks like a deep breath. Four botanicals and fruits, each one cleaner than the last.</p>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="brand">
+    <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+      <circle cx="18" cy="18" r="15.5" stroke="#3FB4CF" stroke-width="2" opacity=".55"/>
+      <path d="M18 7c6.5 0 11 4.6 11 10.6 0 6.5-6 10.9-11 7.6-3.8-2.5-8.6-3.4-7.2-9 1.2-4.8 5.4-3.6 6.6-.4 1.3 3.4-.5 6.4-3.8 5.6" stroke="#3FB4CF" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <span>TwistyWater</span>
+  </div>
+  <p>© 2026 TwistyWater. Stay hydrated. Stay twisted.</p>
+  <div class="fine">
+    <a href="#top">Top</a>
+    <a href="#flavours">Flavours</a>
+    <a href="#why">Why Twisty</a>
+  </div>
+</footer>
+
+<!-- ===== Flavour overlays are built by JS from this data ===== -->
+<script>
+const FLAVOURS = {
+  lemon: {
+    name: "Lemon",
+    strap: "With a hint of lemon",
+    a: "#F8DD5F", b: "#E9B915", ink: "#3D2F02",
+    can: "assets/can-lemon-cut.png",
+    sprite: "assets/sprite-lemon.png",
+    story: "The original twist. Sun-ripened lemons, cold-pressed the day they arrive, folded into glacial still water. Bright on the nose, clean on the finish — no sugar hiding anywhere.",
+    notes: ["Bright citrus", "Cold-pressed", "Clean finish"],
+    facts: [["0", "Sugar"], ["0", "Calories"], ["500ml", "Slim can"], ["100%", "Natural"]],
+    ingredients: "Still spring water, natural lemon infusion (1%), a squeeze of lemon zest oil. No sweeteners, no preservatives, no colourants."
+  },
+  mint: {
+    name: "Fresh Mint",
+    strap: "With fresh mint",
+    a: "#57C48D", b: "#157A4B", ink: "#03301C",
+    can: "assets/can-mint-cut.png",
+    sprite: "assets/sprite-mint.png",
+    story: "Garden mint, picked young and steeped cold so it stays green and alive. It drinks like a deep breath — cool from the first sip, calm at the finish.",
+    notes: ["Cool & crisp", "Cold-steeped", "Garden fresh"],
+    facts: [["0", "Sugar"], ["0", "Calories"], ["500ml", "Slim can"], ["100%", "Natural"]],
+    ingredients: "Still spring water, natural mint infusion (1%). No sweeteners, no preservatives, no colourants."
+  },
+  rosemary: {
+    name: "Rosemary & Lemon",
+    strap: "The botanical twist",
+    a: "#A79FE0", b: "#5D5498", ink: "#1D1843",
+    can: "assets/can-rosemary-cut.png",
+    sprite: "assets/sprite-rosemary.png",
+    story: "Our most grown-up twist. Piney, floral rosemary balanced with a squeeze of lemon — herbaceous, faintly sweet, and impossibly clean. The one that turns water drinkers into believers.",
+    notes: ["Herbaceous", "Floral", "Faintly citrus"],
+    facts: [["0", "Sugar"], ["0", "Calories"], ["500ml", "Slim can"], ["100%", "Natural"]],
+    ingredients: "Still spring water, natural rosemary infusion (0.8%), natural lemon infusion (0.4%). No sweeteners, no preservatives, no colourants."
+  },
+  cucumber: {
+    name: "Cucumber",
+    strap: "With cucumber infusion",
+    a: "#BCDE8E", b: "#6E9C3C", ink: "#233D0A",
+    can: "assets/can-cucumber-cut.png",
+    sprite: "assets/sprite-cucumber.png",
+    story: "Spa water, out of the spa. Cool cucumber pressed slow and cold, so all you get is that green, just-sliced freshness. The quietest of the four — and the one you finish first.",
+    notes: ["Green & cool", "Slow-pressed", "Spa clean"],
+    facts: [["0", "Sugar"], ["0", "Calories"], ["500ml", "Slim can"], ["100%", "Natural"]],
+    ingredients: "Still spring water, natural cucumber infusion (1.2%). No sweeteners, no preservatives, no colourants."
+  }
+};
+
+// ---------- overlay ----------
+const overlay = document.createElement("div");
+overlay.className = "overlay";
+overlay.setAttribute("role", "dialog");
+overlay.setAttribute("aria-modal", "true");
+document.body.appendChild(overlay);
+
+let lastFocus = null;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function openFlavour(key){
+  const f = FLAVOURS[key];
+  if (!f) return;
+  lastFocus = document.activeElement;
+
+  // floating sprites: randomised drift fields
+  let sprites = "";
+  const n = reduceMotion ? 0 : 9;
+  for (let i = 0; i < n; i++){
+    const size = 46 + Math.random() * 110;
+    const x = Math.random() * 92;
+    const y = Math.random() * 88;
+    const dur = (11 + Math.random() * 12).toFixed(1);
+    const delay = (-Math.random() * 12).toFixed(1);
+    const dx = (Math.random() * 90 - 45).toFixed(0);
+    const dy = (-30 - Math.random() * 70).toFixed(0);
+    const r0 = (Math.random() * 40 - 20).toFixed(0);
+    const r1 = (Math.random() * 70 - 35).toFixed(0);
+    const op = (0.45 + Math.random() * 0.5).toFixed(2);
+    sprites += `<img class="sprite" src="${f.sprite}" alt="" style="
+      width:${size.toFixed(0)}px;left:${x.toFixed(1)}%;top:${y.toFixed(1)}%;opacity:${op};
+      --dur:${dur}s;--delay:${delay}s;--dx:${dx}px;--dy:${dy}px;--r0:${r0}deg;--r1:${r1}deg;">`;
+  }
+
+  overlay.style.setProperty("--f-a", f.a);
+  overlay.style.setProperty("--f-b", f.b);
+  overlay.style.setProperty("--f-ink", f.ink);
+  overlay.innerHTML = `
+    <button class="close" aria-label="Close ${f.name}">✕</button>
+    <div class="sprites" aria-hidden="true">${sprites}</div>
+    <div class="content">
+      <div class="can-stage"><img src="${f.can}" alt="TwistyWater ${f.name} can"></div>
+      <div>
+        <p class="eyebrow">${f.strap}</p>
+        <h2>${f.name}</h2>
+        <p class="story">${f.story}</p>
+        <div class="notes">${f.notes.map(nt => `<span class="note">${nt}</span>`).join("")}</div>
+        <div class="facts">${f.facts.map(([v, k]) => `<div class="fact"><div class="v">${v}</div><div class="k">${k}</div></div>`).join("")}</div>
+        <p class="ingredients"><strong>Ingredients</strong><br>${f.ingredients}</p>
+      </div>
+    </div>`;
+  overlay.classList.add("open");
+  document.body.classList.add("locked");
+  history.replaceState(null, "", "#" + key);
+  overlay.querySelector(".close").focus();
+  overlay.querySelector(".close").addEventListener("click", closeFlavour);
+}
+
+function closeFlavour(){
+  overlay.classList.remove("open");
+  document.body.classList.remove("locked");
+  history.replaceState(null, "", location.pathname + "#flavours");
+  overlay.innerHTML = "";
+  if (lastFocus) lastFocus.focus();
+}
+
+document.querySelectorAll(".panel").forEach(p =>
+  p.addEventListener("click", () => openFlavour(p.dataset.flavour)));
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && overlay.classList.contains("open")) closeFlavour();
+});
+
+// deep link: twistywater/#mint opens straight into the flavour
+const initial = location.hash.slice(1);
+if (FLAVOURS[initial]) openFlavour(initial);
+
+// ---------- nav + scroll cue ----------
+const nav = document.getElementById("nav");
+addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 40), { passive: true });
+document.querySelectorAll("[data-scroll]").forEach(el =>
+  el.addEventListener("click", () => document.querySelector(el.dataset.scroll)?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" })));
+
+// hide the video element gracefully if the file isn't there yet
+const vid = document.querySelector(".hero video");
+vid.addEventListener("error", () => vid.remove(), true);
+</script>
+</body>
+</html>

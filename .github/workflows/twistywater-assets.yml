@@ -1,0 +1,34 @@
+name: Fetch TwistyWater assets
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download assets listed in the manifest
+        run: |
+          set -euo pipefail
+          mkdir -p twistywater/assets
+          while read -r name url; do
+            [ -z "$name" ] && continue
+            case "$name" in \#*) continue ;; esac
+            echo "Fetching $name"
+            curl -fSL --retry 3 -o "twistywater/assets/$name" "$url"
+          done < twistywater/assets-manifest.txt
+          ls -la twistywater/assets
+
+      - name: Commit and push
+        run: |
+          git config user.name "twistywater-assets-bot"
+          git config user.email "actions@github.com"
+          git add twistywater/assets
+          git diff --cached --quiet && echo "Nothing new" && exit 0
+          git commit -m "Fetch TwistyWater media assets from CDN"
+          git push

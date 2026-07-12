@@ -1,0 +1,12 @@
+# TwistyWater generated media (Higgsfield CDN) — fetched into twistywater/assets/ by the
+# "Fetch TwistyWater assets" workflow.
+hero.mp4 https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_183149_bd6f6aab-6011-4dea-a471-dd97ca5a117b.mp4
+hero-poster.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_182522_2365a876-7e5f-4350-8e5e-fb52e5e6eac5.png
+can-lemon-cut.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_183945_bac81190-1131-405a-b87b-fb7adcbecae0.png
+can-mint-cut.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_183958_6bf734da-21c6-4080-bb67-1dc9184f800f.png
+can-cucumber-cut.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_184123_065d1520-b97d-4cc5-a6a6-aafa0c85e0a9.png
+can-rosemary-cut.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_184302_4914a73d-b971-40c8-8c14-9327ca14b3a5.png
+sprite-lemon.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_183658_26c7cd04-c94d-4740-919d-3c5fdd380891.png
+sprite-mint.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_183713_9110ddda-8e55-4721-a260-2e2342827066.png
+sprite-cucumber.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_183726_be54235a-03e9-4441-84e8-16ab4d70a4f2.png
+sprite-rosemary.png https://d8j0ntlcm91z4.cloudfront.net/user_3EDDekfHCP3317iHZVCIF06BJvt/hf_20260712_183738_46bd3e0c-8050-4b1a-9777-465456c8a718.png
