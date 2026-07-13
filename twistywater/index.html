@@ -365,38 +365,54 @@
   /* ---------- Loading screen ---------- */
   #loader{
     position:fixed;inset:0;z-index:200;overflow:hidden;
-    background:linear-gradient(180deg,#F7F4EC 0%,#E3F0F3 100%);
+    background:linear-gradient(180deg,#C9E7EE 0%,#A8D6E2 55%,#8FC9DA 100%);
     display:flex;align-items:center;justify-content:center;
-    transition:opacity .65s ease, visibility .65s;
+    transition:opacity .7s ease, visibility .7s;
   }
   #loader.done{opacity:0;visibility:hidden;pointer-events:none}
-  .pour{
-    position:absolute;top:0;bottom:14vh;left:50%;width:74px;transform:translateX(-50%);
-    border-radius:0 0 40px 40px;
-    background:
-      repeating-linear-gradient(178deg,
-        rgba(255,255,255,0) 0px, rgba(255,255,255,.34) 14px,
-        rgba(255,255,255,0) 30px, rgba(255,255,255,.18) 52px,
-        rgba(255,255,255,0) 74px),
-      linear-gradient(90deg, rgba(63,180,207,.05) 0%, rgba(63,180,207,.38) 30%,
-        rgba(191,235,244,.75) 50%, rgba(63,180,207,.38) 70%, rgba(63,180,207,.05) 100%);
-    background-size:100% 300px, 100% 100%;
-    animation:pour-flow .45s linear infinite;
-    filter:blur(1.6px);
+  .wf{position:absolute;inset:0;pointer-events:none}
+  .wf-a{
+    background:repeating-linear-gradient(180deg,
+      rgba(255,255,255,0) 0px, rgba(255,255,255,.28) 70px,
+      rgba(255,255,255,0) 150px, rgba(255,255,255,.14) 230px,
+      rgba(255,255,255,0) 320px);
+    background-size:100% 640px;
+    animation:wf-fall-a 1.15s linear infinite;
+    filter:blur(2px);
   }
-  @keyframes pour-flow{from{background-position:0 0,0 0}to{background-position:0 300px,0 0}}
-  .pool{
-    position:absolute;bottom:8vh;left:50%;transform:translateX(-50%);
-    width:min(46vw,340px);height:9vh;border-radius:50%;
-    background:radial-gradient(ellipse at center, rgba(63,180,207,.4) 0%, rgba(63,180,207,.16) 55%, transparent 75%);
+  @keyframes wf-fall-a{to{background-position:0 640px}}
+  .wf-b{
+    background:repeating-linear-gradient(179deg,
+      rgba(255,255,255,0) 0px, rgba(255,255,255,.35) 26px,
+      rgba(255,255,255,0) 60px, rgba(255,255,255,.16) 96px,
+      rgba(255,255,255,0) 140px);
+    background-size:100% 280px;
+    animation:wf-fall-b .5s linear infinite;
+    opacity:.75;filter:blur(1px);
   }
-  .pool::before,.pool::after{
-    content:"";position:absolute;inset:0;border-radius:50%;
-    border:2px solid rgba(63,180,207,.35);
-    animation:ripple 2.1s ease-out infinite;
+  @keyframes wf-fall-b{to{background-position:0 280px}}
+  .wf-c{
+    background:repeating-linear-gradient(90deg,
+      rgba(255,255,255,.22) 0px, rgba(255,255,255,.22) 3px,
+      rgba(255,255,255,0) 3px, rgba(255,255,255,0) 26px,
+      rgba(255,255,255,.12) 26px, rgba(255,255,255,.12) 31px,
+      rgba(255,255,255,0) 31px, rgba(255,255,255,0) 64px);
+    filter:blur(.5px);
+    animation:wf-shimmer 2.6s ease-in-out infinite alternate;
   }
-  .pool::after{animation-delay:1.05s}
-  @keyframes ripple{from{transform:scale(.35);opacity:.9}to{transform:scale(1.15);opacity:0}}
+  @keyframes wf-shimmer{from{opacity:.5}to{opacity:1}}
+  .foam{
+    position:absolute;left:0;right:0;bottom:0;height:17vh;pointer-events:none;
+    background:linear-gradient(0deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.45) 45%, transparent 100%);
+  }
+  .foam::before,.foam::after{
+    content:"";position:absolute;left:50%;bottom:4vh;transform:translateX(-50%);
+    width:min(72vw,720px);height:8vh;border-radius:50%;
+    border:2px solid rgba(255,255,255,.75);
+    animation:ripple 2.3s ease-out infinite;
+  }
+  .foam::after{animation-delay:1.15s;width:min(48vw,480px)}
+  @keyframes ripple{from{transform:translateX(-50%) scale(.3);opacity:1}to{transform:translateX(-50%) scale(1.2);opacity:0}}
   .drop-fruit{
     position:absolute;top:-18vh;will-change:transform;opacity:.95;
     animation:fruit-fall var(--fd,2.6s) cubic-bezier(.3,.05,.7,.4) var(--fdel,0s) infinite;
@@ -411,8 +427,8 @@
   }
   .loader-brand svg{width:56px;height:56px;animation:swirl-spin 2.4s cubic-bezier(.6,.1,.4,.9) infinite}
   @keyframes swirl-spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-  .loader-brand .lw{font-family:'Dancing Script',cursive;font-size:clamp(34px,6vw,52px);font-weight:700;
-    text-shadow:0 2px 18px rgba(247,244,236,.9)}
+  .loader-brand .lw{font-family:'Dancing Script',cursive;font-size:clamp(36px,6vw,54px);font-weight:700;
+    text-shadow:0 0 22px rgba(255,255,255,.95), 0 2px 30px rgba(255,255,255,.8)}
   .loader-brand .lt{font-size:11px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--swirl)}
 
   /* ---------- Motion safety ---------- */
@@ -426,16 +442,18 @@
 
 <!-- ===== Loading screen ===== -->
 <div id="loader" aria-hidden="true">
-  <div class="pour"></div>
-  <div class="pool"></div>
-  <img class="drop-fruit" src="assets/sprite-lemon.webp"    alt="" style="left:44%;width:88px;--fd:2.3s;--fdel:0s;--fr0:-15deg;--fr1:160deg">
-  <img class="drop-fruit" src="assets/sprite-mint.webp"     alt="" style="left:53%;width:74px;--fd:2.8s;--fdel:.5s;--fr0:20deg;--fr1:-140deg">
-  <img class="drop-fruit" src="assets/sprite-cucumber.webp" alt="" style="left:47%;width:66px;--fd:2.5s;--fdel:1.1s;--fr0:0deg;--fr1:200deg">
-  <img class="drop-fruit" src="assets/sprite-rosemary.webp" alt="" style="left:56%;width:80px;--fd:3.1s;--fdel:1.6s;--fr0:-30deg;--fr1:90deg">
-  <img class="drop-fruit" src="assets/sprite-lemon.webp"    alt="" style="left:12%;width:56px;--fd:3.4s;--fdel:.8s;--fr0:40deg;--fr1:-120deg;opacity:.55">
-  <img class="drop-fruit" src="assets/sprite-mint.webp"     alt="" style="left:24%;width:48px;--fd:3.7s;--fdel:1.9s;--fr0:-10deg;--fr1:150deg;opacity:.5">
-  <img class="drop-fruit" src="assets/sprite-cucumber.webp" alt="" style="left:78%;width:52px;--fd:3.2s;--fdel:.3s;--fr0:15deg;--fr1:-170deg;opacity:.55">
-  <img class="drop-fruit" src="assets/sprite-rosemary.webp" alt="" style="left:88%;width:58px;--fd:3.6s;--fdel:1.4s;--fr0:-25deg;--fr1:130deg;opacity:.5">
+  <div class="wf wf-a"></div>
+  <div class="wf wf-b"></div>
+  <div class="wf wf-c"></div>
+  <div class="foam"></div>
+  <img class="drop-fruit" src="assets/sprite-lemon.webp"    alt="" style="left:8%;width:92px;--fd:2.4s;--fdel:0s;--fr0:-15deg;--fr1:160deg">
+  <img class="drop-fruit" src="assets/sprite-mint.webp"     alt="" style="left:30%;width:78px;--fd:2.9s;--fdel:.5s;--fr0:20deg;--fr1:-140deg">
+  <img class="drop-fruit" src="assets/sprite-cucumber.webp" alt="" style="left:52%;width:70px;--fd:2.6s;--fdel:1.1s;--fr0:0deg;--fr1:200deg">
+  <img class="drop-fruit" src="assets/sprite-rosemary.webp" alt="" style="left:72%;width:84px;--fd:3.2s;--fdel:1.6s;--fr0:-30deg;--fr1:90deg">
+  <img class="drop-fruit" src="assets/sprite-lemon.webp"    alt="" style="left:88%;width:62px;--fd:3.4s;--fdel:.8s;--fr0:40deg;--fr1:-120deg;opacity:.8">
+  <img class="drop-fruit" src="assets/sprite-mint.webp"     alt="" style="left:18%;width:54px;--fd:3.7s;--fdel:1.9s;--fr0:-10deg;--fr1:150deg;opacity:.75">
+  <img class="drop-fruit" src="assets/sprite-cucumber.webp" alt="" style="left:62%;width:56px;--fd:3.3s;--fdel:.3s;--fr0:15deg;--fr1:-170deg;opacity:.8">
+  <img class="drop-fruit" src="assets/sprite-rosemary.webp" alt="" style="left:42%;width:60px;--fd:3.6s;--fdel:1.4s;--fr0:-25deg;--fr1:130deg;opacity:.75">
   <div class="loader-brand">
     <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
       <circle cx="18" cy="18" r="15.5" stroke="#2A8FA9" stroke-width="1.6" opacity=".5"/>
@@ -644,7 +662,7 @@
   document.body.classList.add("locked");
   const t0 = performance.now();
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const MIN = reduce ? 300 : 2000;
+  const MIN = reduce ? 300 : 3600;
   let dismissed = false;
   function dismiss(){
     if (dismissed) return;
@@ -656,7 +674,7 @@
   window.addEventListener("load", () => {
     setTimeout(dismiss, Math.max(0, MIN - (performance.now() - t0)));
   });
-  setTimeout(dismiss, 6500);
+  setTimeout(dismiss, 9000);
 })();
 
 const FLAVOURS = {
