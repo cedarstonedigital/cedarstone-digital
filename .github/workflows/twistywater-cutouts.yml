@@ -24,20 +24,23 @@ jobs:
       - name: Install rembg
         run: pip install "rembg[cpu]" pillow
 
-      - name: Remove backgrounds (keeps can + glass, drops poster text)
+      - name: Remove backgrounds (crop to product zone first, then segment)
         run: |
           python - <<'EOF'
           from rembg import remove, new_session
           from PIL import Image
-          session = new_session("isnet-general-use")
-          pairs = {
-              "poster-mint.jpg": "glass-mint.png",
-              "poster-cucumber.jpg": "glass-cucumber.png",
-              "poster-rosemary.jpg": "glass-rosemary.png",
-              "poster-lemon.jpg": "glass-lemon.png",
+          session = new_session("birefnet-general")
+          # crop fractions x0,y0,x1,y1: product zone without headline, badges, side labels
+          jobs = {
+              "poster-lemon.jpg":    ("glass-lemon.png",    (0.150, 0.300, 0.885, 0.845)),
+              "poster-mint.jpg":     ("glass-mint.png",     (0.145, 0.305, 0.875, 0.845)),
+              "poster-rosemary.jpg": ("glass-rosemary.png", (0.155, 0.300, 0.880, 0.845)),
+              "poster-cucumber.jpg": ("glass-cucumber.png", (0.150, 0.300, 0.880, 0.845)),
           }
-          for src, out in pairs.items():
+          for src, (out, (x0, y0, x1, y1)) in jobs.items():
               im = Image.open(f"twistywater/assets/src-photos/{src}").convert("RGBA")
+              W, H = im.size
+              im = im.crop((int(W*x0), int(H*y0), int(W*x1), int(H*y1)))
               cut = remove(im, session=session)
               box = cut.getchannel("A").getbbox()
               cut = cut.crop(box)
