@@ -8,6 +8,23 @@
 <meta property="og:title" content="TwistyWater | Dynamic. Healthy. Refreshing.">
 <meta property="og:description" content="Naturally infused water in four flavours. Zero sugar, zero calories, all twist.">
 <meta property="og:image" content="assets/hero-poster.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#06222B">
+<!-- Set the canonical once the site has its real domain: -->
+<!-- <link rel="canonical" href="https://www.twistywater.co.za/"> -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "TwistyWater flavours",
+  "itemListElement": [
+    {"@type":"Product","position":1,"name":"TwistyWater Lemon","brand":{"@type":"Brand","name":"TwistyWater"},"description":"Still spring water with a natural lemon infusion. Zero sugar, zero calories.","size":"500ml"},
+    {"@type":"Product","position":2,"name":"TwistyWater Fresh Mint","brand":{"@type":"Brand","name":"TwistyWater"},"description":"Still spring water with a natural mint infusion. Zero sugar, zero calories.","size":"500ml"},
+    {"@type":"Product","position":3,"name":"TwistyWater Rosemary & Lemon","brand":{"@type":"Brand","name":"TwistyWater"},"description":"Still spring water infused with rosemary and lemon. Zero sugar, zero calories.","size":"500ml"},
+    {"@type":"Product","position":4,"name":"TwistyWater Cucumber","brand":{"@type":"Brand","name":"TwistyWater"},"description":"Still spring water with a natural cucumber infusion. Zero sugar, zero calories.","size":"500ml"}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -245,6 +262,78 @@
     .note{font-size:9.5px;padding:5px 10px}
   }
 
+  /* ---------- Story ---------- */
+  .story-section{
+    background:var(--deep);
+    display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;
+    padding:clamp(64px,10vh,120px) clamp(20px,6vw,72px);
+    max-width:1240px;margin:0 auto;
+  }
+  @media(max-width:820px){.story-section{grid-template-columns:1fr;text-align:center}}
+  .story-section img{border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+  .story-section .eyebrow{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--swirl-bright)}
+  .story-section h2{font-family:'Dancing Script',cursive;font-size:clamp(36px,4.6vw,58px);font-weight:700;margin:10px 0 16px}
+  .story-section p{color:rgba(237,244,245,.68);font-weight:300;line-height:1.75;font-size:clamp(14px,1.5vw,16.5px);max-width:52ch}
+  @media(max-width:820px){.story-section p{margin:0 auto}}
+
+  /* ---------- Stockists ---------- */
+  .stockists{background:var(--deep-2);padding:clamp(64px,10vh,110px) clamp(20px,6vw,72px)}
+  .stockists .wrap{max-width:1100px;margin:0 auto;text-align:center}
+  .stockists h2{font-family:'Dancing Script',cursive;font-size:clamp(36px,4.6vw,58px);font-weight:700}
+  .stockists .sub{margin-top:8px;color:rgba(237,244,245,.55);font-size:14px;font-weight:300}
+  .stockist-grid{
+    margin:clamp(28px,4vh,44px) 0;display:grid;gap:14px;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  }
+  .stockist{
+    border:1px solid rgba(63,180,207,.22);border-radius:12px;padding:18px 16px;
+    background:rgba(63,180,207,.06);
+  }
+  .stockist .n{font-weight:600;font-size:15px}
+  .stockist .a{margin-top:4px;color:rgba(237,244,245,.5);font-size:12.5px;letter-spacing:.04em}
+  .wa-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:#25D366;color:#062b12;text-decoration:none;
+    font-weight:700;font-size:15px;padding:14px 28px;border-radius:999px;
+    box-shadow:0 12px 30px rgba(37,211,102,.35);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .wa-btn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(37,211,102,.45)}
+  .wa-btn svg{width:20px;height:20px}
+  .stockists-note{margin-top:14px;font-size:12px;color:rgba(237,244,245,.4)}
+
+  /* ---------- Wholesale ---------- */
+  .wholesale{
+    background:linear-gradient(120deg,#0E5468 0%,#2A8FA9 100%);
+    padding:clamp(44px,7vh,72px) clamp(20px,6vw,72px);
+  }
+  .wholesale .wrap{
+    max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+    gap:24px;flex-wrap:wrap;
+  }
+  .wholesale h3{font-family:'Dancing Script',cursive;font-size:clamp(28px,3.4vw,42px);font-weight:700}
+  .wholesale p{margin-top:6px;color:rgba(237,244,245,.75);font-weight:300;font-size:14.5px;max-width:52ch}
+  .wholesale a{
+    background:var(--foam);color:var(--ink);text-decoration:none;font-weight:700;font-size:14px;
+    padding:13px 26px;border-radius:999px;white-space:nowrap;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .wholesale a:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(6,39,48,.35)}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--deep);padding:clamp(64px,10vh,110px) clamp(20px,6vw,72px)}
+  .faq .wrap{max-width:760px;margin:0 auto}
+  .faq h2{font-family:'Dancing Script',cursive;font-size:clamp(36px,4.6vw,58px);font-weight:700;text-align:center;margin-bottom:clamp(24px,4vh,40px)}
+  .faq details{border-bottom:1px solid rgba(237,244,245,.14)}
+  .faq summary{
+    cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:19px 4px;font-weight:600;font-size:15.5px;
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:22px;font-weight:300;color:var(--swirl-bright);transition:transform .25s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{padding:0 4px 20px;color:rgba(237,244,245,.62);font-weight:300;line-height:1.7;font-size:14.5px}
+
   /* ---------- Footer ---------- */
   footer{
     background:#041B22;padding:52px clamp(20px,5vw,64px);
@@ -257,6 +346,14 @@
   footer .fine{display:flex;gap:22px}
   footer .fine a{color:rgba(237,244,245,.38);font-size:12px;text-decoration:none;transition:color .2s}
   footer .fine a:hover{color:rgba(237,244,245,.8)}
+  footer .socials{display:flex;gap:14px}
+  footer .socials a{color:rgba(237,244,245,.45);transition:color .2s, transform .2s}
+  footer .socials a:hover{color:var(--swirl-bright);transform:translateY(-2px)}
+  footer .socials svg{width:20px;height:20px;display:block}
+  @media(max-width:700px){
+    footer{flex-direction:column;text-align:center}
+    footer > div[style*="flex-end"]{align-items:center!important}
+  }
 
   /* ---------- Motion safety ---------- */
   @media (prefers-reduced-motion: reduce){
@@ -279,7 +376,9 @@
   <div class="links">
     <a href="#flavours">Flavours</a>
     <a href="#why">Why Twisty</a>
-    <a class="pill" href="#flavours">Explore</a>
+    <a href="#stockists">Stockists</a>
+    <a href="#faq">FAQ</a>
+    <a class="pill" href="#stockists">Order</a>
   </div>
 </nav>
 
@@ -359,6 +458,74 @@
   </div>
 </section>
 
+<!-- ===== Story ===== -->
+<section class="story-section" id="story">
+  <div>
+    <p class="eyebrow">Why Twisty</p>
+    <h2>Water with a twist</h2>
+    <p>TwistyWater started with a simple complaint: plain water gets boring, and most flavoured drinks are just sugar in disguise. So we make still spring water with a real infusion of fruit or herbs and nothing else. No sugar, no sweeteners, no colourants.</p>
+    <p style="margin-top:14px">Four flavours, one promise: if it is not something you would happily drink all day, it does not go in the can.</p>
+  </div>
+  <img src="assets/hero-poster.webp" alt="The four TwistyWater cans splashing out of ice water" loading="lazy">
+</section>
+
+<!-- ===== Stockists ===== -->
+<section class="stockists" id="stockists">
+  <div class="wrap">
+    <h2>Where to find us</h2>
+    <p class="sub">Grab a can at these spots, or order a case straight from us.</p>
+    <div class="stockist-grid">
+      <div class="stockist"><div class="n">Your local Spar</div><div class="a">Ask at the tills</div></div>
+      <div class="stockist"><div class="n">Gyms &amp; studios</div><div class="a">Front-desk fridges</div></div>
+      <div class="stockist"><div class="n">Coffee shops</div><div class="a">Selected caf&eacute;s</div></div>
+      <div class="stockist"><div class="n">Padel &amp; sports clubs</div><div class="a">Clubhouse fridges</div></div>
+    </div>
+    <a class="wa-btn" href="https://wa.me/27000000000?text=Hi%20TwistyWater!%20I%20would%20like%20to%20order%20a%20case." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3.2-.5v-.4c0-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.3Z"/></svg>
+      Order on WhatsApp
+    </a>
+    <p class="stockists-note">New stockists join all the time. Want TwistyWater near you? Tell us on WhatsApp.</p>
+  </div>
+</section>
+
+<!-- ===== Wholesale ===== -->
+<section class="wholesale" id="wholesale">
+  <div class="wrap">
+    <div>
+      <h3>Stock TwistyWater in your store</h3>
+      <p>Run a shop, gym, deli or restaurant? We do wholesale cases with quick delivery and merchandising support.</p>
+    </div>
+    <a href="mailto:hello@twistywater.co.za?subject=Wholesale%20enquiry">Talk to us</a>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>Good questions</h2>
+    <details>
+      <summary>Is TwistyWater still or sparkling?</summary>
+      <p>Still. It is spring water with a natural infusion, so it drinks like water, not like a soft drink.</p>
+    </details>
+    <details>
+      <summary>Does it contain sugar or sweeteners?</summary>
+      <p>No. Zero sugar, zero sweeteners, zero calories. The flavour comes entirely from the fruit and herb infusion.</p>
+    </details>
+    <details>
+      <summary>What exactly is in the can?</summary>
+      <p>Still spring water and a natural infusion of about one percent. No preservatives and no colourants. Each flavour lists its exact ingredients on this site and on the can.</p>
+    </details>
+    <details>
+      <summary>Are the cans recyclable?</summary>
+      <p>Yes. Aluminium can be recycled over and over without losing quality, so please give the can a quick rinse and recycle it.</p>
+    </details>
+    <details>
+      <summary>How should I store it?</summary>
+      <p>Anywhere cool works, but TwistyWater is at its best ice cold. Keep a few in the fridge.</p>
+    </details>
+  </div>
+</section>
+
 <!-- ===== Footer ===== -->
 <footer>
   <div class="brand">
@@ -368,11 +535,21 @@
     </svg>
     <span>TwistyWater</span>
   </div>
-  <p>© 2026 TwistyWater. Stay hydrated. Stay twisted.</p>
-  <div class="fine">
-    <a href="#top">Top</a>
-    <a href="#flavours">Flavours</a>
-    <a href="#why">Why Twisty</a>
+  <div style="text-align:center">
+    <p>© 2026 TwistyWater. Stay hydrated. Stay twisted.</p>
+    <p style="margin-top:6px;font-size:11px;color:rgba(237,244,245,.3)">Aluminium recycles forever. Rinse the can and pass it on.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">
+    <div class="socials">
+      <a href="#" aria-label="TwistyWater on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+      <a href="#" aria-label="TwistyWater on TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.4 2.1 1.8 3.6 3.9 3.9v3c-1.5 0-2.9-.5-3.9-1.3v6.1a5.9 5.9 0 1 1-5.9-5.9c.3 0 .7 0 1 .1v3.1a2.8 2.8 0 1 0 1.9 2.7V3h3Z"/></svg></a>
+      <a href="#" aria-label="TwistyWater on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V7c0-.8.2-1.2 1.3-1.2H17V3h-2.6C11.6 3 10.5 4.4 10.5 7v1.5H8.5v3h2V21H14v-9.5h2.6l.4-3H14Z"/></svg></a>
+    </div>
+    <div class="fine">
+      <a href="#flavours">Flavours</a>
+      <a href="#stockists">Stockists</a>
+      <a href="#faq">FAQ</a>
+    </div>
   </div>
 </footer>
 
