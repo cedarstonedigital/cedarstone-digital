@@ -9,7 +9,7 @@
 <meta property="og:description" content="Naturally infused water in four flavours. Zero sugar, zero calories, all twist.">
 <meta property="og:image" content="assets/hero-poster.webp">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#06222B">
+<meta name="theme-color" content="#1E3A5C">
 <!-- Set the canonical once the site has its real domain: -->
 <!-- <link rel="canonical" href="https://www.twistywater.co.za/"> -->
 <script type="application/ld+json">
@@ -27,17 +27,19 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Oswald:wght@500;600;700&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
   :root{
-    --ink:#062730;
+    --ink:#1E3A5C;
+    --paper:#F7F4EC;
+    --paper-2:#EDF3F1;
     --deep:#06222B;
-    --deep-2:#0B3541;
     --foam:#EDF4F5;
     --silver:#DFE7E9;
     --swirl:#2A8FA9;
     --swirl-bright:#3FB4CF;
+    --sun:#F2C048;
 
     --lemon:#F5CF3A;      --lemon-deep:#B98F0A;  --lemon-soft:#FDF3C8;
     --mint:#43B27A;       --mint-deep:#197146;   --mint-soft:#D8F3E4;
@@ -47,9 +49,9 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    font-family:'Inter',system-ui,-apple-system,sans-serif;
-    background:var(--deep);
-    color:var(--foam);
+    font-family:'Karla',system-ui,-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
     overflow-x:hidden;
   }
   body.locked{overflow:hidden}
@@ -64,7 +66,11 @@
     padding:18px clamp(20px,4vw,48px);
     transition:background .4s ease, backdrop-filter .4s ease;
   }
-  .nav.scrolled{background:rgba(6,34,43,.82);backdrop-filter:blur(14px)}
+  .nav.scrolled{background:rgba(247,244,236,.9);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(30,58,92,.08)}
+  .nav.scrolled .brand{color:var(--ink)}
+  .nav.scrolled .links a{color:rgba(30,58,92,.6)}
+  .nav.scrolled .links a:hover{color:var(--ink)}
+  .nav.scrolled .pill{background:var(--ink);color:#fff!important}
   .nav .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--foam)}
   .nav .brand svg{width:26px;height:26px}
   .nav .brand span{font-family:'Dancing Script',cursive;font-size:24px;font-weight:700;letter-spacing:.5px}
@@ -119,23 +125,24 @@
 
   /* ---------- Tagline strip ---------- */
   .pillars{
-    background:var(--deep-2);
+    background:var(--paper-2);
     padding:clamp(56px,9vh,110px) clamp(20px,6vw,72px);
     display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,64px);
   }
   @media(max-width:760px){.pillars{grid-template-columns:1fr;gap:36px}}
   .pillar{text-align:center}
   .pillar h3{
-    font-size:clamp(20px,2.6vw,28px);font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--swirl-bright);
+    font-family:'Oswald',sans-serif;
+    font-size:clamp(20px,2.6vw,28px);font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--swirl);
   }
-  .pillar p{margin-top:10px;color:rgba(237,244,245,.6);font-size:15px;font-weight:300;line-height:1.65;max-width:34ch;margin-left:auto;margin-right:auto}
+  .pillar p{margin-top:10px;color:rgba(30,58,92,.68);font-size:15px;font-weight:300;line-height:1.65;max-width:34ch;margin-left:auto;margin-right:auto}
 
   /* ---------- Flavours: diagonal cans ---------- */
-  .flavours{position:relative;background:var(--deep);padding:clamp(64px,10vh,120px) 0 0}
+  .flavours{position:relative;background:var(--paper);padding:clamp(64px,10vh,120px) 0 0}
   .flavours .heading{text-align:center;padding:0 24px;margin-bottom:clamp(40px,6vh,72px)}
-  .flavours .heading h2{font-family:'Dancing Script',cursive;font-size:clamp(40px,6vw,72px);font-weight:700}
-  .flavours .heading p{margin-top:10px;color:rgba(237,244,245,.55);letter-spacing:.3em;text-transform:uppercase;font-size:12px;font-weight:600}
+  .flavours .heading h2{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-size:clamp(34px,5vw,60px);font-weight:700;color:var(--ink)}
+  .flavours .heading p{margin-top:10px;font-family:'Dancing Script',cursive;color:var(--swirl);font-size:clamp(20px,2.4vw,26px);font-weight:600}
   .lineup{display:flex;width:100%;min-height:78vh}
   @media(max-width:860px){.lineup{flex-direction:column;min-height:unset}}
   .panel{
@@ -169,7 +176,7 @@
   .lineup{--stagger:4.5vh}
   @media(max-width:860px){.lineup{--stagger:0px}}
   .panel .can{
-    width:clamp(120px,11vw,190px);filter:drop-shadow(0 26px 34px rgba(0,0,0,.42));
+    width:clamp(120px,11vw,190px);filter:drop-shadow(0 22px 30px rgba(30,58,92,.28));
     transform-origin:50% 90%;
     transition:transform .5s cubic-bezier(.2,.8,.2,1);
     animation:float 5.2s ease-in-out infinite;
@@ -180,7 +187,7 @@
   .panel:hover .can,.panel:focus-visible .can{transform:scale(1.07) rotate(-3deg)}
   @keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
   .panel .label{text-align:center;color:var(--label,#fff)}
-  .panel .label .name{font-family:'Dancing Script',cursive;font-size:clamp(24px,2.6vw,34px);font-weight:700;text-shadow:0 2px 14px rgba(0,0,0,.25)}
+  .panel .label .name{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.05em;font-size:clamp(19px,2vw,26px);font-weight:600}
   .panel .label .cta{
     display:inline-block;margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.24em;
     text-transform:uppercase;opacity:.85;border-bottom:1px solid currentColor;padding-bottom:3px;
@@ -231,11 +238,11 @@
   .overlay .can-stage{display:flex;justify-content:center;align-self:center;min-height:0}
   .overlay .can-stage img{
     max-height:min(72svh,560px);width:auto;max-width:100%;
-    filter:drop-shadow(0 40px 60px rgba(0,0,0,.35));
+    filter:drop-shadow(0 32px 50px rgba(30,58,92,.3));
     animation:float 6s ease-in-out infinite;
   }
   .overlay .eyebrow{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;opacity:.72}
-  .overlay h2{font-family:'Dancing Script',cursive;font-size:clamp(34px,5.4svh,64px);font-weight:700;line-height:1.05;margin:6px 0 12px}
+  .overlay h2{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(30px,5svh,58px);font-weight:700;line-height:1.05;margin:6px 0 12px}
   .overlay .story{font-size:clamp(13px,1.9svh,17px);font-weight:300;line-height:1.6;max-width:56ch}
   .notes{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
   .note{
@@ -256,7 +263,7 @@
       padding:64px 16px 14px;
     }
     .overlay .can-stage img{max-height:min(58svh,420px)}
-    .overlay h2{font-size:clamp(26px,4.6svh,38px)}
+    .overlay h2{font-size:clamp(24px,4.2svh,34px)}
     .overlay .story{font-size:clamp(12px,1.7svh,14px);line-height:1.55}
     .facts{grid-template-columns:repeat(2,auto);row-gap:10px;column-gap:26px}
     .note{font-size:9.5px;padding:5px 10px}
@@ -264,33 +271,33 @@
 
   /* ---------- Story ---------- */
   .story-section{
-    background:var(--deep);
+    background:var(--paper);
     display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;
     padding:clamp(64px,10vh,120px) clamp(20px,6vw,72px);
     max-width:1240px;margin:0 auto;
   }
   @media(max-width:820px){.story-section{grid-template-columns:1fr;text-align:center}}
   .story-section img{border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,.45)}
-  .story-section .eyebrow{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--swirl-bright)}
-  .story-section h2{font-family:'Dancing Script',cursive;font-size:clamp(36px,4.6vw,58px);font-weight:700;margin:10px 0 16px}
-  .story-section p{color:rgba(237,244,245,.68);font-weight:300;line-height:1.75;font-size:clamp(14px,1.5vw,16.5px);max-width:52ch}
+  .story-section .eyebrow{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--swirl)}
+  .story-section h2{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-size:clamp(30px,4vw,50px);font-weight:700;color:var(--ink);margin:10px 0 16px}
+  .story-section p{color:rgba(30,58,92,.72);font-weight:300;line-height:1.75;font-size:clamp(14px,1.5vw,16.5px);max-width:52ch}
   @media(max-width:820px){.story-section p{margin:0 auto}}
 
   /* ---------- Stockists ---------- */
-  .stockists{background:var(--deep-2);padding:clamp(64px,10vh,110px) clamp(20px,6vw,72px)}
+  .stockists{background:#E4EFF1;padding:clamp(64px,10vh,110px) clamp(20px,6vw,72px)}
   .stockists .wrap{max-width:1100px;margin:0 auto;text-align:center}
-  .stockists h2{font-family:'Dancing Script',cursive;font-size:clamp(36px,4.6vw,58px);font-weight:700}
-  .stockists .sub{margin-top:8px;color:rgba(237,244,245,.55);font-size:14px;font-weight:300}
+  .stockists h2{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-size:clamp(30px,4vw,50px);font-weight:700;color:var(--ink)}
+  .stockists .sub{margin-top:8px;color:rgba(30,58,92,.62);font-size:14.5px}
   .stockist-grid{
     margin:clamp(28px,4vh,44px) 0;display:grid;gap:14px;
     grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
   }
   .stockist{
-    border:1px solid rgba(63,180,207,.22);border-radius:12px;padding:18px 16px;
-    background:rgba(63,180,207,.06);
+    border:1px solid rgba(42,143,169,.25);border-radius:12px;padding:18px 16px;
+    background:#fff;box-shadow:0 6px 18px rgba(30,58,92,.06);
   }
   .stockist .n{font-weight:600;font-size:15px}
-  .stockist .a{margin-top:4px;color:rgba(237,244,245,.5);font-size:12.5px;letter-spacing:.04em}
+  .stockist .a{margin-top:4px;color:rgba(30,58,92,.55);font-size:12.5px;letter-spacing:.04em}
   .wa-btn{
     display:inline-flex;align-items:center;gap:10px;
     background:#25D366;color:#062b12;text-decoration:none;
@@ -300,7 +307,7 @@
   }
   .wa-btn:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(37,211,102,.45)}
   .wa-btn svg{width:20px;height:20px}
-  .stockists-note{margin-top:14px;font-size:12px;color:rgba(237,244,245,.4)}
+  .stockists-note{margin-top:14px;font-size:12px;color:rgba(30,58,92,.5)}
 
   /* ---------- Wholesale ---------- */
   .wholesale{
@@ -311,7 +318,7 @@
     max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
     gap:24px;flex-wrap:wrap;
   }
-  .wholesale h3{font-family:'Dancing Script',cursive;font-size:clamp(28px,3.4vw,42px);font-weight:700}
+  .wholesale h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-size:clamp(24px,3vw,36px);font-weight:600}
   .wholesale p{margin-top:6px;color:rgba(237,244,245,.75);font-weight:300;font-size:14.5px;max-width:52ch}
   .wholesale a{
     background:var(--foam);color:var(--ink);text-decoration:none;font-weight:700;font-size:14px;
@@ -321,22 +328,22 @@
   .wholesale a:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(6,39,48,.35)}
 
   /* ---------- FAQ ---------- */
-  .faq{background:var(--deep);padding:clamp(64px,10vh,110px) clamp(20px,6vw,72px)}
+  .faq{background:var(--paper);padding:clamp(64px,10vh,110px) clamp(20px,6vw,72px)}
   .faq .wrap{max-width:760px;margin:0 auto}
-  .faq h2{font-family:'Dancing Script',cursive;font-size:clamp(36px,4.6vw,58px);font-weight:700;text-align:center;margin-bottom:clamp(24px,4vh,40px)}
-  .faq details{border-bottom:1px solid rgba(237,244,245,.14)}
+  .faq h2{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;font-size:clamp(30px,4vw,50px);font-weight:700;color:var(--ink);text-align:center;margin-bottom:clamp(24px,4vh,40px)}
+  .faq details{border-bottom:1px solid rgba(30,58,92,.15)}
   .faq summary{
     cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px;
     padding:19px 4px;font-weight:600;font-size:15.5px;
   }
   .faq summary::-webkit-details-marker{display:none}
-  .faq summary::after{content:"+";font-size:22px;font-weight:300;color:var(--swirl-bright);transition:transform .25s}
+  .faq summary::after{content:"+";font-size:22px;font-weight:300;color:var(--swirl);transition:transform .25s}
   .faq details[open] summary::after{transform:rotate(45deg)}
-  .faq details p{padding:0 4px 20px;color:rgba(237,244,245,.62);font-weight:300;line-height:1.7;font-size:14.5px}
+  .faq details p{padding:0 4px 20px;color:rgba(30,58,92,.68);font-weight:300;line-height:1.7;font-size:14.5px}
 
   /* ---------- Footer ---------- */
   footer{
-    background:#041B22;padding:52px clamp(20px,5vw,64px);
+    background:#16293F;padding:52px clamp(20px,5vw,64px);
     display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
   }
   footer .brand{display:flex;align-items:center;gap:10px}
@@ -409,7 +416,7 @@
 
   <div class="lineup" role="list">
     <button class="panel" role="listitem" data-flavour="lemon"
-      style="--panel-a:#F8DD5F;--panel-b:#E3B41F;--label:#4A3A03" aria-haspopup="dialog">
+      style="--panel-a:#F7E9C0;--panel-b:#EFD489;--label:#1E3A5C" aria-haspopup="dialog">
       <span class="inner">
         <img class="can" src="assets/can-lemon-cut.webp" alt="TwistyWater with a hint of Lemon">
         <span class="label"><span class="name">Lemon</span><br><span class="cta">Tap to explore</span></span>
@@ -417,7 +424,7 @@
     </button>
 
     <button class="panel" role="listitem" data-flavour="mint"
-      style="--panel-a:#57C48D;--panel-b:#1E8A58;--label:#04331E" aria-haspopup="dialog">
+      style="--panel-a:#CBE4EA;--panel-b:#A5CFDA;--label:#1E3A5C" aria-haspopup="dialog">
       <span class="inner">
         <img class="can" src="assets/can-mint-cut.webp" alt="TwistyWater with fresh Mint">
         <span class="label"><span class="name">Fresh Mint</span><br><span class="cta">Tap to explore</span></span>
@@ -425,7 +432,7 @@
     </button>
 
     <button class="panel" role="listitem" data-flavour="rosemary"
-      style="--panel-a:#A49CDD;--panel-b:#6C63AC;--label:#221D4A" aria-haspopup="dialog">
+      style="--panel-a:#E3EAD6;--panel-b:#C7D6B4;--label:#1E3A5C" aria-haspopup="dialog">
       <span class="inner">
         <img class="can" src="assets/can-rosemary-cut.webp" alt="TwistyWater infused with Rosemary and Lemon">
         <span class="label"><span class="name">Rosemary &amp; Lemon</span><br><span class="cta">Tap to explore</span></span>
@@ -433,7 +440,7 @@
     </button>
 
     <button class="panel" role="listitem" data-flavour="cucumber"
-      style="--panel-a:#B4DA83;--panel-b:#77A344;--label:#26400C" aria-haspopup="dialog">
+      style="--panel-a:#DDE5CB;--panel-b:#B9CBA0;--label:#1E3A5C" aria-haspopup="dialog">
       <span class="inner">
         <img class="can" src="assets/can-cucumber-cut.webp" alt="TwistyWater with cucumber infusion">
         <span class="label"><span class="name">Cucumber</span><br><span class="cta">Tap to explore</span></span>
@@ -559,7 +566,7 @@ const FLAVOURS = {
   lemon: {
     name: "Lemon",
     strap: "With a hint of lemon",
-    a: "#F8DD5F", b: "#E9B915", ink: "#3D2F02",
+    a: "#F7E7B8", b: "#EDCF7E", ink: "#1E3A5C",
     can: "assets/can-lemon-cut.webp",
     sprite: "assets/sprite-lemon.webp",
     story: "The original twist. Still spring water with a squeeze of real lemon. Crisp, a little sharp, and properly refreshing, with no sugar anywhere in the can.",
@@ -570,7 +577,7 @@ const FLAVOURS = {
   mint: {
     name: "Fresh Mint",
     strap: "With fresh mint",
-    a: "#57C48D", b: "#157A4B", ink: "#03301C",
+    a: "#CFE6EC", b: "#9CC9D6", ink: "#1E3A5C",
     can: "assets/can-mint-cut.webp",
     sprite: "assets/sprite-mint.webp",
     story: "Garden mint steeped cold in still spring water so it stays green and fresh. Cool from the first sip to the last.",
@@ -581,7 +588,7 @@ const FLAVOURS = {
   rosemary: {
     name: "Rosemary & Lemon",
     strap: "The botanical twist",
-    a: "#A79FE0", b: "#5D5498", ink: "#1D1843",
+    a: "#E5EBD8", b: "#BFD0AA", ink: "#1E3A5C",
     can: "assets/can-rosemary-cut.webp",
     sprite: "assets/sprite-rosemary.webp",
     story: "Our most grown-up twist. Rosemary balanced with a squeeze of lemon: herby, lightly citrusy, and very easy to drink.",
@@ -592,7 +599,7 @@ const FLAVOURS = {
   cucumber: {
     name: "Cucumber",
     strap: "With cucumber infusion",
-    a: "#BCDE8E", b: "#6E9C3C", ink: "#233D0A",
+    a: "#DEE6CC", b: "#AFC492", ink: "#1E3A5C",
     can: "assets/can-cucumber-cut.webp",
     sprite: "assets/sprite-cucumber.webp",
     story: "Cool cucumber in still spring water. Light, fresh, and calm. The one you reach for on a hot day.",
