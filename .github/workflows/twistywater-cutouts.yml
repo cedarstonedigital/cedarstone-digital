@@ -1,0 +1,55 @@
+name: Cut out TwistyWater can and glass photos
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/sesotho-fashioning-file-d7d3dr
+    paths:
+      - .github/workflows/twistywater-cutouts.yml
+
+permissions:
+  contents: write
+
+jobs:
+  cutout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install rembg
+        run: pip install "rembg[cpu]" pillow
+
+      - name: Remove backgrounds (keeps can + glass, drops poster text)
+        run: |
+          python - <<'EOF'
+          from rembg import remove, new_session
+          from PIL import Image
+          session = new_session("isnet-general-use")
+          pairs = {
+              "poster-mint.jpg": "glass-mint.png",
+              "poster-cucumber.jpg": "glass-cucumber.png",
+              "poster-rosemary.jpg": "glass-rosemary.png",
+              "poster-lemon.jpg": "glass-lemon.png",
+          }
+          for src, out in pairs.items():
+              im = Image.open(f"twistywater/assets/src-photos/{src}").convert("RGBA")
+              cut = remove(im, session=session)
+              box = cut.getchannel("A").getbbox()
+              cut = cut.crop(box)
+              cut.save(f"twistywater/assets/{out}")
+              print(out, cut.size)
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "twistywater-assets-bot"
+          git config user.email "actions@github.com"
+          git add twistywater/assets
+          git diff --cached --quiet && echo "Nothing new" && exit 0
+          git commit -m "Cut out can and glass from poster photos"
+          git push
