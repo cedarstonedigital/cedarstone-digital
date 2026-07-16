@@ -1,0 +1,7 @@
+.vercel
+rugby-life/
+
+# ruflo runtime artifacts
+.claude-flow/
+.swarm/
+ruvector.db

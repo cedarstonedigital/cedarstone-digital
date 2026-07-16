@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "rugby-life",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "C:/Users/tumel/cedarstone-digital/rugby-life"],
+      "port": 5173
+    },
+    {
+      "name": "scratchpad-3d",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8317",
+        "--directory",
+        "C:/Users/tumel/AppData/Local/Temp/claude/C--Users-tumel-cedarstone-digital/6b012bfa-e2c5-48b7-bba0-a01524047f23/scratchpad"
+      ],
+      "port": 8317
+    }
+  ]
+}
