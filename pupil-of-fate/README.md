@@ -262,7 +262,9 @@ Verified at 320, 360, 375, 414, 768, 1024, 1280, 1440 and 1920 px.
 ### Performance
 
 - One stylesheet, five small scripts, no framework, no jQuery, no build
-- WebP thumbnails in the grid; full-resolution stills only when a card opens
+- Images served as WebP, the same resolution as the source PNG at ~2.5% of
+  the bytes (27 KB against 1.09 MB), so a full grid of twelve cars is about
+  330 KB rather than 13 MB
 - Motion clips never download on touch devices, under reduced-motion, or on
   a Save-Data / 2G connection
 - The hero clip pauses the moment it scrolls out of view

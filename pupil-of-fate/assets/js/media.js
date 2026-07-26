@@ -17,9 +17,9 @@
      serving from your own domain, which is faster, cacheable, and immune to
      any CDN URL rotating.
 
-   Thumbnails use the CDN's pre-generated WebP derivative, which is roughly a
-   fifth of the size of the PNG. The detail sheet loads the full-resolution
-   file only when a card is actually opened.
+   Images resolve to the CDN's WebP derivative, which is the same 1376x768 as
+   the source PNG at about 2.5% of the bytes. There is no quality trade-off
+   and no separate thumbnail tier to manage.
    ========================================================================== */
 
 (function (root) {
@@ -90,9 +90,15 @@
   /* ------------------------------------------------------------------ api */
 
   /**
-   * @param {string} key   e.g. "ferrari-f40/exterior"
-   * @param {string} kind  "image" | "video"
-   * @param {string} [size] "thumb" (small WebP) | "full" (default)
+   * @param {string} key    e.g. "ferrari-f40/exterior"
+   * @param {string} kind   "image" | "video"
+   * @param {string} [size] "original" to force the source PNG. Rarely wanted.
+   *
+   * The CDN's WebP derivative is the same 1376x768 as the source PNG at about
+   * 2.5% of the bytes (27 KB against 1.09 MB), so it is the default for every
+   * use including the hero and the detail sheet. Serving the PNG in the card
+   * grid cost roughly 13 MB for one screen of twelve cars and bought nothing:
+   * the two files are pixel-for-pixel the same size on screen.
    */
   POF.mediaURL = function (key, kind, size) {
     if (!key) return '';
@@ -105,7 +111,7 @@
     if (!base) return '';
 
     if (kind === 'video') return CDN + base + '.mp4';
-    return CDN + base + (size === 'thumb' ? '_min.webp' : '.png');
+    return CDN + base + (size === 'original' ? '.png' : '_min.webp');
   };
 
   /* True when a turntable actually exists for this key, so the UI can hide the

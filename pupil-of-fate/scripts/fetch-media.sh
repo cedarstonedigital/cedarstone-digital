@@ -8,8 +8,13 @@
 # serves entirely from your own domain — faster, cacheable, and immune to any
 # CDN URL rotating.
 #
-# Requires: curl, and (optionally) cwebp from the `webp` package to convert
-# the full-size PNGs. Without cwebp the PNGs are kept as-is.
+# Images come down as the CDN's WebP derivative: same 1376x768 as the source
+# PNG at about 2.5% of the bytes, so there is nothing to gain from the PNG.
+#
+# Videos are transcoded when ffmpeg is present. The originals are ~4.3 MB each
+# at 6.8 Mbps, which is far more than a muted 5-second loop needs; the
+# transcode brings them to roughly 400-700 KB with no visible loss at the size
+# they are displayed. Without ffmpeg they are stored as-is.
 
 set -euo pipefail
 
@@ -80,7 +85,20 @@ while IFS='|' read -r key base ext; do
 
   echo "  get   $key"
   if [ "$ext" = "mp4" ]; then
-    curl -fsSL "$CDN/$base.mp4" -o "$target" && ok=$((ok + 1)) || { fail=$((fail + 1)); continue; }
+    if ! curl -fsSL "$CDN/$base.mp4" -o "$target.orig"; then
+      fail=$((fail + 1)); continue
+    fi
+    if command -v ffmpeg >/dev/null 2>&1; then
+      # 1280 wide, CRF 30, no audio track, faststart so it can begin playing
+      # before the whole file has arrived.
+      ffmpeg -loglevel error -y -i "$target.orig" \
+        -vf "scale=1280:-2" -c:v libx264 -preset slow -crf 30 -an \
+        -movflags +faststart "$target" && rm -f "$target.orig"
+    else
+      mv "$target.orig" "$target"
+      echo "        (ffmpeg not installed — stored at full bitrate)"
+    fi
+    ok=$((ok + 1))
   else
     # Prefer the CDN's own WebP derivative; fall back to PNG + local convert.
     if curl -fsSL "$CDN/${base}_min.webp" -o "$target"; then
