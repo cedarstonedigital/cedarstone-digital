@@ -248,13 +248,13 @@
   function greeting() {
     var h = new Date().getHours();
     var part = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
-    return '<strong>' + part + '. I am ' + esc(CONFIG.name) + '</strong> — ' +
-      esc(CONFIG.fullName) + ', the concierge for ' + esc(POF.BRAND.name) + '.<br><br>' +
-      'I know every one of the <strong>' + POF.CARS.length + ' cars</strong> on our floor: ' +
-      'specification, price, history and availability. Ask me for something ' +
-      'specific — “a V12 under 4 million”, “what is the fastest car you have”, ' +
-      '“can you export to South Africa” — or tell me what you are looking for ' +
-      'and I will narrow it down.';
+    return '<strong>' + part + '.</strong> I am ' + esc(CONFIG.name) + ', ' +
+      esc(CONFIG.fullName) + ' for ' + esc(POF.BRAND.name) + '.<br><br>' +
+      'I know all <strong>' + POF.CARS.length + ' cars</strong> on the floor: ' +
+      'specification, price, history, availability. Ask me something specific. ' +
+      '“A V12 under 4 million.” “What is the fastest car you have.” ' +
+      '“Can you export to South Africa.” Or just tell me what you want and I ' +
+      'will narrow it down.';
   }
 
   function detail(car) {
@@ -270,7 +270,7 @@
         esc(car.interiorColour) + '<br>' +
       '<strong>Price</strong> ' +
         (car.priceOnRequest ? 'on request' : esc(POF.formatAED(car.price))) +
-      '<br><br>Tap below for the full record, the interior and the 3D motion study.' +
+      '<br><br>Tap below for the full record, the interior and the turntable.' +
       carCard(car);
   }
 
@@ -298,10 +298,10 @@
 
     if (!list.length) {
       return 'I have nothing on the floor matching <strong>' + esc(phrase) + '</strong> ' +
-        'at this moment — but sourcing is half of what we do. We place most cars ' +
-        'before they are ever listed publicly. Tell me the exact specification and ' +
-        'I will put it to the acquisitions desk, or ' + waLink('message the team directly') +
-        '.<br><br>In the meantime, the closest things I hold:' +
+        'right now. Sourcing is half of what we do though, and most cars we place ' +
+        'are never listed publicly. Tell me the exact specification and I will put ' +
+        'it to the acquisitions desk, or ' + waLink('message the team directly') +
+        '.<br><br>Closest things I hold:' +
         carList(byPrice(true), 2);
     }
 
@@ -324,17 +324,16 @@
              'or a brand you have in mind?';
     }
     if (has(t, ['thank', 'shukran', 'appreciate', 'cheers'])) {
-      return 'A pleasure. If you would like to see anything in person, our showroom ' +
-        'is on Sheikh Zayed Road and viewings are private and by appointment. ' +
-        waLink('Arrange one here') + ' whenever suits you.';
+      return 'Any time. The showroom is on Sheikh Zayed Road and viewings are ' +
+        'private, by appointment. ' + waLink('Book one here') + ' whenever suits you.';
     }
     if (has(t, ['who are you', 'what are you', 'your name', 'are you a bot',
                 'are you human', 'are you real', 'are you ai'])) {
-      return 'I am <strong>' + esc(CONFIG.name) + '</strong> — ' + esc(CONFIG.fullName) +
+      return 'I am <strong>' + esc(CONFIG.name) + '</strong>, ' + esc(CONFIG.fullName) +
         '. An assistant, not a person, and I will not pretend otherwise. ' +
-        'I answer from live inventory data, so my prices and specifications are ' +
-        'exactly what the showroom holds. For negotiation, paperwork or anything ' +
-        'that needs a signature, ' + waLink('a human colleague') + ' takes over.';
+        'I read straight from the inventory, so the prices and specifications I ' +
+        'give you are what the showroom actually holds. Negotiation, paperwork ' +
+        'and anything needing a signature goes to ' + waLink('a colleague') + '.';
     }
 
     /* ---- superlatives ---- */
@@ -375,9 +374,9 @@
       var names = Object.keys(brands).sort();
       return 'We currently hold <strong>' + POF.CARS.length + ' cars</strong> across ' +
         names.length + ' marques — ' + esc(names.join(', ')) + '.<br><br>' +
-        'The full collection is on this page under <em>The Collection</em>, ' +
-        'filterable by hypercar, supercar, collector, grand tourer and SUV. ' +
-        'Or tell me a budget and I will shortlist.' + carList(byPrice(false), 3);
+        'The full list is on this page under <em>The floor</em>, filterable by ' +
+        'hypercar, supercar, collector, GT and SUV. Or give me a budget and I ' +
+        'will shortlist.' + carList(byPrice(false), 3);
     }
 
     /* ---- a named car ---- */
@@ -387,41 +386,40 @@
     /* ---- commercial questions ---- */
     if (has(t, ['finance', 'financing', 'loan', 'instalment', 'installment',
                 'monthly', 'lease', 'leasing', 'payment plan', 'credit'])) {
-      return 'We arrange <strong>structured finance through UAE banking partners</strong> — ' +
-        'conventional and Islamic facilities, balloon structures, and asset-backed ' +
-        'lending for collectors holding several cars. Terms depend on the vehicle, ' +
-        'the deposit and your residency status, so figures come from the desk rather ' +
-        'than from me. ' + waLink('Send us the car and your deposit') +
-        ' and you will have an indicative structure the same day.';
+      return 'We arrange <strong>structured finance through UAE banking partners</strong>. ' +
+        'Conventional and Islamic facilities, balloon structures, and asset-backed ' +
+        'lending for collectors holding several cars. Rates depend on the car, the ' +
+        'deposit and your residency, so the numbers come from the desk rather than ' +
+        'from me. ' + waLink('Send the car and your deposit') + ' and you will have ' +
+        'an indicative structure the same day.';
     }
     if (has(t, ['export', 'ship', 'shipping', 'freight', 'overseas', 'abroad',
                 'import', 'customs', 'deliver to', 'south africa', 'europe', 'uk'])) {
-      return 'Yes — export is a department, not an afterthought. We handle ' +
-        '<strong>enclosed transport, customs clearance, homologation paperwork and ' +
-        'door-to-door delivery</strong> to any port, fully insured and fully ' +
-        'documented. We regularly ship into Europe, the UK, South Africa and the ' +
-        'Far East.<br><br>Give me the destination country and the car, and ' +
-        waLink('the logistics desk') + ' will quote landed cost including duties.';
+      return 'Yes. Export is its own department here. <strong>Enclosed transport, ' +
+        'customs clearance, homologation paperwork and door-to-door delivery</strong> ' +
+        'to any port, insured and documented. We ship regularly into Europe, the UK, ' +
+        'South Africa and the Far East.<br><br>Give me the destination and the car ' +
+        'and ' + waLink('the logistics desk') + ' will quote landed cost with duties.';
     }
     if (has(t, ['warranty', 'guarantee', 'service history', 'inspection', 'condition',
                 'accident', 'checked', 'genuine', 'authentic'])) {
-      return 'Every car is <strong>inspected in-house before it reaches the floor</strong>, ' +
-        'and we publish the odometer and chassis reference on each record. ' +
-        'Manufacturer warranty is noted per car where it still applies — the modern ' +
-        'cars mostly carry it. Independent pre-purchase inspection by your own ' +
-        'engineer is welcome and encouraged; we have never refused one.';
+      return 'Every car is <strong>inspected here before it reaches the floor</strong>, ' +
+        'and we publish the odometer and chassis reference on each listing. ' +
+        'Manufacturer warranty is noted per car where it still applies, which covers ' +
+        'most of the modern ones. Bring your own engineer for a pre-purchase ' +
+        'inspection if you want to. We have never refused one.';
     }
     if (has(t, ['trade in', 'trade-in', 'part exchange', 'sell my', 'buy my',
                 'i want to sell', 'valuation', 'value my'])) {
       return 'We buy as readily as we sell. Send the year, model, mileage, ' +
-        'specification and a few photographs and you will have a firm offer — ' +
-        'not an estimate — usually within 24 hours. Part exchange against anything ' +
-        'on our floor is straightforward. ' + waLink('Start a valuation') + '.';
+        'specification and a few photographs. You will have a firm offer, not an ' +
+        'estimate, usually inside 24 hours. Part exchange against anything on the ' +
+        'floor is straightforward. ' + waLink('Start a valuation') + '.';
     }
     if (has(t, ['rent', 'rental', 'hire', 'chauffeur', 'daily', 'per day', 'weekend'])) {
-      return 'Short-term access runs through our rental arm — daily, weekly or by the ' +
+      return 'Short-term access runs through our rental arm. Daily, weekly or by the ' +
         'event, with or without a chauffeur. Not every car in the trading fleet is ' +
-        'available to rent, so tell me which one interests you and I will confirm.';
+        'available to rent, so tell me which one you want and I will confirm.';
     }
     if (has(t, ['test drive', 'drive it', 'viewing', 'see the car', 'visit', 'come in',
                 'appointment', 'book', 'showroom'])) {
@@ -456,7 +454,7 @@
         '<strong>Email</strong> <a href="mailto:' + esc(POF.BRAND.email) + '">' +
         esc(POF.BRAND.email) + '</a><br>' +
         '<strong>WhatsApp</strong> ' + waLink(esc(POF.BRAND.phoneDisplay)) + '<br><br>' +
-        'A person will answer — I only handle the questions that do not need one.';
+        'A person will answer. I only handle what does not need one.';
     }
     if (has(t, ['price of', 'how much', 'cost', 'asking'])) {
       if (memory.lastCar) {
@@ -465,7 +463,7 @@
             ? 'priced on request'
             : 'listed at <strong>' + esc(POF.formatAED(memory.lastCar.price)) + '</strong>') +
           '. Prices are negotiable in person and we take part exchange. ' +
-          waLink('Open a conversation with the desk') + '.';
+          waLink('Start a conversation with the desk') + '.';
       }
       return 'Tell me which car and I will give you the exact asking price. ' +
         'Our range runs from ' + esc(POF.formatAED(byPrice(true)[0].price)) + ' to ' +
@@ -486,24 +484,22 @@
     for (var i = 0; i < absent.length; i++) {
       if (t.indexOf(' ' + absent[i]) !== -1) {
         var pretty = absent[i].replace(/\b\w/g, function (c) { return c.toUpperCase(); });
-        return 'Nothing from <strong>' + esc(pretty) + '</strong> on the floor at this ' +
-          'moment — but that is precisely what our sourcing desk is for. Our ' +
-          'network covers 40 countries and most of the cars we place are never ' +
-          'listed publicly.<br><br>Tell me the exact model, year and ' +
-          'specification you want and I will pass it to acquisitions, or ' +
-          waLink('speak to them directly') + '.';
+        return 'Nothing from <strong>' + esc(pretty) + '</strong> on the floor today. ' +
+          'That is what the sourcing desk is for. Our network covers 40 countries ' +
+          'and most of what we place is never listed publicly.<br><br>Tell me the ' +
+          'model, year and specification you want and I will pass it to ' +
+          'acquisitions, or ' + waLink('speak to them directly') + '.';
       }
     }
 
     /* ---- fallback: never a dead end ---- */
-    return 'I did not quite catch that one. I am strongest on the things I can ' +
-      'answer precisely — inventory, specifications, prices, finance, export and ' +
-      'viewings.<br><br>Try me with something like:<br>' +
+    return 'I did not catch that. I am strongest where I can be exact: inventory, ' +
+      'specifications, prices, finance, export, viewings.<br><br>Try something like:<br>' +
       '· “show me everything under 2 million”<br>' +
       '· “what Ferraris do you have”<br>' +
       '· “can you ship to Johannesburg”<br>' +
       '· “what is the fastest car on the floor”<br><br>' +
-      'Or skip me entirely and ' + waLink('speak to the team') + '.';
+      'Or skip me and ' + waLink('talk to the team') + '.';
   }
 
   /* ----------------------------------------------------------------- input */

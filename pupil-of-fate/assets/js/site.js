@@ -196,10 +196,10 @@
             '<div class="card__price"><small>Price</small>' +
               (car.priceOnRequest ? 'On Request' : esc(POF.formatAED(car.price))) +
             '</div>' +
-            '<span class="card__go">View' +
-              '<svg width="13" height="9" viewBox="0 0 13 9" fill="none" aria-hidden="true">' +
-                '<path d="M1 4.5h10M8 1l3.2 3.5L8 8" stroke="currentColor" ' +
-                      'stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '<span class="card__go" aria-hidden="true">' +
+              '<svg width="13" height="10" viewBox="0 0 13 10" fill="none">' +
+                '<path d="M1 5h10M7.6 1.2 11.4 5 7.6 8.8" stroke="currentColor" ' +
+                      'stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>' +
               '</svg>' +
             '</span>' +
           '</div>' +

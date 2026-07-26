@@ -146,8 +146,15 @@ assets/media/<slug>/motion.mp4
 Shoot 16:9, at least 1920 px wide. Keep the clips under 5 seconds and around
 2 MB — they are decorative and must never delay the page.
 
-Any missing asset degrades gracefully: a missing image becomes a dark gradient
-tile, and a missing clip removes the 3D Motion tab rather than breaking it.
+Any missing asset degrades gracefully: a missing image becomes a pale panel
+carrying the mark, and a missing clip removes the turntable tab rather than
+leaving a dead control.
+
+**Shoot cars as cutouts on a seamless near-white background.** The whole
+design puts cars on a lit stage, so a photograph with a showroom, a skyline
+or a textured floor behind it will not sit correctly in the layout. Even,
+diffuse light, a soft contact shadow under the wheels, and generous empty
+space around the car.
 
 ---
 
@@ -211,6 +218,29 @@ emitted and kept in sync, which is what puts star ratings beside the listing
 in Google results.
 
 ---
+
+## Design system
+
+**"Stage" — Swiss configurator.** The interface is monochrome so the only
+chroma on the page is the paint on the cars. Cars sit as cutouts on a light
+stage inside a black bezel, the way a configurator frames a car.
+
+| Token | Value | Use |
+|---|---|---|
+| `--paper` | `#EFEFED` | page ground, a cool off-white |
+| `--stage` | `#F7F7F5` | the lit floor a car stands on |
+| `--bezel` | `#121214` | the frame around the stage |
+| `--ink` | `#0E0E0F` | type, buttons, active states |
+| `--line` | `#DEDEDA` | hairlines and card borders |
+
+There is deliberately **no accent hue**. Anything that would normally be
+carried by an accent colour is carried by the ink/paper inversion instead —
+active nav pill, primary button, selected filter chip.
+
+**Type** is Archivo for everything structural, set tight (−0.035em on display
+sizes), with IBM Plex Mono for anything a buyer compares between cars: prices,
+power, acceleration, odometer, chassis references. Mono data gets
+`font-variant-numeric: tabular-nums` so figures line up down a column.
 
 ## Browser support
 

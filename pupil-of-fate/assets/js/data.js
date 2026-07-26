@@ -29,7 +29,7 @@
     legalName: 'Pupil of Fate Automobile Trading L.L.C',
     name: 'Pupil of Fate',
     short: 'POF',
-    tagline: 'Dubai’s house of collector, super and hyper cars.',
+    tagline: 'Collector, super and hyper cars. Dubai.',
     founded: 2022,
     address: {
       street: '419 Sheikh Zayed Road, Al Quoz 1',
@@ -43,7 +43,7 @@
     phoneAltDisplay: '+971 58 973 5366',
     whatsapp: '971503189544',
     email: 'sales@pupiloffate.ae',
-    hours: 'Saturday – Thursday, 09:00 – 20:00 GST · Friday by appointment',
+    hours: 'Saturday to Thursday, 09:00 to 20:00 GST. Friday by appointment.',
     social: {
       instagram: 'https://www.instagram.com/pofmotors/',
       facebook: 'https://www.facebook.com/pofmotors/',
@@ -55,12 +55,12 @@
   /* ------------------------------------------------------------ taxonomy */
 
   POF.CATEGORIES = [
-    { id: 'all', label: 'Entire Fleet' },
+    { id: 'all', label: 'All' },
     { id: 'hyper', label: 'Hypercar' },
     { id: 'super', label: 'Supercar' },
     { id: 'collector', label: 'Collector' },
-    { id: 'gt', label: 'Grand Tourer' },
-    { id: 'suv', label: 'Luxury SUV' }
+    { id: 'gt', label: 'GT' },
+    { id: 'suv', label: 'SUV' }
   ];
 
   /* ---------------------------------------------------------------- fleet */
@@ -75,13 +75,9 @@
       price: 14500000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'One of 60 worldwide. The Chiron rebuilt around corners.',
+      headline: 'One of 60. Built to corner rather than to set a top speed.',
       blurb:
-        'Pur Sport trades 60 km/h of top speed for a 50 kg diet, a 65% stiffer ' +
-        'suspension and a gear ratio 15% shorter than a standard Chiron. The result ' +
-        'is the only W16 Bugatti that changes direction like a track car. This example ' +
-        'is a two-owner UAE car with full Molsheim service history and the complete ' +
-        'carbon-fibre Sport package.',
+        'Pur Sport gives up 60 km/h of top speed and takes 50 kg out of the car. The suspension is 65 percent stiffer and the final drive 15 percent shorter, which is why this is the only W16 Chiron that changes direction properly. Two owners from new, UAE car, full Molsheim service history, complete carbon Sport package.',
       engine: '8.0L Quad-Turbocharged W16',
       power: 1500,
       torque: 1600,
@@ -116,12 +112,9 @@
       price: 9750000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'Enzo’s last signature. The benchmark every hypercar still answers to.',
+      headline: 'Signed off by Enzo Ferrari. Still the reference point.',
       blurb:
-        'Built to mark Ferrari’s 40th year and personally signed off by Enzo Ferrari, ' +
-        'the F40 is 1,100 kg of Kevlar, carbon and twin-turbo violence with no ABS, no ' +
-        'power steering and no driver aids of any kind. Classiche-certified, matching ' +
-        'numbers, with the original tool roll and fitted luggage.',
+        'Built for Ferrari\'s 40th year. 1,100 kg of Kevlar and carbon, twin turbos, no ABS, no power steering, no driver aids at all. Classiche certified with matching numbers, and it still has the original tool roll and fitted luggage.',
       engine: '2.9L Twin-Turbocharged V8',
       power: 478,
       torque: 577,
@@ -138,7 +131,7 @@
         'Ferrari Classiche certified',
         'Matching numbers engine and gearbox',
         'Original tool roll and fitted luggage set',
-        'Non-cat, non-adjust — the collector specification'
+        'Non-cat, non-adjust, the collector specification'
       ],
       media: {
         exterior: 'ferrari-f40/exterior',
@@ -156,12 +149,9 @@
       price: 4850000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'The first road-legal XX. 1,030 hp and a rear wing Ferrari swore it would never fit.',
+      headline: 'The first XX car Ferrari made road legal.',
       blurb:
-        'The XX programme escaped the track. 1,030 hp from a twin-turbo V8 and three ' +
-        'electric motors, a fixed rear wing generating 530 kg of downforce at 250 km/h, ' +
-        'and Extra Boost mapping that dumps the full hybrid charge into a single lap. ' +
-        'One of 799 coupés, delivered new in the UAE.',
+        '1,030 hp from a twin-turbo V8 and three electric motors. The fixed rear wing makes 530 kg of downforce at 250 km/h, and Extra Boost dumps the whole hybrid charge into one lap. One of 799 coupes, delivered new in the UAE, still under factory warranty.',
       engine: '4.0L Twin-Turbocharged V8 + 3 Electric Motors',
       power: 1030,
       torque: 804,
@@ -196,12 +186,9 @@
       price: 3650000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'The V12 survives — now with 1,015 hp and three electric motors behind it.',
+      headline: 'A 9,500 rpm V12 with three electric motors around it.',
       blurb:
-        'Lamborghini’s answer to electrification was not to remove the V12 but to ' +
-        'surround it. A new 6.5-litre naturally aspirated twelve revs to 9,500 rpm, ' +
-        'joined by three e-motors and a carbon monocoque that is 25% stiffer than the ' +
-        'Aventador’s. Specified in Verde Mantis over Nero Ade with the full Ad Personam list.',
+        'Lamborghini kept the naturally aspirated twelve and added hybrid drive rather than replacing it. New carbon monocoque, 25 percent stiffer than the Aventador\'s. Specified through Ad Personam in Verde Mantis over Nero Ade.',
       engine: '6.5L Naturally Aspirated V12 + 3 Electric Motors',
       power: 1015,
       torque: 725,
@@ -236,11 +223,9 @@
       price: 2150000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'Longtail engineering with the roof removed and nothing else added.',
+      headline: 'Longtail specification with a folding roof that costs 49 kg.',
       blurb:
-        'McLaren’s Longtail formula: more power, less weight, longer aero. The 765LT ' +
-        'Spider adds a retractable hardtop that costs just 49 kg, keeping the 2.8-second ' +
-        'sprint intact. Titanium quad exhaust, carbon racing seats and MSO Clubsport pack.',
+        'More power, less weight, longer aero. The retractable hardtop leaves the 2.8 second sprint to 100 intact. Titanium quad exhaust, carbon racing seats, MSO Clubsport pack, full McLaren Dubai history.',
       engine: '4.0L Twin-Turbocharged V8',
       power: 765,
       torque: 800,
@@ -275,12 +260,9 @@
       price: 5900000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'The car that invented the modern supercar, thirty-five years early.',
+      headline: 'Sequential twin turbos and computer-controlled all-wheel drive, in 1988.',
       blurb:
-        'Sequential twin turbos, computer-controlled all-wheel drive, adaptive ride ' +
-        'height and a 317 km/h top speed — in 1988. The 959 made every rival obsolete ' +
-        'overnight and remains the most technically ambitious Porsche ever sold. ' +
-        'Komfort specification, original paint, documented from new.',
+        'Adaptive ride height, 317 km/h, and a level of engineering that made every rival look dated overnight. Still the most technically ambitious car Porsche has sold. Komfort specification, original paint, documented from new, recently recommissioned.',
       engine: '2.85L Sequential Twin-Turbocharged Flat-6',
       power: 444,
       torque: 500,
@@ -315,12 +297,9 @@
       price: 2450000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'The darkest expression of effortless. 600 hp under a Starlight Headliner.',
+      headline: '600 hp under a hand-set Starlight Headliner.',
       blurb:
-        'Black Badge takes the Cullinan’s serenity and sharpens it — 600 hp, a louder ' +
-        'exhaust note, darkened Spirit of Ecstasy and the deepest black Rolls-Royce ' +
-        'has ever mixed. Commissioned with Mandarin leather, Starlight Headliner and ' +
-        'the Recreation Module.',
+        'Black Badge darkens every piece of brightwork, raises output to 600 hp and gives the exhaust a voice. Commissioned in Mandarin over black hide with the Recreation Module and the Viewing Suite. Warranty runs to 2027.',
       engine: '6.75L Twin-Turbocharged V12',
       power: 600,
       torque: 900,
@@ -355,12 +334,9 @@
       price: 1490000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'Two doors, a 6.75-litre V12 and the last great coach-built Rolls.',
+      headline: 'The last coach-built two-door Phantom.',
       blurb:
-        'The Phantom Coupé is the most personal car of the seventh-generation Phantom ' +
-        'line — coach doors, a brushed steel bonnet and a hand-finished cabin that took ' +
-        '450 hours to trim. Values for well-kept examples have been climbing steadily ' +
-        'since production ended in 2016.',
+        'Coach doors, a brushed steel bonnet and a cabin that took 450 hours to trim. Production ended in 2016 and good examples have been climbing since. Full Rolls-Royce Dubai history, Starlight Headliner.',
       engine: '6.75L Naturally Aspirated V12',
       power: 453,
       torque: 720,
@@ -395,12 +371,9 @@
       price: 1395000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'A DRS-equipped race car that happens to have number plates.',
+      headline: 'Active aero from the 911 RSR, with a number plate.',
       blurb:
-        'The 992 GT3 RS moved the game on entirely — active aerodynamics borrowed from ' +
-        'the 911 RSR, a drag reduction system on the rear wing and 860 kg of downforce ' +
-        'at 285 km/h. This car carries the full Weissach package with magnesium wheels ' +
-        'and the exposed-carbon roof, bonnet and anti-roll bars.',
+        '860 kg of downforce at 285 km/h and a drag reduction system on the rear wing. This car has the full Weissach package: magnesium wheels, exposed carbon roof, bonnet and anti-roll bars. Delivery mileage, first owner.',
       engine: '4.0L Naturally Aspirated Flat-6',
       power: 518,
       torque: 465,
@@ -435,12 +408,9 @@
       price: 1290000,
       priceOnRequest: false,
       status: 'available',
-      headline: '789 hp, 60 km of silent range, and room for the whole family.',
+      headline: '789 hp, and 60 km of it silent.',
       blurb:
-        'The plug-in Urus SE is the most powerful Super SUV Lamborghini has built — a ' +
-        'twin-turbo V8 paired to a 192 hp electric motor, with a new torque-vectoring ' +
-        'rear differential and a redesigned front end. Capable of the school run in ' +
-        'silence and 312 km/h afterwards.',
+        'The plug-in Urus is the most powerful Super SUV Lamborghini has built. Twin-turbo V8 with a 192 hp electric motor, a new torque-vectoring rear differential and a redesigned front end. School run in silence, 312 km/h afterwards.',
       engine: '4.0L Twin-Turbocharged V8 + Electric Motor',
       power: 789,
       torque: 950,
@@ -475,12 +445,9 @@
       price: 1180000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'The last of the W12 Continentals — 650 hp of Crewe engineering.',
+      headline: 'One of the last W12 Continentals Crewe built.',
       blurb:
-        'Bentley retired the 6.0-litre W12 in 2024, which makes the final Speed cars the ' +
-        'end of a twenty-year line. All-wheel steering, an electronic limited-slip ' +
-        'differential and the 48-volt anti-roll system make this the sharpest ' +
-        'Continental ever built, without costing it any of the hush.',
+        'Bentley retired the 6.0-litre W12 in 2024, which makes the final Speed cars the end of a twenty year line. All-wheel steering, electronic limited-slip differential and 48-volt anti-roll bars. Mulliner Driving Specification, Naim audio.',
       engine: '6.0L Twin-Turbocharged W12',
       power: 650,
       torque: 900,
@@ -515,12 +482,9 @@
       price: 635000,
       priceOnRequest: false,
       status: 'available',
-      headline: 'The Dubai default. Forty years of military geometry with 585 hp inside it.',
+      headline: 'Forty years of unchanged geometry, with 585 hp in it.',
       blurb:
-        'The G-Wagon refuses to modernise its silhouette and is worth more for it. ' +
-        'Three locking differentials, a hand-built AMG V8 and a cabin that has quietly ' +
-        'become one of the best in the Mercedes range. Presented in Obsidian Black with ' +
-        'the AMG Night Package and full service history.',
+        'The G-Class refuses to modernise its shape and is worth more for it. Three locking differentials, a hand-built AMG V8, and a cabin that has quietly become one of the best Mercedes makes. Obsidian Black with the AMG Night Package, full service history.',
       engine: '4.0L Twin-Turbocharged V8',
       power: 585,
       torque: 850,
@@ -553,47 +517,48 @@
   POF.SERVICES = [
     {
       icon: 'trade',
-      title: 'Acquisition & Trading',
+      title: 'Trading',
       copy:
         'We buy, sell and broker collector, super and hyper cars across the GCC, ' +
-        'Europe and the United States. Every car we list is inspected in-house before ' +
-        'it reaches the floor.'
+        'Europe and the United States. Every car is inspected here before it goes ' +
+        'on the floor.'
     },
     {
       icon: 'source',
-      title: 'Bespoke Sourcing',
+      title: 'Sourcing',
       copy:
-        'Tell us the specification and we will find it — allocation cars, discontinued ' +
-        'builds, single-market colours. Our network covers 40 countries and most cars ' +
-        'we place never reach a public listing.'
+        'Give us the specification and we will find it. Allocation cars, ' +
+        'discontinued builds, single-market colours. Our network covers 40 ' +
+        'countries and most of what we place is never publicly listed.'
     },
     {
       icon: 'export',
-      title: 'Export & Logistics',
+      title: 'Export',
       copy:
-        'Enclosed transport, customs clearance, homologation and door-to-door delivery ' +
-        'to any port. Fully insured, fully documented, handled by our own logistics desk.'
+        'Enclosed transport, customs clearance, homologation and door-to-door ' +
+        'delivery to any port. Fully insured and fully documented, handled by our ' +
+        'own logistics desk.'
     },
     {
       icon: 'service',
-      title: 'Service & Restoration',
+      title: 'Service',
       copy:
-        'A dedicated workshop for maintenance, pre-purchase inspection, paint ' +
-        'protection and full nut-and-bolt restoration of 1980s and 1990s collector cars.'
+        'Maintenance, pre-purchase inspection, paint protection and full ' +
+        'nut-and-bolt restoration of 1980s and 1990s cars, in our own workshop.'
     },
     {
       icon: 'finance',
-      title: 'Finance & Leasing',
+      title: 'Finance',
       copy:
-        'Structured finance through our UAE banking partners, including balloon and ' +
-        'asset-backed facilities for collectors holding multiple vehicles.'
+        'Structured finance through UAE banking partners, including balloon and ' +
+        'asset-backed facilities for collectors holding several cars.'
     },
     {
       icon: 'rental',
-      title: 'Chauffeur & Rental',
+      title: 'Rental',
       copy:
-        'Short-term access to the fleet through POF Rental — daily, weekly or by the ' +
-        'event, with or without a chauffeur.'
+        'Short-term access to the fleet by the day, the week or the event, with ' +
+        'or without a chauffeur.'
     }
   ];
 
