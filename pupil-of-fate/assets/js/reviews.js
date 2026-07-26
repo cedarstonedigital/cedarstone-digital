@@ -23,6 +23,17 @@
 
   var CONFIG = root.REVIEWS_CONFIG || {
     endpoint: null,
+    /* Real Google reviews. Set both fields and the section pulls the live
+       rating, the total count and the most recent reviews straight from the
+       business's Google profile:
+
+         window.REVIEWS_CONFIG = {
+           google: { placeId: 'ChIJ...', apiKey: '...' }
+         };
+
+       declared before reviews.js loads. See README for how to find the Place
+       ID and, importantly, how to restrict the key. */
+    google: null,
     storageKey: 'pof.reviews.v1',
     channel: 'pof-reviews',
     minGapMs: 60000,        // one review per minute per browser
@@ -81,6 +92,55 @@
             'eleven days after I had been looking for eight months on my own.'
     }
   ];
+
+  /* ----------------------------------------------------------- google feed */
+
+  /* Google caps the Places response at five reviews, but it also returns the
+     true overall rating and total count, so the headline figures stay honest
+     even though only five bodies are shown. */
+  var googleMeta = null;
+
+  function mapGoogle(payload) {
+    if (!payload) return null;
+    googleMeta = {
+      rating: typeof payload.rating === 'number' ? payload.rating : null,
+      total:  typeof payload.userRatingCount === 'number' ? payload.userRatingCount : null
+    };
+    var list = payload.reviews || [];
+    return list.map(function (r, i) {
+      var a = r.authorAttribution || {};
+      return {
+        id:     'g_' + (r.name || i),
+        name:   a.displayName || 'Google reviewer',
+        photo:  a.photoUri || '',
+        url:    a.uri || '',
+        rating: typeof r.rating === 'number' ? r.rating : 5,
+        text:   (r.text && r.text.text) ||
+                (r.originalText && r.originalText.text) || '',
+        when:   r.publishTime || new Date().toISOString(),
+        source: 'google',
+        car:    ''
+      };
+    }).filter(function (r) { return r.text; });
+  }
+
+  function fetchGoogle() {
+    var g = CONFIG.google;
+    if (!g || !g.placeId || !g.apiKey || typeof fetch !== 'function') {
+      return Promise.resolve(null);
+    }
+    return fetch(
+      'https://places.googleapis.com/v1/places/' +
+        encodeURIComponent(g.placeId) + '?languageCode=en',
+      { headers: {
+          'X-Goog-Api-Key': g.apiKey,
+          'X-Goog-FieldMask': 'rating,userRatingCount,reviews'
+        } }
+    ).then(function (r) {
+      if (!r.ok) throw new Error('Places API ' + r.status);
+      return r.json();
+    }).then(mapGoogle);
+  }
 
   /* ------------------------------------------------------------------ store */
 
@@ -146,14 +206,39 @@
       .map(function (w) { return w.charAt(0).toUpperCase(); }).join('');
   }
 
+  var GOOGLE_G =
+    '<svg class="rev__g" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.5 5.5 0 0 1-2.4 3.62v3h3.86c2.26-2.09 3.57-5.17 3.57-8.86z"/>' +
+    '<path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.94-2.91l-3.87-3a7.2 7.2 0 0 1-10.72-3.78h-4v3.09A12 12 0 0 0 12 24z"/>' +
+    '<path fill="#FBBC05" d="M5.35 14.31a7.1 7.1 0 0 1 0-4.6V6.62h-4a12 12 0 0 0 0 10.78z"/>' +
+    '<path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.35 6.62l4 3.09A7.15 7.15 0 0 1 12 4.75z"/>' +
+    '</svg>';
+
   function reviewHTML(r, isNew) {
+    var isG = r.source === 'google';
+    /* A Google author photo is a real remote image and may 404 once the URL
+       ages out, so fall back to initials rather than a broken avatar. */
+    var avatar = isG && r.photo
+      ? '<img class="rev__av rev__av--photo" src="' + esc(r.photo) + '" alt="" ' +
+        'loading="lazy" referrerpolicy="no-referrer" ' +
+        'onerror="this.replaceWith(Object.assign(document.createElement(\'span\'),' +
+        '{className:\'rev__av\',textContent:this.dataset.i}))" ' +
+        'data-i="' + esc(initials(r.name)) + '">'
+      : '<span class="rev__av" aria-hidden="true">' + esc(initials(r.name)) + '</span>';
+
+    var name = isG && r.url
+      ? '<a class="rev__name" href="' + esc(r.url) + '" target="_blank" ' +
+        'rel="noopener noreferrer nofollow">' + esc(r.name) + '</a>'
+      : '<span class="rev__name">' + esc(r.name) + '</span>';
+
     return '<article class="rev' + (isNew ? ' is-new' : '') + '">' +
-      '<div class="rev__top">' +
-        '<span class="rev__av" aria-hidden="true">' + esc(initials(r.name)) + '</span>' +
-        '<span class="rev__who">' +
-          '<span class="rev__name">' + esc(r.name) + '</span>' +
-          '<span class="rev__when">' + esc(ago(r.when)) + '</span>' +
+      '<div class="rev__top">' + avatar +
+        '<span class="rev__who">' + name +
+          '<span class="rev__when">' + esc(ago(r.when)) +
+            (isG ? ' · via Google' : '') +
+          '</span>' +
         '</span>' +
+        (isG ? GOOGLE_G : '') +
       '</div>' +
       starsSVG(r.rating) +
       '<p class="rev__text">' + esc(r.text) + '</p>' +
@@ -173,16 +258,26 @@
       return reviewHTML(r, r.id === newestId);
     }).join('');
 
+    /* Google returns at most five review bodies but reports the true overall
+       rating and total count, so prefer those for the headline figures.
+       Averaging only the five shown would misstate the business's rating. */
     var total = sorted.reduce(function (s, r) { return s + Number(r.rating); }, 0);
-    var avg = sorted.length ? total / sorted.length : 0;
+    var avg   = sorted.length ? total / sorted.length : 0;
+    var count = sorted.length;
+    var label = ' verified ';
+
+    if (googleMeta && googleMeta.rating != null && googleMeta.total != null) {
+      avg   = googleMeta.rating;
+      count = googleMeta.total;
+      label = ' Google ';
+    }
 
     var n = $('#revScore');
     var s = $('#revStars');
     var c = $('#revCount');
     if (n) n.textContent = avg.toFixed(1);
     if (s) s.innerHTML = starsSVG(avg);
-    if (c) c.textContent = sorted.length + ' verified ' +
-                           (sorted.length === 1 ? 'review' : 'reviews');
+    if (c) c.textContent = count + label + (count === 1 ? 'review' : 'reviews');
 
     publishSchema(sorted, avg);
   }
@@ -208,10 +303,15 @@
         addressCountry: POF.BRAND.address.countryCode
       },
       telephone: POF.BRAND.phoneDisplay,
+      /* Must mirror what the page displays. Google returns only five review
+         bodies but reports the true total, so emitting list.length here would
+         claim a different count to the one rendered beside it — a mismatch
+         that gets rich results suppressed. */
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: avg.toFixed(1),
-        reviewCount: list.length,
+        reviewCount: (googleMeta && googleMeta.total != null)
+          ? googleMeta.total : list.length,
         bestRating: 5,
         worstRating: 1
       },
@@ -350,14 +450,34 @@
       };
     }
 
-    if (CONFIG.endpoint) {
-      fetch(CONFIG.endpoint)
-        .then(function (r) { return r.json(); })
-        .then(function (list) { render(Array.isArray(list) ? list : SEED); })
-        .catch(function () { render(SEED); });
-    } else {
-      render(load() || SEED);
-    }
+    /* Google first when configured, then a custom endpoint, then the seeds.
+       Every step degrades to the next rather than leaving the section empty. */
+    fetchGoogle()
+      .then(function (googleReviews) {
+        if (googleReviews && googleReviews.length) {
+          /* Locally posted reviews still show beneath the Google ones. */
+          var mine = CONFIG.endpoint ? [] : (load() || []).filter(function (r) {
+            return String(r.id).indexOf('s') !== 0;
+          });
+          render(googleReviews.concat(mine));
+          return true;
+        }
+        return false;
+      })
+      .catch(function (e) {
+        if (root.console) console.warn('[reviews] Google fetch failed:', e.message);
+        return false;
+      })
+      .then(function (done) {
+        if (done) return;
+        if (CONFIG.endpoint) {
+          return fetch(CONFIG.endpoint)
+            .then(function (r) { return r.json(); })
+            .then(function (list) { render(Array.isArray(list) ? list : SEED); })
+            .catch(function () { render(SEED); });
+        }
+        render(load() || SEED);
+      });
 
     initComposer();
 

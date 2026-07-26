@@ -532,7 +532,7 @@
       /* animationend is the fast path, but a frame that failed to load is
          display:none, never animates and never fires the event — so a hard
          timer guarantees the stage always unwinds to its resting rules. */
-      stage._cabinTimer = setTimeout(function () { clearCabin(stage); }, 1000);
+      stage._cabinTimer = setTimeout(function () { clearCabin(stage); }, 1800);
     }
   }
 

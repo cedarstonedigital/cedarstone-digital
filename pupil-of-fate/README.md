@@ -200,6 +200,43 @@ Real-time in the two senses that matter without a backend: a posted review
 appears instantly with the aggregate score recomputed, and reviews sync live
 across every open tab via `BroadcastChannel`.
 
+### Real Google reviews
+
+Point the section at the business's Google profile and it pulls the live
+rating, the true total count, and the most recent reviews with author names,
+photos and profile links:
+
+```html
+<script>
+  window.REVIEWS_CONFIG = {
+    google: {
+      placeId: 'ChIJ...',        // Google Place ID for Pupil of Fate
+      apiKey:  'AIza...'          // restricted browser key, see below
+    }
+  };
+</script>
+<script src="assets/js/reviews.js"></script>
+```
+
+Declare it **before** `reviews.js` loads. Find the Place ID with Google's
+Place ID Finder, or from the Business Profile dashboard.
+
+Google returns at most **five** review bodies but reports the real overall
+rating and total count, so the headline figures and the `AggregateRating`
+schema both use the true numbers rather than averaging the five shown.
+
+> **Restrict the key.** A browser key is visible in page source. In Google
+> Cloud Console set an **HTTP referrer restriction** to your domain and an
+> **API restriction** to Places API only. Without both, anyone can lift the
+> key and bill your project. For stronger isolation, proxy the call through a
+> small serverless function and use `endpoint` below instead, so the key
+> never reaches the browser at all.
+
+If the call fails for any reason the section falls back to the endpoint, then
+to the seeded copy, so it is never empty.
+
+### Custom endpoint
+
 Storage is `localStorage` by default, which means reviews are per-device. To
 publish globally, point it at an endpoint:
 

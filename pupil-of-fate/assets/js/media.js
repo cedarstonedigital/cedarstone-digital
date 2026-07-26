@@ -50,18 +50,18 @@
     'mercedes-amg-g63/exterior':                  'hf_20260726_214405_5dfcbc97-b009-4357-9ee2-0b297b6224da',
 
     /* ------------------------------------------------------------ interior */
-    'bugatti-chiron-pur-sport/interior':        'hf_20260726_203241_67893a72-bb9a-45c3-bdb7-e3da0f5ecfba',
-    'ferrari-f40/interior':                     'hf_20260726_203244_fb5b8ace-a4b4-492f-a516-eec1067ad60b',
-    'ferrari-sf90-xx-stradale/interior':        'hf_20260726_203247_611fb02b-a740-4f23-a299-c6372b9ee16e',
-    'lamborghini-revuelto/interior':            'hf_20260726_203248_dc6d9de4-a407-44ad-a917-5d13fb634f35',
-    'mclaren-765lt-spider/interior':            'hf_20260726_203455_841242b8-2e3a-4ea1-a133-243c750a8ee6',
-    'porsche-959-komfort/interior':             'hf_20260726_203457_708dc4f4-163f-4221-82b9-f62d1ec07df4',
-    'rolls-royce-cullinan-black-badge/interior':'hf_20260726_203500_d7a21b96-33a5-491d-b5a9-654c8e8d32a1',
-    'rolls-royce-phantom-coupe/interior':       'hf_20260726_203502_44bedffa-a153-43f5-8082-0ff0ef83689c',
-    'porsche-911-gt3-rs-weissach/interior':     'hf_20260726_203717_1b218c9c-485c-4707-9842-7d8eefa4a3a2',
-    'lamborghini-urus-se/interior':             'hf_20260726_203719_8a7dd001-e24e-4973-b8e7-165201f0f9e4',
-    'bentley-continental-gt-speed/interior':    'hf_20260726_203722_826dc16a-a9a7-49fc-beb2-d7a691c8cbb0',
-    'mercedes-amg-g63/interior':                'hf_20260726_203724_cacfebf6-f51d-4502-bba8-1389cf2b5897',
+    'bugatti-chiron-pur-sport/interior':        'hf_20260726_222931_b0631ee4-9074-46bf-abbe-b0904e971fd1',
+    'ferrari-f40/interior':                     'hf_20260726_222936_3d767893-6d4c-4f0f-a188-5e1c21993822',
+    'ferrari-sf90-xx-stradale/interior':        'hf_20260726_223055_d40d5fe3-fbca-407d-84df-cddf0dff00d9',
+    'lamborghini-revuelto/interior':            'hf_20260726_223057_42d3c459-4f24-444f-a2b2-8d1a6ea57817',
+    'mclaren-765lt-spider/interior':            'hf_20260726_223103_6921668c-b139-46c7-8b28-927bb6a19322',
+    'porsche-959-komfort/interior':             'hf_20260726_223106_8d32da34-f85f-449c-b8ed-e9a514602600',
+    'rolls-royce-cullinan-black-badge/interior':'hf_20260726_222934_6b082880-4ace-4585-a149-54098ddb216b',
+    'rolls-royce-phantom-coupe/interior':       'hf_20260726_223450_21c1b753-11f4-446d-8240-99c7107d1c1e',
+    'porsche-911-gt3-rs-weissach/interior':     'hf_20260726_222939_6b8ba550-f3b7-47d7-8e18-e045f468f798',
+    'lamborghini-urus-se/interior':             'hf_20260726_223453_401324a9-c46a-4b23-aef4-13f20598ce7e',
+    'bentley-continental-gt-speed/interior':    'hf_20260726_223456_e29d26a7-7075-46f2-a3e7-caeb8ab160b6',
+    'mercedes-amg-g63/interior':                'hf_20260726_223458_71f1a1fd-288a-4d9e-aab8-68734d990320',
 
     /* -------------------------------------------------------------- motion */
     /* 5-second turntables on white, generated from each car's own exterior
