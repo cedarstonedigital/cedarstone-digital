@@ -892,6 +892,56 @@ h1, h2, h3, h4 {
 /* Interior frames are real photographs, not cutouts — fill, don't letterbox. */
 .sheet__stage > [data-view="interior"] { object-fit: cover; padding: 0; }
 
+/* --- cabin transition ----------------------------------------------------
+   Any move between the interior and another view is staged as entering or
+   leaving the car rather than a flat crossfade.
+
+   In:  the exterior pushes up toward the door line and dims, as if walking
+        up to the car; the cabin then settles from slightly-too-close to
+        rest, the way eyes adjust when you drop into the seat.
+   Out: the cabin recedes behind you; the car starts large, right where you
+        stood, and settles back to viewing distance.
+
+   Correct resting state never depends on these animations — .is-visible is
+   set first and the keyframes only decorate the change, so an interrupted
+   or reduced-motion transition still lands correctly. The .is-anim guard
+   silences the base opacity transition while keyframes drive the frames. */
+.sheet__stage.is-anim > * { transition: none; }
+
+.sheet__stage > .cabin-enter-out {
+  animation: cabinEnterOut 620ms cubic-bezier(0.5, 0, 0.75, 0.4) both;
+  transform-origin: 60% 58%;   /* push toward the door, not dead centre */
+}
+.sheet__stage > .cabin-enter-in {
+  animation: cabinEnterIn 720ms cubic-bezier(0.16, 0.84, 0.28, 1) 170ms both;
+}
+.sheet__stage > .cabin-exit-out {
+  animation: cabinExitOut 520ms cubic-bezier(0.5, 0, 0.75, 0.4) both;
+}
+.sheet__stage > .cabin-exit-in {
+  animation: cabinExitIn 720ms cubic-bezier(0.16, 0.84, 0.28, 1) 140ms both;
+}
+
+@keyframes cabinEnterOut {
+  0%   { opacity: 1; transform: scale(1);    filter: brightness(1); }
+  55%  { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.58); filter: brightness(0.5); }
+}
+@keyframes cabinEnterIn {
+  0%   { opacity: 0; transform: scale(1.16); filter: brightness(0.45); }
+  45%  { opacity: 1; }
+  100% { opacity: 1; transform: scale(1);    filter: brightness(1); }
+}
+@keyframes cabinExitOut {
+  0%   { opacity: 1; transform: scale(1);    filter: brightness(1); }
+  100% { opacity: 0; transform: scale(0.92); filter: brightness(0.55); }
+}
+@keyframes cabinExitIn {
+  0%   { opacity: 0; transform: scale(1.34); filter: brightness(0.8); }
+  40%  { opacity: 1; }
+  100% { opacity: 1; transform: scale(1);    filter: brightness(1); }
+}
+
 .sheet__tabs {
   display: flex;
   gap: 4px;

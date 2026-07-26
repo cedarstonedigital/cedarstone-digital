@@ -438,6 +438,15 @@
     var stage = $('#sheetStage', panel);
     var video = $('video', stage);
 
+    /* When the settling half of a cabin pass ends, drop the animation classes
+       so the base fade rules take back over. Delegated to the stage, so it
+       survives interrupted passes and needs no per-element bookkeeping. */
+    if (stage) {
+      stage.addEventListener('animationend', function (e) {
+        if (/^cabin(Enter|Exit)In$/.test(e.animationName)) clearCabin(stage);
+      });
+    }
+
     if (video && !reduceMotion) {
       video.load();
       var p = video.play();
@@ -473,7 +482,34 @@
     if (history.replaceState) history.replaceState(null, '', '#car/' + car.slug);
   }
 
+  var CABIN_CLASSES = ['cabin-enter-out', 'cabin-enter-in',
+                       'cabin-exit-out',  'cabin-exit-in'];
+
+  function clearCabin(stage) {
+    if (!stage) return;
+    if (stage._cabinTimer) { clearTimeout(stage._cabinTimer); stage._cabinTimer = null; }
+    stage.classList.remove('is-anim');
+    $$('.sheet__media', stage).forEach(function (m) {
+      CABIN_CLASSES.forEach(function (c) { m.classList.remove(c); });
+    });
+  }
+
   function setView(panel, view) {
+    var stage   = $('#sheetStage', panel);
+    var current = $('.sheet__media.is-visible', panel);
+    var next    = $('.sheet__media[data-view="' + view + '"]', panel);
+
+    /* The cabin choreography runs only when the interior is one end of the
+       change. A repeat tap on the active tab, or exterior<->turntable, keeps
+       the plain fade. Rapid tab taps interrupt cleanly: clearCabin snaps any
+       running pass to its resting state before the next one starts. */
+    var choreograph = !reduceMotion && stage && current && next &&
+                      current !== next &&
+                      (view === 'interior' || current.dataset.view === 'interior');
+
+    clearCabin(stage);
+
+    /* Resting state first — correctness never waits on an animation. */
     $$('.sheet__media', panel).forEach(function (m) {
       var on = m.dataset.view === view;
       m.classList.toggle('is-visible', on);
@@ -487,6 +523,17 @@
       t.classList.toggle('is-active', on);
       t.setAttribute('aria-selected', on);
     });
+
+    if (choreograph) {
+      var entering = view === 'interior';
+      stage.classList.add('is-anim');
+      current.classList.add(entering ? 'cabin-enter-out' : 'cabin-exit-out');
+      next.classList.add(entering ? 'cabin-enter-in' : 'cabin-exit-in');
+      /* animationend is the fast path, but a frame that failed to load is
+         display:none, never animates and never fires the event — so a hard
+         timer guarantees the stage always unwinds to its resting rules. */
+      stage._cabinTimer = setTimeout(function () { clearCabin(stage); }, 1000);
+    }
   }
 
   function closeSheet() {
