@@ -19,18 +19,18 @@ OUT="$ROOT/assets/media"
 
 # key|basename|ext
 ASSETS=$(cat <<'EOF'
-bugatti-chiron-pur-sport/exterior|hf_20260726_202615_c67af167-2100-4a1d-a4b3-4f74841ff997|png
-ferrari-f40/exterior|hf_20260726_202618_514b4992-cb5b-436d-9a0b-86c938174945|png
-ferrari-sf90-xx-stradale/exterior|hf_20260726_202622_7bcc2e6b-4ef8-4e45-8317-1c892209f071|png
-lamborghini-revuelto/exterior|hf_20260726_202624_af47ef6d-16a4-4302-9d47-98ea423100ec|png
-mclaren-765lt-spider/exterior|hf_20260726_202705_01c103f4-2fc6-4f63-acf7-14f80dc348ef|png
-porsche-959-komfort/exterior|hf_20260726_202707_acf01e02-ffc3-4876-abe8-d4006b49335d|png
-rolls-royce-cullinan-black-badge/exterior|hf_20260726_202710_c36667a8-7e56-4720-94b4-004ae52ff570|png
-porsche-911-gt3-rs-weissach/exterior|hf_20260726_202314_087c9525-e25a-423a-88de-71b4c465df20|png
-rolls-royce-phantom-coupe/exterior|hf_20260726_203120_755517f0-762e-4cfc-8d9a-726e6b96f525|png
-lamborghini-urus-se/exterior|hf_20260726_203123_67e31cb0-fb30-42a3-a732-6b6e855064e7|png
-bentley-continental-gt-speed/exterior|hf_20260726_203127_965153d6-760d-4b9a-a3c6-1899a1bc403e|png
-mercedes-amg-g63/exterior|hf_20260726_203128_f72abf5e-b312-4bda-bbd8-945fdb159f93|png
+bugatti-chiron-pur-sport/exterior|hf_20260726_214207_a472a043-65fb-4a32-823d-b0e9fe60e099|png
+ferrari-f40/exterior|hf_20260726_214209_95f3ece3-d454-4edc-8cef-c7e6c89846f5|png
+ferrari-sf90-xx-stradale/exterior|hf_20260726_214211_226d0853-5a13-4b6b-8d35-58e67e3fce7b|png
+lamborghini-revuelto/exterior|hf_20260726_214212_2244e0ed-dad9-4279-8468-29b56407a64c|png
+mclaren-765lt-spider/exterior|hf_20260726_214308_2e09e496-9bfd-490f-b4be-b98c58c22b10|png
+porsche-959-komfort/exterior|hf_20260726_214310_e2eb9ed0-1e72-471b-b543-c5f16fa14694|png
+rolls-royce-cullinan-black-badge/exterior|hf_20260726_214312_7be3c92f-b8a2-452a-9e2c-e0bf34777a5e|png
+porsche-911-gt3-rs-weissach/exterior|hf_20260726_214313_df36c27a-e219-4fa5-a431-dd95ccf21031|png
+rolls-royce-phantom-coupe/exterior|hf_20260726_214400_7c453982-26cc-4a5e-a8e7-df3e3951269e|png
+lamborghini-urus-se/exterior|hf_20260726_214402_ec65beac-b464-4621-a97c-7bde49a100d3|png
+bentley-continental-gt-speed/exterior|hf_20260726_214403_6ba7ea2c-7d01-47ec-a337-7f822866aca0|png
+mercedes-amg-g63/exterior|hf_20260726_214405_5dfcbc97-b009-4357-9ee2-0b297b6224da|png
 bugatti-chiron-pur-sport/interior|hf_20260726_203241_67893a72-bb9a-45c3-bdb7-e3da0f5ecfba|png
 ferrari-f40/interior|hf_20260726_203244_fb5b8ace-a4b4-492f-a516-eec1067ad60b|png
 ferrari-sf90-xx-stradale/interior|hf_20260726_203247_611fb02b-a740-4f23-a299-c6372b9ee16e|png
@@ -43,18 +43,18 @@ porsche-911-gt3-rs-weissach/interior|hf_20260726_203717_1b218c9c-485c-4707-9842-
 lamborghini-urus-se/interior|hf_20260726_203719_8a7dd001-e24e-4973-b8e7-165201f0f9e4|png
 bentley-continental-gt-speed/interior|hf_20260726_203722_826dc16a-a9a7-49fc-beb2-d7a691c8cbb0|png
 mercedes-amg-g63/interior|hf_20260726_203724_cacfebf6-f51d-4502-bba8-1389cf2b5897|png
-porsche-911-gt3-rs-weissach/motion|hf_20260726_203916_dfc4fc57-5b78-4899-80d0-d5e4140101be|mp4
-ferrari-f40/motion|hf_20260726_203918_87f36c72-40f5-49d4-8325-ac65f55d8ff5|mp4
-ferrari-sf90-xx-stradale/motion|hf_20260726_203919_0821f08e-7b13-41b6-9d68-010acb5097cf|mp4
-lamborghini-revuelto/motion|hf_20260726_203921_8b5639d9-a2b7-4a90-add7-3bd2025237f1|mp4
-bugatti-chiron-pur-sport/motion|hf_20260726_204036_d085654d-f583-45cc-911b-09134a33c98b|mp4
-mclaren-765lt-spider/motion|hf_20260726_204307_ec195bfd-8aeb-4a47-b4a4-8a0335c2e870|mp4
-porsche-959-komfort/motion|hf_20260726_204309_8f4055ed-147a-47b0-a931-32a6a6855edc|mp4
-rolls-royce-cullinan-black-badge/motion|hf_20260726_204311_c3d6d16e-8794-446d-aa8f-1dd54dfd9445|mp4
-rolls-royce-phantom-coupe/motion|hf_20260726_204313_0bd125d7-cb06-4064-9f9e-847486730cba|mp4
-lamborghini-urus-se/motion|hf_20260726_204418_b6bd4c3b-87bd-46ea-b645-17c5cc75f729|mp4
-bentley-continental-gt-speed/motion|hf_20260726_204603_3b1a2a13-6bb6-42b4-b382-681b9989a438|mp4
-mercedes-amg-g63/motion|hf_20260726_204606_bff6ce0c-707b-4970-a75b-1961b9758b2a|mp4
+porsche-911-gt3-rs-weissach/motion|hf_20260726_214521_4944cab0-8808-4a92-b365-6e7c254fc437|mp4
+ferrari-sf90-xx-stradale/motion|hf_20260726_214522_427b32c2-9d1d-4c6c-90d9-bd265293ded5|mp4
+lamborghini-revuelto/motion|hf_20260726_214523_8473ddc0-2517-4b13-88fb-705b9709ca92|mp4
+bugatti-chiron-pur-sport/motion|hf_20260726_214525_e00d555e-ade2-4f2c-8868-0fff2277cce2|mp4
+ferrari-f40/motion|hf_20260726_214731_d4a26f2c-7fbb-44ee-a62b-9fe295acdb56|mp4
+mclaren-765lt-spider/motion|hf_20260726_214733_5eb01e03-9e38-42da-b7e0-54030e84b8e3|mp4
+lamborghini-urus-se/motion|hf_20260726_214734_d4dd1c89-bc69-46d2-a460-066b04eab755|mp4
+rolls-royce-cullinan-black-badge/motion|hf_20260726_214735_6c6fbe57-3535-4f30-a2ed-8db37e0a48a4|mp4
+porsche-959-komfort/motion|hf_20260726_215037_cb155750-91a5-4b8c-b5ad-4d521b63a6e1|mp4
+mercedes-amg-g63/motion|hf_20260726_215039_0950ba60-251f-4ce1-ae78-975f0e9eb437|mp4
+bentley-continental-gt-speed/motion|hf_20260726_215040_f5f3f328-4630-4f79-bdfa-6eeab1e2e924|mp4
+brand/film|hf_20260726_215438_1308a1b1-032e-4c7a-959e-2a28b6cdf069|mp4
 EOF
 )
 

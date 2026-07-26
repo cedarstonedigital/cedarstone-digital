@@ -624,8 +624,10 @@
   if (rails[0]) rails[0].textContent = car.engine;
   if (rails[1]) rails[1].textContent = car.transmission;
 
+  /* Prefer the brand film in the hero, falling back to the featured car's
+     own turntable if it has not been produced. */
   var v = $('heroVideo');
-  var src = POF.mediaURL(car.media.motion, 'video');
+  var src = POF.mediaURL('brand/film', 'video') || POF.mediaURL(car.media.motion, 'video');
   if (v && src) v.src = src; else if (v) v.remove();
 
   $('heroOpen').addEventListener('click', function () { POF.openSheet(car.slug); });

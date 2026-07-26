@@ -26,9 +26,9 @@
       .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
-  /* Swap in a graceful gradient tile instead of a broken-image icon and a
+  /* Swap in a plain stage-coloured panel instead of a broken-image icon and a
      stray line of alt text. Applied to every image on the page, so a CDN
-     hiccup degrades to a dark panel rather than a visibly broken layout. */
+     hiccup degrades to an empty stage rather than a visibly broken layout. */
   function guardImage(img) {
     if (img.dataset.guarded) return;
     img.dataset.guarded = '1';
@@ -38,8 +38,7 @@
       var host = img.parentElement;
       if (host && !host.dataset.fallback) {
         host.dataset.fallback = '1';
-        host.style.background =
-          'linear-gradient(135deg, #1A1E25, #12151A 60%, #0C0E12)';
+        host.style.background = '#F7F7F5';
       }
     };
 
@@ -185,7 +184,7 @@
                'alt="' + esc(car.year + ' ' + car.make + ' ' + car.model +
                              ' in ' + car.exteriorColour + ', exterior') + '">' +
           (POF.hasMotion(car.media.motion)
-            ? '<span class="card__motion"><i></i>3D Motion</span>' : '') +
+            ? '<span class="card__motion"><i></i>Turntable</span>' : '') +
         '</div>' +
         '<div class="card__body">' +
           '<div class="card__make">' + esc(car.make) + '</div>' +
@@ -329,7 +328,7 @@
      than no tab. When there is no clip, Exterior becomes the default view. */
   function sheetViews(car) {
     var views = [];
-    if (POF.hasMotion(car.media.motion)) views.push({ id: 'motion', label: '3D Motion' });
+    if (POF.hasMotion(car.media.motion)) views.push({ id: 'motion', label: 'Turntable' });
     views.push({ id: 'exterior', label: 'Exterior' });
     views.push({ id: 'interior', label: 'Interior' });
     return views;
