@@ -21,6 +21,7 @@ ohana-cafe/
 │   ├── css/site.css        # coastal editorial design system
 │   ├── js/
 │   │   ├── media.js        # ← photo/video manifest + loader (start here)
+│   │   ├── photo-drop.js   # preview-only: drop photos in the browser
 │   │   ├── ocean.js        # the live canvas hero
 │   │   └── site.js         # header, drawer, reveals, menu tabs
 │   └── media/              # drop photography here
@@ -184,6 +185,24 @@ references.
 
 ---
 
+## Reviewing with real photos, before committing anything
+
+The preview carries an **Add photos** button (bottom right). Click it, and
+every image slot outlines itself and shows its name. Drag a photograph onto
+one — or click to browse — and it appears immediately.
+
+Photos are downscaled in the browser and kept in `localStorage`, so they
+survive a reload and stay on the reviewer's machine. Nothing uploads
+anywhere. **Copy manifest** then prints the `slot: 'file'` lines to paste
+into `media.js` once the real files are committed.
+
+This exists so the café can see the site with its own photography during
+approval, without anyone touching the repo. It is scaffolding —
+`assets/js/photo-drop.js` gets deleted at go-live, and the real pipeline is
+`media.js`.
+
+---
+
 ## The shareable preview build
 
 `build-preview.py` bundles the whole site into one self-contained file for
@@ -213,7 +232,8 @@ To launch, once Ohana has approved it:
 1. In `index.html`, change the robots meta from `noindex, nofollow` to
    `index, follow, max-image-preview:large`
 2. Delete the `PRE-LAUNCH GUARD` comment block in `<head>`
-3. Delete the `.preview-ribbon` element near the end of `<body>`
+3. Delete the `.preview-ribbon` element near the end of `<body>`, plus
+   `assets/js/photo-drop.js` and its `<script>` tag
 4. Point `<link rel="canonical">` and the JSON-LD `url` at the final domain
 5. Add the real photography first — see above
 
