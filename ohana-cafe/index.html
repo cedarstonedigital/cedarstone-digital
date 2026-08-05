@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#081C23">
 
 <title>Ohana Cafe | Seaside Cafe in Kalk Bay, Cape Town</title>
-<meta name="description" content="Ohana is a relaxed seaside cafe at 23 Main Road, Kalk Bay. All-day breakfast, wholesome bowls, fresh salads, plenty of vegan-friendly options and great coffee — right on the water. Open daily 7:30am–3pm. Call 021 054 6340.">
+<meta name="description" content="Ohana Beach Cafe — a relaxed seaside cafe at 23 Main Road, Kalk Bay. Everything made from scratch: all-day breakfast, Ohanamade breads and cakes, bowls, burgers, vegan options and great coffee, plus our famous Sunday harvest table. Open daily 7:30am–3pm. Call 021 054 6340.">
 
 <!-- PRE-LAUNCH GUARD -----------------------------------------------------
      CedarStone Digital client preview for Ohana Beach Café (Kalk Bay).
@@ -64,6 +64,7 @@
       <a href="#menu">Menu</a>
       <a href="#story">Our Story</a>
       <a href="#gallery">Gallery</a>
+      <a href="#catering">Events</a>
       <a href="#visit">Visit Us</a>
     </nav>
 
@@ -91,6 +92,7 @@
   <a class="drawer-link" href="#menu">Menu</a>
   <a class="drawer-link" href="#story">Our Story</a>
   <a class="drawer-link" href="#gallery">Gallery</a>
+  <a class="drawer-link" href="#catering">Events</a>
   <a class="drawer-link" href="#visit">Visit Us</a>
   <div class="drawer-meta">
     <p>23 Main Road · Kalk Bay</p>
@@ -219,148 +221,355 @@
 
     <!-- category rail -->
     <div class="menu-rail" role="tablist" aria-label="Menu categories" data-reveal>
-      <button class="menu-tab" role="tab" id="tab-breakfast" aria-controls="panel-breakfast" aria-selected="true">Breakfast</button>
-      <button class="menu-tab" role="tab" id="tab-lunch"     aria-controls="panel-lunch"     aria-selected="false">Lunch</button>
-      <button class="menu-tab" role="tab" id="tab-drinks"    aria-controls="panel-drinks"    aria-selected="false">Drinks</button>
-      <button class="menu-tab" role="tab" id="tab-bakes"     aria-controls="panel-bakes"     aria-selected="false">Bakes</button>
+      <button class="menu-tab" role="tab" id="tab-breakfast"  aria-controls="panel-breakfast"  aria-selected="true">Breakfast</button>
+      <button class="menu-tab" role="tab" id="tab-bakery"     aria-controls="panel-bakery"     aria-selected="false">Bakery</button>
+      <button class="menu-tab" role="tab" id="tab-sandwiches" aria-controls="panel-sandwiches" aria-selected="false">Sandwiches</button>
+      <button class="menu-tab" role="tab" id="tab-lunch"      aria-controls="panel-lunch"      aria-selected="false">Lunch</button>
+      <button class="menu-tab" role="tab" id="tab-sunday"     aria-controls="panel-sunday"     aria-selected="false">Sunday</button>
+      <button class="menu-tab" role="tab" id="tab-drinks"     aria-controls="panel-drinks"     aria-selected="false">Drinks</button>
     </div>
 
-    <!-- BREAKFAST -->
+    <!-- ---------------- BREAKFAST ---------------- -->
     <div class="menu-panel" role="tabpanel" id="panel-breakfast" aria-labelledby="tab-breakfast">
       <div class="menu-list">
+
         <article class="menu-item">
-          <h3>Eggs &amp; Breakfast Plates</h3>
-          <p>The classics, done properly — free-range eggs however you like them, with all the usual company.</p>
+          <div class="menu-item-top"><h3>Scrambled Eggs</h3><span class="price">69</span></div>
+          <p>On Ohanamade toast.</p>
+          <p class="menu-add">Add bacon <b>+38</b> · Add smoked salmon <b>+58</b></p>
         </article>
+
         <article class="menu-item">
-          <h3>Avocado Toast</h3>
-          <p>Smashed avo on good bread. Simple, generous, and the reason a lot of people walk through the door.</p>
+          <div class="menu-item-top"><h3>Big Breakfast on the Bay</h3><span class="price">155</span></div>
+          <p>Two free-range eggs, pork sausages, bacon, oven-roasted cherry tomatoes, sautéed mushrooms and your choice of toast.</p>
         </article>
+
         <article class="menu-item">
-          <h3>Vegan Love <span class="tag tag--v">Vegan</span></h3>
-          <p>Sautéed mushrooms, nutty hummus, wilted spinach, sweet tomato relish and toast.</p>
+          <div class="menu-item-top"><h3>Ohana Eggs Benny</h3><span class="price">115</span></div>
+          <p>Two poached eggs on farmstyle toast with our own roasted cherry tomatoes and organic baby spinach, topped with creamy Hollandaise.</p>
         </article>
+
         <article class="menu-item">
-          <h3>Tofu Scramble <span class="tag tag--v">Vegan</span></h3>
-          <p>Our plant-based answer to a big breakfast — savoury, filling and properly seasoned.</p>
+          <div class="menu-item-top"><h3>Salmon Benny</h3><span class="price">149</span></div>
+          <p>Two poached eggs on potato rosti with smoked salmon, organic baby spinach, oven-roasted cherry tomatoes and creamy Hollandaise.</p>
         </article>
+
         <article class="menu-item">
-          <h3>Breakfast &amp; Energy Bowls</h3>
-          <p>Fruit, seeds, nut butters and grains, built to sit well before a swim or a hike.</p>
+          <div class="menu-item-top"><h3>Vegan Love <span class="tag tag--v">Vegan</span></h3><span class="price">135</span></div>
+          <p>Sautéed mushrooms, wilted baby spinach, hummus and Ohanamade tomato relish on toast.</p>
         </article>
+
         <article class="menu-item">
-          <h3>Flapjacks &amp; Pancakes</h3>
-          <p>Including the spinach pancake with turmeric-infused cream cheese and avo.</p>
+          <div class="menu-item-top"><h3>Harissa Tofu Scramble <span class="tag tag--v">Vegan</span></h3><span class="price">92</span></div>
+          <p>On Ohanamade toast, with avo and rocket.</p>
         </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Smashed Avo <span class="tag tag--v">Vegan</span></h3><span class="price">75</span></div>
+          <p>On Ohanamade toast, with rocket, oven-roasted cherry tomatoes and balsamic glaze.</p>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Vegetarian Breakfast</h3><span class="price">125</span></div>
+          <p>Two poached eggs on potato rosti, with sautéed mushrooms, wilted baby spinach and Ohanamade tomato relish.</p>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Banting Halloumi</h3><span class="price">144</span></div>
+          <p>Fried halloumi wedges, sautéed mushrooms, three scrambled eggs and fresh tomato slices.</p>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Three Egg Omelettes</h3><span class="price">135</span></div>
+          <p>Mushroom, baby spinach, goat's cheese and tomato — or bacon and white cheddar. Served with a slice of Ohanamade toast.</p>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Creamy Peri-Peri Chicken Livers</h3><span class="price">80</span></div>
+          <p>Free-range chicken livers in a creamy sauce with our own spice blend and a medium chilli hit, served with a slice of farmstyle toast.</p>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Breakfast Wrap</h3><span class="price">122</span></div>
+          <p>Filled with scrambled egg, Ohanamade tomato relish, fresh tomato, white cheddar and creamy feta.</p>
+          <p class="menu-add">With bacon and avo <b>148</b></p>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Flap Jacks</h3><span class="price">from 99</span></div>
+          <p>Vanilla, jam, cream and golden syrup 99 · Banana, crispy bacon and golden syrup 105 · Vegan apple flapjacks with cinnamon baked apple and Canadian maple syrup 115.</p>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Ohana Roasted Maple Granola</h3><span class="price">98</span></div>
+          <p>Oats, almonds, coconut, cinnamon, goji berries, cranberries, raisins, sultanas, coconut oil and Canadian maple syrup, served with double cream yoghurt, seasonal fruit and a small fresh-pressed orange juice.</p>
+          <p class="menu-add">Vegan coconut yoghurt <b>+28</b> · Raw honey <b>+15</b></p>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Fruit Salad</h3><span class="price">84</span></div>
+          <p>Seasonal fruit in a light ginger and mint syrup, served with double cream yoghurt.</p>
+          <p class="menu-add">Vegan coconut yoghurt <b>+28</b> · Raw honey <b>+15</b></p>
+        </article>
+
       </div>
       <div class="menu-visual">
         <div class="menu-plate">
           <div class="shot shot--dawn" data-slot="menu-breakfast" role="img" aria-label="A breakfast plate at Ohana"></div>
         </div>
-        <span class="menu-chip menu-chip--a">Served all day</span>
-        <span class="menu-chip menu-chip--b">Free-range eggs</span>
+        <span class="menu-chip menu-chip--a">All eggs free range</span>
+        <span class="menu-chip menu-chip--b">Ohanamade breads</span>
       </div>
     </div>
 
-    <!-- LUNCH -->
+    <!-- ---------------- BAKERY ---------------- -->
+    <div class="menu-panel" role="tabpanel" id="panel-bakery" aria-labelledby="tab-bakery" hidden>
+      <div class="menu-list">
+
+        <p class="menu-sub">Bakery</p>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Plain Croissant</h3><span class="price">40</span></div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Croissant with Ohanamade Berry Jam or Cheese</h3><span class="price">45</span></div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Em's Almond Croissant <span class="tag tag--v">Vegan</span></h3><span class="price">55</span></div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Cinnamon Stick</h3><span class="price">35</span></div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Ohana Bun</h3><span class="price">58</span></div>
+        </article>
+
+        <p class="menu-sub">Scones</p>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Plain Scone</h3><span class="price">35</span></div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Scone with Ohanamade Berry Jam and Cream</h3><span class="price">58</span></div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Scone with Ohanamade Berry Jam and Cheese</h3><span class="price">58</span></div>
+        </article>
+
+        <p class="menu-sub">Cakes</p>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Ohanamade Cake Slice</h3><span class="price">from 75</span></div>
+          <p>Have a look in our cake fridge to see what's in today.</p>
+          <p class="menu-add">Full cakes available to pre-order — ask for the whole-cake price list</p>
+        </article>
+
+      </div>
+      <div class="menu-visual">
+        <div class="menu-plate">
+          <div class="shot shot--terra" data-slot="menu-bakery" role="img" aria-label="Ohanamade cake slice with passion fruit and edible flowers"></div>
+        </div>
+        <span class="menu-chip menu-chip--a">Baked on site</span>
+        <span class="menu-chip menu-chip--b">Made from scratch</span>
+      </div>
+    </div>
+
+    <!-- ---------------- SANDWICHES &amp; WRAPS ---------------- -->
+    <div class="menu-panel" role="tabpanel" id="panel-sandwiches" aria-labelledby="tab-sandwiches" hidden>
+      <div class="menu-list">
+
+        <p class="menu-sub">Sandwiches · choose farmstyle white, sourdough wholewheat or rye</p>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Toasted White Cheddar and Tomato</h3><span class="price">85</span></div>
+          <p>With a side of cole slaw.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Toasted Bacon and Cheese</h3><span class="price">98</span></div>
+          <p>With a side of cole slaw.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Toasted Free-Range Chicken and Mayo</h3><span class="price">98</span></div>
+          <p>With a side of cole slaw.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Open Sandwich, Two Poached Eggs</h3><span class="price">92</span></div>
+          <p>On toast with cream cheese and fresh tomato, topped with pesto.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Open Sandwich, Smoked Salmon</h3><span class="price">115</span></div>
+          <p>With cream cheese, lime-pickled sesame cucumber slices and dill.</p>
+        </article>
+
+        <p class="menu-sub">Wraps · served from 12–3:30pm</p>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Falafel Wrap <span class="tag tag--v">Vegan</span></h3><span class="price">135</span></div>
+          <p>Filled with Ohanamade falafel balls, hummus, chopped salad and olives.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Sweet Chilli Chicken Wrap</h3><span class="price">145</span></div>
+          <p>Filled with avocado, leafy greens and cole slaw.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Halloumi Wrap</h3><span class="price">145</span></div>
+          <p>Filled with roast veg, basil pesto and greens.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Vegan Wrap <span class="tag tag--v">Vegan</span></h3><span class="price">129</span></div>
+          <p>Filled with hummus, roast veg, avo, toasted nuts and seeds and a soya orange dressing.</p>
+          <p class="menu-add">Gluten-free wraps on request <b>+25</b></p>
+        </article>
+
+      </div>
+      <div class="menu-visual">
+        <div class="menu-plate">
+          <div class="shot shot--sage" data-slot="menu-sandwiches" role="img" aria-label="A wrap at Ohana"></div>
+        </div>
+        <span class="menu-chip menu-chip--a">Wraps from 12pm</span>
+        <span class="menu-chip menu-chip--b">Ohanamade breads</span>
+      </div>
+    </div>
+
+    <!-- ---------------- LUNCH ---------------- -->
     <div class="menu-panel" role="tabpanel" id="panel-lunch" aria-labelledby="tab-lunch" hidden>
       <div class="menu-list">
+
+        <p class="menu-sub">Lunch · served from 12–3:30pm</p>
         <article class="menu-item">
-          <h3>Fresh Salads</h3>
-          <p>A vibrant selection that changes with what the kitchen finds that week.</p>
+          <div class="menu-item-top"><h3>Seafood Laksa</h3><span class="price">186</span></div>
+          <p>Locally caught fish with fresh mussels, poached in an Ohanamade laksa broth on rice vermicelli, with lightly pickled cucumber on the side.</p>
         </article>
         <article class="menu-item">
-          <h3>Wraps &amp; Sandwiches</h3>
-          <p>Easy, handheld, and built for eating with one eye on the water.</p>
+          <div class="menu-item-top"><h3>Seared Tuna Salad</h3><span class="price">155</span></div>
+          <p>Sliced seared tuna atop a sweet potato, avo and pickled ginger salad, with charred corn and flakes of a seaweed, sesame and chilli brittle — with a lime, honey and coriander drizzle and a dollop of sriracha mayo.</p>
         </article>
         <article class="menu-item">
-          <h3>Buddha Bowls <span class="tag tag--v">Vegan option</span></h3>
-          <p>Grains, greens, roasted veg and dressing — the plate people order twice.</p>
+          <div class="menu-item-top"><h3>Miso Bowl</h3><span class="price">148</span></div>
+          <p>Stir-fried veg in a miso and ginger sauce, zesty quinoa and miso maple glazed aubergine, topped with sesame seeds, cashews, coriander and lime. With tofu (vegan) or chicken strips.</p>
+          <p class="menu-add">Replace tofu or chicken with seared tuna <b>+25</b></p>
         </article>
         <article class="menu-item">
-          <h3>Seafood &amp; Kitchen Plates</h3>
-          <p>Depending on the day: seafood laksa, butter chicken curry, quiche or a burger.</p>
+          <div class="menu-item-top"><h3>Falafel Buddha Bowl <span class="tag tag--v">Vegan</span></h3><span class="price">145</span></div>
+          <p>Ohana-style falafel balls topped with cumin and sesame seeds, on a cucumber and herb salad with lemon hummus dressing and roast sweet potato slices. Balsamic glaze optional.</p>
         </article>
         <article class="menu-item">
-          <h3>The Harvest Table</h3>
-          <p>Our spread of salads and sides — the dish reviewers keep singling out.</p>
+          <div class="menu-item-top"><h3>Middle-Eastern Chicken Koftes with Muhammara</h3><span class="price">145</span></div>
+          <p>Chicken and baby marrow balls on sumac yoghurt, topped with muhammara (roast red pepper, cumin and walnut sauce), surrounded by lime-pickled red onions, mint and pomegranate — with pita wedges to mop up the sauce.</p>
         </article>
         <article class="menu-item">
-          <h3>Daily Specials</h3>
-          <p>A different menu each week, served from 1pm. Ask the team what's on.</p>
+          <div class="menu-item-top"><h3>Leafy Green Salad</h3><span class="price">88</span></div>
+          <p>With feta, olives, avo, optional croutons and Ohanamade soya orange vinaigrette.</p>
+          <p class="menu-add">Miso chicken strips or halloumi <b>+38</b></p>
         </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Tart of the Day</h3><span class="price">135</span></div>
+          <p>A hearty portion, served with side salads.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Soup of the Day</h3><span class="price">from 72</span></div>
+          <p>Please ask about today's flavour.</p>
+        </article>
+
+        <p class="menu-sub">Burgers · with our homemade patties, in-house sauces and a side of potato wedges</p>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>The Ohana Burger</h3><span class="price">168</span></div>
+          <p>Pure beef burger topped with avo and bacon, our own barbecue sauce and chipotle mayo.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Greek Style Chicken Burger</h3><span class="price">155</span></div>
+          <p>Chicken and feta patty with mint tzatziki, a wedge of halloumi and pink pickled onions, with a side of skordalia and olives.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Bowl of Wedges</h3><span class="price">50</span></div>
+          <p>Roast potato wedges with rosemary.</p>
+        </article>
+
       </div>
       <div class="menu-visual">
         <div class="menu-plate">
           <div class="shot shot--sage" data-slot="menu-lunch" role="img" aria-label="A lunch bowl at Ohana"></div>
         </div>
-        <span class="menu-chip menu-chip--a">Specials from 1pm</span>
-        <span class="menu-chip menu-chip--b">Changes weekly</span>
+        <span class="menu-chip menu-chip--a">From 12pm</span>
+        <span class="menu-chip menu-chip--b">Locally caught fish</span>
       </div>
     </div>
 
-    <!-- DRINKS -->
-    <div class="menu-panel" role="tabpanel" id="panel-drinks" aria-labelledby="tab-drinks" hidden>
+    <!-- ---------------- SUNDAY ---------------- -->
+    <div class="menu-panel" role="tabpanel" id="panel-sunday" aria-labelledby="tab-sunday" hidden>
       <div class="menu-list">
         <article class="menu-item">
-          <h3>Specialty Coffee</h3>
-          <p>Flat whites, cappuccinos, americanos — the thing Kalk Bay regulars turn up for.</p>
-        </article>
-        <article class="menu-item">
-          <h3>Fresh Juices</h3>
-          <p>Pressed to order, bright and cold.</p>
-        </article>
-        <article class="menu-item">
-          <h3>Smoothies</h3>
-          <p>Fruit, greens and superfood blends — good before or after the tidal pool.</p>
-        </article>
-        <article class="menu-item">
-          <h3>Chai &amp; Teas</h3>
-          <p>Spiced chai and a proper pot of tea for the non-coffee contingent.</p>
-        </article>
-        <article class="menu-item">
-          <h3>Non-Dairy Milks <span class="tag tag--v">Plant-based</span></h3>
-          <p>Oat, almond and soy available across the whole coffee menu.</p>
+          <div class="menu-item-top"><h3>Ohana's Famous Harvest Table Lunch</h3><span class="price">230</span></div>
+          <p>Our Sunday lunch table, with a different menu every week — seasonal variations featuring meat, fish, vegan and vegetarian options.</p>
+          <p class="menu-add">Sundays only · booking highly advisable</p>
         </article>
       </div>
       <div class="menu-visual">
         <div class="menu-plate">
-          <div class="shot shot--terra" data-slot="menu-drinks" role="img" aria-label="Coffee at Ohana"></div>
+          <div class="shot shot--terra" data-slot="menu-sunday" role="img" aria-label="Ohana's Sunday harvest table"></div>
+        </div>
+        <span class="menu-chip menu-chip--a">A different menu every Sunday</span>
+        <span class="menu-chip menu-chip--b">Book ahead</span>
+      </div>
+    </div>
+
+    <!-- ---------------- DRINKS ---------------- -->
+    <div class="menu-panel" role="tabpanel" id="panel-drinks" aria-labelledby="tab-drinks" hidden>
+      <div class="menu-list">
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Specialty Coffee</h3></div>
+          <p>Flat whites, cappuccinos, americanos — the thing Kalk Bay regulars turn up for.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Non-Dairy Milks <span class="tag tag--v">Plant-based</span></h3></div>
+          <p>Available across the whole coffee menu.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Fresh Pressed Juices</h3></div>
+          <p>Pressed to order, bright and cold.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Smoothies</h3></div>
+          <p>Fruit and greens, blended to order.</p>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-top"><h3>Chai and Teas</h3></div>
+          <p>Spiced chai and a proper pot of tea for the non-coffee contingent.</p>
+        </article>
+        <p class="menu-add" style="margin-top:1.2rem">
+          Our full drinks list and prices are on the menu in store — ask your server.
+        </p>
+      </div>
+      <div class="menu-visual">
+        <div class="menu-plate">
+          <div class="shot shot--dawn" data-slot="menu-drinks" role="img" aria-label="Coffee at Ohana"></div>
         </div>
         <span class="menu-chip menu-chip--a">Oat · Almond · Soy</span>
         <span class="menu-chip menu-chip--b">Pressed to order</span>
       </div>
     </div>
 
-    <!-- BAKES -->
-    <div class="menu-panel" role="tabpanel" id="panel-bakes" aria-labelledby="tab-bakes" hidden>
-      <div class="menu-list">
-        <article class="menu-item">
-          <h3>Fresh Pastries</h3>
-          <p>Out of the oven in the morning, gone by the afternoon.</p>
-        </article>
-        <article class="menu-item">
-          <h3>Cakes</h3>
-          <p>Whatever is under the dome that day. There is usually a vegan one.</p>
-        </article>
-        <article class="menu-item">
-          <h3>Homemade Treats</h3>
-          <p>Slices, bars and small things to go with a second coffee.</p>
-        </article>
-      </div>
-      <div class="menu-visual">
-        <div class="menu-plate">
-          <div class="shot shot--dawn" data-slot="menu-bakes" role="img" aria-label="Cakes and pastries at Ohana"></div>
-        </div>
-        <span class="menu-chip menu-chip--a">Baked daily</span>
-        <span class="menu-chip menu-chip--b">Vegan options</span>
-      </div>
+    <!-- ---------------- EXTRAS ---------------- -->
+    <div class="extras" data-reveal>
+      <h3>Extras &amp; add-ons</h3>
+      <ul class="extras-list">
+        <li><span>Portion of Ohanamade toast (2 slices)</span> <span class="price">20</span></li>
+        <li><span>Raw honey — with toast, pastries, fruit salad or granola</span> <span class="price">15</span></li>
+        <li><span>Side of Greek yoghurt or harissa</span> <span class="price">15</span></li>
+        <li><span>Ohanamade tomato relish / baby spinach</span> <span class="price">20</span></li>
+        <li><span>Bowl of Greek yoghurt</span> <span class="price">25</span></li>
+        <li><span>Vegan coconut yoghurt</span> <span class="price">28</span></li>
+        <li><span>Free-range egg, poached or scrambled</span> <span class="price">17</span></li>
+        <li><span>Canadian maple syrup</span> <span class="price">28</span></li>
+        <li><span>White cheddar / cream cheese / feta / cream</span> <span class="price">20</span></li>
+        <li><span>Mushrooms / avocado / goat's cheese</span> <span class="price">32</span></li>
+        <li><span>Ohanamade berry jam / marmalade / hummus</span> <span class="price">20</span></li>
+        <li><span>Halloumi / potato rosti</span> <span class="price">36</span></li>
+        <li><span>Bacon / pork sausage</span> <span class="price">38</span></li>
+        <li><span>Smoked salmon</span> <span class="price">58</span></li>
+      </ul>
     </div>
 
     <div class="menu-foot">
       <p class="menu-note">
-        Dishes change with the season and the catch. Call ahead if you're after
-        something specific — the kitchen is happy to talk.
+        Everything is made from scratch, so during busy times your food may take
+        a little longer. Prices in South African Rand and subject to change —
+        dishes move with the season and the catch.
       </p>
       <a class="btn btn--primary" href="tel:+27210546340">
         Ask about today's menu
@@ -520,6 +729,22 @@
       </figure>
     </div>
 
+    <div class="award" data-reveal>
+      <div class="award-badge" data-slot="award-badge" role="img"
+           aria-label="CapeTourism.com 2025 Award Nominee — Best Restaurant">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M22 10c-8 5-12 13-12 22 0 9 5 17 12 22-3-7-4-14-4-22s1-15 4-22z"/>
+          <path d="M42 10c8 5 12 13 12 22 0 9-5 17-12 22 3-7 4-14 4-22s-1-15-4-22z"/>
+          <path d="M32 22v14M26 29l6 7 6-7"/>
+        </svg>
+      </div>
+      <div class="award-text">
+        <p class="award-year">2025 Award Nominee</p>
+        <p class="award-name">Best Restaurant</p>
+        <p class="award-src">CapeTourism.com</p>
+      </div>
+    </div>
+
     <p style="margin-top:clamp(30px,4vw,44px)" data-reveal>
       <a class="tlink" href="https://www.tripadvisor.co.za/Restaurant_Review-g1788356-d8835720-Reviews-Ohana-Kalk_Bay_Western_Cape.html" target="_blank" rel="noopener">
         Read more reviews
@@ -560,6 +785,65 @@
       <div class="shot shot--tide  shot--hover g7" data-reveal-img data-slot="gal-7" role="img" aria-label="Kalk Bay tidal pool">
         <span class="shot-caption">Kalk Bay tidal pool</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== OHANA ON THE GO (catering) ==================== -->
+<section class="section togo-section" id="catering" aria-labelledby="togo-h">
+  <div class="wrap">
+    <div class="togo-grid">
+
+      <div class="togo-copy">
+        <p class="eyebrow" data-reveal>Ohana On The Go</p>
+        <h2 class="h-1" id="togo-h" data-reveal data-delay="1">Bringing The Flavours Of Ohana To You</h2>
+        <p class="lede" data-reveal data-delay="2">
+          Ohana is available for venue hire for your next function, with
+          tailor-made menus to suit your event.
+        </p>
+        <ul class="togo-list" data-reveal data-delay="3">
+          <li>Have your own harvest table</li>
+          <li>Choose from our finger food options, or a set menu</li>
+          <li>Outside catering and deliveries</li>
+          <li>Venue hire for functions, with menus built around your event</li>
+        </ul>
+        <div class="togo-actions" data-reveal data-delay="4">
+          <a class="btn btn--primary" href="mailto:ohanakalkbay@gmail.com?subject=Event%20enquiry%20%E2%80%94%20Ohana%20On%20The%20Go">
+            Enquire by email
+            <span class="chip" aria-hidden="true">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+            </span>
+          </a>
+          <a class="btn" href="tel:+27210546340">
+            Call Us
+            <span class="chip" aria-hidden="true">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="togo-media">
+        <div class="shot shot--sage shot--hover" data-reveal-img data-slot="togo" role="img"
+             aria-label="The Ohana team in the café">
+          <span class="shot-caption">The Ohana team</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="shop-band" data-reveal>
+      <div>
+        <h3>The Ohana Shop</h3>
+        <p>A growing selection of locally made items and Ohanamade goodies for
+           sale — have a browse while you wait.</p>
+      </div>
+      <a class="btn btn--sm" href="#visit">
+        Find Us In Store
+        <span class="chip" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+        </span>
+      </a>
     </div>
   </div>
 </section>
@@ -651,16 +935,21 @@
         <span>Daily, 7:30 – 15:00</span>
       </div>
       <div class="contact-card" data-reveal data-delay="1">
+        <p class="visit-label">Email &amp; Events</p>
+        <a href="mailto:ohanakalkbay@gmail.com">ohanakalkbay@gmail.com</a>
+        <span>Catering, venue hire &amp; enquiries</span>
+      </div>
+      <div class="contact-card" data-reveal data-delay="2">
         <p class="visit-label">Instagram</p>
         <a href="https://www.instagram.com/ohana.kalkbay/" target="_blank" rel="noopener">@ohana.kalkbay</a>
         <span>Daily specials &amp; what's on the pass</span>
       </div>
-      <div class="contact-card" data-reveal data-delay="2">
+      <div class="contact-card" data-reveal data-delay="3">
         <p class="visit-label">Facebook</p>
         <a href="https://www.facebook.com/ohana.kalkbay/" target="_blank" rel="noopener">Ohana Cafe</a>
         <span>Reviews &amp; updates</span>
       </div>
-      <div class="contact-card" data-reveal data-delay="3">
+      <div class="contact-card" data-reveal data-delay="4">
         <p class="visit-label">Find Us</p>
         <a href="https://www.google.com/maps/dir/?api=1&destination=Ohana+Cafe%2C+23+Main+Road%2C+Kalk+Bay%2C+Cape+Town" target="_blank" rel="noopener">23 Main Road, Kalk Bay</a>
         <span>Parking along Main Road</span>
@@ -739,6 +1028,7 @@
           <li><a href="#menu">Menu</a></li>
           <li><a href="#story">Our Story</a></li>
           <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#catering">Events &amp; Catering</a></li>
           <li><a href="#visit">Visit Us</a></li>
         </ul>
       </div>
@@ -751,7 +1041,8 @@
           Cape Town, 7975
         </p>
         <p style="margin-top:.9rem">
-          <a href="tel:+27210546340">021 054 6340</a>
+          <a href="tel:+27210546340">021 054 6340</a><br>
+          <a href="mailto:ohanakalkbay@gmail.com">ohanakalkbay@gmail.com</a>
         </p>
       </div>
 
@@ -825,14 +1116,86 @@
     "https://www.tripadvisor.co.za/Restaurant_Review-g1788356-d8835720-Reviews-Ohana-Kalk_Bay_Western_Cape.html"
   ],
   "acceptsReservations": "https://cedarstonedigital.co.za/ohana-cafe/#contact",
+  "email": "ohanakalkbay@gmail.com",
+  "award": "CapeTourism.com 2025 Award Nominee — Best Restaurant",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Vegan options",       "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Vegetarian options",  "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Non-dairy milks",     "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Outside catering",    "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Venue hire",          "value": true }
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "name": "Ohana On The Go — event catering and venue hire",
+    "description": "Venue hire with tailor-made menus, harvest tables, finger food and set menus, plus outside catering and deliveries.",
+    "availableAtOrFrom": { "@type": "Place", "name": "Ohana Beach Caf\u00e9" }
+  },
   "hasMenu": {
     "@type": "Menu",
     "name": "Ohana Menu",
+    "inLanguage": "en-ZA",
     "hasMenuSection": [
-      { "@type": "MenuSection", "name": "Breakfast" },
-      { "@type": "MenuSection", "name": "Lunch" },
-      { "@type": "MenuSection", "name": "Drinks" },
-      { "@type": "MenuSection", "name": "Bakes" }
+      {
+        "@type": "MenuSection",
+        "name": "Breakfast",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Scrambled Eggs", "description": "On Ohanamade toast.", "offers": { "@type": "Offer", "price": "69.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Big Breakfast on the Bay", "description": "Two free-range eggs, pork sausages, bacon, oven-roasted cherry tomatoes, saut\u00e9ed mushrooms and your choice of toast.", "offers": { "@type": "Offer", "price": "155.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Ohana Eggs Benny", "description": "Two poached eggs on farmstyle toast with roasted cherry tomatoes, baby spinach and creamy Hollandaise.", "offers": { "@type": "Offer", "price": "115.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Salmon Benny", "description": "Two poached eggs on potato rosti with smoked salmon, baby spinach and creamy Hollandaise.", "offers": { "@type": "Offer", "price": "149.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Vegan Love", "description": "Saut\u00e9ed mushrooms, wilted baby spinach, hummus and Ohanamade tomato relish on toast.", "suitableForDiet": "https://schema.org/VeganDiet", "offers": { "@type": "Offer", "price": "135.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Harissa Tofu Scramble", "description": "On Ohanamade toast with avo and rocket.", "suitableForDiet": "https://schema.org/VeganDiet", "offers": { "@type": "Offer", "price": "92.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Smashed Avo", "description": "On Ohanamade toast with rocket, oven-roasted cherry tomatoes and balsamic glaze.", "suitableForDiet": "https://schema.org/VeganDiet", "offers": { "@type": "Offer", "price": "75.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Ohana Roasted Maple Granola", "description": "House-roasted granola with double cream yoghurt, seasonal fruit and a small fresh-pressed orange juice.", "offers": { "@type": "Offer", "price": "98.00", "priceCurrency": "ZAR" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Bakery & Cakes",
+        "description": "Baked on site by the Ohana team.",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Plain Croissant", "offers": { "@type": "Offer", "price": "40.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Em's Almond Croissant", "suitableForDiet": "https://schema.org/VeganDiet", "offers": { "@type": "Offer", "price": "55.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Ohana Bun", "offers": { "@type": "Offer", "price": "58.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Ohanamade Cake Slice", "description": "See the cake fridge for today's selection. Full cakes available to pre-order.", "offers": { "@type": "Offer", "price": "75.00", "priceCurrency": "ZAR" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Sandwiches & Wraps",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Toasted White Cheddar and Tomato", "offers": { "@type": "Offer", "price": "85.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Open Sandwich, Smoked Salmon", "offers": { "@type": "Offer", "price": "115.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Falafel Wrap", "description": "Ohanamade falafel balls, hummus, chopped salad and olives.", "suitableForDiet": "https://schema.org/VeganDiet", "offers": { "@type": "Offer", "price": "135.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Sweet Chilli Chicken Wrap", "offers": { "@type": "Offer", "price": "145.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Halloumi Wrap", "offers": { "@type": "Offer", "price": "145.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Vegan Wrap", "suitableForDiet": "https://schema.org/VeganDiet", "offers": { "@type": "Offer", "price": "129.00", "priceCurrency": "ZAR" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Lunch",
+        "description": "Served from 12\u20133:30pm.",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Seafood Laksa", "description": "Locally caught fish with fresh mussels poached in an Ohanamade laksa broth on rice vermicelli.", "offers": { "@type": "Offer", "price": "186.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Seared Tuna Salad", "offers": { "@type": "Offer", "price": "155.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Miso Bowl", "description": "Stir-fried veg in miso and ginger with zesty quinoa and miso maple glazed aubergine, with tofu or chicken.", "offers": { "@type": "Offer", "price": "148.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Falafel Buddha Bowl", "suitableForDiet": "https://schema.org/VeganDiet", "offers": { "@type": "Offer", "price": "145.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Middle-Eastern Chicken Koftes with Muhammara", "offers": { "@type": "Offer", "price": "145.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Leafy Green Salad", "offers": { "@type": "Offer", "price": "88.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "The Ohana Burger", "description": "Pure beef burger with avo, bacon, our own barbecue sauce and chipotle mayo.", "offers": { "@type": "Offer", "price": "168.00", "priceCurrency": "ZAR" } },
+          { "@type": "MenuItem", "name": "Greek Style Chicken Burger", "offers": { "@type": "Offer", "price": "155.00", "priceCurrency": "ZAR" } }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Sunday Lunch",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Ohana's Famous Harvest Table Lunch", "description": "A different menu every Sunday, with seasonal meat, fish, vegan and vegetarian options.", "offers": { "@type": "Offer", "price": "230.00", "priceCurrency": "ZAR" } }
+        ]
+      },
+      { "@type": "MenuSection", "name": "Drinks", "description": "Specialty coffee, fresh pressed juices, smoothies, chai and teas, with oat, almond and soy milk available." }
     ]
   }
 }

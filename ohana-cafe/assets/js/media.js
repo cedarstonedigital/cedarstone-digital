@@ -21,7 +21,10 @@
    hero video ....... 1920×1080 h.264 mp4, <8 MB, silent, 10–20s loop
    story-main ....... 1200×1500 (4:5 portrait)
    story-inset ......  700×700  (square)
-   menu-* ...........  900×900  (square — these are the floating plates)
+   menu-* ...........  900×900  (square — these are the floating plates,
+                                 so centre the dish; the frame is a circle)
+   togo ............. 1400×1120 (5:4 landscape — the team photo)
+   award-badge ......  400×400  (square PNG, transparent background)
    diet-* ...........  900×1200 (3:4 portrait)
    gal-1 / gal-5 .... 1600×1200 (landscape, these are the wide tiles)
    gal-2,3,4,6,7 ....  900×1200 (portrait)
@@ -48,10 +51,21 @@ window.OHANA_MEDIA = {
     'story-main':     null,
     'story-inset':    null,
 
-    'menu-breakfast': null,
-    'menu-lunch':     null,
-    'menu-drinks':    null,
-    'menu-bakes':     null,
+    /* --- The three photos supplied by the café. Uncomment each line as the
+       file lands in assets/media/ — the names are already wired in. ---- */
+    // 'menu-bakery': 'assets/media/cake-slice.jpg',   // passion fruit cake slice
+    // 'togo':        'assets/media/ohana-team.jpg',   // the team, in the café
+    // 'award-badge': 'assets/media/award-2025.png',   // CapeTourism 2025 nominee
+
+    'menu-breakfast':  null,
+    'menu-bakery':     null,
+    'menu-sandwiches': null,
+    'menu-lunch':      null,
+    'menu-sunday':     null,
+    'menu-drinks':     null,
+
+    'togo':           null,
+    'award-badge':    null,
 
     'diet-a':         null,
     'diet-b':         null,

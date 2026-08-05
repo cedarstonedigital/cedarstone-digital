@@ -28,11 +28,26 @@ No dependencies, no framework, no CDN except Google Fonts.
 
 ---
 
-## ⚠️ Two things need real assets before this goes live
+## ⚠️ Assets still needed before this goes live
 
-### 1. Photography — every image slot is currently empty
+### 1. Photography — three photos supplied, not yet on disk
 
-There is **no photography on the site yet**. Every image slot renders an
+The café supplied three images (a passion fruit cake slice, the team photo,
+and the CapeTourism award badge). They came through the chat as pictures
+rather than files, so they are **not in the repo yet** — but their slots are
+already wired and named. Drop the files in and uncomment three lines in
+`media.js`:
+
+```
+assets/media/cake-slice.jpg   -> slot 'menu-bakery'   (the Bakery plate)
+assets/media/ohana-team.jpg   -> slot 'togo'          (Ohana On The Go)
+assets/media/award-2025.png   -> slot 'award-badge'   (reviews section)
+```
+
+The award slot currently shows a simple laurel mark; the real badge replaces
+it automatically once the PNG is present.
+
+Every other image slot renders an
 art-directed coastal gradient instead, so the layout is complete and looks
 deliberate rather than broken — but a café site sells on its food and its
 view, and these need to be real photos.
@@ -47,8 +62,8 @@ slots: {
 ```
 
 No markup or CSS changes. Sizes and slot names are documented at the top of
-`media.js`. There are 21 slots: story (2), menu plates (4), dietary (2),
-gallery (7), Instagram (6).
+`media.js`. There are 24 slots: story (2), menu plates (6), catering (1),
+award (1), dietary (2), gallery (7), Instagram (6) — plus the hero film.
 
 **These must be Ohana's own photographs** (or licensed images). Do not use
 scraped Instagram/Tripadvisor images — the café doesn't own the rights to
@@ -90,6 +105,9 @@ Everything factual on this page was checked against public sources
 | Rating | **3.9 ★ / 109 reviews** | Tripadvisor |
 | Recommend | **96% / 203 reviews** | Facebook |
 | Instagram | `@ohana.kalkbay` | Instagram |
+| Email | ohanakalkbay@gmail.com | Ohana's own menu (catering panel) |
+| Award | CapeTourism.com 2025 Award Nominee — Best Restaurant | Badge supplied by café |
+| Menu & prices | Full menu, ZAR | Ohana's own printed menu |
 
 **On the rating:** the original brief asked for *"4.3 ★ / 1,000+ reviews"*.
 Those are not Ohana's numbers. The real figures are above, and they are what
@@ -105,17 +123,31 @@ Profile rating we should show that too — send it through and it goes in.
 to the platform rather than to invented customer names. No testimonials were
 written for this page.
 
-**On prices:** none are shown, per the brief. The menu lists dishes only.
+**On prices:** the full menu and its real prices are now on the page, taken
+from Ohana's own printed menu — including the `Offer` prices in the structured
+data. Two things to watch:
+
+- Prices change. The menu is plain HTML in one block of `index.html`, and the
+  JSON-LD prices sit just below it. **Update both together**, or Google will
+  keep showing stale prices in search results.
+- The printed menu says wraps and lunch are served **12–3:30pm**, but the
+  listed closing time is **3:00pm**. The page uses 12–3:30pm on those menu
+  sections exactly as printed, and 7:30–15:00 for opening hours. Please
+  confirm which is right — a tourist who reads "lunch until 3:30" and arrives
+  at 3:10 to a closed door is a bad first visit.
+
+**Drinks:** listed without prices, because the supplied menu pages don't
+include a drinks page. That panel says the full drinks list is in store rather
+than inventing figures. Send the drinks menu through and it goes in.
 
 **On dietary claims:** the page says Ohana *offers* vegan, vegetarian and
 gluten-friendly options — it does not claim to be an allergen-free kitchen,
 and says so explicitly. Please don't strengthen that wording without
 checking with the kitchen.
 
-**Not yet included:** no email address is shown, because none could be
-verified. Send one through and it goes into the contact section. There is no
-online booking system — the page directs bookings to the phone, which is what
-Ohana's own Instagram tells people to do.
+**On bookings:** there is no online booking system, so the page directs
+bookings to the phone — which is what Ohana's own Instagram tells people to
+do ("Booking is highly advisable—call 0210546340").
 
 ---
 
