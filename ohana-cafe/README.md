@@ -30,45 +30,32 @@ No dependencies, no framework, no CDN except Google Fonts.
 
 ## ⚠️ Assets still needed before this goes live
 
-### 1. Photography — three photos supplied, not yet on disk
+### 1. Photography — six photos supplied, not yet on disk
 
-The café supplied three images (a passion fruit cake slice, the team photo,
-and the CapeTourism award badge). They came through the chat as pictures
-rather than files, so they are **not in the repo yet** — but their slots are
-already wired and named. Drop the files in and uncomment three lines in
-`media.js`:
+The café has supplied six images. They came through the chat as pictures
+rather than as files, so they are **not in the repo yet** — but every one of
+them already has a home, chosen to match its shape, with alt text and
+captions written to describe that specific photo:
 
-```
-assets/media/cake-slice.jpg   -> slot 'menu-bakery'   (the Bakery plate)
-assets/media/ohana-team.jpg   -> slot 'togo'          (Ohana On The Go)
-assets/media/award-2025.png   -> slot 'award-badge'   (reviews section)
-```
+| File to add | Slot | Where it appears |
+|---|---|---|
+| `rainbow-bay.jpg` | `story-main` | Our Story — square source, safe 4:5 crop |
+| `welcome-sign.jpg` | `gal-1` | Gallery lead tile — "We are all Family" board |
+| `cake-slice.jpg` | `menu-bakery` | Bakery plate — passion fruit cheesecake |
+| `harvest-table.jpg` | `menu-sunday` | Sunday plate — the harvest table being served |
+| `ohana-team.jpg` | `togo` | Ohana On The Go — the team (5:4, exact fit) |
+| `award-2025.png` | `award-badge` | Reviews — replaces the laurel mark |
 
-The award slot currently shows a simple laurel mark; the real badge replaces
-it automatically once the PNG is present.
+Drop each file into `assets/media/` and, in `assets/js/media.js`, replace
+that slot's `null` with the path already written beside it. Nothing else
+changes.
+
+Shapes were matched deliberately. The welcome-sign photo is 4:3 landscape,
+so it goes in a wide gallery tile rather than the 4:5 portrait story slot,
+where a centre crop would clip the lettering. The rainbow is square and
+crops safely, so it takes the portrait slot instead.
 
 Every other image slot renders an
-art-directed coastal gradient instead, so the layout is complete and looks
-deliberate rather than broken — but a café site sells on its food and its
-view, and these need to be real photos.
-
-Adding them is a one-file job. Open `assets/js/media.js` and fill in a slot:
-
-```js
-slots: {
-  'gal-1': 'assets/media/harbour-view.jpg',   // ← that's it
-  ...
-}
-```
-
-No markup or CSS changes. Sizes and slot names are documented at the top of
-`media.js`. There are 24 slots: story (2), menu plates (6), catering (1),
-award (1), dietary (2), gallery (7), Instagram (6) — plus the hero film.
-
-**These must be Ohana's own photographs** (or licensed images). Do not use
-scraped Instagram/Tripadvisor images — the café doesn't own the rights to
-all of those, and generic stock will undo the whole design.
-
 ### 2. The hero background film
 
 The brief called for a video background. Until one exists, the hero runs a

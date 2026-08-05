@@ -45,45 +45,57 @@ window.OHANA_MEDIA = {
   },
 
   /* ---- Photography slots ----------------------------------
-     Leave a value as null (or delete the line) to keep the
-     generative coastal fill for that slot.                     */
-  slots: {
-    'story-main':     null,
-    'story-inset':    null,
+     Leave a value as null to keep the generative coastal fill.
 
-    /* --- The three photos supplied by the café. Uncomment each line as the
-       file lands in assets/media/ — the names are already wired in. ---- */
-    // 'menu-bakery': 'assets/media/cake-slice.jpg',   // passion fruit cake slice
-    // 'togo':        'assets/media/ohana-team.jpg',   // the team, in the café
-    // 'award-badge': 'assets/media/award-2025.png',   // CapeTourism 2025 nominee
+     Six photos have been supplied by the café and each already has a home,
+     with matching alt text and captions written into index.html. To use one,
+     replace its `null` with the quoted path beside it. Nothing else changes.
+
+     Each slot appears EXACTLY ONCE below, on purpose. This is a plain object
+     literal, so if the same key is listed twice the later one silently wins —
+     which would leave a photo configured but invisible. Edit in place; don't
+     add a second entry.                                                    */
+  slots: {
+    /* rainbow over the water at Kalk Bay. Square source, so this 4:5
+       portrait slot crops it safely. */
+    'story-main':      null,  // 'assets/media/rainbow-bay.jpg'
+    'story-inset':     null,
 
     'menu-breakfast':  null,
-    'menu-bakery':     null,
+    /* passion fruit cheesecake, icing sugar, edible viola flowers */
+    'menu-bakery':     null,  // 'assets/media/cake-slice.jpg'
     'menu-sandwiches': null,
     'menu-lunch':      null,
-    'menu-sunday':     null,
+    /* the Sunday harvest table being served — square source, ideal for
+       the circular plate frame */
+    'menu-sunday':     null,  // 'assets/media/harvest-table.jpg'
     'menu-drinks':     null,
 
-    'togo':           null,
-    'award-badge':    null,
+    /* the team in the café — 5:4 source, an exact fit for this slot */
+    'togo':            null,  // 'assets/media/ohana-team.jpg'
+    /* CapeTourism 2025 nominee badge. Square PNG, transparent background —
+       it replaces the laurel mark automatically once present. */
+    'award-badge':     null,  // 'assets/media/award-2025.png'
 
-    'diet-a':         null,
-    'diet-b':         null,
+    'diet-a':          null,
+    'diet-b':          null,
 
-    'gal-1':          null,
-    'gal-2':          null,
-    'gal-3':          null,
-    'gal-4':          null,
-    'gal-5':          null,
-    'gal-6':          null,
-    'gal-7':          null,
+    /* the hand-painted "We are all Family" board. 4:3 source into the wide
+       gallery tile — near-native fit, so none of the lettering is clipped. */
+    'gal-1':           null,  // 'assets/media/welcome-sign.jpg'
+    'gal-2':           null,
+    'gal-3':           null,
+    'gal-4':           null,
+    'gal-5':           null,
+    'gal-6':           null,
+    'gal-7':           null,
 
-    'ig-1':           null,
-    'ig-2':           null,
-    'ig-3':           null,
-    'ig-4':           null,
-    'ig-5':           null,
-    'ig-6':           null
+    'ig-1':            null,
+    'ig-2':            null,
+    'ig-3':            null,
+    'ig-4':            null,
+    'ig-5':            null,
+    'ig-6':            null
   },
 
   /* ---- Optional alt-text overrides ------------------------
@@ -151,19 +163,28 @@ window.OHANA_MEDIA = {
     img.alt      = alts[name] || host.getAttribute('aria-label') || '';
 
     img.addEventListener('load', function () {
-      // The host carries role="img" + aria-label for the placeholder
-      // state; once a real <img> with alt text is inside, that would
-      // double up for screen readers, so hand the role over.
+      // The host carries role="img" + aria-label for the placeholder state;
+      // now that a real <img> with alt text is inside, that would double up
+      // for screen readers, so hand the role over.
       host.removeAttribute('role');
       host.removeAttribute('aria-label');
-      host.insertBefore(img, host.firstChild);
-      requestAnimationFrame(function () { img.classList.add('is-loaded'); });
+      img.classList.add('is-loaded');          // CSS fades + settles it in
     }, { once: true });
 
     img.addEventListener('error', function () {
+      // Missing file or unsupported codec: drop back to the gradient and
+      // leave the host's role/aria-label intact.
+      img.remove();
       if (window.console) console.warn('[ohana] missing image for slot "' + name + '": ' + src);
     }, { once: true });
 
+    // Insert BEFORE setting src. A lazily-loaded image that is not in the
+    // document never begins fetching, so building it detached and only
+    // attaching it on load would deadlock — it can't load until it's in the
+    // DOM, and it never reaches the DOM because it never loads. It starts at
+    // opacity 0 (see .shot img), so the gradient shows until the photo
+    // decodes and `is-loaded` fades it up.
+    host.insertBefore(img, host.firstChild);
     img.src = src;
   });
 })();
