@@ -5,6 +5,9 @@ Cape Town), built by **CedarStone Digital**. Single page, self-contained,
 no build step — open `index.html` and it runs.
 
 Live path once deployed: `https://cedarstonedigital.co.za/ohana-cafe/`
+(not live yet — this branch is not merged to `main`)
+
+**Shareable preview:** https://claude.ai/code/artifact/7ac399b5-1b58-4e33-b4cb-386dbf2e639f
 
 ---
 
@@ -178,6 +181,23 @@ references.
 - Targets: *Ohana Cafe Kalk Bay*, *cafes in Kalk Bay*, *breakfast Kalk Bay*,
   *vegan cafes Kalk Bay*, *seaside cafe Cape Town*, *coffee Kalk Bay*
 - Geo meta for the Western Cape / Kalk Bay
+
+---
+
+## The shareable preview build
+
+`build-preview.py` bundles the whole site into one self-contained file for
+sharing before deployment. It inlines the CSS and JS, downloads the three
+Google Font families and embeds them as data URIs, and swaps the Google Maps
+iframe for the address panel that already sits behind it — because the
+preview host blocks every external request.
+
+```
+python3 build-preview.py     # writes a single-file build to the scratch path
+```
+
+This is for sharing a link only. **Deploy the real `index.html`**, which keeps
+the live map, the linked assets, the meta tags and the JSON-LD.
 
 ---
 
