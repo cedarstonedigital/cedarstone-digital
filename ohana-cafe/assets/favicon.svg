@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ohana">
+  <rect width="64" height="64" rx="14" fill="#14414F"/>
+  <!-- sun low over the water -->
+  <circle cx="32" cy="27" r="11" fill="#E4B292"/>
+  <!-- horizon + two swells -->
+  <g fill="none" stroke="#F8F4ED" stroke-width="3.4" stroke-linecap="round">
+    <path d="M12 39c4.2 0 4.2-3.4 8.4-3.4S24.6 39 28.8 39s4.2-3.4 8.4-3.4S41.4 39 45.6 39s4.2-3.4 6.4-3.4"/>
+    <path d="M12 48c4.2 0 4.2-3.4 8.4-3.4S24.6 48 28.8 48s4.2-3.4 8.4-3.4S41.4 48 45.6 48s4.2-3.4 6.4-3.4" opacity=".6"/>
+  </g>
+</svg>

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#081C23">
+
+<title>Ohana Cafe | Seaside Cafe in Kalk Bay, Cape Town</title>
+<meta name="description" content="Ohana is a relaxed seaside cafe at 23 Main Road, Kalk Bay. All-day breakfast, wholesome bowls, fresh salads, plenty of vegan-friendly options and great coffee — right on the water. Open daily 7:30am–3pm. Call 021 054 6340.">
+
+<!-- PRE-LAUNCH GUARD -----------------------------------------------------
+     CedarStone Digital client preview for Ohana Beach Café (Kalk Bay).
+     It uses the café's real trading name, address, phone number and
+     published review excerpts, so it must NOT be indexed or mistaken
+     for the café's own live site while it is still a proposal.
+
+     To go live: delete this comment, delete the .preview-ribbon element
+     near the end of <body>, and change the robots meta below from
+     "noindex, nofollow" to "index, follow, max-image-preview:large".
+     Written as a single literal robots element on purpose. -->
+<meta name="robots" content="noindex, nofollow">
+
+<meta name="author" content="Ohana Beach Café">
+<meta name="geo.region" content="ZA-WC">
+<meta name="geo.placename" content="Kalk Bay, Cape Town">
+<meta name="geo.position" content="-34.127500;18.448600">
+<meta name="ICBM" content="-34.127500, 18.448600">
+
+<link rel="canonical" href="https://cedarstonedigital.co.za/ohana-cafe/">
+
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:site_name" content="Ohana Beach Café">
+<meta property="og:title" content="Ohana Cafe | Seaside Cafe in Kalk Bay, Cape Town">
+<meta property="og:description" content="Good food, good coffee, good vibes — a relaxed seaside cafe on Main Road, Kalk Bay. All-day breakfast, wholesome bowls and vegan-friendly plates by the ocean.">
+<meta property="og:locale" content="en_ZA">
+<meta property="og:url" content="https://cedarstonedigital.co.za/ohana-cafe/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ohana Cafe | Seaside Cafe in Kalk Bay, Cape Town">
+<meta name="twitter:description" content="A relaxed seaside cafe in the heart of Kalk Bay. Breakfast, bowls, bakes and great coffee by the ocean.">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+
+<body id="top">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ==================== HEADER ==================== -->
+<header class="site-header" id="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Ohana Beach Café — home">
+      <span class="brand-word">Ohana</span>
+      <span class="brand-sub">Kalk Bay</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#top">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#story">Our Story</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit Us</a>
+    </nav>
+
+    <a class="btn btn--light btn--sm header-cta"
+       href="https://www.google.com/maps/dir/?api=1&destination=Ohana+Cafe%2C+23+Main+Road%2C+Kalk+Bay%2C+Cape+Town"
+       target="_blank" rel="noopener">
+      Get Directions
+      <span class="chip" aria-hidden="true">
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+      </span>
+    </a>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Site menu">
+  <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 1l12 12M13 1L1 13"/></svg>
+  </button>
+  <a class="drawer-link" href="#top">Home</a>
+  <a class="drawer-link" href="#menu">Menu</a>
+  <a class="drawer-link" href="#story">Our Story</a>
+  <a class="drawer-link" href="#gallery">Gallery</a>
+  <a class="drawer-link" href="#visit">Visit Us</a>
+  <div class="drawer-meta">
+    <p>23 Main Road · Kalk Bay</p>
+    <p>Daily 7:30 – 15:00</p>
+    <a class="btn btn--light btn--sm" href="tel:+27210546340">
+      Call 021 054 6340
+      <span class="chip" aria-hidden="true">
+        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+      </span>
+    </a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" aria-label="Welcome to Ohana Beach Café">
+  <div class="hero-media">
+    <!-- A background film drops in here (assets/media/hero.mp4) via media.js.
+         Until then a live canvas renders the Kalk Bay horizon so the hero
+         is never a dead grey plate. -->
+    <canvas id="oceanCanvas" aria-hidden="true"></canvas>
+  </div>
+
+  <div class="wrap hero-inner">
+    <p class="hero-locale">Kalk Bay · Cape Town</p>
+
+    <h1 class="h-display">
+      <span class="line"><span>Good Food.</span></span>
+      <span class="line"><span>Good Coffee.</span></span>
+      <span class="line"><span>Good Vibes.</span></span>
+    </h1>
+
+    <p class="hero-support">
+      A relaxed seaside café in the heart of Kalk Bay, serving fresh food,
+      great coffee and wholesome options with an ocean-side atmosphere.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn--primary" href="#menu">
+        View Menu
+        <span class="chip" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+        </span>
+      </a>
+      <a class="btn btn--light" href="#visit">
+        Find Us
+        <span class="chip" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+        </span>
+      </a>
+    </div>
+
+    <div class="hero-foot">
+      <p class="hero-hours">
+        Open daily <b>7:30 – 15:00</b><br>
+        23 Main Road, Kalk Bay
+      </p>
+      <p class="scroll-cue"><i aria-hidden="true"></i> Scroll to discover</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT / STORY ==================== -->
+<section class="section" id="story" aria-labelledby="story-h">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <div class="about-media">
+        <div class="shot shot--tide shot--hover" data-reveal-img data-slot="story-main" role="img"
+             aria-label="The ocean-side terrace at Ohana, Kalk Bay">
+          <span class="shot-caption">The terrace, late morning</span>
+        </div>
+        <div class="shot shot--dawn shot--inset" data-slot="story-inset" role="img"
+             aria-label="Coffee being poured at Ohana"></div>
+      </div>
+
+      <div class="about-copy">
+        <p class="eyebrow" data-reveal>Our Story</p>
+        <h2 class="h-1" id="story-h" data-reveal data-delay="1">A Little Bit of Ohana</h2>
+        <p class="lede" data-reveal data-delay="2">
+          Ohana means family — and that is more or less how the place runs.
+        </p>
+        <p data-reveal data-delay="3">
+          We are a small café on Main Road in Kalk Bay, close enough to the water that
+          you can hear it over the coffee machine. People come in after a swim at the
+          tidal pool, after the market, after a long walk along the harbour — and stay
+          a lot longer than they meant to.
+        </p>
+        <p data-reveal data-delay="4">
+          The food is made fresh, in a small kitchen, by people who actually eat it.
+          There is always something plant-based on the pass, always a cake under the
+          dome, and always a table where somebody is on their third cappuccino with
+          no intention of leaving. That is the idea.
+        </p>
+        <p class="about-sig" data-reveal data-delay="5">Pull up a chair. You are family here.</p>
+        <p data-reveal data-delay="5">
+          <a class="tlink" href="#menu">
+            Discover our menu
+            <svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+          </a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="quote-strip" data-reveal>
+      <q>High marks for its plant-led menu — and its location on the water.</q>
+      <cite>Winemag · Kalk Bay restaurant review</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MENU ==================== -->
+<section class="menu-section" id="menu" aria-labelledby="menu-h">
+  <div class="wrap">
+
+    <div class="menu-head">
+      <p class="eyebrow eyebrow--light" data-reveal>The Menu</p>
+      <h2 class="h-1" id="menu-h" data-reveal data-delay="1">Made Fresh. Served With Love.</h2>
+      <p class="lede" data-reveal data-delay="2">
+        From relaxed breakfasts and wholesome bowls to freshly baked treats and great
+        coffee, there's something for every kind of morning or afternoon.
+      </p>
+    </div>
+
+    <!-- category rail -->
+    <div class="menu-rail" role="tablist" aria-label="Menu categories" data-reveal>
+      <button class="menu-tab" role="tab" id="tab-breakfast" aria-controls="panel-breakfast" aria-selected="true">Breakfast</button>
+      <button class="menu-tab" role="tab" id="tab-lunch"     aria-controls="panel-lunch"     aria-selected="false">Lunch</button>
+      <button class="menu-tab" role="tab" id="tab-drinks"    aria-controls="panel-drinks"    aria-selected="false">Drinks</button>
+      <button class="menu-tab" role="tab" id="tab-bakes"     aria-controls="panel-bakes"     aria-selected="false">Bakes</button>
+    </div>
+
+    <!-- BREAKFAST -->
+    <div class="menu-panel" role="tabpanel" id="panel-breakfast" aria-labelledby="tab-breakfast">
+      <div class="menu-list">
+        <article class="menu-item">
+          <h3>Eggs &amp; Breakfast Plates</h3>
+          <p>The classics, done properly — free-range eggs however you like them, with all the usual company.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Avocado Toast</h3>
+          <p>Smashed avo on good bread. Simple, generous, and the reason a lot of people walk through the door.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Vegan Love <span class="tag tag--v">Vegan</span></h3>
+          <p>Sautéed mushrooms, nutty hummus, wilted spinach, sweet tomato relish and toast.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Tofu Scramble <span class="tag tag--v">Vegan</span></h3>
+          <p>Our plant-based answer to a big breakfast — savoury, filling and properly seasoned.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Breakfast &amp; Energy Bowls</h3>
+          <p>Fruit, seeds, nut butters and grains, built to sit well before a swim or a hike.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Flapjacks &amp; Pancakes</h3>
+          <p>Including the spinach pancake with turmeric-infused cream cheese and avo.</p>
+        </article>
+      </div>
+      <div class="menu-visual">
+        <div class="menu-plate">
+          <div class="shot shot--dawn" data-slot="menu-breakfast" role="img" aria-label="A breakfast plate at Ohana"></div>
+        </div>
+        <span class="menu-chip menu-chip--a">Served all day</span>
+        <span class="menu-chip menu-chip--b">Free-range eggs</span>
+      </div>
+    </div>
+
+    <!-- LUNCH -->
+    <div class="menu-panel" role="tabpanel" id="panel-lunch" aria-labelledby="tab-lunch" hidden>
+      <div class="menu-list">
+        <article class="menu-item">
+          <h3>Fresh Salads</h3>
+          <p>A vibrant selection that changes with what the kitchen finds that week.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Wraps &amp; Sandwiches</h3>
+          <p>Easy, handheld, and built for eating with one eye on the water.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Buddha Bowls <span class="tag tag--v">Vegan option</span></h3>
+          <p>Grains, greens, roasted veg and dressing — the plate people order twice.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Seafood &amp; Kitchen Plates</h3>
+          <p>Depending on the day: seafood laksa, butter chicken curry, quiche or a burger.</p>
+        </article>
+        <article class="menu-item">
+          <h3>The Harvest Table</h3>
+          <p>Our spread of salads and sides — the dish reviewers keep singling out.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Daily Specials</h3>
+          <p>A different menu each week, served from 1pm. Ask the team what's on.</p>
+        </article>
+      </div>
+      <div class="menu-visual">
+        <div class="menu-plate">
+          <div class="shot shot--sage" data-slot="menu-lunch" role="img" aria-label="A lunch bowl at Ohana"></div>
+        </div>
+        <span class="menu-chip menu-chip--a">Specials from 1pm</span>
+        <span class="menu-chip menu-chip--b">Changes weekly</span>
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div class="menu-panel" role="tabpanel" id="panel-drinks" aria-labelledby="tab-drinks" hidden>
+      <div class="menu-list">
+        <article class="menu-item">
+          <h3>Specialty Coffee</h3>
+          <p>Flat whites, cappuccinos, americanos — the thing Kalk Bay regulars turn up for.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Fresh Juices</h3>
+          <p>Pressed to order, bright and cold.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Smoothies</h3>
+          <p>Fruit, greens and superfood blends — good before or after the tidal pool.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Chai &amp; Teas</h3>
+          <p>Spiced chai and a proper pot of tea for the non-coffee contingent.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Non-Dairy Milks <span class="tag tag--v">Plant-based</span></h3>
+          <p>Oat, almond and soy available across the whole coffee menu.</p>
+        </article>
+      </div>
+      <div class="menu-visual">
+        <div class="menu-plate">
+          <div class="shot shot--terra" data-slot="menu-drinks" role="img" aria-label="Coffee at Ohana"></div>
+        </div>
+        <span class="menu-chip menu-chip--a">Oat · Almond · Soy</span>
+        <span class="menu-chip menu-chip--b">Pressed to order</span>
+      </div>
+    </div>
+
+    <!-- BAKES -->
+    <div class="menu-panel" role="tabpanel" id="panel-bakes" aria-labelledby="tab-bakes" hidden>
+      <div class="menu-list">
+        <article class="menu-item">
+          <h3>Fresh Pastries</h3>
+          <p>Out of the oven in the morning, gone by the afternoon.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Cakes</h3>
+          <p>Whatever is under the dome that day. There is usually a vegan one.</p>
+        </article>
+        <article class="menu-item">
+          <h3>Homemade Treats</h3>
+          <p>Slices, bars and small things to go with a second coffee.</p>
+        </article>
+      </div>
+      <div class="menu-visual">
+        <div class="menu-plate">
+          <div class="shot shot--dawn" data-slot="menu-bakes" role="img" aria-label="Cakes and pastries at Ohana"></div>
+        </div>
+        <span class="menu-chip menu-chip--a">Baked daily</span>
+        <span class="menu-chip menu-chip--b">Vegan options</span>
+      </div>
+    </div>
+
+    <div class="menu-foot">
+      <p class="menu-note">
+        Dishes change with the season and the catch. Call ahead if you're after
+        something specific — the kitchen is happy to talk.
+      </p>
+      <a class="btn btn--primary" href="tel:+27210546340">
+        Ask about today's menu
+        <span class="chip" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+        </span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== DIETARY ==================== -->
+<section class="section" id="dietary" aria-labelledby="diet-h">
+  <div class="wrap">
+    <div class="diet-grid">
+
+      <div class="diet-media">
+        <div class="shot shot--sage shot--hover" data-reveal-img data-slot="diet-a" role="img"
+             aria-label="A vegan plate at Ohana"></div>
+        <div class="shot shot--terra shot--hover" data-reveal-img data-slot="diet-b" role="img"
+             aria-label="A fresh salad at Ohana"></div>
+      </div>
+
+      <div class="diet-copy">
+        <p class="eyebrow" data-reveal>Dietary</p>
+        <h2 class="h-1" id="diet-h" data-reveal data-delay="1">Something For Everyone</h2>
+        <p class="lede" data-reveal data-delay="2">
+          Ohana has always leaned plant-forward. There are vegan-friendly dishes on
+          every part of the menu, and non-dairy milk across the whole coffee list.
+        </p>
+        <p data-reveal data-delay="3">
+          Vegetarians are spoilt for choice, and the kitchen will happily talk through
+          what can be adapted. If you have a specific allergy or requirement, mention it
+          when you order — or call ahead and we'll tell you honestly what works.
+        </p>
+        <div class="badges" data-reveal data-delay="4">
+          <span class="badge">Vegan options</span>
+          <span class="badge">Vegetarian options</span>
+          <span class="badge">Gluten-friendly options</span>
+          <span class="badge">Non-dairy milks</span>
+        </div>
+        <p class="diet-caveat" data-reveal data-delay="5">
+          These are options on the menu, not the whole menu — Ohana is not an
+          exclusively vegan or gluten-free kitchen, and it isn't an allergen-free
+          environment. Please tell us what you need and we'll be straight with you.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHY OHANA ==================== -->
+<section class="section section--flush-top" aria-labelledby="why-h">
+  <div class="wrap">
+    <div class="section-head section-head--center" style="margin-bottom:clamp(38px,5vw,60px)">
+      <p class="eyebrow eyebrow--plain" data-reveal>Why Ohana</p>
+      <h2 class="h-2" id="why-h" data-reveal data-delay="1">Worth The Drive Out</h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card" data-reveal>
+        <div class="why-ico" aria-hidden="true">🌊</div>
+        <h3>Seaside Location</h3>
+        <p>Right on Main Road in Kalk Bay, with the harbour, the tidal pool and the whole coast on your doorstep.</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="1">
+        <div class="why-ico" aria-hidden="true">☕</div>
+        <h3>Great Coffee</h3>
+        <p>Properly made coffee and fresh drinks, with oat, almond and soy across the board.</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="2">
+        <div class="why-ico" aria-hidden="true">🥑</div>
+        <h3>Fresh Food</h3>
+        <p>Wholesome, colourful, generous plates — cooked in a small kitchen, made to order.</p>
+      </div>
+      <div class="why-card" data-reveal data-delay="3">
+        <div class="why-ico" aria-hidden="true">🌿</div>
+        <h3>Plant-Based Options</h3>
+        <p>A genuine selection of vegan-friendly dishes and non-dairy alternatives, not an afterthought.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== REVIEWS ==================== -->
+<section class="section reviews-section" id="reviews" aria-labelledby="rev-h">
+  <div class="wrap">
+
+    <div class="reviews-top">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal>Reviews</p>
+        <h2 class="h-1" id="rev-h" data-reveal data-delay="1">Loved By Locals &amp; Visitors</h2>
+      </div>
+
+      <div class="rating-block" data-reveal data-delay="2">
+        <div class="rating-figure">
+          <p class="rating-score">3.9 <span class="star" aria-hidden="true">★</span></p>
+          <p class="rating-meta">109 reviews · Tripadvisor</p>
+        </div>
+        <div class="rating-divider" aria-hidden="true"></div>
+        <div class="rating-figure">
+          <p class="rating-score">96%</p>
+          <p class="rating-meta">recommend · 203 Facebook reviews</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-grid">
+      <figure class="review-card" data-reveal>
+        <div>
+          <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <blockquote>Incredible views and excellent meals. The service was excellent and the staff were friendly and very helpful.</blockquote>
+        </div>
+        <figcaption class="review-src">Tripadvisor review</figcaption>
+      </figure>
+
+      <figure class="review-card" data-reveal data-delay="1">
+        <div>
+          <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <blockquote>A lovely cafe with a great vibe and friendly staff. The portions are generous, colourful and healthy.</blockquote>
+        </div>
+        <figcaption class="review-src">Trip.com review</figcaption>
+      </figure>
+
+      <figure class="review-card" data-reveal data-delay="2">
+        <div>
+          <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <blockquote>I have eaten at many restaurants in Kalk Bay, and I can safely say this is my favourite breakfast spot in the area.</blockquote>
+        </div>
+        <figcaption class="review-src">Facebook review</figcaption>
+      </figure>
+
+      <figure class="review-card" data-reveal data-delay="3">
+        <div>
+          <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <blockquote>The Harvest Table was very delicious. Highly recommended.</blockquote>
+        </div>
+        <figcaption class="review-src">Tripadvisor review</figcaption>
+      </figure>
+
+      <figure class="review-card" data-reveal data-delay="4">
+        <div>
+          <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <blockquote>Service was top notch. We had wraps, sandwiches and cake, smoothies, juices and cappuccinos. Great experience!</blockquote>
+        </div>
+        <figcaption class="review-src">Tripadvisor review</figcaption>
+      </figure>
+
+      <figure class="review-card" data-reveal data-delay="5">
+        <div>
+          <p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p>
+          <blockquote>Amazing location, fresh, delicious food, great service.</blockquote>
+        </div>
+        <figcaption class="review-src">Tripadvisor review</figcaption>
+      </figure>
+    </div>
+
+    <p style="margin-top:clamp(30px,4vw,44px)" data-reveal>
+      <a class="tlink" href="https://www.tripadvisor.co.za/Restaurant_Review-g1788356-d8835720-Reviews-Ohana-Kalk_Bay_Western_Cape.html" target="_blank" rel="noopener">
+        Read more reviews
+        <svg width="13" height="13" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+      </a>
+    </p>
+
+  </div>
+</section>
+
+<!-- ==================== GALLERY ==================== -->
+<section class="section" id="gallery" aria-labelledby="gal-h">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:clamp(32px,4vw,50px)">
+      <p class="eyebrow" data-reveal>Gallery</p>
+      <h2 class="h-1" id="gal-h" data-reveal data-delay="1">A Look Around</h2>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="shot shot--tide  shot--hover g1" data-reveal-img data-slot="gal-1" role="img" aria-label="The view over Kalk Bay harbour from Ohana">
+        <span class="shot-caption">The view from the terrace</span>
+      </div>
+      <div class="shot shot--dawn  shot--hover g2" data-reveal-img data-slot="gal-2" role="img" aria-label="Ohana café exterior on Main Road">
+        <span class="shot-caption">Main Road frontage</span>
+      </div>
+      <div class="shot shot--sage  shot--hover g3" data-reveal-img data-slot="gal-3" role="img" aria-label="A breakfast plate">
+        <span class="shot-caption">Breakfast, served all day</span>
+      </div>
+      <div class="shot shot--terra shot--hover g4" data-reveal-img data-slot="gal-4" role="img" aria-label="Coffee on the counter">
+        <span class="shot-caption">Flat white</span>
+      </div>
+      <div class="shot shot--deep  shot--hover g5" data-reveal-img data-slot="gal-5" role="img" aria-label="Inside the café">
+        <span class="shot-caption">Inside, mid-morning</span>
+      </div>
+      <div class="shot shot--dawn  shot--hover g6" data-reveal-img data-slot="gal-6" role="img" aria-label="Cakes and pastries">
+        <span class="shot-caption">Under the dome</span>
+      </div>
+      <div class="shot shot--tide  shot--hover g7" data-reveal-img data-slot="gal-7" role="img" aria-label="Kalk Bay tidal pool">
+        <span class="shot-caption">Kalk Bay tidal pool</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== VISIT / LOCATION ==================== -->
+<section class="section visit-section" id="visit" aria-labelledby="visit-h">
+  <div class="wrap">
+    <div class="visit-grid">
+
+      <div class="visit-info">
+        <div class="section-head">
+          <p class="eyebrow eyebrow--light" data-reveal>Visit Us</p>
+          <h2 class="h-1" id="visit-h" data-reveal data-delay="1">Come Find Us</h2>
+        </div>
+
+        <div class="visit-block" data-reveal data-delay="2">
+          <p class="visit-label">Address</p>
+          <p class="visit-value">
+            <strong>Ohana Beach Café</strong><br>
+            23 Main Road<br>
+            Kalk Bay<br>
+            Cape Town, 7975, South Africa
+          </p>
+        </div>
+
+        <div class="visit-block" data-reveal data-delay="3">
+          <p class="visit-label">Opening Hours</p>
+          <p class="visit-value">
+            Monday – Sunday<br>
+            <strong>7:30 AM – 3:00 PM</strong>
+          </p>
+        </div>
+
+        <div class="visit-block" data-reveal data-delay="4">
+          <p class="visit-label">Phone</p>
+          <p class="visit-value"><a href="tel:+27210546340">021 054 6340</a></p>
+        </div>
+
+        <div class="visit-actions" data-reveal data-delay="5">
+          <a class="btn btn--primary"
+             href="https://www.google.com/maps/dir/?api=1&destination=Ohana+Cafe%2C+23+Main+Road%2C+Kalk+Bay%2C+Cape+Town"
+             target="_blank" rel="noopener">
+            Get Directions
+            <span class="chip" aria-hidden="true">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+            </span>
+          </a>
+          <a class="btn" href="tel:+27210546340">
+            Call Us
+            <span class="chip" aria-hidden="true">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="map-frame" data-reveal>
+        <div class="map-fallback" aria-hidden="true">
+          <p>Ohana Beach Café<br>23 Main Road, Kalk Bay<br>Cape Town</p>
+          <a class="tlink" href="https://www.google.com/maps/dir/?api=1&destination=Ohana+Cafe%2C+23+Main+Road%2C+Kalk+Bay%2C+Cape+Town" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+        <iframe
+          title="Map showing Ohana Beach Café, 23 Main Road, Kalk Bay, Cape Town"
+          src="https://www.google.com/maps?q=Ohana%20Cafe%2C%2023%20Main%20Road%2C%20Kalk%20Bay%2C%20Cape%20Town&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="section" id="contact" aria-labelledby="contact-h">
+  <div class="wrap wrap--tight">
+    <div class="section-head section-head--center">
+      <p class="eyebrow eyebrow--plain" data-reveal>Contact</p>
+      <h2 class="h-1" id="contact-h" data-reveal data-delay="1">Let's Get Together</h2>
+      <p class="lede" data-reveal data-delay="2" style="text-align:center">
+        Booking is highly advisable, especially over weekends and in season.
+        Give us a ring and we'll hold you a table.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card" data-reveal>
+        <p class="visit-label">Phone &amp; Bookings</p>
+        <a href="tel:+27210546340">021 054 6340</a>
+        <span>Daily, 7:30 – 15:00</span>
+      </div>
+      <div class="contact-card" data-reveal data-delay="1">
+        <p class="visit-label">Instagram</p>
+        <a href="https://www.instagram.com/ohana.kalkbay/" target="_blank" rel="noopener">@ohana.kalkbay</a>
+        <span>Daily specials &amp; what's on the pass</span>
+      </div>
+      <div class="contact-card" data-reveal data-delay="2">
+        <p class="visit-label">Facebook</p>
+        <a href="https://www.facebook.com/ohana.kalkbay/" target="_blank" rel="noopener">Ohana Cafe</a>
+        <span>Reviews &amp; updates</span>
+      </div>
+      <div class="contact-card" data-reveal data-delay="3">
+        <p class="visit-label">Find Us</p>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Ohana+Cafe%2C+23+Main+Road%2C+Kalk+Bay%2C+Cape+Town" target="_blank" rel="noopener">23 Main Road, Kalk Bay</a>
+        <span>Parking along Main Road</span>
+      </div>
+    </div>
+
+    <div class="contact-actions" data-reveal data-delay="4">
+      <a class="btn btn--ocean" href="tel:+27210546340">
+        Book a Table
+        <span class="chip" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+        </span>
+      </a>
+      <p class="booking-note">Bookings are taken over the phone — there's no online system, and a quick call is faster anyway.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== INSTAGRAM ==================== -->
+<section class="section ig-section" aria-labelledby="ig-h">
+  <div class="wrap">
+    <div class="ig-top">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal>Follow Along</p>
+        <h2 class="ig-handle" id="ig-h" data-reveal data-delay="1">@ohana.kalkbay</h2>
+      </div>
+      <a class="btn btn--sm" href="https://www.instagram.com/ohana.kalkbay/" target="_blank" rel="noopener" data-reveal data-delay="2">
+        Follow on Instagram
+        <span class="chip" aria-hidden="true">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></svg>
+        </span>
+      </a>
+    </div>
+
+    <div class="ig-grid">
+      <a class="shot shot--dawn  shot--hover" data-slot="ig-1" href="https://www.instagram.com/ohana.kalkbay/" target="_blank" rel="noopener" aria-label="Ohana on Instagram — breakfast plate"><span class="shot-caption">View post</span></a>
+      <a class="shot shot--tide  shot--hover" data-slot="ig-2" href="https://www.instagram.com/ohana.kalkbay/" target="_blank" rel="noopener" aria-label="Ohana on Instagram — ocean view"><span class="shot-caption">View post</span></a>
+      <a class="shot shot--sage  shot--hover" data-slot="ig-3" href="https://www.instagram.com/ohana.kalkbay/" target="_blank" rel="noopener" aria-label="Ohana on Instagram — vegan bowl"><span class="shot-caption">View post</span></a>
+      <a class="shot shot--terra shot--hover" data-slot="ig-4" href="https://www.instagram.com/ohana.kalkbay/" target="_blank" rel="noopener" aria-label="Ohana on Instagram — coffee"><span class="shot-caption">View post</span></a>
+      <a class="shot shot--deep  shot--hover" data-slot="ig-5" href="https://www.instagram.com/ohana.kalkbay/" target="_blank" rel="noopener" aria-label="Ohana on Instagram — the café interior"><span class="shot-caption">View post</span></a>
+      <a class="shot shot--dawn  shot--hover" data-slot="ig-6" href="https://www.instagram.com/ohana.kalkbay/" target="_blank" rel="noopener" aria-label="Ohana on Instagram — cake"><span class="shot-caption">View post</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <span class="brand-word">Ohana</span>
+        <p class="footer-tag">Good Food. Good Coffee. Good Vibes.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/ohana.kalkbay/" target="_blank" rel="noopener" aria-label="Ohana on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+              <rect x="2.5" y="2.5" width="19" height="19" rx="5.4"/>
+              <circle cx="12" cy="12" r="4.2"/>
+              <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/ohana.kalkbay/" target="_blank" rel="noopener" aria-label="Ohana on Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14 8.5V6.8c0-.8.2-1.2 1.4-1.2H17V2.6h-2.6c-3 0-4 1.4-4 3.8v2.1H8.4V12h2v9.4H14V12h2.5l.4-3.5H14z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#visit">Visit Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Find Us</h4>
+        <p>
+          23 Main Road<br>
+          Kalk Bay<br>
+          Cape Town, 7975
+        </p>
+        <p style="margin-top:.9rem">
+          <a href="tel:+27210546340">021 054 6340</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>
+          Monday – Sunday<br>
+          7:30 AM – 3:00 PM
+        </p>
+        <p style="margin-top:.9rem">
+          <a class="tlink tlink--light" href="https://www.google.com/maps/dir/?api=1&destination=Ohana+Cafe%2C+23+Main+Road%2C+Kalk+Bay%2C+Cape+Town" target="_blank" rel="noopener">Directions</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bar">
+      <p>&copy; <span id="year">2026</span> Ohana Beach Café · Kalk Bay, Cape Town</p>
+      <p>Site by <a href="https://cedarstonedigital.co.za/" target="_blank" rel="noopener">CedarStone Digital</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Remove this element at go-live (see PRE-LAUNCH GUARD in <head>). -->
+<div class="preview-ribbon">CedarStone Digital — Client Preview</div>
+
+<!-- ==================== STRUCTURED DATA ====================
+     Ratings below are the real published figures (Tripadvisor,
+     Aug 2026). Update them — don't inflate them — when they move. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CafeOrCoffeeShop",
+  "name": "Ohana Beach Café",
+  "alternateName": "Ohana Cafe Kalk Bay",
+  "description": "A relaxed seaside café on Main Road in Kalk Bay, Cape Town, serving all-day breakfast, wholesome bowls, fresh salads, plant-forward plates, bakes and specialty coffee.",
+  "url": "https://cedarstonedigital.co.za/ohana-cafe/",
+  "telephone": "+27210546340",
+  "servesCuisine": ["Cafe", "Breakfast", "Brunch", "Vegetarian", "Vegan"],
+  "priceRange": "RR",
+  "currenciesAccepted": "ZAR",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "23 Main Road",
+    "addressLocality": "Kalk Bay",
+    "addressRegion": "Western Cape",
+    "postalCode": "7975",
+    "addressCountry": "ZA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -34.1275,
+    "longitude": 18.4486
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "07:30",
+    "closes": "15:00"
+  }],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "3.9",
+    "reviewCount": "109",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "sameAs": [
+    "https://www.instagram.com/ohana.kalkbay/",
+    "https://www.facebook.com/ohana.kalkbay/",
+    "https://www.tripadvisor.co.za/Restaurant_Review-g1788356-d8835720-Reviews-Ohana-Kalk_Bay_Western_Cape.html"
+  ],
+  "acceptsReservations": "https://cedarstonedigital.co.za/ohana-cafe/#contact",
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "Ohana Menu",
+    "hasMenuSection": [
+      { "@type": "MenuSection", "name": "Breakfast" },
+      { "@type": "MenuSection", "name": "Lunch" },
+      { "@type": "MenuSection", "name": "Drinks" },
+      { "@type": "MenuSection", "name": "Bakes" }
+    ]
+  }
+}
+</script>
+
+<script src="assets/js/media.js" defer></script>
+<script src="assets/js/ocean.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>
