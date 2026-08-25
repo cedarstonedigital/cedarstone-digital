@@ -229,7 +229,40 @@ Swapping in real project photography later is a one-for-one file replacement in
 
 ---
 
-## 8. The opening sequence, and where the imagery comes from
+## 8. Real footage: the film stage
+
+The background can be **real film instead of the 3D scene**, with no code
+change. Put clips in `assets/video/` and the page detects them on load,
+switches to them, and leaves the WebGL scene idle:
+
+```
+assets/video/city.mp4     the city from above at night, and the descent
+assets/video/house.mp4    approach → front door → interior → out to the rear
+```
+
+They are **scrubbed, not played** — scroll position drives `currentTime`, so
+scrolling down runs the footage forward, scrolling up reverses it, and stopping
+holds the frame. The two clips cross-fade at `p` 0.13–0.17. Either may be
+omitted; with the folder empty the 3D scene runs exactly as before, so the site
+is never broken while footage is being sourced.
+
+Encoding matters for scrubbing (a keyframe every 10 frames, index at the front).
+`assets/video/README.md` has the settings, and `tools/prepare-media.sh` does it
+for you:
+
+```bash
+./tools/prepare-media.sh video ~/raw/drone-night.mov  city
+./tools/prepare-media.sh video ~/raw/walkthrough.mp4  house
+./tools/prepare-media.sh photo ~/raw/westcliff-01.jpg work-westcliff
+```
+
+Photographs drop in the same way: the gallery accepts `.webp`, `.jpg`, `.jpeg`,
+`.png` or `.avif` under the same basename — the page tries each in turn, so
+`work-vault.jpg` replaces `work-vault.webp` without touching the markup.
+
+---
+
+## 9. The 3D fallback, and where the current imagery comes from
 
 The page opens on a **night city seen from above** and falls through it onto
 the plot; from there the house builds itself and you end up behind it at dusk.

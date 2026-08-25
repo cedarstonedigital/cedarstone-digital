@@ -27,6 +27,15 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<!-- ===== Film stage: real footage, scrubbed by your scroll =====
+     Drop clips into assets/video/ and the page switches to them automatically;
+     with no clips present the WebGL scene below runs instead. See
+     assets/video/README.md for filenames and encoding settings.        -->
+<div id="film" aria-hidden="true">
+  <video id="film-a" muted playsinline preload="auto" disablepictureinpicture poster="assets/img/still-site.webp"></video>
+  <video id="film-b" muted playsinline preload="auto" disablepictureinpicture poster="assets/img/work-westcliff.webp"></video>
+</div>
+
 <!-- ===== WebGL stage: one house, built by your scroll ===== -->
 <canvas id="stage" aria-hidden="true"></canvas>
 <div id="stage-fallback" aria-hidden="true"></div>

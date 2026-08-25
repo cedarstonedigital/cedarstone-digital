@@ -51,6 +51,19 @@ function hasWebGL() {
   } catch (e) { return false; }
 }
 async function bootScene() {
+  const found = await loadFilm();
+  if (found.length) {
+    clips.push(...found);
+    found.forEach(c => { c.v.pause(); c.v.currentTime = 0; });
+    doc.classList.add('film-on');
+    onScroll();
+    filmLoop();                               // easing needs its own frame loop
+    document.addEventListener('visibilitychange', () => {
+      cancelAnimationFrame(filmRAF);
+      if (!document.hidden) filmLoop();
+    });
+    return;                                   // footage wins; the scene stays idle
+  }
   if (!hasWebGL()) { doc.classList.add('no-webgl'); fallbackStill(); return; }
   try {
     const mod = await import('./scene.js');
@@ -70,6 +83,68 @@ function fallbackStill() {
   const f = $('#stage-fallback');
   if (f) f.style.backgroundImage = "url('assets/img/still-site.webp')";
 }
+
+
+/* ================= 2b · film stage (real footage) ================
+   Two clips, scrubbed by scroll position rather than played:
+     city.mp4   the aerial night city, and the descent onto the plot
+     house.mp4  approach, threshold, interior, and out to the rear
+   Either may be omitted. With neither present the WebGL scene runs.
+   Windows overlap so the handover is a cross-fade, not a cut.        */
+const FILM = [
+  { id: 'film-a', name: 'city', from: 0.00, to: 0.17 },
+  { id: 'film-b', name: 'house', from: 0.13, to: 1.00 }
+];
+const FILM_EXT = ['.mp4', '.webm'];   // probed in order; .mp4 is the safe one
+const clips = [];
+async function loadOne(spec) {
+  const v = $('#' + spec.id);
+  if (!v) return null;
+  let src = null;
+  for (const ext of FILM_EXT) {
+    const url = `assets/video/${spec.name}${ext}`;
+    try {
+      const head = await fetch(url, { method: 'HEAD' });
+      if (head.ok) { src = url; break; }
+    } catch (e) { return null; }      // offline; leave the scene running
+  }
+  if (!src) return null;              // no clip published under this name
+  return new Promise(resolve => {
+    let settled = false;
+    const done = ok => { if (!settled) { settled = true; resolve(ok ? { v, spec, dur: v.duration, cur: 0 } : null); } };
+    v.addEventListener('loadedmetadata', () => done(v.duration > 0), { once: true });
+    v.addEventListener('error', () => done(false), { once: true });
+    setTimeout(() => done(v.readyState >= 1 && v.duration > 0), 8000);
+    v.src = src;
+    v.load();
+  });
+}
+async function loadFilm() {
+  const found = await Promise.all(FILM.map(loadOne));
+  return found.filter(Boolean);
+}
+let filmP = 0, filmRAF = 0;
+function filmLoop() {
+  filmRAF = requestAnimationFrame(filmLoop);
+  scrubFilm(filmP);
+}
+function scrubFilm(p) {
+  for (const c of clips) {
+    const { from, to } = c.spec;
+    const inside = p >= from - .02 && p <= to + .02;
+    /* cross-fade across the 0.04 of scroll where the windows overlap */
+    const fade = Math.min(clamp((p - from) / .035), clamp((to - p) / .035));
+    c.v.classList.toggle('is-live', inside && fade > .02);
+    c.v.style.opacity = inside ? String(Math.max(0, Math.min(1, fade))) : '0';
+    if (!inside) continue;
+    const want = clamp((p - from) / Math.max(.0001, to - from)) * (c.dur - .05);
+    c.cur += (want - c.cur) * (reduced ? 1 : .16);
+    if (Math.abs(c.v.currentTime - c.cur) > 1 / 24) {
+      try { c.v.currentTime = c.cur; } catch (e) { /* seek in flight */ }
+    }
+  }
+}
+
 bootScene();
 
 /* ================= 3 · the scroll loop ========================== */
@@ -88,6 +163,7 @@ function onScroll() {
     const y = window.scrollY;
     const p = progressAt(y);
     if (scene) scene.setProgress(p);
+    filmP = p;
     bar.style.width = (p * 100).toFixed(2) + '%';
     nav.classList.toggle('is-stuck', y > 40);
 
@@ -367,6 +443,21 @@ $$('[data-spline]').forEach(host => {
     requestAnimationFrame(() => { v.style.opacity = '1'; });
   }, { rootMargin: '400px' });
   so.observe(host);
+});
+
+/* ============ 14b · photographs in any format ====================
+   The gallery ships .webp renders. Drop a .jpg/.jpeg/.png/.avif in with
+   the same basename and it is picked up without touching the markup.   */
+$$('img[src^="assets/img/"]').forEach(img => {
+  const alts = ['.webp', '.jpg', '.jpeg', '.png', '.avif'];
+  let tried = 0;
+  img.addEventListener('error', () => {
+    const base = img.src.replace(/\.[a-z0-9]+$/i, '');
+    while (tried < alts.length) {
+      const next = base + alts[tried++];
+      if (next !== img.src) { img.src = next; return; }
+    }
+  });
 });
 
 /* ================= 15 · misc ==================================== */
