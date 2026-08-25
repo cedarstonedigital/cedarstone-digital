@@ -32,6 +32,7 @@ function measure() {
   marks.push({ p: 1, y: end, el: null, tint: null });
 }
 function progressAt(y) {
+  if (!marks.length) measure();
   if (y <= marks[0].y) return 0;
   for (let i = 0; i < marks.length - 1; i++) {
     const a = marks[i], b = marks[i + 1];
