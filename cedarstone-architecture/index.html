@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cedarstone Architecture Group | Architects in Johannesburg, South Africa</title>
+<meta name="description" content="Cedarstone Architecture Group — a Johannesburg architecture practice designing residential, commercial and heritage buildings in stone, light and restraint. Est. 2009.">
+<meta name="keywords" content="architects Johannesburg, architecture firm South Africa, residential architects, commercial architecture, heritage architecture, interior architecture, Cedarstone Architecture Group">
+<meta name="author" content="Cedarstone Architecture Group">
+<meta name="theme-color" content="#0B0B0C">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cedarstone Architecture Group">
+<meta property="og:title" content="Cedarstone Architecture Group | We draw in stone, light and restraint">
+<meta property="og:description" content="An architecture practice for people who intend to stay. Houses, workplaces and public rooms, Johannesburg.">
+<meta property="og:image" content="https://cedarstonedigital.co.za/cedarstone-architecture/assets/img/still-site.webp">
+<meta property="og:url" content="https://cedarstonedigital.co.za/cedarstone-architecture/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://cedarstonedigital.co.za/cedarstone-architecture/">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="preload" as="script" href="assets/js/scene.js" crossorigin>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===== WebGL stage: one house, built by your scroll ===== -->
+<canvas id="stage" aria-hidden="true"></canvas>
+<div id="stage-fallback" aria-hidden="true"></div>
+<div class="tint" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="wipe" id="wipe" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- ===== nav ===== -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Cedarstone Architecture Group, home">
+    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <path d="M20 3 4 13v24h32V13L20 3Z" stroke="#D8A657" stroke-width="1.1"/>
+      <path d="M4 13h32M13 37V21h14v16M20 3v10" stroke="#C9C1B3" stroke-width=".9"/>
+      <circle cx="20" cy="17" r="1.6" fill="#B4794A"/>
+    </svg>
+    <span class="brandtext"><b>CEDARSTONE</b><span>Architecture Group</span></span>
+  </a>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navlinks">Menu</button>
+  <nav class="nav-links" id="navlinks" aria-label="Primary">
+    <a href="#practice">Practice</a>
+    <a href="#method">Method</a>
+    <a href="#material">Material</a>
+    <a href="#work">Work</a>
+    <a href="#studio">Studio</a>
+    <a class="btn" href="#contact"><i></i>Enquire</a>
+  </nav>
+</header>
+
+<!-- ===== chapter rail ===== -->
+<nav class="rail" id="rail" aria-label="Chapters">
+  <button data-go="top"><em></em><span>00 Site</span></button>
+  <button data-go="practice"><em></em><span>01 Practice</span></button>
+  <button data-go="method"><em></em><span>02 Method</span></button>
+  <button data-go="material"><em></em><span>03 Material</span></button>
+  <button data-go="threshold"><em></em><span>04 Threshold</span></button>
+  <button data-go="work"><em></em><span>05 Work</span></button>
+  <button data-go="studio"><em></em><span>06 Studio</span></button>
+  <button data-go="rear"><em></em><span>07 Rear</span></button>
+  <button data-go="contact"><em></em><span>08 Enquiries</span></button>
+</nav>
+
+<main id="main">
+
+<!-- ===== 00 · HERO / THE SITE ===== -->
+<section class="hero" id="top" data-p="0" data-tint="#2a2118,#0d0f14">
+  <div class="shell">
+    <div class="hero-kicker fade"><em></em><span class="small">Cedarstone Architecture Group · Est. 2009 · Johannesburg</span></div>
+    <h1>
+      <span class="mask"><span>We draw in stone,</span></span>
+      <span class="mask"><span class="ital">light and restraint.</span></span>
+    </h1>
+    <div class="split" style="align-items:flex-end">
+      <p class="lede fade" data-delay="2">An architecture practice for people who intend to stay. Houses, workplaces and public rooms built to outlive their photographs.</p>
+      <div></div>
+    </div>
+    <div class="hero-foot fade" data-delay="3">
+      <div class="hero-cta">
+        <a class="btn solid" href="#contact"><i></i>Begin a project</a>
+        <a class="btn" href="#work">See the work</a>
+      </div>
+      <div class="scroll-cue"><i></i><span>Scroll — the house is built as you go</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 01 · PRACTICE ===== -->
+<section id="practice" data-p="0.12" data-tint="#241d16,#0c1016">
+  <div class="shell">
+    <div class="split">
+      <div class="stack">
+        <div class="kicker fade"><em></em><span class="small">01 — Practice</span></div>
+        <h2>
+          <span class="mask"><span>A building is a</span></span>
+          <span class="mask"><span>promise you can</span></span>
+          <span class="mask"><span>walk into.</span></span>
+        </h2>
+      </div>
+      <div class="stack">
+        <p class="lede fade">Cedarstone was founded on a single conviction: architecture is not decoration applied to shelter, it is the shelter itself, made deliberate.</p>
+        <p class="fade" data-delay="1">We work slowly at the start so the site can work quickly at the end. Sixteen years, two hundred and forty completed buildings, and not one of them designed in a hurry. Every commission begins the same way — on the land, in silence, with a tape measure and no preconceptions.</p>
+        <div class="rule fade" data-delay="2"></div>
+        <div class="stats fade" data-delay="2">
+          <div><b class="num" data-count="2009" data-plain="1">2009</b><span>Founded</span></div>
+          <div><b class="num" data-count="240">0</b><span>Buildings delivered</span></div>
+          <div><b class="num" data-count="9">0</b><span>SAIA regional awards</span></div>
+          <div><b class="num" data-count="96" data-suffix="%">0</b><span>Clients who return</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 · METHOD ===== -->
+<section id="method" class="tall" data-p="0.24" data-tint="#1e1d1a,#0b1016">
+  <div class="shell">
+    <div class="stack" style="width:100%">
+      <div class="kicker fade"><em></em><span class="small">02 — Method</span></div>
+      <h2 class="mask" style="max-width:14ch"><span>Four movements, no improvisation.</span></h2>
+      <p class="lede fade" data-delay="1" style="margin-bottom:14px">The same sequence on every project, whether it is a garden room or forty thousand square metres.</p>
+      <div class="steps">
+        <div class="step fade"><span class="idx num">01</span><h3>Enquiry</h3><p>We measure the site, the light, the budget and the family. Two weeks. Nothing is drawn yet — the first drawing is always premature.</p></div>
+        <div class="step fade" data-delay="1"><span class="idx num">02</span><h3>Concept</h3><p>One idea, argued properly. Massing, section, and the single move the building is about. If it cannot be explained in one sentence, it is not ready.</p></div>
+        <div class="step fade" data-delay="2"><span class="idx num">03</span><h3>Documentation</h3><p>Every joint resolved on paper before it is resolved in concrete. Council submission, engineers, heritage consent, tender.</p></div>
+        <div class="step fade" data-delay="3"><span class="idx num">04</span><h3>Delivery</h3><p>We stay on site until the last handle. Architecture is a verb until handover — and we are the ones holding the snag list.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 03 · MATERIAL ===== -->
+<section id="material" class="tall" data-p="0.36" data-tint="#241c14,#0e1114">
+  <div class="shell">
+    <div class="stack" style="width:100%">
+      <div class="split" style="align-items:flex-end">
+        <div class="stack">
+          <div class="kicker fade"><em></em><span class="small">03 — Material</span></div>
+          <h2><span class="mask"><span>We specify</span></span><span class="mask"><span>what ages well.</span></span></h2>
+        </div>
+        <p class="lede fade" data-delay="1">Off-shutter concrete, hand-laid stone, unlacquered brass, oiled oak, low-iron glass. Materials that record time instead of resisting it. Every palette is assembled on site, in the light it will live in, before a single sheet is issued.</p>
+      </div>
+      <div class="plates">
+        <figure class="plate kenburns fade" data-tilt><div class="swatch" data-mat="concrete"></div><figcaption><b>Board-marked concrete</b><span>Structure · in situ</span></figcaption></figure>
+        <figure class="plate kenburns alt fade" data-delay="1" data-tilt><div class="swatch" data-mat="stone"></div><figcaption><b>Quarried cedarstone</b><span>Cladding · hand-laid</span></figcaption></figure>
+        <figure class="plate kenburns fade" data-delay="2" data-tilt><div class="swatch" data-mat="brass"></div><figcaption><b>Unlacquered brass</b><span>Ironmongery · patina</span></figcaption></figure>
+        <figure class="plate kenburns alt fade" data-delay="3" data-tilt><div class="swatch" data-mat="oak"></div><figcaption><b>Oiled oak</b><span>Floors · joinery</span></figcaption></figure>
+      </div>
+      <div class="marquee fade" data-delay="2" aria-hidden="true">
+        <ul id="marquee">
+          <li>Off-shutter concrete</li><li>Hand-laid stone</li><li>Low-iron glass</li><li>Unlacquered brass</li>
+          <li>Oiled oak</li><li>Blackened steel</li><li>Lime plaster</li><li>Rammed earth</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 · THRESHOLD ===== -->
+<section id="threshold" data-p="0.48" data-tint="#2b2016,#12100c">
+  <div class="shell">
+    <div class="stack" style="width:100%;text-align:center;align-items:center">
+      <div class="kicker fade" style="justify-content:center"><em></em><span class="small">04 — Threshold</span></div>
+      <h2 class="mask" style="max-width:15ch;margin-inline:auto"><span>The door is the whole argument.</span></h2>
+      <p class="lede fade" data-delay="1" style="max-width:56ch;margin-inline:auto">Compression, then release. A low, dark entry so the room beyond can open. Everything we know about a building is decided in the three metres before you are inside it.</p>
+      <blockquote class="quote fade" data-delay="3" style="margin-top:clamp(40px,7vh,90px)">
+        <p>“Cedarstone gave us a house we walk through differently in every season.”</p>
+        <cite>H. Mokoena · Westcliff Residence</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 · WORK ===== -->
+<section id="work" class="tall" data-p="0.60" data-tint="#241a12,#100e0c">
+  <div class="shell">
+    <div class="stack" style="width:100%">
+      <div class="split" style="align-items:flex-end">
+        <div class="stack">
+          <div class="kicker fade"><em></em><span class="small">05 — Selected work</span></div>
+          <h2><span class="mask"><span>Six buildings,</span></span><span class="mask"><span>one attitude.</span></span></h2>
+        </div>
+        <p class="lede fade" data-delay="1">A private house in Westcliff, a mixed-use block in Rosebank, a chapel of two hundred square metres. Different briefs, same insistence on the section.</p>
+      </div>
+      <div class="works">
+        <article class="work wide fade" data-tilt>
+          <img src="assets/img/work-westcliff.webp" alt="Westcliff Residence — long glazed elevation under a deep concrete overhang" loading="lazy" width="1600" height="900">
+          <span class="yr num">2024</span>
+          <div class="meta"><h3>Westcliff Residence</h3><span>Private house · 640 m² · Johannesburg</span></div>
+        </article>
+        <article class="work tall fade" data-delay="1" data-tilt>
+          <img src="assets/img/work-vault.webp" alt="Vault House — stone volume with a deep recessed entry" loading="lazy" width="900" height="1200">
+          <span class="yr num">2023</span>
+          <div class="meta"><h3>Vault House</h3><span>Private house · 380 m² · Pretoria</span></div>
+        </article>
+        <article class="work fade" data-tilt>
+          <img src="assets/img/work-cedar-court.webp" alt="Cedar Court — mixed-use block seen from the street at dusk" loading="lazy" width="1200" height="900">
+          <span class="yr num">2025</span>
+          <div class="meta"><h3>Cedar Court</h3><span>Mixed-use · 4 200 m² · Rosebank</span></div>
+        </article>
+        <article class="work fade" data-delay="1" data-tilt>
+          <img src="assets/img/work-long-room.webp" alt="The Long Room — open workplace interior with clerestory light" loading="lazy" width="1200" height="900">
+          <span class="yr num">2022</span>
+          <div class="meta"><h3>The Long Room</h3><span>Workplace · 1 800 m² · Sandton</span></div>
+        </article>
+        <article class="work fade" data-delay="2" data-tilt>
+          <img src="assets/img/work-chapel.webp" alt="Stonebank Chapel — small stone volume in a landscape" loading="lazy" width="1200" height="900">
+          <span class="yr num">2021</span>
+          <div class="meta"><h3>Stonebank Chapel</h3><span>Public · 210 m² · Magaliesburg</span></div>
+        </article>
+        <article class="work wide fade" data-delay="1" data-tilt>
+          <img src="assets/img/work-rear.webp" alt="Rear Elevation House — garden facade at dusk with lit interior and pool" loading="lazy" width="1600" height="900">
+          <span class="yr num">2026</span>
+          <div class="meta"><h3>Rear Elevation House</h3><span>Private house · 520 m² · Hyde Park</span></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 06 · STUDIO ===== -->
+<section id="studio" class="tall" data-p="0.72" data-tint="#211a15,#0d1014">
+  <div class="shell">
+    <div class="split">
+      <div class="stack">
+        <div class="kicker fade"><em></em><span class="small">06 — Studio</span></div>
+        <h2><span class="mask"><span>Fourteen people,</span></span><span class="mask"><span>one drawing board.</span></span></h2>
+        <p class="fade" data-delay="1">We keep the practice small enough that the person who drew your section is the person standing on your site. Directors take every project from first sketch to final snag — there is no hand-off, because there is no one to hand off to.</p>
+        <figure class="plate fade" data-delay="2" data-tilt style="aspect-ratio:16/10;margin-top:8px">
+          <img src="assets/img/studio.webp" alt="Living room of a Cedarstone house opening to the garden, lit at dusk" loading="lazy" width="1400" height="875">
+          <figcaption><b>Rooms we have made</b><span>Interior study · in-house model</span></figcaption>
+        </figure>
+      </div>
+      <div class="stack">
+        <p class="small fade">What we do</p>
+        <div class="svcs">
+          <div class="svc fade"><b>Residential architecture</b><span>New build · alteration</span></div>
+          <div class="svc fade" data-delay="1"><b>Commercial &amp; mixed-use</b><span>Workplace · retail</span></div>
+          <div class="svc fade" data-delay="1"><b>Interior architecture</b><span>Joinery · lighting</span></div>
+          <div class="svc fade" data-delay="2"><b>Heritage &amp; adaptive reuse</b><span>Section 34 · consent</span></div>
+          <div class="svc fade" data-delay="2"><b>Planning &amp; council approvals</b><span>Rezoning · SDP</span></div>
+          <div class="svc fade" data-delay="3"><b>Visualisation &amp; VR walkthroughs</b><span>Pre-construction</span></div>
+        </div>
+        <div class="panel fade" data-delay="3">
+          <p class="small" style="margin-bottom:10px">Recognition</p>
+          <p>SAIA Award of Merit 2024 · Corobrik Regional Award 2023 · AZA Emerging Practice 2019 · Nine regional citations since 2015.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 07 · REAR ELEVATION ===== -->
+<section id="rear" data-p="0.82" data-tint="#2a1c12,#0f0d10">
+  <div class="shell">
+    <div class="split">
+      <div class="stack">
+        <div class="kicker fade"><em></em><span class="small">07 — Rear elevation</span></div>
+        <h2><span class="mask"><span>The side no one</span></span><span class="mask"><span>photographs.</span></span></h2>
+      </div>
+      <div class="stack">
+        <p class="lede fade">A building is judged from the street and lived from the garden.</p>
+        <p class="fade" data-delay="1">We give the back of the house the same attention as the front — the same stone, the same joint spacing, the same care with the roof line — because that is the elevation you will actually look at, every evening, for the rest of your life. It is where the doors open, where the light lands last, and where the building finally stops performing.</p>
+        <div class="rule fade" data-delay="2"></div>
+        <p class="small fade" data-delay="2">Turn around. You are standing behind the house you just built.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 08 · CONTACT ===== -->
+<section id="contact" data-p="0.92" data-tint="#20150f,#0a0c10">
+  <div class="shell">
+    <div class="split">
+      <div class="stack">
+        <div class="kicker fade"><em></em><span class="small">08 — Enquiries</span></div>
+        <h2><span class="mask"><span>Bring us the site.</span></span><span class="mask"><span>We will bring</span></span><span class="mask"><span>the argument.</span></span></h2>
+        <p class="lede fade" data-delay="1">New commissions open for 2027. Tell us where the land is and what you would like to be true about the mornings.</p>
+        <div class="contact-list fade" data-delay="2">
+          <a href="mailto:studio@cedarstonearchitecture.co.za"><span>Studio</span>studio@cedarstonearchitecture.co.za</a>
+          <a href="tel:+27820613598"><span>Telephone</span>+27 82 061 3598</a>
+          <p><span>Address</span>14 Sherborne Road, Parktown, Johannesburg, 2193</p>
+          <p><span>Hours</span>Monday to Thursday, 08:00 – 17:00</p>
+        </div>
+      </div>
+      <form class="form panel fade" data-delay="2" id="enquiry" novalidate>
+        <div class="field"><input id="f-name" name="name" type="text" placeholder=" " autocomplete="name" required><label for="f-name">Your name</label></div>
+        <div class="field"><input id="f-mail" name="email" type="email" placeholder=" " autocomplete="email" required><label for="f-mail">Email</label></div>
+        <div class="field"><input id="f-site" name="site" type="text" placeholder=" "><label for="f-site">Where is the site?</label></div>
+        <div class="field"><textarea id="f-brief" name="brief" rows="4" placeholder=" "></textarea><label for="f-brief">The brief, in a sentence</label></div>
+        <button class="btn solid" type="submit" style="justify-self:start;margin-top:8px"><i></i>Send enquiry</button>
+        <p class="form-note" id="formNote" role="status">We reply to every enquiry within two working days.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="shell">
+    <div class="foot-grid">
+      <div>
+        <h4>Cedarstone Architecture Group</h4>
+        <p class="serif" style="font-size:clamp(1.4rem,2.6vw,2.2rem);line-height:1.2;max-width:20ch">We draw in stone, light and restraint.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#practice">Practice</a></li>
+          <li><a href="#method">Method</a></li>
+          <li><a href="#material">Material</a></li>
+          <li><a href="#work">Selected work</a></li>
+          <li><a href="#studio">Studio</a></li>
+          <li><a href="#contact">Enquiries</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li>14 Sherborne Road</li>
+          <li>Parktown, Johannesburg</li>
+          <li><a href="mailto:studio@cedarstonearchitecture.co.za">studio@cedarstonearchitecture.co.za</a></li>
+          <li><a href="tel:+27820613598">+27 82 061 3598</a></li>
+          <li>SACAP registered practice</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© <span id="year">2026</span> Cedarstone Architecture Group (Pty) Ltd</span>
+      <span>Site by <a href="https://cedarstonedigital.co.za/">CedarStone Digital</a></span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ArchitecturalService",
+  "name":"Cedarstone Architecture Group",
+  "description":"Johannesburg architecture practice working in residential, commercial, interior and heritage architecture.",
+  "url":"https://cedarstonedigital.co.za/cedarstone-architecture/",
+  "telephone":"+27820613598",
+  "email":"studio@cedarstonearchitecture.co.za",
+  "foundingDate":"2009",
+  "address":{"@type":"PostalAddress","streetAddress":"14 Sherborne Road, Parktown","addressLocality":"Johannesburg","postalCode":"2193","addressCountry":"ZA"},
+  "areaServed":"South Africa",
+  "openingHours":"Mo-Th 08:00-17:00"
+}
+</script>
+
+<script type="module" src="assets/js/motion.js"></script>
+<noscript><style>.mask > *{transform:none;opacity:1}.fade{opacity:1;transform:none}#stage{display:none}</style></noscript>
+</body>
+</html>
