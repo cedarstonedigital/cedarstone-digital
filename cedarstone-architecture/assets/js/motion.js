@@ -56,6 +56,7 @@ async function bootScene() {
     const mod = await import('./scene.js');
     const lowEnd = coarse || (navigator.hardwareConcurrency || 8) <= 4 || innerWidth < 760;
     scene = mod.createArchScene(canvas, { quality: lowEnd ? 'low' : 'high', reduced });
+    window.CSA = scene;                       // handy for tuning in devtools
     scene.setProgress(progressAt(window.scrollY));
     addEventListener('resize', () => scene.resize(), { passive: true });
     canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); doc.classList.add('no-webgl'); fallbackStill(); });
@@ -112,6 +113,8 @@ function onScroll() {
       tint.style.setProperty('--tint-a', t[0].trim());
       tint.style.setProperty('--tint-b', t[1].trim());
     }
+    const el = marks[idx].el;
+    tint.style.setProperty('--tint-op', (el && el.dataset.tintOp) || '.34');
     parallax(y);
     ticking = false;
   });
@@ -150,7 +153,7 @@ $$('[data-count]').forEach(el => cio.observe(el));
 
 /* ================= 6 · parallax ================================= */
 const parallaxItems = [];
-$$('.plate, .work, .quote, .stats').forEach((el, i) => {
+$$('.plate, .work, .quote, .stats, .swatches').forEach((el, i) => {
   parallaxItems.push({ el, depth: el.classList.contains('work') ? .05 + (i % 3) * .022 : .07 });
 });
 function parallax(y) {
@@ -321,7 +324,7 @@ function paintMaterial(kind, w = 600, h = 800) {
   x.putImageData(img, 0, 0);
   return c.toDataURL('image/webp', .82);
 }
-$$('.swatch[data-mat]').forEach(el => {
+$$('[data-mat]').forEach(el => {
   const url = paintMaterial(el.dataset.mat);
   el.style.backgroundImage = `url('${url}')`;
 });

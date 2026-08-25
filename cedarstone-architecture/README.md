@@ -41,14 +41,15 @@ of the building and the camera along a spline. The user never sees a cut.
 
 | # | Section | `p` range | What the 3D does |
 |---|---|---|---|
-| 00 | **Hero — The Site** | .00–.10 | Dawn. Empty terrain, survey grid, setting-out lines pulsing. Building exists only as a wireframe ghost. |
+| 00 | **Hero — The City** | .00–.10 | Night, from altitude. A lit city grid — traffic moving on the streets, windows burning — with one dark plot in the middle. The camera falls through it onto that plot. Dawn breaks as we land; the city thins into haze and is gone by .26. |
+| 00b | **The Site** | .10–.13 | Survey grid, setting-out lines pulsing. The building exists only as a wireframe ghost. |
 | 01 | **Practice** | .10–.22 | Foundation slab pours in from below; footing grid lights up. Camera drifts down and in. |
 | 02 | **Method** | .22–.34 | Columns extrude upward in a staggered wave; beams snap into place. |
 | 03 | **Material** | .34–.46 | Floor slabs slide in; cladding panels flip down like a shutter; stone texture resolves. |
 | 04 | **Threshold** | .46–.56 | Glazing fades in with a fresnel bloom. Camera closes on the entry; a light wipe carries us through the door. |
 | 05 | **Work — inside** | .56–.70 | Interior. Furniture rises, warm lamps ignite, dust motes turn in the light shafts. |
 | 06 | **Studio** | .70–.80 | Camera tracks through the living volume toward the rear glazing. |
-| 07 | **Rear Elevation** | .80–.92 | Through the rear glass onto the deck. Pool catches the sky. Dusk falls; interior lights read from outside. |
+| 07 | **Rear Elevation** | .80–.92 | Through the rear glass onto the deck. Pool catches the sky. Dusk falls; interior lights read from outside, and the city returns as a lit skyline on the horizon. |
 | 08 | **Contact / Footer** | .92–1.0 | Camera pulls back and settles on the full back elevation, house lit from within. |
 
 Narrative promise kept: **the building improves with every scroll, we go
@@ -83,7 +84,14 @@ inside, and the sequence ends on the back of the house.**
 > **Kicker** 03 — Material
 > **H2** We specify what ages well.
 > **Body** Off-shutter concrete, hand-laid stone, unlacquered brass, oiled oak, low-iron glass. Materials that record time instead of resisting it. Every palette is assembled on site, in the light it will live in, before a single sheet is issued.
-> **Cards** Board-marked concrete / Quarried cedarstone / Unlacquered brass / Low-iron glass
+> **Swatch rail** Board-marked concrete / Quarried cedarstone / Unlacquered brass / Oiled oak
+>
+> This chapter is deliberately the lightest on the page: a single row of small
+> circular swatches over a hairline rule, a heading, one paragraph and the
+> material marquee. Nothing else. The building is at its most interesting here
+> — panels flipping down, slabs landing — so the section is built to be looked
+> *through*, with a reduced scrim (`data-scrim="light"`) and a reduced colour
+> grade (`data-tint-op`) so the 3D reads at full strength behind the copy.
 
 ### 04 — Threshold
 > **Kicker** 04 — Threshold
@@ -217,3 +225,43 @@ NODE_PATH=/opt/node22/lib/node_modules node tools/render-stills.mjs
 
 Swapping in real project photography later is a one-for-one file replacement in
 `assets/img/` — the markup, aspect ratios and alt text are already in place.
+
+
+---
+
+## 8. The opening sequence, and where the imagery comes from
+
+The page opens on a **night city seen from above** and falls through it onto
+the plot; from there the house builds itself and you end up behind it at dusk.
+Both halves of that sequence are generated in the browser — the city is ~350
+instanced towers with a canvas-painted window texture, plus one additive plane
+that draws the street grid and its moving traffic. There is no video file, no
+photograph and no external asset anywhere in the page.
+
+### Swapping in real project photography
+
+The six tiles in **Selected work** and the studio plate are currently frames
+of the 3D model. They are plain `<img>` tags — drop replacements into
+`assets/img/` under the same names and nothing else needs to change:
+
+| File | Ratio | Suggested pixels | Shown as |
+|---|---|---|---|
+| `work-westcliff.webp` | 16:9 | 1600 × 900 | wide tile, top of the grid |
+| `work-vault.webp` | 3:4 | 900 × 1200 | tall tile |
+| `work-cedar-court.webp` | 4:3 | 1200 × 900 | standard tile |
+| `work-long-room.webp` | 4:3 | 1200 × 900 | standard tile |
+| `work-chapel.webp` | 4:3 | 1200 × 900 | standard tile |
+| `work-rear.webp` | 16:9 | 1600 × 900 | wide tile, bottom of the grid |
+| `studio.webp` | 16:10 | 1400 × 875 | studio plate |
+| `still-site.webp` | 16:9 | 1920 × 1080 | shown instead of the canvas when WebGL is unavailable |
+
+WebP is preferred (JPG works — update the `src` extension). Update the `alt`
+text and the `<h3>`/`<span>` captions in `index.html` to match the real
+projects at the same time.
+
+**Use photography you have the right to publish** — the practice's own
+photographs, the photographer's licensed files, or a commercial-use stock
+licence. Images lifted from Pinterest or Google Images belong to whoever shot
+them; on a live commercial site they are a takedown and a licensing bill
+waiting to happen, and project photographs presented as your own work are a
+misrepresentation on top of that.

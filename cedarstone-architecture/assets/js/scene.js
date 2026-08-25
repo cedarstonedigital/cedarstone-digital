@@ -44,9 +44,10 @@ function noiseTexture(hex, contrast, grain, size = 256) {
 
 /* ---------- time of day: dawn → day → dusk ------------------------ */
 const SKY_KEYS = [
-  { p: 0.00, top: 0x24354f, bot: 0x8c6a4a, sun: 0xffbe8c, si: 2.4, amb: 0x51637e, ai: .95, fog: 0x6b5a4a, sd: [-24, 11, 26] },
-  { p: 0.32, top: 0x4a7db5, bot: 0xdae0dd, sun: 0xfff5e8, si: 3.5, amb: 0x9fb0c0, ai: 1.25, fog: 0xc3c8c4, sd: [-14, 26, 18] },
-  { p: 0.56, top: 0x40699a, bot: 0xd0cfc4, sun: 0xffeed4, si: 3.1, amb: 0x91a0ad, ai: 1.10, fog: 0xb2b0a4, sd: [10, 22, 12] },
+  { p: 0.00, top: 0x05070e, bot: 0x131c30, sun: 0x8fa4d8, si: .35, amb: 0x18213b, ai: .50, fog: 0x0b1120, sd: [-70, 90, -50] },
+  { p: 0.10, top: 0x24354f, bot: 0x8c6a4a, sun: 0xffbe8c, si: 2.4, amb: 0x51637e, ai: .95, fog: 0x6b5a4a, sd: [-24, 11, 26] },
+  { p: 0.34, top: 0x4a7db5, bot: 0xdae0dd, sun: 0xfff5e8, si: 3.5, amb: 0x9fb0c0, ai: 1.25, fog: 0xc3c8c4, sd: [-14, 26, 18] },
+  { p: 0.58, top: 0x40699a, bot: 0xd0cfc4, sun: 0xffeed4, si: 3.1, amb: 0x91a0ad, ai: 1.10, fog: 0xb2b0a4, sd: [10, 22, 12] },
   { p: 0.82, top: 0x2c3a56, bot: 0xb27a4e, sun: 0xffb277, si: 2.7, amb: 0x6a7594, ai: 1.0, fog: 0x8a6b52, sd: [22, 10, -14] },
   { p: 1.00, top: 0x1b2440, bot: 0x7c4c56, sun: 0xf3a86e, si: 2.4, amb: 0x53637f, ai: 1.05, fog: 0x4a3540, sd: [26, 6, -22] }
 ];
@@ -65,18 +66,21 @@ function skyAt(p) {
 
 /* ---------- camera spline: 11 keys, position + target ------------- */
 const CAM = [
-  { p: 0.00, e: [30, 19, 34], t: [0, 3, 0] },
-  { p: 0.10, e: [23, 11, 27], t: [0, 2.5, 0] },
-  { p: 0.22, e: [16, 6.5, 22], t: [0, 3, 0] },
-  { p: 0.34, e: [10, 5, 17.5], t: [0, 4, 0] },
-  { p: 0.46, e: [4.2, 2.6, 13.5], t: [0, 3, 2] },
-  { p: 0.53, e: [0.9, 1.95, 8.6], t: [0, 2.1, 0] },
-  { p: 0.60, e: [0.5, 1.9, 4.6], t: [-1.4, 1.9, -3] },
-  { p: 0.70, e: [-1.1, 1.95, 0.6], t: [0.4, 1.9, -6] },
-  { p: 0.78, e: [0.3, 1.95, -5.2], t: [0, 2.1, -12] },
-  { p: 0.86, e: [1.4, 3.6, -16.0], t: [0, 3.6, -7.0] },
-  { p: 0.93, e: [6.5, 6.6, -24.0], t: [0, 4.0, -5] },
-  { p: 1.00, e: [11.5, 9.2, -33], t: [0, 4.2, -3] }
+  { p: 0.000, e: [225, 470, 385], t: [0, 0, 0] },
+  { p: 0.035, e: [168, 305, 268], t: [0, 0, 0] },
+  { p: 0.070, e: [92, 135, 124], t: [0, 1, 0] },
+  { p: 0.100, e: [40, 44, 54], t: [0, 3, 0] },
+  { p: 0.140, e: [23, 12, 27], t: [0, 2.5, 0] },
+  { p: 0.220, e: [16, 6.5, 22], t: [0, 3, 0] },
+  { p: 0.340, e: [13, 6.4, 21], t: [0, 4, 0] },
+  { p: 0.460, e: [4.2, 2.6, 13.5], t: [0, 3, 2] },
+  { p: 0.530, e: [0.9, 1.95, 8.6], t: [0, 2.1, 0] },
+  { p: 0.600, e: [0.5, 1.9, 4.6], t: [-1.4, 1.9, -3] },
+  { p: 0.700, e: [-1.1, 1.95, 0.6], t: [0.4, 1.9, -6] },
+  { p: 0.780, e: [0.3, 1.95, -5.2], t: [0, 2.1, -12] },
+  { p: 0.860, e: [1.4, 3.6, -16.0], t: [0, 3.6, -7.0] },
+  { p: 0.930, e: [6.5, 6.6, -24.0], t: [0, 4.0, -5] },
+  { p: 1.000, e: [11.5, 9.2, -33], t: [0, 4.2, -3] }
 ];
 function catmull(p0, p1, p2, p3, t) {
   const t2 = t * t, t3 = t2 * t;
@@ -112,7 +116,7 @@ export function createArchScene(canvas, opts = {}) {
 
   const scene = new THREE.Scene();
   scene.fog = new THREE.Fog(0x2b2721, 40, 190);
-  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 600);
+  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 2600);
 
   /* ---------------- sky dome ---------------- */
   const skyMat = new THREE.ShaderMaterial({
@@ -131,7 +135,7 @@ export function createArchScene(canvas, opts = {}) {
         gl_FragColor = vec4(col, 1.0);
       }`
   });
-  scene.add(new THREE.Mesh(new THREE.SphereGeometry(340, 32, 20), skyMat));
+  scene.add(new THREE.Mesh(new THREE.SphereGeometry(1400, 40, 24), skyMat));
 
   /* ---------------- lights ---------------- */
   const sun = new THREE.DirectionalLight(0xffb27a, 1.6);
@@ -158,7 +162,7 @@ export function createArchScene(canvas, opts = {}) {
   const texStone = noiseTexture(0x9e948a, .40, .14);
   const texOak = noiseTexture(0x9a6b40, .32, .09);
   const texGround = noiseTexture(0x88897a, .34, .12);
-  texGround.repeat.set(26, 26); texStone.repeat.set(2, 2); texConcrete.repeat.set(1.4, 1.4);
+  texGround.repeat.set(90, 90); texStone.repeat.set(2, 2); texConcrete.repeat.set(1.4, 1.4);
 
   const M = {
     concrete: new THREE.MeshStandardMaterial({ map: texConcrete, color: 0xffffff, roughness: .93, metalness: .02 }),
@@ -229,7 +233,7 @@ export function createArchScene(canvas, opts = {}) {
 
   /* ============ 00 · THE SITE ============ */
   const groundMat = new THREE.MeshStandardMaterial({ map: texGround, color: 0xffffff, roughness: 1 });
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(420, 420, 1, 1), groundMat);
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(1600, 1600, 1, 1), groundMat);
   ground.rotation.x = -Math.PI / 2; ground.position.y = -0.02;
   ground.receiveShadow = !lowEnd; scene.add(ground);
 
@@ -261,13 +265,116 @@ export function createArchScene(canvas, opts = {}) {
   ghost.position.set(0, 3.7, 0); scene.add(ghost);
   const ghost2 = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(15, 3.1, 15)), ghostMat.clone());
   ghost2.position.set(0, 5.85, 1); scene.add(ghost2);
-  reg(0.06, 0.20, t => { ghostMat.opacity = .55 * (1 - t); ghost2.material.opacity = .55 * (1 - t); ghost.visible = ghost2.visible = t < .999; });
+  reg(0.10, 0.22, t => { ghostMat.opacity = .55 * (1 - t); ghost2.material.opacity = .55 * (1 - t); ghost.visible = ghost2.visible = t < .999; });
+
+
+  /* ============ 00b · THE CITY, FROM ABOVE, AT NIGHT ============
+     The page opens on a lit city seen from altitude. Scroll drops the
+     camera through it onto the one dark plot in the middle — the site.
+     Everything here is procedural: no footage, no photography.        */
+  function windowTexture(w = 128, h = 256) {
+    const c = document.createElement('canvas'); c.width = w; c.height = h;
+    const x = c.getContext('2d');
+    x.fillStyle = '#000000'; x.fillRect(0, 0, w, h);
+    const cols = 9, rows = 26, pw = w / cols, ph = h / rows;
+    for (let r = 0; r < rows; r++) for (let k = 0; k < cols; k++) {
+      if (rnd() < .46) continue;
+      const warm = rnd();
+      const col = warm < .72
+        ? `rgba(255,${200 + rnd() * 45 | 0},${140 + rnd() * 70 | 0},${.5 + rnd() * .4})`
+        : `rgba(${200 + rnd() * 45 | 0},${222 + rnd() * 33 | 0},255,${.42 + rnd() * .4})`;
+      x.fillStyle = col;
+      x.fillRect(k * pw + pw * .18, r * ph + ph * .22, pw * .64, ph * .54);
+    }
+    const t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.minFilter = THREE.LinearMipmapLinearFilter;
+    t.anisotropy = 4;
+    return t;
+  }
+
+  const cityMat = new THREE.MeshStandardMaterial({
+    color: 0x070910, roughness: .95, metalness: .04,
+    emissive: 0xffd39a, emissiveMap: windowTexture(), emissiveIntensity: 0.85
+  });
+  const CITY_N = lowEnd ? 260 : 620;
+  const city = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), cityMat, CITY_N);
+  city.frustumCulled = false;
+  {
+    const d3 = new THREE.Object3D();
+    let n = 0;
+    for (let gx = -13; gx <= 13 && n < CITY_N; gx++) {
+      for (let gz = -13; gz <= 13 && n < CITY_N; gz++) {
+        const bx = gx * 36 + (rnd() - .5) * 12, bz = gz * 36 + (rnd() - .5) * 12;
+        const dist = Math.hypot(bx, bz);
+        if (dist < 92 || dist > 460) continue;
+        if (rnd() < .26 + Math.max(0, (200 - dist) / 200) * .62) continue;   // thins out near the plot
+        const h = 10 + Math.pow(rnd(), 1.9) * 118 * (1 - Math.min(.9, dist / 620));
+        d3.position.set(bx, h / 2, bz);
+        d3.scale.set(8 + rnd() * 13, h, 8 + rnd() * 13);
+        d3.rotation.set(0, (rnd() - .5) * .22, 0);
+        d3.updateMatrix();
+        city.setMatrixAt(n++, d3.matrix);
+      }
+    }
+    city.count = n;
+  }
+  scene.add(city);
+
+  /* streets: one additive plane — grid, radial mask, and traffic that moves */
+  const streetMat = new THREE.ShaderMaterial({
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    uniforms: {
+      uTime: { value: 0 }, uNight: { value: 1 },
+      uRoad: { value: new THREE.Color(0xffb877) }, uCar: { value: new THREE.Color(0xfff1d2) }
+    },
+    vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0); }`,
+    fragmentShader: `
+      uniform float uTime,uNight; uniform vec3 uRoad,uCar; varying vec2 vUv;
+      void main(){
+        vec2 p = (vUv - 0.5) * 960.0;
+        float d = length(p);
+        float mask = smoothstep(70.0, 210.0, d) * (1.0 - smoothstep(360.0, 470.0, d));
+        vec2 q = p / 36.0;
+        vec2 g = abs(fract(q + 0.5) - 0.5);
+        vec2 fw = max(fwidth(q), vec2(1e-5)) * 1.35;
+        float lx = 1.0 - smoothstep(0.013 - fw.y, 0.013 + fw.y, g.y);
+        float lz = 1.0 - smoothstep(0.013 - fw.x, 0.013 + fw.x, g.x);
+        float road = max(lx, lz);
+        float ax = max(fwidth(p.x * 0.055), 0.02) * 2.0;
+        float az = max(fwidth(p.y * 0.055), 0.02) * 2.0;
+        float dx = smoothstep(1.0 - ax, 1.0, fract(p.x * 0.055 - uTime * 0.5)) * lx;
+        float dz = smoothstep(1.0 - az, 1.0, fract(p.y * 0.055 + uTime * 0.38)) * lz;
+        float cars = max(dx, dz);
+        float glow = mask * 0.045;
+        vec3 col = uRoad * (road * 0.70 + glow) + uCar * cars;
+        gl_FragColor = vec4(col, (road * 0.50 + cars * 1.0 + glow) * mask * uNight);
+      }`
+  });
+  const streets = new THREE.Mesh(new THREE.PlaneGeometry(960, 960), streetMat);
+  streets.rotation.x = -Math.PI / 2; streets.position.y = .10;
+  scene.add(streets);
+
+  /* the city dims as the sun comes up, thins into haze while we land on the
+     plot, and returns as a lit skyline behind the rear elevation at dusk   */
+  cityMat.transparent = true;
+  regRaw(p => {
+    const present = clamp(1 - ramp(p, .15, .26) + ramp(p, .84, .96));
+    cityMat.opacity = present;
+    city.visible = present > .02;
+    streets.visible = present > .02;
+    const n = clamp(1 - ramp(p, .03, .15) + ramp(p, .86, 1.0) * .8);
+    cityMat.emissiveIntensity = .03 + n * .9;
+    streetMat.uniforms.uNight.value = n * present;
+    scene.fog.near = lerp(150, 40, easeOut(ramp(p, .02, .13)));
+    scene.fog.far = lerp(1500, 190, easeOut(ramp(p, .02, .13)));
+  });
 
   /* ============ 01 · FOUNDATION ============ */
   const slab = place(box(19.4, .5, 15.4, M.concrete), 0, .25, 0);
-  riseIn(slab, .10, .18, 6);
+  riseIn(slab, .13, .21, 6);
   const plinth = place(box(20.6, .18, 16.6, M.concreteDark), 0, .09, 0);
-  riseIn(plinth, .09, .16, 5);
+  riseIn(plinth, .12, .19, 5);
 
   /* ============ 02 · STRUCTURE ============ */
   const colXs = [-8.2, -2.75, 2.75, 8.2], colZs = [-6.2, 0, 6.2];
@@ -596,7 +703,7 @@ export function createArchScene(canvas, opts = {}) {
     /* camera */
     camAt(p, eye, tgt);
     if (camOverride) { eye.fromArray(camOverride.e); tgt.fromArray(camOverride.t); }
-    const k = (reduced || still) ? 1 : (dt ? 1 - Math.pow(0.0016, dt) : 1);
+    const k = (reduced || still) ? 1 : (dt > 0 ? clamp(1 - Math.pow(0.0016, dt)) : 1);
     eyeS.lerp(eye, k); tgtS.lerp(tgt, k);
     pointerS.lerp(pointer, reduced ? 1 : .06);
     const sway = reduced ? 0 : Math.sin(time * .22) * .06;
@@ -618,13 +725,14 @@ export function createArchScene(canvas, opts = {}) {
     if (reduced || still) { curP = targetP; vel = 0; }
     else {
       const prev = curP;
-      curP += (targetP - curP) * (1 - Math.pow(0.0009, dt));
+      curP += (targetP - curP) * clamp(dt > 0 ? 1 - Math.pow(0.0009, dt) : 1);
       vel = (curP - prev) / Math.max(dt, .0001);
     }
     velS += (vel - velS) * .12;
     pMat.uniforms.uTime.value = time;
     pMat.uniforms.uVel.value = Math.min(1.4, Math.abs(velS) * 2.2);
     gridMat.uniforms.uTime.value = time;
+    streetMat.uniforms.uTime.value = time;
     water.material.uniforms.uTime.value = time;
     applyProgress(curP, dt);
     renderer.render(scene, camera);
@@ -642,7 +750,7 @@ export function createArchScene(canvas, opts = {}) {
   let raf = 0, last = performance.now(), running = false;
   function loop(now) {
     raf = requestAnimationFrame(loop);
-    const dt = Math.min(.05, (now - last) / 1000); last = now;
+    const dt = Math.min(.05, Math.max(0, (now - last) / 1000)); last = now;
     frame(dt);
   }
   const api = {

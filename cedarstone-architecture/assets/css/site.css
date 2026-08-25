@@ -60,13 +60,13 @@ p{max-width:64ch}
 .no-webgl #stage{display:none}
 .no-webgl #stage-fallback{display:block}
 
-.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.34;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='140' height='140' filter='url(%23n)' opacity='.42'/></svg>");
   animation:grainshift 620ms steps(2) infinite}
 @keyframes grainshift{0%{transform:translate(0,0)}50%{transform:translate(-2%,1.5%)}100%{transform:translate(1.5%,-1%)}}
 .vignette{position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(120% 92% at 50% 44%,transparent 38%,rgba(0,0,0,.42) 78%,rgba(0,0,0,.78) 100%)}
-.tint{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.34;mix-blend-mode:multiply;
+  background:radial-gradient(124% 96% at 50% 44%,transparent 46%,rgba(0,0,0,.28) 82%,rgba(0,0,0,.60) 100%)}
+.tint{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:var(--tint-op,.34);transition:opacity 1.2s linear;mix-blend-mode:multiply;
   background:linear-gradient(180deg,var(--tint-a,#2a2118),var(--tint-b,#0d0f14));
   transition:background 1.4s linear}
 
@@ -84,7 +84,13 @@ main{position:relative;z-index:2}
 section::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:linear-gradient(180deg,rgba(11,11,12,.74),rgba(11,11,12,.30) 34%,rgba(11,11,12,.34) 62%,rgba(11,11,12,.80));}
 section > .shell{position:relative;z-index:1}
-.hero::before{background:linear-gradient(180deg,rgba(11,11,12,.62),rgba(11,11,12,.16) 30%,rgba(11,11,12,.72))}
+section[data-scrim="light"] > .shell{text-shadow:0 2px 20px rgba(0,0,0,.6),0 1px 3px rgba(0,0,0,.4)}
+section[data-scrim="light"] .use,section[data-scrim="light"] .small{color:var(--sand)}
+section[data-scrim="light"]::before{
+  background:linear-gradient(180deg,rgba(11,11,12,.58),rgba(11,11,12,.06) 30%,rgba(11,11,12,.10) 66%,rgba(11,11,12,.52))}
+.hero::before{background:
+  linear-gradient(102deg,rgba(11,11,12,.90) 0%,rgba(11,11,12,.62) 34%,rgba(11,11,12,.10) 64%,rgba(11,11,12,.30) 100%),
+  linear-gradient(180deg,rgba(11,11,12,.55),rgba(11,11,12,0) 26%,rgba(11,11,12,.55))}
 .shell{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
 section{position:relative;padding-block:clamp(96px,15vh,190px);min-height:100svh;display:flex;align-items:center}
 section.tall{min-height:150svh}
@@ -198,7 +204,24 @@ section.short{min-height:auto}
 .step .idx{font-size:.72rem;letter-spacing:.2em;color:var(--brass)}
 .step p{color:var(--sand);max-width:52ch}
 
-/* ---------- material plates (pan / zoom / tilt) ---------- */
+/* ---------- material swatch rail — reads over the 3D, never covers it ---------- */
+.swatches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2.6vw,44px);list-style:none;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding-block:clamp(20px,2.4vw,34px);margin-block:clamp(8px,1.6vw,20px)}
+.swatches li{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(10px,1vw,16px);min-width:0}
+.chip{width:clamp(50px,4.2vw,72px);aspect-ratio:1;border-radius:50%;display:block;flex:none;
+  background-size:cover;background-position:center;border:1px solid var(--line-2);
+  box-shadow:0 14px 34px rgba(0,0,0,.5);
+  transition:transform .7s var(--ease-out),box-shadow .7s var(--ease),border-color .5s}
+.swatches li:hover .chip{transform:scale(1.14) rotate(-4deg);border-color:var(--brass);
+  box-shadow:0 18px 44px rgba(0,0,0,.62)}
+.swatches .lbl{min-width:0}
+.swatches b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
+  font-size:clamp(1rem,1.32vw,1.28rem);line-height:1.16;display:block}
+.swatches .use{font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);
+  display:block;margin-top:5px}
+
+/* ---------- image plates (pan / zoom / tilt) ---------- */
 .plates{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,22px)}
 .plate{position:relative;overflow:hidden;border-radius:3px;border:1px solid var(--line);
   aspect-ratio:3/4;background:#1a1815;will-change:transform;transform-style:preserve-3d}
@@ -303,7 +326,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:r
 /* ---------- responsive ---------- */
 @media (max-width:1080px){
   .split{grid-template-columns:1fr;gap:36px}
-  .g-3,.g-4,.plates{grid-template-columns:repeat(2,1fr)}
+  .g-3,.g-4,.plates,.swatches{grid-template-columns:repeat(2,1fr)}
   .stats{grid-template-columns:repeat(2,1fr)}
   .works{grid-template-columns:repeat(2,1fr)}
   .work,.work.wide,.work.tall{grid-column:span 2;aspect-ratio:4/3}
@@ -321,6 +344,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);background:r
   .menu-btn{display:flex;margin-left:auto;gap:6px;align-items:center;font-size:.72rem;
     letter-spacing:.16em;text-transform:uppercase}
   .g-2,.g-3,.g-4,.plates,.works{grid-template-columns:1fr}
+  .swatches{grid-template-columns:repeat(2,1fr)}
   section{padding-block:88px;min-height:auto}
   section.tall{min-height:auto}
   .hero{min-height:100svh}

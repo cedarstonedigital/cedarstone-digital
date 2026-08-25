@@ -13,7 +13,7 @@ const root = path.dirname(fileURLToPath(import.meta.url)).replace(/\/tools$/, ''
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png' };
 
 const SHOTS = [
-  { file: 'still-site.webp', w: 1920, h: 1080, p: 0.03 },
+  { file: 'still-site.webp', w: 1920, h: 1080, p: 0.004 },
   { file: 'work-westcliff.webp', w: 1600, h: 900, p: 0.58, cam: { e: [19, 5.2, 24], t: [0, 3.6, 0], fov: 33 } },
   { file: 'work-vault.webp', w: 900, h: 1200, p: 0.56, cam: { e: [3.4, 2.4, 16], t: [0.2, 3.4, 7], fov: 32 } },
   { file: 'work-cedar-court.webp', w: 1200, h: 900, p: 0.57, cam: { e: [-31, 12, 25], t: [0, 4.0, 0], fov: 27 } },
