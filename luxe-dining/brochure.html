@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Print Brochure | Luxe Dining Restaurant</title>
+<meta name="description" content="The six-page Luxe Dining brochure, ready to print or save as PDF.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>
+*{box-sizing:border-box} body{margin:0;background:#181614;font-family:Arial,sans-serif;color:#28211b}
+.page{width:210mm;min-height:297mm;margin:20px auto;background:#f5f0e8;position:relative;overflow:hidden;padding:28mm 24mm;box-shadow:0 10px 35px #0008;page-break-after:always}
+.dark{background:#111;color:#f5ead6}.gold{color:#b48a43}.kicker{letter-spacing:4px;text-transform:uppercase;font-size:12px}.logo{font-family:Georgia,serif;font-size:54px;letter-spacing:4px}.title{font-family:Georgia,serif;font-size:46px;letter-spacing:3px}.line{height:1px;background:#b48a43;margin:14px 0 26px}
+.cover{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(#080808aa,#080808cc),url("https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&fit=crop") center/cover}
+.center{text-align:center}.hero-space{height:100px}.quote{font-family:Georgia,serif;font-style:italic;font-size:27px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}.item{margin:0 0 22px}.item h3{font-family:Georgia,serif;font-weight:normal;margin:0 0 6px;font-size:20px}.price{float:right;color:#b48a43}.desc{font-size:13px;line-height:1.55;color:inherit;opacity:.8}.photo{position:absolute;left:0;right:0;bottom:0;height:36%;background-size:cover;background-position:center;opacity:.78}.intro-photo{background:url("https://images.pexels.com/photos/36904788/pexels-photo-36904788/free-photo-of-chefs-preparing-gourmet-steak-dish-in-kitchen.jpeg?auto=compress&cs=tinysrgb&w=1400&h=800&fit=crop") center/cover}.main-photo{background:url("https://images.pexels.com/photos/7627443/pexels-photo-7627443.jpeg?auto=compress&cs=tinysrgb&w=1400&h=800&fit=crop") center/cover}.dessert-photo{background:url("https://images.pexels.com/photos/27819686/pexels-photo-27819686/free-photo-of-a-chocolate-pudding-with-ice-cream-on-top.jpeg?auto=compress&cs=tinysrgb&w=1400&h=800&fit=crop") center/cover}
+.number{position:absolute;bottom:14mm;left:0;right:0;text-align:center;color:#b48a43;font-family:Georgia,serif;font-size:18px}.details{display:grid;grid-template-columns:50px 1fr;gap:20px 16px;margin-top:35px}.icon{font-size:28px;color:#b48a43}.details h4{margin:0 0 5px;font-size:12px;letter-spacing:2px}.details p{margin:0;line-height:1.6;font-size:14px}
+
+/* 3D animated luxury cover */
+.cover{isolation:isolate}
+.luxury-3d-scene{position:absolute;inset:0;overflow:hidden;perspective:900px;background:#070707}
+.restaurant-room{position:absolute;inset:-8%;transform-style:preserve-3d;animation:roomFloat 9s ease-in-out infinite alternate}
+.back-wall{position:absolute;inset:0;background:
+ radial-gradient(circle at 50% 38%,#6e4b20 0 1%,transparent 1.7%),
+ linear-gradient(90deg,#050505 0 10%,#18120c 10.5% 12%,#050505 12.5% 87.5%,#18120c 88% 89.5%,#050505 90%),
+ radial-gradient(ellipse at 50% 100%,#47331d,transparent 48%);transform:translateZ(-80px) scale(1.15)}
+.back-wall:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 9%,#b48a4320 9.2% 9.5%,transparent 9.8% 18%);animation:pan 12s linear infinite}
+.gold-panel{position:absolute;top:8%;bottom:14%;width:2px;background:linear-gradient(transparent,#c99b4b,transparent);box-shadow:0 0 18px #c99b4b88}
+.panel1{left:20%}.panel2{right:20%}
+.dining-table{position:absolute;left:50%;bottom:5%;width:58%;height:35%;transform:translateX(-50%) rotateX(58deg) translateZ(40px);transform-style:preserve-3d}
+.table-top{position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse,#4b3620,#16110c 62%,#080706 72%);border:3px solid #8e672f;box-shadow:0 0 35px #000}
+.table-base{position:absolute;left:47%;top:65%;width:8%;height:100%;background:linear-gradient(90deg,#0b0b0b,#b48a43,#090909);transform:translateZ(-30px) rotateX(-20deg)}
+.plate{position:absolute;width:18%;height:18%;border-radius:50%;border:2px solid #d8c39c;background:#ddd1b8aa;top:35%}
+.plate1{left:23%}.plate2{right:23%}
+.glass{position:absolute;width:5%;height:25%;border:1px solid #e6d8bb99;border-radius:45% 45% 35% 35%;top:12%;background:#ffffff0c}
+.glass1{left:40%}.glass2{right:40%}
+.candle{position:absolute;left:49%;top:22%;width:3%;height:20%;background:#eadfc9;box-shadow:0 0 15px #d89b3d}
+.candle:after{content:"";position:absolute;left:25%;top:-25%;width:50%;height:28%;border-radius:50%;background:#ffd37a;box-shadow:0 0 25px 8px #d98c36}
+.ceiling-light{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#ffe3a3,#b48a4318 30%,transparent 70%);filter:blur(2px);animation:pulse 3s ease-in-out infinite}
+.light1{left:10%;top:10%}.light2{right:10%;top:18%;animation-delay:1s}.light3{left:48%;top:4%;animation-delay:2s}
+.gold-particle{position:absolute;width:3px;height:3px;border-radius:50%;background:#d7a94e;box-shadow:0 0 10px #d7a94e;animation:rise 5s ease-in infinite}
+.p1{left:18%;bottom:20%;animation-delay:.2s}.p2{left:72%;bottom:15%;animation-delay:1.4s}.p3{left:40%;bottom:10%;animation-delay:2.3s}.p4{left:83%;bottom:30%;animation-delay:3.2s}
+.cover-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,#0005,#0008 55%,#000b),radial-gradient(circle at center,transparent 30%,#0008 100%)}
+.cover-content{position:relative;z-index:3}.crown{font-size:30px;text-shadow:0 0 20px #c99b4b;animation:glow 2.8s ease-in-out infinite}.bottom-copy{position:absolute!important;left:24mm;right:24mm;bottom:25mm}
+@keyframes roomFloat{from{transform:rotateY(-2deg) rotateX(1deg) scale(1.02)}to{transform:rotateY(2deg) rotateX(-1deg) scale(1.07)}}
+@keyframes pan{from{transform:translateX(-5%)}to{transform:translateX(5%)}}
+@keyframes pulse{0%,100%{opacity:.45;transform:scale(.85)}50%{opacity:.9;transform:scale(1.12)}}
+@keyframes rise{0%{transform:translateY(0) scale(.5);opacity:0}20%{opacity:1}100%{transform:translateY(-260px) translateX(25px) scale(1.2);opacity:0}}
+@keyframes glow{0%,100%{opacity:.75;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){.luxury-3d-scene *{animation:none!important}}
+@media print{.luxury-3d-scene *{animation:none!important}}
+
+
+/* Mobile / tablet responsive layout */
+html,body{max-width:100%;overflow-x:hidden}
+@media (max-width: 900px){
+  body{padding:12px 0}
+  .page{
+    width:min(calc(100vw - 24px),210mm);
+    min-height:0;
+    aspect-ratio:210/297;
+    height:auto;
+    margin:12px auto;
+    padding:9% 8%;
+    border-radius:4px;
+  }
+  .title{font-size:clamp(25px,6vw,46px)}
+  .logo{font-size:clamp(30px,7vw,54px)}
+  .kicker{font-size:clamp(8px,2vw,12px);letter-spacing:clamp(2px,0.7vw,4px)}
+  .quote{font-size:clamp(17px,4vw,27px)}
+  .page p{font-size:clamp(11px,2.2vw,17px)}
+  .item{margin-bottom:clamp(10px,3vw,22px)}
+  .item h3{font-size:clamp(12px,2.7vw,20px)}
+  .desc{font-size:clamp(9px,1.8vw,13px)}
+  .grid{gap:clamp(12px,4vw,32px)}
+  .details{grid-template-columns:clamp(28px,7vw,50px) 1fr;gap:clamp(10px,3vw,20px) clamp(8px,2vw,16px)}
+  .icon{font-size:clamp(18px,4vw,28px)}
+  .details h4{font-size:clamp(8px,1.8vw,12px)}
+  .details p{font-size:clamp(9px,2vw,14px)}
+  .number{bottom:4%;font-size:clamp(11px,2.5vw,18px)}
+  .bottom-copy{left:8%!important;right:8%!important;bottom:8%!important}
+  .hero-space{height:clamp(30px,8vw,100px)}
+  .photo{height:36%}
+}
+@media (max-width:600px){
+  body{background:#0d0c0b}
+  .page{
+    width:calc(100vw - 14px);
+    padding:8% 7%;
+    margin:7px auto;
+    box-shadow:0 5px 20px #0009;
+  }
+  .grid{gap:10px}
+  .cover-content.bottom-copy p{margin-top:12px!important}
+  .line{margin:8px 0 14px}
+  .dining-table{width:72%}
+}
+@media (min-width:601px) and (max-width:900px){
+  .page{width:min(calc(100vw - 30px),210mm)}
+}
+@media (orientation:landscape) and (max-width:900px){
+  body{padding:8px 0}
+  .page{width:min(70vh,calc(100vw - 20px));margin:8px auto}
+}
+
+/* Toolbar added when the brochure became part of the website */
+.bar{position:sticky;top:0;z-index:50;background:#100d0a;border-bottom:1px solid #b48a4340;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:12px clamp(12px,4vw,28px);font-family:Arial,sans-serif}
+.bar a,.bar button{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#e0cfa8;
+  background:none;border:1px solid #b48a4377;padding:9px 18px;cursor:pointer;text-decoration:none}
+.bar a:hover,.bar button:hover{background:#b48a43;color:#120e08;border-color:#b48a43}
+.bar .bar-title{color:#b48a43;font-family:Georgia,serif;letter-spacing:3px;font-size:14px}
+.bar-links{display:flex;gap:10px;flex-wrap:wrap}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:26px}
+.strip img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:1px solid #b48a4355}
+.strip figcaption{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#b48a43;margin-top:6px}
+.strip figure{margin:0}
+.strip-fallback{display:grid;place-items:center;aspect-ratio:4/3;font-size:34px;
+  background:radial-gradient(circle at 50% 55%,#3a2c1a,#171208 70%);border:1px solid #b48a4355}
+
+@media print{.bar{display:none}body{background:white}.page{margin:0;box-shadow:none;page-break-after:always}}
+</style>
+<script>document.documentElement.className+=" js";</script>
+</head>
+<body>
+
+<div class="bar">
+  <span class="bar-title">&#9819; LUXE DINING &mdash; BROCHURE</span>
+  <span class="bar-links">
+    <a href="index.html">&larr; Back to the website</a>
+    <a href="menu.html">Menu</a>
+    <a href="reserve.html">Reserve</a>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </span>
+</div>
+
+<section class="page dark cover">
+  <div class="luxury-3d-scene" aria-label="Animated 3D luxury dining cover">
+    <div class="ceiling-light light1"></div>
+    <div class="ceiling-light light2"></div>
+    <div class="ceiling-light light3"></div>
+    <div class="gold-particle p1"></div><div class="gold-particle p2"></div>
+    <div class="gold-particle p3"></div><div class="gold-particle p4"></div>
+    <div class="restaurant-room">
+      <div class="back-wall"></div>
+      <div class="gold-panel panel1"></div><div class="gold-panel panel2"></div>
+      <div class="dining-table">
+        <div class="table-top"></div>
+        <div class="table-base"></div>
+        <div class="plate plate1"></div><div class="plate plate2"></div>
+        <div class="glass glass1"></div><div class="glass glass2"></div>
+        <div class="candle"></div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-overlay"></div>
+  <div class="center cover-content">
+    <div class="kicker gold">Fine Food · Timeless Moments</div>
+    <div class="hero-space"></div>
+    <div class="gold crown">♛</div>
+    <div class="logo gold">LUXE DINING</div>
+    <div class="kicker gold">Restaurant</div>
+  </div>
+  <div class="center cover-content bottom-copy">
+    <div class="line"></div>
+    <div class="kicker gold">Experience · Indulge · Savor</div>
+    <p style="margin-top:28px;color:#d8c9ad">A refined destination where exceptional cuisine meets unforgettable atmosphere.</p>
+  </div>
+  <div class="number">01</div>
+</section>
+
+<section class="page">
+  <div class="center">
+    <div class="kicker gold">Luxe Dining Restaurant</div>
+    <h1 class="title gold">WELCOME</h1>
+    <p class="quote">“Where every meal becomes a memory.”</p>
+    <div class="line"></div>
+    <p style="max-width:560px;margin:0 auto;line-height:2;font-size:17px">
+      At Luxe Dining, we celebrate the art of fine cuisine in an elegant setting.
+      Our passion for exceptional food, attentive service and luxurious ambience
+      creates an unforgettable experience for every guest.
+    </p>
+  </div>
+  <div class="photo intro-photo"></div>
+  <div class="number">02</div>
+</section>
+
+<section class="page dark">
+  <div class="center"><div class="kicker gold">Curated Cuisine</div><h1 class="title gold">MENU</h1></div>
+  <div class="line"></div>
+  <div class="grid">
+    <div>
+      <h2 class="gold" style="font-family:Georgia,serif">STARTERS</h2>
+      <div class="item"><h3>Beef Carpaccio <span class="price">R165</span></h3><div class="desc">Thinly sliced beef, truffle oil, parmesan, rocket and capers.</div></div>
+      <div class="item"><h3>Seared Scallops <span class="price">R185</span></h3><div class="desc">Pan-seared scallops, cauliflower purée and bacon crisp.</div></div>
+      <div class="item"><h3>Burrata & Heirloom Tomatoes <span class="price">R145</span></h3><div class="desc">Creamy burrata, basil pesto and balsamic reduction.</div></div>
+      <div class="item"><h3>Prawn & Avocado Cocktail <span class="price">R155</span></h3><div class="desc">Chilled prawns, avocado, mango salsa and lime aioli.</div></div>
+    </div>
+    <div>
+      <h2 class="gold" style="font-family:Georgia,serif">SOUPS</h2>
+      <div class="item"><h3>Lobster Bisque <span class="price">R120</span></h3><div class="desc">Rich lobster bisque with crème fraîche and fresh chives.</div></div>
+      <div class="item"><h3>Wild Mushroom Soup <span class="price">R95</span></h3><div class="desc">Creamy wild mushroom soup with truffle oil and herb croutons.</div></div>
+    </div>
+  </div>
+  <figure class="strip" style="display:grid">
+    <img data-emoji="&#129385;" src="https://images.pexels.com/photos/20105550/pexels-photo-20105550/free-photo-of-close-up-of-carpaccio-dish.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=450&amp;fit=crop" alt="Beef carpaccio with parmesan and rocket" loading="lazy">
+    <img data-emoji="&#129450;" src="https://images.pexels.com/photos/3645126/pexels-photo-3645126.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=450&amp;fit=crop" alt="Seared scallops with cauliflower puree" loading="lazy">
+    <img data-emoji="&#129472;" src="https://images.pexels.com/photos/3510248/pexels-photo-3510248.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=450&amp;fit=crop" alt="Burrata with heirloom tomatoes" loading="lazy">
+    <img data-emoji="&#129438;" src="https://images.pexels.com/photos/37800281/pexels-photo-37800281/free-photo-of-elegant-lobster-bisque-with-decorative-garnish.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=600&amp;h=450&amp;fit=crop" alt="Lobster bisque" loading="lazy">
+  </figure>
+  <div class="number">03</div>
+</section>
+
+<section class="page">
+  <div class="center"><div class="kicker gold">Signature Selection</div><h1 class="title gold">MAINS</h1></div>
+  <div class="line"></div>
+  <div style="max-width:650px;margin:auto">
+    <div class="item"><h3>Grilled Fillet Mignon <span class="price">R295</span></h3><div class="desc">200g grain-fed beef, red wine jus, roasted vegetables and potato gratin.</div></div>
+    <div class="item"><h3>Pan-Seared Salmon <span class="price">R235</span></h3><div class="desc">Atlantic salmon, lemon butter sauce, sautéed greens and mashed potato.</div></div>
+    <div class="item"><h3>Lamb Rack <span class="price">R275</span></h3><div class="desc">Herb-crusted lamb rack, rosemary jus, baby carrots and parsnip purée.</div></div>
+    <div class="item"><h3>Truffle Risotto (V) <span class="price">R195</span></h3><div class="desc">Creamy arborio rice, wild mushrooms, parmesan and micro herbs.</div></div>
+    <div class="item"><h3>Duck Confit <span class="price">R255</span></h3><div class="desc">Slow-cooked duck leg, citrus glaze, braised red cabbage and potato fondant.</div></div>
+  </div>
+  <div class="photo main-photo"></div>
+  <div class="number">04</div>
+</section>
+
+<section class="page dark">
+  <div class="center"><div class="kicker gold">A Sweet Finale</div><h1 class="title gold">DESSERTS & DRINKS</h1></div>
+  <div class="line"></div>
+  <div class="grid">
+    <div>
+      <h2 class="gold" style="font-family:Georgia,serif">DESSERTS</h2>
+      <div class="item"><h3>Chocolate Fondant <span class="price">R125</span></h3><div class="desc">Warm chocolate fondant, vanilla ice cream and chocolate soil.</div></div>
+      <div class="item"><h3>Crème Brûlée <span class="price">R110</span></h3><div class="desc">Classic vanilla crème brûlée with berry compote.</div></div>
+      <div class="item"><h3>Lemon Meringue Tart <span class="price">R115</span></h3><div class="desc">Lemon curd, toasted meringue and shortbread crust.</div></div>
+      <div class="item"><h3>Cheese Platter <span class="price">R165</span></h3><div class="desc">Selection of artisanal cheeses, fruit, nuts and crackers.</div></div>
+    </div>
+    <div>
+      <h2 class="gold" style="font-family:Georgia,serif">BEVERAGES</h2>
+      <div class="item"><h3>Signature Mocktail <span class="price">R85</span></h3></div>
+      <div class="item"><h3>Fresh Juice <span class="price">R45</span></h3></div>
+      <div class="item"><h3>House Wine (Glass) <span class="price">R75</span></h3></div>
+      <div class="item"><h3>Premium Wine <span class="price">R120</span></h3></div>
+      <div class="item"><h3>Espresso / Coffee <span class="price">R35</span></h3></div>
+      <div class="item"><h3>Tea Selection <span class="price">R35</span></h3></div>
+    </div>
+  </div>
+  <div class="photo dessert-photo"></div>
+  <div class="number">05</div>
+</section>
+
+<section class="page">
+  <div class="center"><div class="kicker gold">Reservations & Enquiries</div><h1 class="title gold">DETAILS</h1></div>
+  <div class="line"></div>
+  <div class="details">
+    <div class="icon">⌖</div><div><h4>LOCATION</h4><p>123 Luxury Lane, Sandton<br>Johannesburg, 2196</p></div>
+    <div class="icon">☎</div><div><h4>CONTACT</h4><p>+27 11 123 4567<br>+27 71 234 5678</p></div>
+    <div class="icon">✉</div><div><h4>EMAIL</h4><p>reservations@luxedining.co.za<br>info@luxedining.co.za</p></div>
+    <div class="icon">◉</div><div><h4>WEBSITE</h4><p>www.luxedining.co.za</p></div>
+    <div class="icon">◷</div><div><h4>OPENING HOURS</h4><p>Mon–Thu: 12:00–22:00<br>Fri–Sat: 12:00–23:00<br>Sun: 12:00–21:00</p></div>
+    <div class="icon">♜</div><div><h4>DRESS CODE</h4><p>Smart Elegant</p></div>
+  </div>
+  <div class="center" style="margin-top:45px"><div class="line"></div><p class="quote">Thank you for choosing Luxe Dining.</p><p>We look forward to serving you.</p></div>
+  <div class="number">06</div>
+</section>
+
+<script>
+/* Keep the printed strip tidy if a photograph cannot be fetched: swap it for
+   the dish's emoji on the same plate rather than a broken-image icon. */
+Array.prototype.forEach.call(document.querySelectorAll('.strip img'), function (img) {
+  var fail = function () {
+    var span = document.createElement('span');
+    span.className = 'strip-fallback';
+    span.textContent = img.getAttribute('data-emoji') || '\uD83C\uDF7D';
+    if (img.parentNode) img.parentNode.replaceChild(span, img);
+  };
+  img.addEventListener('error', fail);
+  if (img.complete && img.naturalWidth === 0) fail();
+});
+</script>
+</body>
+</html>
