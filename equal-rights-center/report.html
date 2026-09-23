@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report discrimination | Equal Rights Center concept</title>
+<meta name="description" content="Tell the Equal Rights Center what happened. Intake is free and you do not need to be certain it was discrimination.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/img/erc-logo-small-1.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to the main content</a>
+
+<div class="utility">
+  <div class="shell">
+    <span class="utility__spacer">Free help for people in the greater Washington DC region</span>
+    <a href="tel:2022343062">202.234.3062</a>
+    <button class="pref" id="toggle-contrast" type="button" aria-pressed="false">High contrast</button>
+    <button class="pref" id="toggle-textsize" type="button" aria-pressed="false">Larger text</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="shell">
+    <a class="brand" href="index.html">
+      <img src="assets/img/erc-logo-small-1.png" alt="" width="46" height="46">
+      <b>Equal Rights Center<span>Washington DC</span></b>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html#method">How testing works</a>
+      <a href="fair-housing.html">Fair housing</a>
+      <a href="index.html#programs">Programs</a>
+      <a href="index.html#record">Our record</a>
+      <a class="btn btn--solid" href="report.html" aria-current="page">Report discrimination</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" style="padding-bottom:clamp(2rem,4vw,3rem);">
+    <div class="shell" style="max-width:52rem;">
+      <p class="eyebrow">Intake</p>
+      <h1 style="font-size:clamp(2.25rem,5.6vw,3.75rem);line-height:1.02;letter-spacing:-0.025em;margin-bottom:1.25rem;">
+        Tell us what happened.
+      </h1>
+      <p class="hero__lede">
+        You do not need to be certain it was discrimination. You do not need a
+        lawyer, a document, or the right words for it. Working out whether
+        something unlawful happened is our job.
+      </p>
+      <div class="notice">
+        <strong>If you would rather speak to a person,</strong> call
+        <a href="tel:2022343062">202.234.3062</a> or
+        <a href="tel:8665490009">866.549.0009</a>, or email
+        <a href="mailto:info@equalrightscenter.org">info@equalrightscenter.org</a>.
+        Intake is free.
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="border-top:none;padding-top:0;">
+    <div class="shell">
+      <form class="form" id="intake" novalidate>
+
+        <fieldset style="border:none;padding:0;margin:0;display:grid;gap:1.5rem;">
+          <legend style="font-family:var(--font-display);font-size:1.5rem;letter-spacing:-0.015em;margin-bottom:0.5rem;padding:0;">
+            1. What happened
+          </legend>
+
+          <div class="field">
+            <label for="area">Where did this happen?</label>
+            <p class="hint" id="area-hint">Pick the closest match. If none fit, choose somewhere else.</p>
+            <select id="area" name="area" required aria-describedby="area-hint" data-msg-required="Choose where this happened so we can route it to the right team.">
+              <option value="">Choose one</option>
+              <option>Renting or buying a home</option>
+              <option>A request for an accommodation or modification</option>
+              <option>Applying for a job or treatment at work</option>
+              <option>A shop, restaurant, or other business</option>
+              <option>Transport, including ride hailing</option>
+              <option>Somewhere else</option>
+            </select>
+            <p class="err" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="place">Who was involved?</label>
+            <p class="hint" id="place-hint">A landlord, letting agent, employer or business name if you know it. An address is fine too.</p>
+            <input type="text" id="place" name="place" autocomplete="organization" aria-describedby="place-hint">
+            <p class="err" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="when">Roughly when was this?</label>
+            <p class="hint" id="when-hint">An approximate date is fine. Time limits apply to some complaints, so earlier is better.</p>
+            <input type="date" id="when" name="when" aria-describedby="when-hint">
+            <p class="err" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="story">In your own words, what happened?</label>
+            <p class="hint" id="story-hint">Write it however it comes out. There is no format we need.</p>
+            <textarea id="story" name="story" required aria-describedby="story-hint" data-msg-required="Even a couple of sentences gives us enough to start."></textarea>
+            <p class="err" role="alert" hidden></p>
+          </div>
+        </fieldset>
+
+        <fieldset style="border:none;padding:0;margin:0;display:grid;gap:1.5rem;">
+          <legend style="font-family:var(--font-display);font-size:1.5rem;letter-spacing:-0.015em;margin-bottom:0.5rem;padding:0;">
+            2. How to reach you
+          </legend>
+
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required data-msg-required="We need a name to open a file.">
+            <p class="err" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <p class="hint" id="email-hint">We use this to follow up. Give a phone number below if email is difficult.</p>
+            <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-hint" data-msg-required="We need one way to reach you.">
+            <p class="err" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone, optional</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+            <p class="err" role="alert" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="access">Anything we should know about contacting you?</label>
+            <p class="hint" id="access-hint">For example a preferred format, an interpreter, a screen reader, or a safe time to call.</p>
+            <input type="text" id="access" name="access" aria-describedby="access-hint">
+            <p class="err" role="alert" hidden></p>
+          </div>
+        </fieldset>
+
+        <div class="notice">
+          What you send stays with the ERC intake team. Filing here does not
+          replace your right to complain directly to the US Department of
+          Housing and Urban Development, the DC Office of Human Rights, or your
+          county human rights office, and it does not close off that route.
+        </div>
+
+        <div>
+          <button class="btn btn--solid btn--lg" type="submit">Send this to the intake team</button>
+          <p class="err" id="intake-status" role="status" aria-live="polite" style="margin-top:1rem;color:var(--ink-2);font-weight:500;"></p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <section class="band band--tint">
+    <div class="shell">
+      <div class="band__head rise">
+        <p class="eyebrow">What happens next</p>
+        <h2>Three steps, and none of them cost you anything.</h2>
+      </div>
+      <div class="method">
+        <div class="method__step rise">
+          <span class="method__n" aria-hidden="true">01</span>
+          <h3>We read it</h3>
+          <p>
+            An intake coordinator goes through what you sent and comes back to
+            you, usually with a few questions.
+          </p>
+        </div>
+        <div class="method__step rise">
+          <span class="method__n" aria-hidden="true">02</span>
+          <h3>We look into it</h3>
+          <p>
+            Depending on what you describe, that can mean testing the same
+            provider, helping you prepare a request, or helping you file.
+          </p>
+        </div>
+        <div class="method__step rise">
+          <span class="method__n" aria-hidden="true">03</span>
+          <h3>We tell you where it stands</h3>
+          <p>
+            Including when the answer is that there is not enough to act on.
+            You will not be left wondering.
+          </p>
+        </div>
+        <div class="method__step rise">
+          <span class="method__n" aria-hidden="true">04</span>
+          <h3>Patterns get acted on</h3>
+          <p>
+            One account can become part of something larger. Several matching
+            accounts are what moves a case forward.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot__grid">
+      <div>
+        <h4>Equal Rights Center</h4>
+        <address>
+          820 First St NE, Suite LL160<br>
+          Washington, DC 20002<br>
+          <a href="tel:2022343062">202.234.3062</a><br>
+          <a href="tel:8665490009">866.549.0009</a><br>
+          <a href="mailto:info@equalrightscenter.org">info@equalrightscenter.org</a>
+        </address>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="fair-housing.html">Fair housing</a></li>
+          <li><a href="index.html#programs">Disability and accessibility</a></li>
+          <li><a href="index.html#programs">Employment</a></li>
+          <li><a href="index.html#programs">Public accommodations</a></li>
+          <li><a href="index.html#programs">Multifamily Housing Resource Program</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Take part</h4>
+        <ul>
+          <li><a href="report.html">Report discrimination</a></li>
+          <li><a href="index.html#act">Become a tester</a></li>
+          <li><a href="index.html#act">Become a member</a></li>
+          <li><a href="index.html#record">Our record</a></li>
+          <li><a href="index.html#method">How testing works</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <span>
+        Concept by CedarStone Digital. Not affiliated with or endorsed by the
+        Equal Rights Center. Text and images belong to the ERC and are shown
+        here to illustrate a proposed design.
+      </span>
+      <span>Prepared September 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

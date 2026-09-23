@@ -4,8 +4,73 @@
     {
       "name": "rugby-life",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev", "--prefix", "C:/Users/tumel/cedarstone-digital/rugby-life"],
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "C:/Users/tumel/cedarstone-digital/rugby-life"
+      ],
       "port": 5173
+    },
+    {
+      "name": "lrt-threadz",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "C:/Users/tumel/lrt-threadz",
+        "--",
+        "--port",
+        "5174"
+      ],
+      "port": 5174
+    },
+    {
+      "name": "ibrahim-jdm",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8412",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/ibrahim-jdm"
+      ],
+      "port": 8412
+    },
+    {
+      "name": "ibrahim-jdm-s2k",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "C:/Users/tumel/cedarstone-digital/ibrahim-jdm-s2k/scripts/devserver.py",
+        "8414",
+        "C:/Users/tumel/cedarstone-digital/ibrahim-jdm-s2k"
+      ],
+      "port": 8414
+    },
+    {
+      "name": "f1-feature",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8413",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/f1-feature"
+      ],
+      "port": 8413
+    },
+    {
+      "name": "penya-play",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8420",
+        "--directory",
+        "C:/Users/tumel/penya-play/prototype"
+      ],
+      "port": 8420
     },
     {
       "name": "scratchpad-3d",
@@ -18,6 +83,44 @@
         "C:/Users/tumel/AppData/Local/Temp/claude/C--Users-tumel-cedarstone-digital/6b012bfa-e2c5-48b7-bba0-a01524047f23/scratchpad"
       ],
       "port": 8317
+    },
+    {
+      "name": "sesotho-fashioning",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev",
+        "--prefix",
+        "C:/Users/tumel/sesotho-fashioning",
+        "--",
+        "--port",
+        "5175"
+      ],
+      "port": 5175
+    },
+    {
+      "name": "lighthouse-contracting",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8421",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/lighthouse-contracting"
+      ],
+      "port": 8421
+    },
+    {
+      "name": "equal-rights-center",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8422",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/equal-rights-center"
+      ],
+      "port": 8422
     }
   ]
 }
