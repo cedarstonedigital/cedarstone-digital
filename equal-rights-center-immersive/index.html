@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Equal Rights Center: Evidence of Difference | Concept</title>
+<meta name="description" content="An immersive concept experience for the Equal Rights Center: civil rights testing, fair housing, programs, the record, and how to take action.">
+<meta name="theme-color" content="#0B0C0E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0C0E'/%3E%3Crect x='6' y='10' width='20' height='3' fill='%23FF3B2F'/%3E%3Crect x='6' y='19' width='20' height='3' fill='%23FFB627'/%3E%3C/svg%3E">
+<style>
+/* ==================================================================
+   FONTS  (local sources only - no network requests, no 404s)
+   ================================================================== */
+@font-face{font-family:'SF Pro';font-weight:400;font-style:normal;font-display:swap;
+  src:local('SF Pro Text'),local('SFProText-Regular'),local('Inter'),local('Segoe UI'),local('Helvetica Neue'),local('Arial')}
+@font-face{font-family:'SF Pro';font-weight:700;font-style:normal;font-display:swap;
+  src:local('SF Pro Text Bold'),local('SFProText-Bold'),local('Inter Bold'),local('Segoe UI Bold'),local('Helvetica Neue Bold'),local('Arial Bold')}
+@font-face{font-family:'SF Pro Thin';font-weight:100;font-style:normal;font-display:swap;
+  src:local('SF Pro Display Thin'),local('SFProDisplay-Thin'),local('Inter Thin'),local('Segoe UI Light'),local('Helvetica Neue Thin'),local('Arial')}
+/* Aalto = tall condensed display face. Used ONLY for the giant destination title. */
+@font-face{font-family:'Aalto';font-weight:400;font-style:normal;font-display:swap;
+  src:local('Aalto'),local('Aalto Sans'),local('Haettenschweiler'),local('Oswald'),local('Arial Narrow')}
+
+/* ==================================================================
+   PALETTE - "Signal Fire"
+   ================================================================== */
+:root{
+  --ground:#0B0C0E;   /* near-black base          */
+  --bone:#F2EDE4;     /* primary text  ~15:1      */
+  --signal:#FF3B2F;   /* alarm / evidence  ~6:1   */
+  --amber:#FFB627;    /* numbers / highlights ~12:1*/
+  --ash:#6E7175;      /* hairlines, inactive rules - NOT used for body copy */
+  --bone-70:rgba(242,237,228,.72);
+  --bone-55:rgba(242,237,228,.58);
+  --chrome-pad-x:clamp(18px,1.95vw,28px);
+  --chrome-pad-y:clamp(18px,3.1vh,28px);
+  font-family:'SF Pro',Arial,sans-serif;color:var(--bone);background:var(--ground);
+  font-synthesis:none;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;padding:0;overflow:hidden;background:var(--ground)}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,video{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+
+/* Custom cursor only where a real pointer exists */
+@media (hover:hover) and (pointer:fine){
+  html,body,button,a,.portal{cursor:none}
+}
+
+/* Focus ring - signal red, always visible */
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
+
+.skip{position:fixed;z-index:200;left:50%;top:-80px;transform:translateX(-50%);
+  padding:12px 20px;background:var(--signal);color:#0B0C0E;font-weight:700;font-size:14px;
+  letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border-radius:999px;
+  transition:top .25s cubic-bezier(.22,1,.36,1)}
+.skip:focus{top:14px}
+
+/* ==================================================================
+   STAGE
+   ================================================================== */
+.experience{position:fixed;inset:0;overflow:hidden;isolation:isolate}
+
+/* ---------- BACKGROUND LAYER ----------------------------------------
+   VIDEO BACKDROP DROP-IN POINT #1
+   Each destination owns one <figure class="background"> holding exactly one
+   media element. To swap in a cinematic video backdrop, replace the <img>
+   with, one line:
+     <video class="background-media" src="assets/video/01-method.mp4"
+            muted loop playsinline preload="auto"></video>
+   The JS reads videoWidth||naturalWidth, plays the active one and pauses the
+   rest, so no other change is needed.
+-------------------------------------------------------------------- */
+.backgrounds{position:absolute;inset:0;z-index:0;background:var(--ground)}
+.background{position:absolute;inset:0;margin:0;opacity:0;transform:scale(1.06);
+  transition:opacity 1.15s cubic-bezier(.22,1,.36,1),transform 6s cubic-bezier(.16,1,.3,1)}
+.background.is-visible{opacity:1;transform:scale(1)}
+.background-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.24) brightness(.62)}
+/* duotone: multiply keeps shadows at ground black and pushes highlights to the
+   destination tint, instead of flattening everything to one hue */
+.background:after{content:'';position:absolute;inset:0;mix-blend-mode:multiply;opacity:.72;
+  background:var(--grade,#FF3B2F)}
+.background:before{content:'';position:absolute;inset:0;z-index:2;
+  background:
+    linear-gradient(90deg,rgba(11,12,14,.88) 0%,rgba(11,12,14,.35) 26%,rgba(11,12,14,0) 46%),
+    radial-gradient(120% 90% at 50% 40%,rgba(11,12,14,0) 0%,rgba(11,12,14,.55) 62%,rgba(11,12,14,.92) 100%),
+    linear-gradient(180deg,rgba(11,12,14,.78) 0%,rgba(11,12,14,.12) 34%,rgba(11,12,14,.86) 100%)}
+#bg-method{--grade:#FF3B2F}
+#bg-housing{--grade:#FFB627}
+#bg-programs{--grade:#FF3B2F}
+#bg-record{--grade:#FFB627}
+#bg-action{--grade:#FF3B2F}
+
+.scene-canvas{display:none}
+.portal-canvas{position:fixed;inset:0;z-index:3;width:100%;height:100%;pointer-events:none}
+.shade{position:absolute;inset:auto 0 0;z-index:4;height:52%;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(11,12,14,0),rgba(11,12,14,.86) 72%,rgba(11,12,14,.96))}
+.grain{position:fixed;inset:-50%;z-index:5;pointer-events:none;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain-drift 5.2s steps(6) infinite}
+@keyframes grain-drift{
+  0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-4%)}
+  60%{transform:translate(-3%,-3%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
+
+/* ==================================================================
+   CHROME
+   ================================================================== */
+.chrome{position:absolute;z-index:6;transition:opacity .55s cubic-bezier(.22,1,.36,1),filter .55s cubic-bezier(.22,1,.36,1)}
+.is-transitioning .chrome{opacity:0;filter:blur(8px);pointer-events:none}
+
+/* HEADER */
+.header{left:var(--chrome-pad-x);right:var(--chrome-pad-x);top:var(--chrome-pad-y);
+  display:flex;justify-content:space-between;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:14px;padding-left:52px;min-height:42px}
+.brand-name{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;line-height:1.3}
+.brand-meta{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-55);line-height:1.3}
+.header-actions{margin-left:auto;display:flex;align-items:center;gap:12px}
+.route{display:flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:999px;
+  border:1px solid rgba(242,237,228,.28);background:rgba(11,12,14,.42);backdrop-filter:blur(12px);
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-70)}
+.route b{color:var(--amber);font-weight:700;font-variant-numeric:tabular-nums}
+.report{display:inline-flex;align-items:center;gap:9px;height:42px;padding:0 20px;border:0;
+  border-radius:999px;background:var(--signal);color:#0B0C0E;font-size:12px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;text-decoration:none;
+  transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s ease}
+.report:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,59,47,.42)}
+.report .pulse{width:7px;height:7px;border-radius:50%;background:#0B0C0E;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+
+/* SIDEBAR - destination list (equivalent of .planet-list) */
+.dest-list{left:var(--chrome-pad-x);top:43%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none;font-size:16px;max-width:210px}
+.dest-item{display:flex;align-items:center;gap:10px;min-height:22px;color:var(--bone-55);
+  letter-spacing:.02em;transition:color .4s ease}
+.dest-item .idx{font-size:11px;letter-spacing:.14em;color:var(--ash);font-variant-numeric:tabular-nums}
+.dest-item.active{font-size:18px;font-weight:700;color:var(--bone);gap:8px}
+.dest-item.active .idx{color:var(--amber)}
+.dest-item.active:before{content:'';width:16px;height:16px;border-radius:50%;background:var(--signal);
+  box-shadow:0 0 0 4px rgba(255,59,47,.18)}
+.dest-item.done{color:rgba(242,237,228,.5)}
+.dest-item.done .idx{color:rgba(155,160,165,.9)}
+
+/* PORTAL */
+.portal-wrap{left:50%;top:50%;width:min(320px,31vw);transform:translate(-50%,-54%);perspective:none;z-index:7}
+.portal-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;
+  margin-bottom:14px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;opacity:0}
+.portal-heading .lead{color:var(--signal);font-weight:700}
+.portal-heading .dest{display:flex;align-items:center;gap:8px;color:var(--bone)}
+.portal-heading .num{color:var(--amber);font-variant-numeric:tabular-nums}
+.portal-heading strong{font-size:16px;letter-spacing:.06em}
+.portal{position:relative;display:block;width:100%;aspect-ratio:320/350;padding:0;overflow:visible;
+  border:0;border-radius:90px;background:transparent;box-shadow:none;transform:none!important}
+.portal:focus-visible{outline:2px solid var(--signal);outline-offset:14px;border-radius:90px}
+.portal video,.portal img{visibility:hidden;position:absolute;width:1px;height:1px;pointer-events:none}
+.portal-hint{margin-top:16px;text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--bone-55);opacity:0;transition:opacity .4s ease}
+.mask-revealing .portal-hint,.intro-ready .portal-hint{opacity:1}
+.restart{margin:14px auto 0;display:none;padding:9px 18px;border:1px solid rgba(242,237,228,.34);
+  border-radius:999px;background:transparent;color:var(--bone);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;transition:border-color .3s ease,color .3s ease}
+.restart:hover{border-color:var(--signal);color:var(--signal)}
+.is-terminal .restart{display:block}
+.is-terminal .portal-hint{display:none}
+
+/* CONTENT */
+.dest-content{left:clamp(18px,4vw,58px);right:clamp(18px,3vw,44px);bottom:clamp(30px,3.4vh,34px);
+  display:flex;justify-content:space-between;align-items:flex-end;gap:clamp(24px,4vw,64px)}
+.dest-copy{max-width:min(38vw,560px);min-width:0}
+.dest-kicker{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:11px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--amber)}
+.dest-kicker:before{content:'';width:34px;height:1px;background:var(--signal)}
+.dest-lede{margin:0 0 20px;max-width:52ch;font-size:clamp(12px,.98vw,14px);line-height:1.55;color:var(--bone-70)}
+.dest-lede em{font-style:normal;color:var(--bone)}
+.dest-content h1{font-family:Aalto,Haettenschweiler,'Arial Narrow',sans-serif;
+  font-size:clamp(62px,10.4vw,164px);font-weight:400;line-height:.72;margin:0 0 -.04em;
+  letter-spacing:0;text-transform:uppercase;transform:translateX(-4px);opacity:0}
+.dest-content h1 span{display:block}
+.dest-content h1 .hot{color:var(--signal)}
+.dest-content h1.one-line{font-size:clamp(48px,8.4vw,132px)}
+.panel{width:min(447px,34vw);margin:0;font-size:15px}
+.fact{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:10px 0;
+  border-bottom:1px solid rgba(110,113,117,.55);opacity:0}
+.fact:last-of-type{border-bottom:0}
+.fact dt{font-weight:700;letter-spacing:.02em;line-height:1.35}
+.fact dt .yr{display:block;font-size:11px;letter-spacing:.16em;color:var(--amber);font-weight:400;margin-bottom:3px}
+.fact dd{margin:0;color:var(--bone-70);line-height:1.5;font-size:14px}
+.fact dd a{color:var(--bone);text-decoration-color:var(--signal);text-underline-offset:3px}
+.panel-note{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;opacity:0}
+.content-revealing .panel-note{animation:fact-rise .72s cubic-bezier(.22,1,.36,1) 1.18s both}
+.tag{padding:6px 11px;border:1px solid rgba(255,182,39,.5);border-radius:999px;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.tag.sig{border-color:rgba(255,59,47,.6);color:var(--signal)}
+
+.byline{position:fixed;z-index:8;left:50%;bottom:9px;transform:translateX(-50%);
+  font-size:10px;letter-spacing:.09em;color:var(--bone-55);white-space:nowrap;pointer-events:none}
+
+/* MISC */
+.transition-layer{display:none}
+.loading{position:absolute;z-index:12;left:50%;bottom:34px;transform:translateX(-50%);opacity:0;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:opacity .2s;color:var(--bone-70)}
+.experience.is-loading .loading{opacity:.85}
+.experience.is-transitioning .header,.experience.is-transitioning .dest-list{opacity:1;filter:none;pointer-events:auto}
+.experience.is-transitioning .shade{opacity:1}
+.experience.is-committing .background{transition:none!important}
+
+/* ==================================================================
+   PRELOADER
+   ================================================================== */
+.preloader{position:absolute;inset:0;z-index:20;background:#000;overflow:hidden}
+/* VIDEO BACKDROP DROP-IN POINT #2 - give this <video> a src and it takes over
+   the count (playbackRate = duration/3), exactly as the spec describes.       */
+.preloader video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5}
+.preloader-field{position:absolute;inset:0;
+  background:
+    radial-gradient(60% 45% at 50% 52%,rgba(255,59,47,.14),transparent 70%),
+    repeating-linear-gradient(180deg,rgba(242,237,228,.045) 0 1px,transparent 1px 4px),
+    #000}
+.preloader-field:after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;
+  background:linear-gradient(90deg,transparent,var(--signal),transparent);
+  animation:scan 2.6s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes scan{0%{transform:translateY(-44vh);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateY(44vh);opacity:0}}
+.preloader-line{position:absolute;left:50%;top:calc(50% + 74px);transform:translateX(-50%);
+  width:min(620px,84vw);text-align:center;font-size:clamp(12px,1.35vw,17px);line-height:1.6;
+  color:var(--bone-70)}
+.preloader-line q{quotes:'"' '"'}
+.preloader-line .src{display:block;margin-top:12px;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ash)}
+.preloader-shade{position:absolute;inset:auto 0 0;height:35%;
+  background:linear-gradient(to bottom,transparent,#000)}
+.preloader.is-background{z-index:0}
+.preloader.is-background .preloader-shade{opacity:0}
+.preloader.is-out{opacity:0;transition:opacity .8s ease .1s;pointer-events:none}
+.floating-logo{position:fixed;z-index:22;left:50%;top:50%;width:64px;height:62px;object-fit:contain;
+  transform:translate(-50%,-50%);will-change:left,top,width,height,transform;
+  filter:drop-shadow(0 0 26px rgba(255,59,47,.45));
+  transition:left 2s cubic-bezier(.16,1,.3,1),top 2s cubic-bezier(.16,1,.3,1),
+             width 2s cubic-bezier(.16,1,.3,1),height 2s cubic-bezier(.16,1,.3,1),
+             transform 2s cubic-bezier(.16,1,.3,1),filter 2s ease}
+.floating-logo.is-docked{left:var(--chrome-pad-x);top:var(--chrome-pad-y);width:38px;height:37px;
+  transform:none;filter:drop-shadow(0 0 0 rgba(255,59,47,0))}
+.floating-logo.is-settled{z-index:9}
+.preloader-count{position:fixed;z-index:22;left:50%;bottom:clamp(22px,3.1vh,28px);display:flex;
+  align-items:flex-end;gap:4px;transform:translateX(-50%);font-family:'SF Pro',Arial,sans-serif;line-height:1}
+.preloader-count>span:first-child{font-family:'SF Pro Thin','SF Pro',Arial,sans-serif;font-size:64px;
+  font-weight:100;font-variant-numeric:tabular-nums;color:var(--bone)}
+.preloader-count .percent{font-size:24px;padding-bottom:4px;color:var(--signal)}
+.preloader-count .percent:after{content:'%'}
+.preloader-count.is-leaving{animation:preload-count-out .75s cubic-bezier(.22,1,.36,1) both}
+@keyframes preload-count-out{to{opacity:0;filter:blur(7px);transform:translate(-50%,-34px)}}
+body:not(.preload-complete) .custom-cursor{opacity:0!important}
+body:not(.preload-complete) .byline{opacity:0}
+
+/* ==================================================================
+   CUSTOM CURSOR
+   ================================================================== */
+.custom-cursor{display:block;position:fixed;left:0;top:0;z-index:100;width:1px;height:1px;
+  pointer-events:none;opacity:0;transition:opacity .2s ease}
+.custom-cursor.is-visible{opacity:1}
+.cursor-dot,.cursor-orbit{position:absolute;left:0;top:0;border-radius:50%;transform:translate(-50%,-50%)}
+.cursor-dot{width:10px;height:10px;background:var(--bone)}
+.cursor-orbit{width:36px;height:36px;border:1px solid var(--signal);background:rgba(255,59,47,.22);
+  transition:transform .3s cubic-bezier(.22,1,.36,1),background-color .3s ease}
+.custom-cursor.is-enter .cursor-orbit{transform:translate(-50%,-50%) scale(1.16);background:rgba(255,59,47,.36)}
+.cursor-label{position:absolute;top:26px;left:0;transform:translateX(-50%) translateY(-4px);
+  font:600 13px/1.2 'SF Pro',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;
+  white-space:nowrap;opacity:0;color:var(--bone);
+  transition:opacity .2s ease,transform .3s cubic-bezier(.22,1,.36,1)}
+.custom-cursor.is-enter .cursor-label{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (hover:none),(pointer:coarse){.custom-cursor{display:none}}
+
+/* ==================================================================
+   ENTRANCE / SWITCH ANIMATIONS
+   ================================================================== */
+body:not(.intro-ready) .header,
+body:not(.intro-ready) .dest-list,
+body:not(.intro-ready) .dest-content h1,
+body:not(.intro-ready) .dest-content .fact,
+body:not(.intro-ready) .dest-copy .dest-kicker,
+body:not(.intro-ready) .dest-copy .dest-lede{opacity:0}
+.intro-ready .header{animation:reveal-down .9s cubic-bezier(.22,1,.36,1) .1s both}
+.intro-ready .dest-list{animation:reveal-side .9s cubic-bezier(.22,1,.36,1) .65s both}
+.content-revealing .dest-kicker{animation:fact-rise .7s cubic-bezier(.22,1,.36,1) .18s both}
+.content-revealing .dest-lede{animation:fact-rise .8s cubic-bezier(.22,1,.36,1) .3s both}
+.content-revealing h1{animation:title-rise 1.05s cubic-bezier(.16,1,.3,1) both}
+.content-revealing .fact{animation:fact-rise .72s cubic-bezier(.22,1,.36,1) both}
+.content-revealing .fact:nth-of-type(1){animation-delay:.52s}
+.content-revealing .fact:nth-of-type(2){animation-delay:.68s}
+.content-revealing .fact:nth-of-type(3){animation-delay:.84s}
+.content-revealing .fact:nth-of-type(4){animation-delay:1s}
+.content-revealing .fact:nth-of-type(5){animation-delay:1.16s}
+.mask-revealing .portal-heading{animation:portal-caption .85s cubic-bezier(.22,1,.36,1) both}
+.dest-list.is-switching .dest-item{animation:menu-row .58s cubic-bezier(.22,1,.36,1) both}
+.dest-list.is-switching .dest-item:nth-child(1){animation-delay:.02s}
+.dest-list.is-switching .dest-item:nth-child(2){animation-delay:.05s}
+.dest-list.is-switching .dest-item:nth-child(3){animation-delay:.08s}
+.dest-list.is-switching .dest-item:nth-child(4){animation-delay:.11s}
+.dest-list.is-switching .dest-item:nth-child(5){animation-delay:.14s}
+.dest-list.is-switching .dest-item.active:before{animation:active-dot .55s cubic-bezier(.22,1,.36,1) .18s both}
+
+@keyframes reveal-down{from{opacity:0;filter:blur(8px);transform:translateY(-18px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes reveal-side{from{opacity:0;filter:blur(8px);transform:translate(-20px,-50%)}to{opacity:1;filter:blur(0);transform:translate(0,-50%)}}
+@keyframes title-rise{from{opacity:0;filter:blur(12px);transform:translate(-4px,42px)}to{opacity:1;filter:blur(0);transform:translate(-4px,0)}}
+@keyframes fact-rise{from{opacity:0;filter:blur(7px);transform:translateY(18px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes portal-caption{from{opacity:0;filter:blur(7px);transform:translateY(22px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes menu-row{from{opacity:.35;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+@keyframes active-dot{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+
+/* ==================================================================
+   RESPONSIVE
+   ================================================================== */
+@media (max-width:1180px){
+  .dest-copy{max-width:min(40vw,460px)}
+  .fact{grid-template-columns:128px 1fr}
+}
+@media (max-width:900px){
+  .brand-meta{display:none}
+  .portal-wrap{width:min(300px,48vw);top:46%}
+  .dest-content h1{font-size:clamp(54px,9.4vw,104px)}
+  .dest-content h1.one-line{font-size:clamp(40px,7.4vw,84px)}
+  .dest-copy{max-width:42vw}
+  .dest-lede{font-size:12px;max-width:34ch}
+  .panel{width:42vw;font-size:14px}
+  .fact{grid-template-columns:104px 1fr;padding:8px 0}
+  .fact dd{font-size:12.5px}
+  .dest-list{font-size:14px}.dest-item.active{font-size:16px}
+  .report{padding:0 14px;font-size:11px}
+}
+@media (max-width:640px){
+  .experience{min-height:560px}
+  .dest-list{display:none}
+  .header{left:14px;right:14px;top:14px;gap:8px}
+  .brand{padding-left:40px;min-height:34px}
+  .brand-name{font-size:9px;letter-spacing:.11em}
+  .route{display:none}
+  .report{height:34px;padding:0 13px;font-size:9.5px;letter-spacing:.1em}
+  .report .long{display:none}
+  .floating-logo.is-docked{left:14px;top:14px;width:30px;height:29px}
+  .portal-wrap{top:64px;transform:translateX(-50%);width:min(188px,50vw)}
+  .portal{border-radius:54px}
+  .portal-heading{font-size:10px;margin-bottom:9px;letter-spacing:.1em}
+  .portal-heading strong{font-size:12px}
+  .portal-hint{margin-top:9px;font-size:9px;letter-spacing:.14em}
+  .restart{margin-top:10px;padding:8px 13px;font-size:9.5px}
+  .dest-content{left:16px;right:16px;bottom:48px;display:block}
+  .dest-copy{max-width:100%}
+  .dest-kicker{margin-bottom:7px;font-size:9.5px;letter-spacing:.18em}
+  .dest-kicker:before{width:20px}
+  .dest-lede{display:none}
+  .dest-content h1{font-size:clamp(34px,10.4vw,46px);margin-bottom:12px;transform:translateX(-1px)}
+  .dest-content h1.one-line{font-size:clamp(28px,8.4vw,38px)}
+  .panel{width:100%;max-height:23vh;overflow-y:auto;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(180deg,#000 78%,transparent);
+    mask-image:linear-gradient(180deg,#000 78%,transparent)}
+  .panel::-webkit-scrollbar{display:none}
+  .fact{grid-template-columns:82px 1fr;gap:10px;padding:6px 0}
+  .fact dt{font-size:11px}
+  .fact dt .yr{font-size:9px;margin-bottom:1px}
+  .fact dd{font-size:11px;line-height:1.42}
+  .panel-note{margin-top:8px;gap:6px}
+  .tag{padding:4px 8px;font-size:8.5px}
+  .byline{left:16px;right:16px;bottom:8px;transform:none;text-align:left;font-size:8.5px;
+    white-space:normal;line-height:1.35}
+  .preloader-line{top:calc(50% + 58px);font-size:12px}
+  .preloader-count>span:first-child{font-size:44px}
+  .preloader-count .percent{font-size:18px}
+}
+/* mobile title-rise keeps the reduced x-offset */
+@media (max-width:640px){
+  @keyframes title-rise{from{opacity:0;filter:blur(12px);transform:translate(-1px,42px)}to{opacity:1;filter:blur(0);transform:translate(-1px,0)}}
+}
+@media (max-height:620px) and (min-width:641px){
+  .portal-wrap{top:44%;width:min(240px,26vw)}
+  .dest-content h1{font-size:clamp(48px,7vw,86px)}
+  .dest-content h1.one-line{font-size:clamp(38px,5.6vw,70px)}
+  .dest-lede{display:none}
+  .panel{max-height:44vh;overflow-y:auto;scrollbar-width:none}
+  .panel::-webkit-scrollbar{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms!important}
+  .portal{transform:none!important}
+  .grain{animation:none}
+  .preloader-field:after{animation:none;opacity:.5}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to main content</a>
+
+<main class="experience" id="experience" data-dest="method">
+
+  <div class="backgrounds" aria-hidden="true">
+    <!-- VIDEO BACKDROP DROP-IN POINT #1 (see CSS note): swap any <img class="background-media"> for a <video class="background-media" muted loop playsinline preload="auto" src="..."> -->
+    <figure class="background is-visible" id="bg-method"><video class="background-media" src="assets/video/01-method.mp4" muted loop playsinline preload="auto"></video></figure>
+    <figure class="background" id="bg-housing"><video class="background-media" src="assets/video/02-fair-housing.mp4" muted loop playsinline preload="auto"></video></figure>
+    <figure class="background" id="bg-programs"><img class="background-media" src="assets/img/qtq80-cUBgck-1024x1024.jpeg" alt=""></figure>
+    <figure class="background" id="bg-record"><img class="background-media" src="assets/img/17113823229_739c4f31b0_z-1024x1024.jpg" alt=""></figure>
+    <figure class="background" id="bg-action"><img class="background-media" src="assets/img/civil-right-testing.jpg" alt=""></figure>
+  </div>
+
+  <div class="preloader" id="preloader" aria-label="Loading the experience">
+    <div class="preloader-field"></div>
+    <!-- VIDEO BACKDROP DROP-IN POINT #2: add src="assets/video/intro.mp4" below and the
+         counter is driven by the video exactly as specified. -->
+    <video id="preloader-video" muted playsinline preload="auto"></video>
+    <p class="preloader-line">
+      <q>The ERC advances equal access, opportunity, and fair treatment so individuals and communities can thrive.</q>
+      <span class="src">Equal Rights Center, mission</span>
+    </p>
+    <div class="preloader-shade"></div>
+  </div>
+
+  <img class="floating-logo" id="floating-logo" src="assets/img/erc-logo-small-1.png" alt="Equal Rights Center">
+
+  <div class="preloader-count" id="preloader-count" aria-live="polite">
+    <span id="preloader-value">0</span><span class="percent" aria-hidden="true"></span>
+  </div>
+
+  <canvas id="scene-canvas" class="scene-canvas" aria-hidden="true"></canvas>
+  <div class="shade" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header chrome">
+    <div class="brand">
+      <span>
+        <span class="brand-name">Equal&nbsp;Rights&nbsp;Center</span>
+        <span class="brand-meta">Washington DC · Civil rights testing since 1999</span>
+      </span>
+    </div>
+    <div class="header-actions">
+      <p class="route" aria-hidden="true">Route <b id="route-now">01</b> / 05</p>
+      <a class="report" href="mailto:info@equalrightscenter.org?subject=Report%20discrimination">
+        <span class="pulse" aria-hidden="true"></span><span>Report</span><span class="long">discrimination</span>
+      </a>
+    </div>
+  </header>
+
+  <ol class="dest-list chrome" id="dest-list" role="list" aria-label="Destinations in this experience"></ol>
+
+  <canvas id="portal-canvas" class="portal-canvas" aria-hidden="true"></canvas>
+
+  <section class="portal-wrap chrome" aria-label="Next destination">
+    <div class="portal-heading">
+      <span class="lead" id="portal-lead">Next</span>
+      <span class="dest"><span class="num" id="next-number">[02]</span> <strong id="next-name">Fair Housing</strong></span>
+    </div>
+    <button class="portal" id="portal" type="button" aria-label="Travel to Fair Housing">
+      <video id="portal-video" muted playsinline preload="auto"></video>
+      <img id="portal-image" src="assets/img/d._c._housing_authority_building-1024x683.jpg" alt="">
+    </button>
+    <p class="portal-hint" id="portal-hint">Click or press Enter to travel</p>
+    <button class="restart" id="restart" type="button">Return to [01] The Method</button>
+  </section>
+
+  <section class="dest-content chrome" id="main-content" tabindex="-1" aria-live="polite">
+    <div class="dest-copy">
+      <p class="dest-kicker" id="dest-kicker">Civil rights testing</p>
+      <p class="dest-lede" id="dest-lede"></p>
+      <h1 id="dest-title"><span>The</span><span class="hot">Method</span></h1>
+    </div>
+    <div>
+      <dl class="panel" id="facts"></dl>
+      <div class="panel-note" id="panel-note"></div>
+    </div>
+  </section>
+
+  <div class="transition-layer" aria-hidden="true"><video id="transition-video" muted playsinline></video></div>
+  <div class="loading" aria-hidden="true">Preparing route…</div>
+
+  <div class="custom-cursor" id="cursor" aria-hidden="true">
+    <span class="cursor-orbit"></span><span class="cursor-dot"></span><span class="cursor-label" id="cursor-label">Enter</span>
+  </div>
+
+  <p class="byline">Concept by CedarStone Digital. Not affiliated with or endorsed by the Equal Rights Center.</p>
+</main>
+
+<script>
+(function(){
+'use strict';
+
+/* ==================================================================
+   DATA
+   ================================================================== */
+var IMG = {
+  method:  'assets/img/slider-bg-03.jpg',
+  housing: 'assets/img/d._c._housing_authority_building-1024x683.jpg',
+  programs:'assets/img/qtq80-cUBgck-1024x1024.jpeg',
+  record:  'assets/img/17113823229_739c4f31b0_z-1024x1024.jpg',
+  action:  'assets/img/civil-right-testing.jpg',
+  logo:    'assets/img/erc-logo-small-1.png'
+};
+
+/* Each destination: background element id, portal media (the NEXT destination's
+   imagery), title, copy and facts.  portalVideo is intentionally empty - set it
+   to a file path and the portal + travel transition play video instead of the
+   still, with no other change.  (VIDEO DROP-IN POINT #3) */
+var DESTS = [
+  {
+    key:'method', number:'[01]', name:'The Method', title:['The','Method'],
+    background:'bg-method', kicker:'Civil rights testing', grade:'#FFB627',
+    lede:'Two people. One difference. Everything else held steady. This is how a suspicion becomes <em>evidence</em>.',
+    portalImage:IMG.housing, portalVideo:'',
+    facts:[
+      ['Test','Two testers approach the same landlord, employer or business. Their profiles are matched on everything that should matter. They differ on the one thing that should not.'],
+      ['Document','Each tester records the same details the same way. What was offered, what was quoted, which unit was shown, who got a call back, and what was said.'],
+      ['Compare','Side by side, the difference in treatment either exists or it does not. No one has to rely on memory or interpretation.'],
+      ['Act','Findings inform the public and the business community, support policy advocacy, and shape compliance training. Where needed, they support enforcement.']
+    ],
+    tags:[]
+  },
+  {
+    key:'housing', number:'[02]', name:'Fair Housing', title:['Fair','Housing'],
+    background:'bg-housing', kicker:'Protected characteristics', grade:'#FF3B2F',
+    lede:'Where you live affects your access to work, schools, transport, healthcare, food and <em>your own safety</em>.',
+    portalImage:IMG.programs, portalVideo:'',
+    facts:[
+      ['Federal','The Fair Housing Act protects race, colour, religion, national origin, sex, disability and familial status (children under 18).'],
+      ['Maryland adds','Marital status, sexual orientation, gender identity, source of income.'],
+      ['Virginia adds','Elderliness (55 and over), sexual orientation, gender identity, source of income, veteran status.'],
+      ['The region','The only private fair housing organisation dedicated to serving the entire greater Washington DC region.']
+    ],
+    tags:[['DC · MD · VA','sig']]
+  },
+  {
+    key:'programs', number:'[03]', name:'Programs', title:['Programs'],
+    background:'bg-programs', kicker:'Five programs, one method', grade:'#FFB627',
+    lede:'The same discipline applied across housing, employment, access and the counter you walk up to.',
+    portalImage:IMG.record, portalVideo:'',
+    facts:[
+      ['Fair Housing','Testing rental and sales practices across DC, Maryland and Virginia.'],
+      ['Disability and Accessibility','More than 65,000 retail locations, restaurants and homes made more accessible to people with disabilities.'],
+      ['Employment','Testing hiring and staffing practices.'],
+      ['Public Accommodations','For more than 30 years, extending civil rights protections to LGBTQ+ people and people with limited English proficiency.'],
+      ['Multifamily Housing Resource Program','Training and compliance support for housing providers.']
+    ],
+    tags:[]
+  },
+  {
+    key:'record', number:'[04]', name:'The Record', title:['The','Record'],
+    background:'bg-record', kicker:'Outcomes on the file', grade:'#FF3B2F',
+    lede:'Formed in 1999 by merger of the Fair Housing Council of Greater Washington, established 1983, and the Fair Employment Council of Greater Washington. The Disability Rights Council joined in 2005.',
+    portalImage:IMG.action, portalVideo:'',
+    facts:[
+      ['Vesta','Agreement covering renters with housing vouchers, past evictions and criminal records at four DC properties.','2026'],
+      ['Meta','A key ruling in litigation over how housing adverts were targeted and delivered.','2025'],
+      ['Uber','Agreement on service for riders with disabilities, including wheelchair users and people with service animals.','2024'],
+      ['Equity Residential','Settled January 2016, committing a major apartment owner to accessibility work across its communities.','2016']
+    ],
+    tags:[['Four-star Charity Navigator rating',''],['Candid transparency seal','']]
+  },
+  {
+    key:'action', number:'[05]', name:'Take Action', title:['Take','Action'],
+    background:'bg-action', kicker:'Three ways in', terminal:true, grade:'#FF3B2F',
+    lede:'<em>&ldquo;The ERC advances equal access, opportunity, and fair treatment so individuals and communities can thrive.&rdquo;</em>',
+    /* terminal still - the street we started on, closing the loop */
+    portalImage:IMG.method, portalVideo:'',
+    facts:[
+      ['Report discrimination','<a href="mailto:info@equalrightscenter.org">info@equalrightscenter.org</a> · <a href="tel:+12022343062">202.234.3062</a> · <a href="tel:+18665490009">866.549.0009</a>'],
+      ['Become a tester','Testers are trained and paid for their time.'],
+      ['Become a member','Contact <a href="mailto:info@equalrightscenter.org">info@equalrightscenter.org</a>.'],
+      ['Find the ERC','820 First St NE, Suite LL160, Washington, DC 20002']
+    ],
+    tags:[['End of route','sig']]
+  }
+];
+
+/* ==================================================================
+   ELEMENTS
+   ================================================================== */
+var $ = function(id){ return document.getElementById(id); };
+var experience   = $('experience'),
+    preloader    = $('preloader'),
+    preVideo     = $('preloader-video'),
+    preCount     = $('preloader-count'),
+    preValue     = $('preloader-value'),
+    logo         = $('floating-logo'),
+    portal       = $('portal'),
+    portalVideo  = $('portal-video'),
+    portalImage  = $('portal-image'),
+    portalCanvas = $('portal-canvas'),
+    sceneCanvas  = $('scene-canvas'),
+    transVideo   = $('transition-video'),
+    destList     = $('dest-list'),
+    facts        = $('facts'),
+    panelNote    = $('panel-note'),
+    titleEl      = $('dest-title'),
+    kickerEl     = $('dest-kicker'),
+    ledeEl       = $('dest-lede'),
+    nextNumber   = $('next-number'),
+    nextName     = $('next-name'),
+    portalLead   = $('portal-lead'),
+    routeNow     = $('route-now'),
+    restart      = $('restart'),
+    cursor       = $('cursor'),
+    cursorLabel  = $('cursor-label'),
+    backgrounds  = Array.prototype.slice.call(document.querySelectorAll('.background'));
+
+var ctx = portalCanvas.getContext('2d');
+var sceneCtx = sceneCanvas.getContext('2d');
+
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ==================================================================
+   STATE
+   ================================================================== */
+var current = 0;
+var busy = false;
+var expansion = 0;      /* 0..1 - portal window swallows the screen      */
+var maskScale = 1;      /* 0..1 - reveal scale of the resting window     */
+var canvasOpacity = 1;
+var transitionActive = false;
+var transitionPush = 0; /* 0..1 - synthetic travel push while expanded   */
+var sceneFrozen = false;
+var frozenAlpha = 1;
+var rotX = 0, rotY = 0, targetX = 0, targetY = 0;
+var portalFocused = false;
+var lastFrame = performance.now();
+
+function state(){ return DESTS[current]; }
+function nextIndex(){ return Math.min(current + 1, DESTS.length - 1); }
+
+/* ==================================================================
+   CANVAS - sizing, cover draw, rounded-rect sampling, fake perspective
+   ================================================================== */
+var maskRadius = 90;   /* spec default; §11 drops it at narrow breakpoints */
+function readMaskRadius(){
+  var r = parseFloat(window.getComputedStyle(portal).borderTopLeftRadius);
+  maskRadius = (isFinite(r) && r > 0) ? r : 90;
+}
+function resizeCanvas(){
+  var d = Math.min(window.devicePixelRatio || 1, 2);
+  var w = window.innerWidth, h = window.innerHeight;
+  readMaskRadius();
+  portalCanvas.width = w * d; portalCanvas.height = h * d;
+  portalCanvas.style.width = w + 'px'; portalCanvas.style.height = h + 'px';
+  ctx.setTransform(d, 0, 0, d, 0, 0);
+  if(!sceneFrozen){                       /* never clobber a held frame */
+    sceneCanvas.width = w * d; sceneCanvas.height = h * d;
+    sceneCanvas.style.width = w + 'px'; sceneCanvas.style.height = h + 'px';
+    sceneCtx.setTransform(d, 0, 0, d, 0, 0);
+  }
+}
+
+function mediaReady(m){
+  if(!m) return false;
+  if(m.tagName === 'VIDEO') return m.readyState >= 2 && m.videoWidth > 0;
+  if(m.tagName === 'CANVAS') return m.width > 0;
+  return m.complete && m.naturalWidth > 0;
+}
+
+/* Screen-locked cover draw: the media never moves, the window moves over it. */
+function drawCover(c, media, zoom){
+  if(!mediaReady(media)) return;
+  var mw = media.videoWidth || media.naturalWidth || media.width;
+  var mh = media.videoHeight || media.naturalHeight || media.height;
+  var W = window.innerWidth, H = window.innerHeight;
+  var scale = Math.max(W / mw, H / mh) * (zoom || 1);
+  var w = mw * scale, h = mh * scale;
+  c.drawImage(media, (W - w) / 2, (H - h) / 2, w, h);
+}
+
+var CAN_FILTER = (typeof ctx.filter === 'string');
+var gradeCache = {};
+
+/* Signal Fire duotone, baked ONCE per image into an offscreen canvas: grayscale
+   base, multiplied with the destination tint so shadows stay at ground black and
+   highlights carry the signal.  Baking keeps the 60fps loop to plain blits -
+   no per-frame canvas filter. (Video media falls back to a live filtered draw.) */
+var gradeKeys = [];
+function gradedSource(media, tint, strength){
+  if(media.tagName === 'VIDEO' || media.tagName === 'CANVAS') return null;
+  var W = window.innerWidth, H = window.innerHeight;
+  var d = Math.min(window.devicePixelRatio || 1, 1.5);
+  var key = media.currentSrc + '|' + tint + '|' + strength + '|' + Math.round(W) + 'x' + Math.round(H) + '@' + d;
+  if(gradeCache[key]) return gradeCache[key];
+  var mw = media.naturalWidth, mh = media.naturalHeight;
+  if(!mw || !mh) return null;
+  var off = document.createElement('canvas');
+  off.width = Math.round(W * d); off.height = Math.round(H * d);
+  var oc = off.getContext('2d');
+  oc.setTransform(d, 0, 0, d, 0, 0);
+  if(CAN_FILTER) oc.filter = 'grayscale(1) contrast(1.26) brightness(.76)';
+  var s = Math.max(W / mw, H / mh);
+  oc.drawImage(media, (W - mw * s) / 2, (H - mh * s) / 2, mw * s, mh * s);
+  if(CAN_FILTER) oc.filter = 'none';
+  oc.globalCompositeOperation = 'multiply';
+  oc.globalAlpha = strength;
+  oc.fillStyle = tint;
+  oc.fillRect(0, 0, W, H);
+  oc.globalCompositeOperation = 'source-over';
+  oc.globalAlpha = 1;
+  gradeCache[key] = off;
+  gradeKeys.push(key);
+  while(gradeKeys.length > 3){ delete gradeCache[gradeKeys.shift()]; }
+  return off;
+}
+
+function drawGraded(c, media, zoom, tint, strength){
+  if(!mediaReady(media)) return;
+  var W = window.innerWidth, H = window.innerHeight;
+  tint = tint || '#FF3B2F';
+  strength = strength === undefined ? 0.4 : strength;
+  zoom = zoom || 1;
+  var baked = gradedSource(media, tint, strength);
+  if(baked){
+    /* 1:1 blit at rest; only transitions pay for a scaled draw */
+    if(zoom === 1) c.drawImage(baked, 0, 0, W, H);
+    else c.drawImage(baked, (W - W * zoom) / 2, (H - H * zoom) / 2, W * zoom, H * zoom);
+  } else {
+    c.save();
+    if(CAN_FILTER) c.filter = 'grayscale(1) contrast(1.26) brightness(.76)';
+    drawCover(c, media, zoom);
+    c.restore();
+    c.save();
+    c.globalCompositeOperation = 'multiply';
+    c.globalAlpha = strength;
+    c.fillStyle = tint;
+    c.fillRect(0, 0, W, H);
+    c.restore();
+  }
+  /* vignette keeps the sidebar and copy legible over any source image */
+  c.save();
+  c.fillStyle = vignette(c, W, H);
+  c.fillRect(0, 0, W, H);
+  c.restore();
+}
+
+var vigCache = {};
+function vignette(c, W, H){
+  var k = W + 'x' + H;
+  if(vigCache.k !== k || vigCache.ctx !== c){
+    var v = c.createRadialGradient(W / 2, H * 0.45, Math.min(W, H) * 0.18, W / 2, H * 0.5, Math.max(W, H) * 0.78);
+    v.addColorStop(0, 'rgba(11,12,14,0)');
+    v.addColorStop(1, 'rgba(11,12,14,.6)');
+    vigCache = {k:k, ctx:c, g:v};
+  }
+  return vigCache.g;
+}
+
+function drawShade(c){
+  var W = window.innerWidth, H = window.innerHeight;
+  var g = c.createLinearGradient(0, H * 0.52, 0, H);
+  g.addColorStop(0, 'rgba(0,0,0,0)');
+  g.addColorStop(1, 'rgba(0,0,0,0.88)');
+  c.fillStyle = g;
+  c.fillRect(0, H * 0.52, W, H * 0.48);
+}
+
+/* 44 points: 4 corners × 10 steps + 4 arc ends, local coords centred on origin */
+function roundedRectPoints(w, h, r){
+  r = Math.min(r, w / 2, h / 2);
+  var pts = [], steps = 10;
+  var corners = [
+    [ w / 2 - r, -h / 2 + r, -Math.PI / 2, 0 ],
+    [ w / 2 - r,  h / 2 - r, 0, Math.PI / 2 ],
+    [-w / 2 + r,  h / 2 - r, Math.PI / 2, Math.PI ],
+    [-w / 2 + r, -h / 2 + r, Math.PI, Math.PI * 1.5 ]
+  ];
+  for(var i = 0; i < corners.length; i++){
+    var c = corners[i];
+    for(var s = 0; s <= steps; s++){
+      var a = c[2] + (c[3] - c[2]) * (s / steps);
+      pts.push([ c[0] + Math.cos(a) * r, c[1] + Math.sin(a) * r ]);
+    }
+  }
+  return pts;
+}
+
+/* Fake perspective, focal length 850 */
+function project(x, y, rx, ry, cx, cy){
+  var ax = rx * Math.PI / 180, ay = ry * Math.PI / 180;
+  var xx = x * Math.cos(ay);
+  var yy = y * Math.cos(ax);
+  var z  = x * Math.sin(ay) - y * Math.sin(ax);
+  var p  = 850 / (850 + z);
+  return [ cx + xx * p, cy + yy * p ];
+}
+
+function portalMedia(){
+  if(transitionActive) return activeTransitionMedia;
+  return (state().portalVideo && mediaReady(portalVideo)) ? portalVideo : portalImage;
+}
+var activeTransitionMedia = portalImage;
+
+function draw(now){
+  var dt = Math.min(now - lastFrame, 40);
+  lastFrame = now;
+
+  if(!busy && !reduced){
+    var k = Math.min(1, dt * 0.009);
+    rotX += (targetX - rotX) * k;
+    rotY += (targetY - rotY) * k;
+  } else if(reduced){ rotX = 0; rotY = 0; }
+
+  var W = window.innerWidth, H = window.innerHeight;
+  ctx.clearRect(0, 0, W, H);
+
+  if(sceneFrozen && frozenAlpha > 0){
+    ctx.save();
+    ctx.globalAlpha = frozenAlpha;
+    ctx.drawImage(sceneCanvas, 0, 0, W, H);
+    drawShade(ctx);
+    ctx.restore();
+  }
+
+  var rect = portal.getBoundingClientRect();
+  var e = expansion;
+  var rcx = rect.left + rect.width / 2, rcy = rect.top + rect.height / 2;
+  var cx = rcx + (W / 2 - rcx) * e;
+  var cy = rcy + (H / 2 - rcy) * e;
+  var baseW = rect.width  + (W - rect.width)  * e;
+  var baseH = rect.height + (H - rect.height) * e;
+  var scale = e ? 1 : maskScale;
+  var w = baseW * scale, h = baseH * scale;
+  var r = maskRadius * (1 - e) * scale;
+  var rx = rotX * (1 - e), ry = rotY * (1 - e);
+
+  if(w > 1 && h > 1){
+    var pts = roundedRectPoints(w, h, r);
+    ctx.save();
+    ctx.globalAlpha = canvasOpacity;
+    ctx.beginPath();
+    for(var i = 0; i < pts.length; i++){
+      var p = project(pts[i][0], pts[i][1], rx, ry, cx, cy);
+      if(i === 0) ctx.moveTo(p[0], p[1]); else ctx.lineTo(p[0], p[1]);
+    }
+    ctx.closePath();
+
+    if(!e){
+      ctx.save();
+      if(portalFocused){
+        ctx.strokeStyle = '#FF3B2F';
+        ctx.lineWidth = 2;
+        ctx.shadowColor = 'rgba(255,59,47,.85)';
+        ctx.shadowBlur = 18;
+      } else {
+        ctx.strokeStyle = 'rgba(242,237,228,.26)';
+        ctx.lineWidth = 1;
+        ctx.shadowColor = 'rgba(255,59,47,.35)';
+        ctx.shadowBlur = 26;
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    ctx.clip();
+    ctx.fillStyle = '#0B0C0E';
+    ctx.fillRect(0, 0, W, H);
+    /* synthetic travel push: slow zoom while the window swallows the screen */
+    var zoom = transitionActive ? (1 + 0.16 * expansion + 0.14 * transitionPush) : 1;
+    drawGraded(ctx, portalMedia(), zoom, DESTS[nextIndex()].grade, 0.42);
+    if(transitionActive){
+      /* tunnel dim ramps with the expansion, red core ramps with the push */
+      var dim = Math.min(0.8, 0.46 * expansion + 0.36 * transitionPush);
+      var flare = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * 0.7);
+      flare.addColorStop(0, 'rgba(255,59,47,' + (0.26 * transitionPush).toFixed(3) + ')');
+      flare.addColorStop(1, 'rgba(11,12,14,' + dim.toFixed(3) + ')');
+      ctx.fillStyle = flare;
+      ctx.fillRect(0, 0, W, H);
+      drawShade(ctx);
+    }
+    ctx.restore();
+  }
+
+  requestAnimationFrame(draw);
+}
+
+/* ==================================================================
+   POINTER TILT
+   ================================================================== */
+window.addEventListener('pointermove', function(ev){
+  if(busy) return;
+  targetY = (ev.clientX / window.innerWidth  - 0.5) * 37.4;
+  targetX = (ev.clientY / window.innerHeight - 0.5) * -33;
+}, {passive:true});
+window.addEventListener('pointerleave', function(){ targetX = 0; targetY = 0; });
+window.addEventListener('blur', function(){ targetX = 0; targetY = 0; });
+
+/* ==================================================================
+   EASING / TWEEN
+   ================================================================== */
+function easeInOutCubic(t){
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+function animateValue(setter, duration){
+  if(reduced) duration = Math.max(60, duration * 0.22);
+  return new Promise(function(resolve){
+    var start = performance.now();
+    (function step(now){
+      var t = Math.min(1, (now - start) / duration);
+      setter(easeInOutCubic(t));
+      if(t < 1) requestAnimationFrame(step); else resolve();
+    })(start);
+  });
+}
+function wait(ms){ return new Promise(function(r){ setTimeout(r, reduced ? Math.min(ms, 80) : ms); }); }
+
+/* ==================================================================
+   RENDER
+   ================================================================== */
+function esc(s){ return String(s); }
+
+function buildList(){
+  destList.innerHTML = '';
+  DESTS.forEach(function(d, i){
+    var li = document.createElement('li');
+    li.className = 'dest-item' + (i === current ? ' active' : (i < current ? ' done' : ''));
+    if(i === current) li.setAttribute('aria-current', 'step');
+    li.innerHTML = '<span class="idx">' + d.number.replace(/[\[\]]/g, '') + '</span><span>' + esc(d.name) + '</span>';
+    destList.appendChild(li);
+  });
+}
+
+function render(){
+  var d = state(), n = DESTS[nextIndex()], terminal = !!d.terminal;
+
+  experience.setAttribute('data-dest', d.key);
+  experience.classList.toggle('is-terminal', terminal);
+
+  /* backgrounds - active one visible (and played, if it is a video) */
+  backgrounds.forEach(function(fig){
+    var on = fig.id === d.background;
+    fig.classList.toggle('is-visible', on);
+    var m = fig.firstElementChild;
+    if(m && m.tagName === 'VIDEO'){
+      if(on){ var p = m.play(); if(p && p.catch) p.catch(function(){}); }
+      else { m.pause(); try{ m.currentTime = 0; }catch(err){} }
+    }
+  });
+
+  /* title */
+  titleEl.innerHTML = d.title.length > 1
+    ? '<span>' + esc(d.title[0]) + '</span><span class="hot">' + esc(d.title[1]) + '</span>'
+    : '<span class="hot">' + esc(d.title[0]) + '</span>';
+  titleEl.classList.toggle('one-line', d.title.length === 1);
+  kickerEl.textContent = d.kicker;
+  ledeEl.innerHTML = d.lede;
+
+  /* facts */
+  facts.innerHTML = '';
+  d.facts.forEach(function(f){
+    var dt = document.createElement('dt');
+    dt.innerHTML = (f[2] ? '<span class="yr">' + f[2] + '</span>' : '') + esc(f[0]);
+    var dd = document.createElement('dd');
+    dd.innerHTML = f[1];
+    var wrap = document.createElement('div');
+    wrap.className = 'fact';
+    wrap.appendChild(dt); wrap.appendChild(dd);
+    facts.appendChild(wrap);
+  });
+
+  panelNote.innerHTML = '';
+  (d.tags || []).forEach(function(t){
+    var s = document.createElement('span');
+    s.className = 'tag' + (t[1] ? ' ' + t[1] : '');
+    s.textContent = t[0];
+    panelNote.appendChild(s);
+  });
+
+  /* portal caption + media */
+  portalLead.textContent = terminal ? 'End of route' : 'Next';
+  nextNumber.textContent = terminal ? d.number : n.number;
+  nextName.textContent   = terminal ? d.name : n.name;
+  portal.setAttribute('aria-label', terminal
+    ? 'End of route. You have reached Take Action.'
+    : 'Travel to ' + n.name);
+  portal.setAttribute('aria-disabled', terminal ? 'true' : 'false');
+  cursorLabel.textContent = terminal ? 'Arrived' : 'Enter';
+  routeNow.textContent = d.number.replace(/[\[\]]/g, '');
+
+  if(portalImage.getAttribute('src') !== d.portalImage) portalImage.src = d.portalImage;
+  /* VIDEO DROP-IN POINT #3 - set DESTS[i].portalVideo to a file path and the
+     portal window shows video instead of the still image. */
+  if(d.portalVideo){
+    if(portalVideo.getAttribute('src') !== d.portalVideo){ portalVideo.src = d.portalVideo; portalVideo.load(); }
+    portalVideo.loop = true;
+    var pp = portalVideo.play(); if(pp && pp.catch) pp.catch(function(){});
+  } else if(portalVideo.getAttribute('src')){
+    portalVideo.pause(); portalVideo.removeAttribute('src'); portalVideo.load();
+  }
+
+  buildList();
+  destList.classList.remove('is-switching');
+  void destList.offsetWidth;
+  destList.classList.add('is-switching');
+}
+
+function retrigger(cls){
+  experience.classList.remove(cls);
+  void experience.offsetWidth;
+  experience.classList.add(cls);
+}
+function revealMask(){
+  retrigger('mask-revealing');
+  maskScale = 0;
+  return animateValue(function(v){ maskScale = v; }, 1050);
+}
+function revealContent(){ retrigger('content-revealing'); }
+
+/* ==================================================================
+   TRAVEL
+   ================================================================== */
+function mediaLoadable(media, timeout){
+  return new Promise(function(resolve){
+    if(mediaReady(media)) return resolve();
+    var done = false;
+    function fin(){ if(!done){ done = true; cleanup(); resolve(); } }
+    function cleanup(){
+      media.removeEventListener('canplaythrough', fin);
+      media.removeEventListener('load', fin);
+      media.removeEventListener('error', fin);
+      clearTimeout(timer);
+    }
+    var timer = setTimeout(fin, timeout || 1600);
+    media.addEventListener('canplaythrough', fin);
+    media.addEventListener('load', fin);
+    media.addEventListener('error', fin);
+  });
+}
+
+function travel(){
+  if(busy || state().terminal) return;
+  busy = true;
+  targetX = 0; targetY = 0;
+
+  var d = state();
+  var useVideo = !!d.portalVideo;
+
+  /* The travel media: the portal's own media (video if supplied, else the
+     still of the destination we are flying into). */
+  if(useVideo){
+    transVideo.src = d.portalVideo;
+    transVideo.load();
+    activeTransitionMedia = transVideo;
+  } else {
+    activeTransitionMedia = portalImage;
+  }
+
+  experience.classList.add('is-loading');
+
+  mediaLoadable(activeTransitionMedia, 1600).then(function(){
+    experience.classList.remove('is-loading', 'content-revealing', 'mask-revealing');
+    experience.classList.add('is-transitioning');
+    canvasOpacity = 1;
+    transitionActive = true;
+    transitionPush = 0;
+    if(useVideo){
+      try{ transVideo.currentTime = 0; }catch(err){}
+      transVideo.playbackRate = 1.3;
+      var p = transVideo.play(); if(p && p.catch) p.catch(function(){});
+    }
+    return animateValue(function(v){ expansion = v; }, 1100);
+  }).then(function(){
+    /* the "playthrough": with a video this is its remaining runtime, without
+       one it is a matched 900ms push. */
+    if(useVideo && transVideo.duration && isFinite(transVideo.duration)){
+      return new Promise(function(resolve){
+        var t = setTimeout(resolve, 4000);
+        transVideo.addEventListener('ended', function(){ clearTimeout(t); resolve(); }, {once:true});
+      });
+    }
+    return animateValue(function(v){ transitionPush = v; }, 900);
+  }).then(function(){
+    /* freeze the final frame */
+    var W = window.innerWidth, H = window.innerHeight;
+    sceneCtx.clearRect(0, 0, W, H);
+    sceneCtx.fillStyle = '#0B0C0E';
+    sceneCtx.fillRect(0, 0, W, H);
+    drawGraded(sceneCtx, activeTransitionMedia, 1.30, DESTS[nextIndex()].grade, 0.42);
+    var fl = sceneCtx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, Math.max(W, H) * 0.7);
+    fl.addColorStop(0, 'rgba(255,59,47,.26)');
+    fl.addColorStop(1, 'rgba(11,12,14,.78)');
+    sceneCtx.fillStyle = fl;
+    sceneCtx.fillRect(0, 0, W, H);
+    sceneFrozen = true; frozenAlpha = 1;
+
+    current = nextIndex();
+    experience.classList.add('is-committing');
+    render();
+    return new Promise(function(r){ requestAnimationFrame(function(){ requestAnimationFrame(r); }); });
+  }).then(function(){
+    transitionActive = false;
+    expansion = 0;
+    maskScale = 0;
+    canvasOpacity = 1;
+    transitionPush = 0;
+    experience.classList.remove('is-transitioning', 'is-committing');
+
+    var maskReveal = revealMask();
+    animateValue(function(v){ frozenAlpha = 1 - v; }, 760).then(function(){ sceneFrozen = false; });
+    setTimeout(revealContent, 100);
+    return maskReveal;
+  }).then(function(){
+    return wait(450);
+  }).then(function(){
+    if(transVideo.getAttribute('src')){ transVideo.pause(); transVideo.removeAttribute('src'); transVideo.load(); }
+    activeTransitionMedia = portalImage;
+    busy = false;
+  }).catch(function(){
+    transitionActive = false;
+    expansion = 0;
+    maskScale = 1;
+    canvasOpacity = 1;
+    sceneFrozen = false;
+    experience.classList.remove('is-loading', 'is-transitioning', 'is-committing');
+    busy = false;
+  });
+}
+
+portal.addEventListener('click', travel);
+portal.addEventListener('keydown', function(ev){
+  /* <button> already fires click on Enter/Space; this guards Space scroll only */
+  if(ev.key === ' ' || ev.key === 'Spacebar') ev.preventDefault();
+});
+portal.addEventListener('focus', function(){
+  portalFocused = portal.matches(':focus-visible');
+});
+portal.addEventListener('blur', function(){ portalFocused = false; });
+
+restart.addEventListener('click', function(){
+  if(busy) return;
+  busy = true;
+  current = 0;
+  render();
+  var m = revealMask();
+  setTimeout(revealContent, 100);
+  m.then(function(){ busy = false; portal.focus(); });
+});
+
+/* ==================================================================
+   CUSTOM CURSOR
+   ================================================================== */
+var cx = window.innerWidth / 2, cy = window.innerHeight / 2, mx = cx, my = cy;
+var dot = cursor.querySelector('.cursor-dot'), orbit = cursor.querySelector('.cursor-orbit'),
+    label = cursor.querySelector('.cursor-label');
+document.addEventListener('mousemove', function(ev){
+  mx = ev.clientX; my = ev.clientY;
+  cursor.classList.add('is-visible');
+}, {passive:true});
+document.addEventListener('mouseleave', function(){ cursor.classList.remove('is-visible'); });
+portal.addEventListener('pointerenter', function(){ cursor.classList.add('is-enter'); });
+portal.addEventListener('pointerleave', function(){ cursor.classList.remove('is-enter'); });
+function cursorLoop(){
+  cx += (mx - cx) * 0.2;
+  cy += (my - cy) * 0.2;
+  dot.style.transform   = 'translate3d(' + mx + 'px,' + my + 'px,0) translate(-50%,-50%)';
+  orbit.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0) translate(-50%,-50%)' +
+                          (cursor.classList.contains('is-enter') ? ' scale(1.16)' : '');
+  label.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0) translateX(-50%)' +
+                          (cursor.classList.contains('is-enter') ? ' translateY(0)' : ' translateY(-4px)');
+  requestAnimationFrame(cursorLoop);
+}
+
+/* ==================================================================
+   PRELOADER
+   ================================================================== */
+function startExperience(){
+  mediaLoadable(portalImage, 1200)
+    .then(function(){
+      /* warm the duotone bake so the first painted frame has no hitch */
+      gradedSource(portalImage, DESTS[nextIndex()].grade, 0.42);
+    })
+    .then(revealMask)
+    .then(function(){
+      document.body.classList.add('intro-ready');
+      setTimeout(revealContent, 850);
+    });
+}
+
+function runPreloader(){
+  var finished = false;
+  var assets = [IMG.method, IMG.housing, IMG.programs, IMG.record, IMG.action, IMG.logo];
+  var loaded = 0;
+  assets.forEach(function(src){
+    var im = new Image();
+    im.onload = im.onerror = function(){ loaded++; };
+    im.src = src;
+  });
+
+  function finish(){
+    if(finished) return;
+    finished = true;
+    preValue.textContent = '100';
+    preCount.classList.add('is-leaving');
+    logo.classList.add('is-docked');
+    preloader.classList.add('is-background', 'is-out');
+    document.body.classList.add('preload-complete');
+    startExperience();
+    setTimeout(function(){ if(preCount.parentNode) preCount.parentNode.removeChild(preCount); }, 750);
+    setTimeout(function(){ logo.classList.add('is-settled'); }, 2000);
+  }
+
+  /* If a preloader video is supplied it drives the count, exactly as specified. */
+  if(preVideo.getAttribute('src')){
+    var started = false;
+    preVideo.addEventListener('loadedmetadata', function(){
+      if(started) return; started = true;
+      preVideo.playbackRate = Math.max(0.25, preVideo.duration / 3);
+      var pr = preVideo.play();
+      if(pr && pr.catch) pr.catch(finish);
+      (function tick(){
+        if(finished) return;
+        if(preVideo.duration) preValue.textContent = Math.round(preVideo.currentTime / preVideo.duration * 100);
+        requestAnimationFrame(tick);
+      })();
+    });
+    preVideo.addEventListener('ended', finish);
+    preVideo.addEventListener('error', finish);
+    setTimeout(finish, 6000);
+    return;
+  }
+
+  /* No video: a ~3s timed sequence gated on the real image loads. */
+  var DURATION = reduced ? 700 : 3000;
+  var start = performance.now();
+  (function tick(now){
+    if(finished) return;
+    var elapsed = (now || performance.now()) - start;
+    var timed = Math.min(1, elapsed / DURATION);
+    var ready = loaded >= assets.length;
+    var v = Math.round(timed * 100);
+    if(!ready && v > 99) v = 99;
+    preValue.textContent = v;
+    if(v >= 100 && ready) return finish();
+    if(elapsed > 8000) return finish();
+    requestAnimationFrame(tick);
+  })(start);
+}
+
+/* ==================================================================
+   BOOT
+   ================================================================== */
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('orientationchange', function(){ setTimeout(resizeCanvas, 120); });
+
+backgrounds.forEach(function(fig){
+  var m = fig.firstElementChild;
+  if(m && m.tagName === 'VIDEO'){ m.pause(); try{ m.currentTime = 0; }catch(e){} m.loop = true; }
+});
+
+resizeCanvas();
+render();
+requestAnimationFrame(draw);
+requestAnimationFrame(cursorLoop);
+runPreloader();
+
+})();
+</script>
+</body>
+</html>

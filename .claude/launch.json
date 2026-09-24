@@ -121,6 +121,30 @@
         "C:/Users/tumel/cedarstone-digital/equal-rights-center"
       ],
       "port": 8422
+    },
+    {
+      "name": "planet-jumping",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8423",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/planet-jumping"
+      ],
+      "port": 8423
+    },
+    {
+      "name": "equal-rights-center-immersive",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8424",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/equal-rights-center-immersive"
+      ],
+      "port": 8424
     }
   ]
 }
