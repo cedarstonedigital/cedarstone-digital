@@ -402,6 +402,199 @@ body.menu-open #menu{clip-path:inset(0);pointer-events:auto}
   #lit .plate{width:min(58vw, (100dvh - 80px) * 1.5)}
   header.chrome{padding-top:calc(8px + var(--safe-top))}
 }
+#pages .hero{position:relative;min-height:92vh;min-height:92svh;display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+#pages .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transform:scale(1.06);opacity:0;transition:opacity 1.4s ease, transform 2.4s var(--ease)}
+#pages .hero img.in{opacity:1;transform:scale(1)}
+#pages .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to bottom, rgba(0,0,0,.45) 0%, rgba(0,0,0,.08) 34%, rgba(0,0,0,.55) 70%, #000 100%)}
+#pages .hero .wrap{padding-bottom:clamp(40px, 9vh, 96px)}
+#pages .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(244,242,239,.6);font-weight:400}
+#pages .eyebrow::before{content:"";width:28px;height:1px;background:rgba(244,242,239,.5)}
+#pages .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px, 8.4vw, 124px);line-height:.98;letter-spacing:-.015em;margin:18px 0 22px;max-width:14ch}
+#pages .hero h1 span{display:inline-block;opacity:0;transform:translateY(.42em);filter:blur(7px);transition:opacity 1.05s var(--ease), transform 1.15s var(--ease), filter 1.05s var(--ease);transition-delay:calc(.25s + var(--i) * .085s)}
+#pages .page.ready .hero h1 span{opacity:1;transform:none;filter:blur(0)}
+#pages .hero .lead{max-width:560px;font-size:clamp(15px, 1.35vw, 18px);line-height:1.6;color:rgba(244,242,239,.84)}
+#pages .hero .credit{position:absolute;right:calc(var(--pad) + var(--safe-right));bottom:calc(var(--pad) + var(--safe-bottom));font-size:10.5px;color:rgba(244,242,239,.45);text-decoration:none}
+#pages .hero .credit:hover{color:#f4f2ef}
+#pages .wrap{width:100%;max-width:var(--max);margin:0 auto;padding-left:calc(var(--pad) + var(--safe-left));padding-right:calc(var(--pad) + var(--safe-right))}
+#pages section.sec{padding:clamp(64px, 11vw, 150px) 0;border-top:1px solid rgba(244,242,239,.1)}
+#pages section.sec:first-of-type{border-top:0}
+#pages .split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(28px, 6vw, 96px);align-items:start}
+#pages .split > .side{position:sticky;top:calc(96px + var(--safe-top))}
+#pages h2.big{font-family:var(--serif);font-weight:400;font-size:clamp(32px, 4.6vw, 64px);line-height:1.04;letter-spacing:-.012em;margin-top:14px}
+#pages h3{font-family:var(--serif);font-weight:400;font-size:clamp(21px, 2vw, 27px);line-height:1.15;letter-spacing:-.005em}
+#pages .prose p{font-size:clamp(15px, 1.2vw, 17px);line-height:1.72;color:var(--soft);margin-bottom:1.1em}
+#pages .prose p strong{color:var(--ink);font-weight:400}
+#pages .prose p:last-child{margin-bottom:0}
+#pages .muted{color:var(--dim)}
+#pages .note{font-size:12.5px;line-height:1.6;color:var(--dim);margin-top:22px;max-width:640px}
+#pages .facts{display:grid;grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));gap:1px;background:rgba(244,242,239,.12);border:1px solid rgba(244,242,239,.12);margin-top:clamp(36px, 5vw, 64px)}
+#pages .fact{background:#000;padding:clamp(18px, 2.2vw, 28px)}
+#pages .fact b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(28px, 3.2vw, 44px);line-height:1;letter-spacing:-.01em}
+#pages .fact span{display:block;margin-top:10px;font-size:12px;letter-spacing:.04em;color:var(--dim);line-height:1.45}
+#pages .figure{position:relative;border-radius:3px;overflow:hidden;background:#0b0b0b}
+#pages .figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease), opacity .8s ease;opacity:0}
+#pages .figure img.in{opacity:1}
+#pages .figure:hover img{transform:scale(1.03)}
+#pages .figure figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-size:11.5px;color:rgba(244,242,239,.8);background:linear-gradient(to bottom, transparent, rgba(0,0,0,.8))}
+#pages .figure figcaption a{text-decoration:none;color:rgba(244,242,239,.55)}
+#pages .ratio-32{aspect-ratio:3/2}
+#pages .ratio-43{aspect-ratio:4/3}
+#pages .ratio-45{aspect-ratio:4/5}
+#pages .ratio-wide{aspect-ratio:21/9}
+#pages .duo{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(10px, 1.4vw, 20px);margin-top:clamp(28px, 4vw, 48px)}
+#pages .timeline{list-style:none;border-left:1px solid var(--line);margin-left:6px}
+#pages .timeline li{position:relative;padding:0 0 clamp(26px, 3vw, 38px) clamp(22px, 3vw, 36px)}
+#pages .timeline li:last-child{padding-bottom:0}
+#pages .timeline li::before{content:"";position:absolute;left:-4.5px;top:.55em;width:8px;height:8px;border-radius:50%;background:#000;border:1px solid #f4f2ef}
+#pages .timeline time{display:block;font-family:var(--serif);font-size:clamp(20px, 2vw, 26px);line-height:1.1;margin-bottom:6px}
+#pages .timeline p{font-size:14.5px;line-height:1.65;color:var(--soft);max-width:620px}
+#pages .grid3{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:clamp(14px, 2vw, 26px);margin-top:clamp(32px, 4.5vw, 56px)}
+#pages .grid2{display:grid;grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));gap:clamp(14px, 2vw, 26px);margin-top:clamp(32px, 4.5vw, 56px)}
+#pages .tile{border:1px solid rgba(244,242,239,.14);border-radius:4px;padding:clamp(20px, 2.4vw, 30px);background:linear-gradient(180deg, rgba(244,242,239,.035), rgba(244,242,239,0));transition:border-color .4s ease, transform .5s var(--ease)}
+#pages .tile:hover{border-color:rgba(244,242,239,.34)}
+#pages .tile .k{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:14px;display:block;font-weight:400}
+#pages .tile h3{margin-bottom:10px}
+#pages .tile p{font-size:14px;line-height:1.65;color:var(--soft)}
+#pages .tile p + p{margin-top:.8em}
+#pages .tile ul{list-style:none;margin-top:14px}
+#pages .tile li{font-size:13.5px;line-height:1.55;color:var(--soft);padding:8px 0;border-top:1px solid rgba(244,242,239,.1)}
+#pages .tile li b{color:var(--ink);font-weight:400}
+#pages .stay{border:1px solid rgba(244,242,239,.14);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;background:#050505}
+#pages .stay .figure{border-radius:0;aspect-ratio:3/2}
+#pages .stay .body{padding:clamp(18px, 2vw, 24px);display:flex;flex-direction:column;gap:8px;flex:1}
+#pages .stay .where{font-size:12px;color:var(--dim)}
+#pages .stay p{font-size:13.5px;line-height:1.62;color:var(--soft)}
+#pages .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}
+#pages .tags span{font-size:10.5px;letter-spacing:.08em;padding:5px 10px;border-radius:999px;border:1px solid rgba(244,242,239,.22);color:rgba(244,242,239,.8)}
+#pages .list{list-style:none;counter-reset:n;margin-top:clamp(28px, 4vw, 48px);border-top:1px solid rgba(244,242,239,.12)}
+#pages .list li{counter-increment:n;display:grid;grid-template-columns:56px minmax(0,1fr) minmax(0,1.4fr);gap:clamp(12px, 2.4vw, 32px);padding:clamp(18px, 2.2vw, 26px) 0;border-bottom:1px solid rgba(244,242,239,.12);align-items:baseline}
+#pages .list li::before{content:counter(n, decimal-leading-zero);font-size:12px;letter-spacing:.14em;color:var(--dim)}
+#pages .list h3{font-size:clamp(19px, 1.8vw, 24px)}
+#pages .list .where{display:block;font-family:var(--sans);font-size:12px;color:var(--dim);margin-top:4px}
+#pages .list p{font-size:14px;line-height:1.65;color:var(--soft)}
+#pages .dl{display:grid;grid-template-columns:minmax(0,1fr);border-top:1px solid rgba(244,242,239,.12);margin-top:clamp(28px, 4vw, 48px)}
+#pages .dl > div{display:grid;grid-template-columns:minmax(140px,.5fr) minmax(0,1.5fr);gap:clamp(12px, 3vw, 40px);padding:16px 0;border-bottom:1px solid rgba(244,242,239,.12)}
+#pages .dl dt{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);padding-top:3px;font-weight:400}
+#pages .dl dd{font-size:14.5px;line-height:1.62;color:var(--soft)}
+#pages .dl dd b{color:var(--ink);font-weight:400}
+#pages .months{display:grid;grid-template-columns:repeat(12, minmax(0,1fr));gap:4px;margin-top:clamp(28px, 4vw, 44px)}
+#pages .months div{padding:12px 0 10px;text-align:center;font-size:11px;letter-spacing:.06em;border-radius:3px;border:1px solid rgba(244,242,239,.14);color:var(--soft)}
+#pages .months .dry{background:#f4f2ef;color:#000;border-color:#f4f2ef}
+#pages .months .mid{background:rgba(244,242,239,.28);color:#fff;border-color:transparent}
+#pages .legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:12px;color:var(--dim)}
+#pages .legend i{display:inline-block;width:12px;height:12px;border-radius:2px;vertical-align:-2px;margin-right:8px;border:1px solid rgba(244,242,239,.3)}
+#pages .legend .l1{background:#f4f2ef}
+#pages .legend .l2{background:rgba(244,242,239,.28);border-color:transparent}
+#pages .planner{margin-top:clamp(32px, 4.5vw, 56px);border:1px solid rgba(244,242,239,.16);border-radius:6px;overflow:hidden}
+#pages .planner .controls{padding:clamp(20px, 2.6vw, 32px);display:grid;gap:22px;background:#060606;border-bottom:1px solid rgba(244,242,239,.12)}
+#pages .planner fieldset{border:0;display:grid;gap:10px}
+#pages .planner legend{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:10px;font-weight:400}
+#pages .chips{display:flex;flex-wrap:wrap;gap:8px}
+#pages .chip{position:relative}
+#pages .chip input{position:absolute;opacity:0;pointer-events:none}
+#pages .chip span{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid rgba(244,242,239,.28);font-size:13px;color:rgba(244,242,239,.84);cursor:pointer;transition:background .3s ease, color .3s ease, border-color .3s ease;user-select:none}
+#pages .chip input:checked + span{background:#f4f2ef;color:#000;border-color:#f4f2ef}
+#pages .chip input:focus-visible + span{outline:1px solid #f4f2ef;outline-offset:3px}
+#pages .planner .out{padding:clamp(20px, 2.6vw, 32px)}
+#pages .planner .out h3{margin-bottom:6px}
+#pages .planner .out .sum{font-size:13px;color:var(--dim);margin-bottom:20px}
+#pages .days{list-style:none;display:grid;gap:1px;background:rgba(244,242,239,.1);border:1px solid rgba(244,242,239,.1);border-radius:4px;overflow:hidden}
+#pages .days li{background:#000;padding:16px 18px;display:grid;grid-template-columns:78px minmax(0,1fr);gap:16px;animation:rise .5s var(--ease) both;animation-delay:calc(var(--i) * 45ms)}
+#pages .days li b{font-family:var(--serif);font-weight:400;font-size:18px}
+#pages .days li strong{display:block;font-weight:400;color:var(--ink);font-size:14.5px;margin-bottom:3px}
+#pages .days li span{font-size:13.5px;color:var(--soft);line-height:1.6}
+#pages .planner .tipline{margin-top:18px;font-size:12.5px;color:var(--dim);line-height:1.6}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+#pages .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 20px;border-radius:999px;border:1px solid rgba(244,242,239,.6);font-size:13px;text-decoration:none;transition:background .3s ease, color .3s ease}
+#pages .btn:hover{background:#f4f2ef;color:#000}
+#pages .sdg{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(16px, 2vw, 26px);align-items:start}
+#pages .sdg .num{width:clamp(58px, 6vw, 76px);aspect-ratio:1;border-radius:4px;display:grid;place-items:center;font-family:var(--serif);font-size:clamp(26px, 3vw, 36px);color:#fff;background:var(--c)}
+#pages .sdg .num small{display:block;font-family:var(--sans);font-size:8.5px;letter-spacing:.16em;text-align:center;margin-top:-6px;opacity:.85}
+#pages .sdg .primary{display:inline-block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:#f4f2ef;color:#000;margin-bottom:10px;font-weight:400}
+#pages .credits{columns:2 320px;column-gap:clamp(24px, 4vw, 56px);margin-top:28px}
+#pages .credits li{break-inside:avoid;font-size:12.5px;line-height:1.55;color:var(--dim);padding:7px 0;border-bottom:1px solid rgba(244,242,239,.08);list-style:none}
+#pages .credits a{color:rgba(244,242,239,.8);text-decoration:none;border-bottom:1px solid rgba(244,242,239,.2)}
+#pages .credits a:hover{color:#fff}
+#pages .members{border:1px dashed rgba(244,242,239,.35);border-radius:4px;padding:18px 20px;margin-top:22px;font-size:14px;color:var(--soft)}
+#pages .next{display:block;text-decoration:none;padding:clamp(70px, 12vw, 160px) 0 clamp(40px, 6vw, 70px);border-top:1px solid rgba(244,242,239,.12)}
+#pages .next .eyebrow{margin-bottom:16px}
+#pages .next b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(40px, 8vw, 116px);line-height:1;letter-spacing:-.015em;transition:letter-spacing .6s var(--ease)}
+#pages .next:hover b{letter-spacing:.004em}
+#pages .next b i{font-style:normal;display:inline-block;transition:transform .6s var(--ease)}
+#pages .next:hover b i{transform:translateX(12px)}
+#pages footer.foot{padding:28px 0 calc(28px + var(--safe-bottom));border-top:1px solid rgba(244,242,239,.1);font-size:12px;color:var(--dim)}
+#pages footer.foot .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+#pages footer.foot nav{display:flex;gap:18px;flex-wrap:wrap}
+#pages footer.foot a{text-decoration:none;color:var(--soft);min-height:32px;display:inline-flex;align-items:center}
+#pages footer.foot a:hover{color:#fff}
+#pages .rv{opacity:0;transform:translateY(22px);transition:opacity 1s var(--ease), transform 1.1s var(--ease)}
+#pages .rv.on{opacity:1;transform:none}
+@media (max-width:900px){#pages .split{grid-template-columns:1fr}
+#pages .split > .side{position:static}
+#pages .duo{grid-template-columns:1fr}
+#pages .list li{grid-template-columns:40px minmax(0,1fr)}
+#pages .list li p{grid-column:2}}
+@media (max-width:768px){#pages .grid2{grid-template-columns:1fr}
+#pages .months{grid-template-columns:repeat(6, minmax(0,1fr))}}
+@media (max-width:640px){#pages .hero{min-height:86svh}
+#pages .grid3{grid-template-columns:1fr}
+#pages .dl > div{grid-template-columns:1fr;gap:4px}
+#pages .days li{grid-template-columns:1fr;gap:4px}
+#pages .sdg{grid-template-columns:1fr}
+#pages .hero .credit{display:none}}
+@media (max-width:380px){#pages .facts{grid-template-columns:1fr 1fr}
+#pages .fact b{font-size:26px}}
+@media (max-height:520px) and (orientation:landscape){#pages .hero{min-height:100svh}
+#pages .hero h1{font-size:clamp(34px, 9vh, 60px)}}
+#pages{position:fixed;inset:0;z-index:58;background:#000;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+  line-height:1.6;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .55s var(--ease), visibility 0s linear .55s}
+body.paged #pages{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .55s var(--ease), visibility 0s}
+body.paged .vig, body.paged .cue, body.paged .bio, body.paged .colophon, body.paged .gridbtn{opacity:0 !important;pointer-events:none !important}
+#pages .page[hidden]{display:none}
+body.paged #lit .scrim{background:rgba(0,0,0,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+body.paged.lit #pages{pointer-events:none}
+#pages em{font-style:italic}
+#pages a{color:inherit}
+#pages :focus-visible{outline:1px solid #f4f2ef;outline-offset:3px}
+#pages .figure{cursor:zoom-in}
+#pages .figure[data-full]::after{content:"";position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;
+  background:rgba(0,0,0,.45) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f4f2ef' stroke-width='1.6'%3E%3Cpath d='M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5'/%3E%3C/svg%3E") center/14px no-repeat;
+  opacity:0;transition:opacity .35s ease}
+#pages .figure[data-full]:hover::after{opacity:1}
+@media (hover:none){ #pages .figure[data-full]::after{opacity:.85} }
+
+/* photo gallery */
+#pages .gallery{display:grid;grid-template-columns:repeat(12, minmax(0,1fr));grid-auto-rows:clamp(64px, 7.4vw, 112px);gap:clamp(8px, 1.2vw, 16px);margin-top:clamp(28px, 4vw, 48px)}
+#pages .gallery .figure{aspect-ratio:auto;height:100%}
+#pages .gallery .g-w3{grid-column:span 3;grid-row:span 3}
+#pages .gallery .g-w4{grid-column:span 4;grid-row:span 3}
+#pages .gallery .g-w5{grid-column:span 5;grid-row:span 3}
+#pages .gallery .g-w6{grid-column:span 6;grid-row:span 3}
+#pages .gallery .g-w7{grid-column:span 7;grid-row:span 3}
+#pages .gallery .g-w8{grid-column:span 8;grid-row:span 3}
+@media (max-width:768px){
+  #pages .gallery{grid-template-columns:repeat(2, minmax(0,1fr));grid-auto-rows:auto}
+  #pages .gallery .figure{grid-column:span 1 !important;grid-row:auto !important;aspect-ratio:4/3;height:auto}
+  #pages .gallery .figure.g-wide{grid-column:span 2 !important;aspect-ratio:16/9}
+}
+
+/* attraction cards */
+#pages .spots{display:grid;grid-template-columns:repeat(auto-fill, minmax(270px, 1fr));gap:clamp(14px, 2vw, 24px);margin-top:clamp(28px, 4vw, 48px)}
+#pages .spot{border:1px solid rgba(244,242,239,.14);border-radius:4px;overflow:hidden;background:#050505;display:flex;flex-direction:column}
+#pages .spot .figure{border-radius:0;aspect-ratio:3/2}
+#pages .spot .num{font-size:11px;letter-spacing:.16em;color:var(--dim)}
+#pages .spot .body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:6px}
+#pages .spot h3{font-size:clamp(20px, 1.8vw, 24px)}
+#pages .spot .where{font-size:12px;color:var(--dim)}
+#pages .spot p{font-size:13.5px;line-height:1.62;color:var(--soft);margin-top:4px}
+#pages .spot.text{justify-content:flex-end;background:linear-gradient(160deg, #0d1a10, #050505 70%)}
+#pages .spot.text .body{padding-top:48px}
+
+/* sdg photo */
+#pages .sdg-photo{grid-column:1 / -1;margin:-4px 0 6px;border-radius:3px;aspect-ratio:21/9}
+#pages .sdgcard{display:flex;flex-direction:column;gap:18px}
+@media (max-width:640px){ #pages .spots{grid-template-columns:1fr} }
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.14s !important;transition-delay:0s !important}
 }
@@ -430,8 +623,541 @@ body.menu-open #menu{clip-path:inset(0);pointer-events:auto}
   <div class="rows"></div>
 </section>
 
+<div id="pages" aria-hidden="true">
+<article class="page" id="page-islands" data-title="The Islands — São Tomé &amp; Príncipe" hidden>
+<section class="hero">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg/1920px-C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" alt="Pico Cão Grande and Cão Pequeno above the rainforest of southern São Tomé" loading="lazy" decoding="async" data-fade>
+  <div class="wrap">
+    <span class="eyebrow">Background · Chapter 01</span>
+    <h1><span style="--i:0">The</span> <span style="--i:1">Islands</span></h1>
+    <p class="lead">Two volcanic islands on the equator, with five centuries of history, a creole culture of their own and rainforest found nowhere else.</p>
+  </div>
+  <a class="credit" href="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" target="_blank" rel="noopener">Pico Cão Grande · Wikimedia Commons ↗</a>
+</section>
+
+<section class="sec" id="glance">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">At a glance</span>
+        <h2 class="big">Africa's second-smallest nation</h2>
+      </div>
+      <div class="prose rv">
+        <p><strong>São Tomé and Príncipe</strong>, officially the Democratic Republic of São Tomé and Príncipe, is an island country in the Gulf of Guinea, off the western equatorial coast of Central Africa. It is made up of two archipelagos around the main islands of São Tomé and Príncipe, which lie about 150&nbsp;km apart and roughly 250 and 225&nbsp;km off the northwest coast of Gabon.</p>
+        <p>Only the Seychelles is smaller or less populous in Africa. Since the democratic reforms of 1990 the country has been one of the continent's most stable democracies. Its culture, music and food mix African and Portuguese influences, and it was a founding member of the Community of Portuguese Language Countries.</p>
+      </div>
+    </div>
+    <div class="facts rv">
+      <div class="fact"><b>964&nbsp;km²</b><span>Total land area across both island groups</span></div>
+      <div class="fact"><b>~220,000</b><span>Population (2023 estimate). About 96% live on São Tomé</span></div>
+      <div class="fact"><b>2,024&nbsp;m</b><span>Pico de São Tomé, the highest point</span></div>
+      <div class="fact"><b>26&nbsp;°C</b><span>Average yearly temperature at sea level</span></div>
+      <div class="fact"><b>1975</b><span>Independence from Portugal, 12 July</span></div>
+      <div class="fact"><b>0.637</b><span>Human Development Index (2023), rated medium</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="geography">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">Geography &amp; climate</span>
+        <h2 class="big">Born from the Cameroon Line</h2>
+      </div>
+      <div class="prose rv">
+        <p>Both islands are part of the Cameroon volcanic line, a chain that also includes Bioko, Annobón and Mount Cameroon. They rose from deep water about <strong>30 million years ago</strong>, and their soils of basalt and phonolite have fed plantation crops since colonial times.</p>
+        <p><strong>São Tomé</strong> is about 50&nbsp;km long and 30&nbsp;km wide, and it is the more mountainous of the two islands. <strong>Príncipe</strong> is about 30&nbsp;km long and 6&nbsp;km wide, and its highest peak reaches 948&nbsp;m. The equator runs just south of São Tomé, through the islet of <strong>Ilhéu das Rolas</strong>.</p>
+        <p>At sea level the climate is hot and humid, averaging about 26&nbsp;°C, and it rarely goes above 32&nbsp;°C. The highlands average around 20&nbsp;°C, with cool nights. Rainfall ranges from about 800&nbsp;mm a year in the northern lowlands to 7,000&nbsp;mm in the highland cloud forest. The rainy season runs from October to May.</p>
+        <p>The country has seven districts. São Tomé island has six: Água Grande, Cantagalo, Caué, Lembá, Lobata and Mé-Zóchi. Príncipe has been an autonomous region since 1995, and its single district is Pagué.</p>
+      </div>
+    </div>
+    <div class="duo">
+      <figure class="figure ratio-32 " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg/1920px-C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" data-t="Pico Cão Grande &amp; Cão Pequeno, Caué" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Pico Cão Grande &amp; Cão Pequeno, Caué"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg/1280px-C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" alt="Pico Cão Grande and Cão Pequeno rising above the forest" loading="lazy" decoding="async" data-fade><figcaption>Pico Cão Grande &amp; Cão Pequeno, Caué · <a href="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+      <figure class="figure ratio-45 " data-full="https://upload.wikimedia.org/wikipedia/commons/8/82/Waterfall_S%C3%A3o_Tom%C3%A9_Island_I.jpg" data-src="https://commons.wikimedia.org/wiki/File:Waterfall_S%C3%A3o_Tom%C3%A9_Island_I.jpg" data-t="Waterfall in the interior of São Tomé" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Waterfall in the interior of São Tomé"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Waterfall_S%C3%A3o_Tom%C3%A9_Island_I.jpg" alt="A waterfall in the forested interior of São Tomé" loading="lazy" decoding="async" data-fade><figcaption>Waterfall in the interior of São Tomé · <a href="https://commons.wikimedia.org/wiki/File:Waterfall_S%C3%A3o_Tom%C3%A9_Island_I.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="history">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">History</span>
+        <h2 class="big">Five centuries in brief</h2>
+        <p class="note">The islands' past includes the Atlantic slave trade and forced labour on the plantations. Visitors should treat these places with the care they deserve.</p>
+      </div>
+      <ol class="timeline rv">
+        <li><time>1470</time><p>Portuguese navigators João de Santarém and Pêro Escobar reach the islands, which were uninhabited, on 21 December.</p></li>
+        <li><time>1493</time><p>Álvaro Caminha founds the first lasting settlement on São Tomé. Príncipe is settled in 1500.</p></li>
+        <li><time>1500s</time><p>Sugar mills spread across São Tomé and it becomes Africa's leading sugar exporter. The whole economy runs on enslaved labour, and the islands become a major depot of the Atlantic slave trade.</p></li>
+        <li><time>1595</time><p>Amador leads the largest slave revolt in the islands' history. About 5,000 people rise up and destroy 60 of the island's 85 sugar mills before the revolt is put down.</p></li>
+        <li><time>1800s</time><p>Coffee and cocoa are introduced. The <em>roças</em>, vast plantation estates, come to dominate the land and the people who work it.</p></li>
+        <li><time>1905</time><p>São Tomé is the world's largest producer of cocoa, and the islands become known as the Chocolate Islands. Portugal abolished slavery in 1876, but forced contract labour continues.</p></li>
+        <li><time>1919</time><p>On Príncipe, Sir Arthur Eddington photographs a total solar eclipse and provides one of the first successful tests of Einstein's general theory of relativity.</p></li>
+        <li><time>1953</time><p>Several hundred African labourers are killed in the Batepá Massacre. The anniversary is still officially observed.</p></li>
+        <li><time>1975</time><p>Independence on 12 July, with Manuel Pinto da Costa of the MLSTP as the first president.</p></li>
+        <li><time>1990–91</time><p>A new constitution legalises opposition parties, and the 1991 elections are free, peaceful and transparent. São Tomé is one of the first African countries to make this transition.</p></li>
+        <li><time>2012 → 2025</time><p>UNESCO names the Island of Príncipe Biosphere Reserve. In 2025 it is extended to São Tomé, and the country becomes the first to be designated in its entirety.</p></li>
+      </ol>
+    </div>
+    <div class="duo">
+      <figure class="figure ratio-32 " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Forte_de_S%C3%A3o_Sebasti%C3%A3o_%28S%C3%A3o_Tom%C3%A9%29_%288084248638%29.jpg/1920px-Forte_de_S%C3%A3o_Sebasti%C3%A3o_%28S%C3%A3o_Tom%C3%A9%29_%288084248638%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Forte_de_S%C3%A3o_Sebasti%C3%A3o_%28S%C3%A3o_Tom%C3%A9%29_%288084248638%29.jpg" data-t="Fort São Sebastião, now the National Museum" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Fort São Sebastião, now the National Museum"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Forte_de_S%C3%A3o_Sebasti%C3%A3o_%28S%C3%A3o_Tom%C3%A9%29_%288084248638%29.jpg/1280px-Forte_de_S%C3%A3o_Sebasti%C3%A3o_%28S%C3%A3o_Tom%C3%A9%29_%288084248638%29.jpg" alt="Fort São Sebastião on the bay of São Tomé city" loading="lazy" decoding="async" data-fade><figcaption>Fort São Sebastião, now the National Museum · <a href="https://commons.wikimedia.org/wiki/File:Forte_de_S%C3%A3o_Sebasti%C3%A3o_%28S%C3%A3o_Tom%C3%A9%29_%288084248638%29.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+      <figure class="figure ratio-32 " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%288%29.jpg/1920px-Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%288%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%288%29.jpg" data-t="Roça Agostinho Neto, Lobata" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Roça Agostinho Neto, Lobata"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%288%29.jpg/1280px-Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%288%29.jpg" alt="Colonial buildings of Roça Agostinho Neto" loading="lazy" decoding="async" data-fade><figcaption>Roça Agostinho Neto, Lobata · <a href="https://commons.wikimedia.org/wiki/File:Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%288%29.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="culture">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">People &amp; culture</span>
+        <h2 class="big">African roots, Portuguese echoes</h2>
+      </div>
+      <div class="prose rv">
+        <p>Most São Toméans are of African and <em>mestiço</em> (mixed African and European) descent. Among the islands' communities are the <strong>Forros</strong>, descendants of people freed when slavery was abolished; the <strong>Angolares</strong>, who by tradition descend from survivors of a 1540 shipwreck and still live by fishing; the <strong>Serviçais</strong>, contract workers from Angola, Mozambique and Cape Verde; and the <strong>Tongas</strong>, their island-born children.</p>
+        <p><strong>Portuguese</strong> is the official language and is spoken by about 98% of people. Forro creole is spoken by roughly a third of the population, and Angolar and Principense creoles survive alongside it. Around 72% of people are Catholic.</p>
+      </div>
+    </div>
+    <div class="grid3">
+      <article class="tile rv"><span class="k">Performance</span><h3>Tchiloli &amp; Danço-Congo</h3><p><em>Tchiloli</em> is a masked dance-drama that tells a story of justice and power through music and dance. The <em>Danço-Congo</em> likewise combines music, dance and theatre.</p></article>
+      <article class="tile rv"><span class="k">Music</span><h3>Ússua, Socopé, Dêxa</h3><p>São Tomé is known for the <em>ússua</em> and <em>socopé</em> rhythms, and Príncipe for the <em>dêxa</em> beat. Portuguese ballroom dance probably helped shape all three.</p></article>
+      <article class="tile rv"><span class="k">Literature</span><h3>A poetic tradition</h3><p>The islands' Portuguese-language poetry is among the richest in Lusophone Africa. Key voices include Francisco José Tenreiro, Alda Espírito Santo, Manuela Margarido, Olinda Beja and Conceição Lima.</p></article>
+      <article class="tile rv"><span class="k">Cuisine</span><h3>Fish, breadfruit &amp; spice</h3><p>Staple foods are fish and seafood, beans, maize, breadfruit and cooked banana, with pineapple and avocado and plenty of hot spice. Coffee is even used as a seasoning.</p></article>
+      <article class="tile rv"><span class="k">Everyday life</span><h3>Leve-leve</h3><p>“Slowly, slowly.” It is less a slogan than a way of living. Football is the most popular sport, and the national team plays in CAF and FIFA competitions.</p></article>
+      <article class="tile rv"><span class="k">Heritage</span><h3>The roças</h3><p>Former plantations such as Agostinho Neto, Monte Café and Sundy had their own hospitals, railways and workers' villages. Many are now being reused for heritage tourism.</p></article>
+    </div>
+    <div class="duo">
+      <figure class="figure ratio-32 " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2856%29.jpg/1920px-Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2856%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2856%29.jpg" data-t="A Tchiloli performance in São Tomé" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: A Tchiloli performance in São Tomé"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2856%29.jpg/1280px-Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2856%29.jpg" alt="Masked Tchiloli performers in São Tomé" loading="lazy" decoding="async" data-fade><figcaption>A Tchiloli performance in São Tomé · <a href="https://commons.wikimedia.org/wiki/File:Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2856%29.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+      <figure class="figure ratio-32 " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Casa_da_Cultura_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg/1920px-Casa_da_Cultura_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Casa_da_Cultura_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" data-t="Casa da Cultura, São Tomé city" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Casa da Cultura, São Tomé city"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Casa_da_Cultura_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg/1280px-Casa_da_Cultura_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" alt="The Casa da Cultura building in São Tomé city" loading="lazy" decoding="async" data-fade><figcaption>Casa da Cultura, São Tomé city · <a href="https://commons.wikimedia.org/wiki/File:Casa_da_Cultura_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="nature">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">Nature &amp; wildlife</span>
+        <h2 class="big">An evolutionary laboratory</h2>
+      </div>
+      <div class="prose rv">
+        <p>The islands belong to the São Tomé, Príncipe and Annobón moist lowland forests ecoregion. Mammals are few, although the São Tomé shrew and several bats are endemic. Birds and plants are another story. The islands are home to the <strong>world's smallest ibis</strong> (the São Tomé ibis), the <strong>world's largest sunbird</strong> (the giant sunbird), the rare São Tomé fiscal and several giant species of <em>Begonia</em>.</p>
+        <p>Beaches on both islands are important nesting sites for marine turtles, including the critically endangered <strong>hawksbill turtle</strong>. Much of the mountainous interior is protected as <strong>Obô Natural Park</strong>, and since 2025 the whole country has been a UNESCO Biosphere Reserve.</p>
+      </div>
+    </div>
+    <div class="duo">
+      <figure class="figure ratio-32 " data-full="https://upload.wikimedia.org/wikipedia/commons/c/c3/Dreptes_thomensis_12933301_%28cropped%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Dreptes_thomensis_12933301_%28cropped%29.jpg" data-t="Giant sunbird, Dreptes thomensis" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Giant sunbird, Dreptes thomensis"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Dreptes_thomensis_12933301_%28cropped%29.jpg/1280px-Dreptes_thomensis_12933301_%28cropped%29.jpg" alt="The giant sunbird perched on a branch" loading="lazy" decoding="async" data-fade><figcaption>Giant sunbird, <em>Dreptes thomensis</em> · <a href="https://commons.wikimedia.org/wiki/File:Dreptes_thomensis_12933301_%28cropped%29.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+      <figure class="figure ratio-43 " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Bostrychia_bocagei.jpg/1920px-Bostrychia_bocagei.jpg" data-src="https://commons.wikimedia.org/wiki/File:Bostrychia_bocagei.jpg" data-t="São Tomé ibis, Bostrychia bocagei" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: São Tomé ibis, Bostrychia bocagei"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Bostrychia_bocagei.jpg/1280px-Bostrychia_bocagei.jpg" alt="The São Tomé ibis" loading="lazy" decoding="async" data-fade><figcaption>São Tomé ibis, <em>Bostrychia bocagei</em> · <a href="https://commons.wikimedia.org/wiki/File:Bostrychia_bocagei.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="island-gallery">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Gallery</span>
+      <h2 class="big">Across the islands</h2>
+    </div>
+    <div class="gallery rv"><figure class="figure  g-w8 g-wide" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%282%29.jpg/1920px-C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%282%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%282%29.jpg" data-t="Cão Grande &amp; Cão Pequeno, Caué" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Cão Grande &amp; Cão Pequeno, Caué"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%282%29.jpg/960px-C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%282%29.jpg" alt="Pico Cão Grande and Cão Pequeno rising from the forest" loading="lazy" decoding="async" data-fade><figcaption>Cão Grande &amp; Cão Pequeno, Caué</figcaption></figure><figure class="figure  g-w4" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2810%29.jpg/1920px-Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2810%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2810%29.jpg" data-t="Tchiloli performer, São Tomé" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Tchiloli performer, São Tomé"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2810%29.jpg/960px-Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2810%29.jpg" alt="A masked Tchiloli performer in costume" loading="lazy" decoding="async" data-fade><figcaption>Tchiloli performer, São Tomé</figcaption></figure><figure class="figure  g-w6 g-wide" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/2017_Guadalupe_STP_DSC_8344_%2832064969063%29.jpg/1920px-2017_Guadalupe_STP_DSC_8344_%2832064969063%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:2017_Guadalupe_STP_DSC_8344_%2832064969063%29.jpg" data-t="Guadalupe, Lobata District" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Guadalupe, Lobata District"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/2017_Guadalupe_STP_DSC_8344_%2832064969063%29.jpg/960px-2017_Guadalupe_STP_DSC_8344_%2832064969063%29.jpg" alt="Panorama of the town of Guadalupe" loading="lazy" decoding="async" data-fade><figcaption>Guadalupe, Lobata District</figcaption></figure><figure class="figure  g-w6" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Toitures_%C3%A0_la_ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29.jpg/1920px-Toitures_%C3%A0_la_ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Toitures_%C3%A0_la_ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29.jpg" data-t="Rooftops at Roça Agostinho Neto" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Rooftops at Roça Agostinho Neto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Toitures_%C3%A0_la_ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29.jpg/960px-Toitures_%C3%A0_la_ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29.jpg" alt="Rooftops of Roça Agostinho Neto" loading="lazy" decoding="async" data-fade><figcaption>Rooftops at Roça Agostinho Neto</figcaption></figure><figure class="figure  g-w4" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg/1920px-Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" data-t="A Tchiloli troupe in performance" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: A Tchiloli troupe in performance"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg/960px-Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" alt="Tchiloli performers on stage" loading="lazy" decoding="async" data-fade><figcaption>A Tchiloli troupe in performance</figcaption></figure><figure class="figure  g-w4" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/BAN_-_Rocky_cove_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg/1920px-BAN_-_Rocky_cove_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" data-src="https://commons.wikimedia.org/wiki/File:BAN_-_Rocky_cove_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" data-t="Rocky cove, Praia Banana, Príncipe" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Rocky cove, Praia Banana, Príncipe"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/BAN_-_Rocky_cove_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg/960px-BAN_-_Rocky_cove_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" alt="A rocky cove at Praia Banana" loading="lazy" decoding="async" data-fade><figcaption>Rocky cove, Praia Banana, Príncipe</figcaption></figure><figure class="figure  g-w4" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/V%C3%A9g%C3%A9tation_%C3%A0_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%286%29.jpg/1920px-V%C3%A9g%C3%A9tation_%C3%A0_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%286%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:V%C3%A9g%C3%A9tation_%C3%A0_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%286%29.jpg" data-t="Tropical plants, Roça São João dos Angolares" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Tropical plants, Roça São João dos Angolares"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/V%C3%A9g%C3%A9tation_%C3%A0_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%286%29.jpg/960px-V%C3%A9g%C3%A9tation_%C3%A0_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%286%29.jpg" alt="Tropical plants in the garden of Roça São João dos Angolares" loading="lazy" decoding="async" data-fade><figcaption>Tropical plants, Roça São João dos Angolares</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" id="see">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Unique attractions</span>
+      <h2 class="big">Twelve places to know</h2>
+    </div>
+    <div class="spots"><article class="spot rv"><figure class="figure  " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/C%C3%A3o_Grande_%C3%A0_S%C3%A3o_Tom%C3%A9.jpg/1920px-C%C3%A3o_Grande_%C3%A0_S%C3%A3o_Tom%C3%A9.jpg" data-src="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_%C3%A0_S%C3%A3o_Tom%C3%A9.jpg" data-t="Pico Cão Grande" data-p="Caué · south São Tomé" tabindex="0" role="button" aria-label="Enlarge photo: Pico Cão Grande"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/C%C3%A3o_Grande_%C3%A0_S%C3%A3o_Tom%C3%A9.jpg/960px-C%C3%A3o_Grande_%C3%A0_S%C3%A3o_Tom%C3%A9.jpg" alt="Pico Cão Grande, Caué · south São Tomé" loading="lazy" decoding="async" data-fade><figcaption>Pico Cão Grande</figcaption></figure><div class="body"><span class="num">01</span><h3>Pico Cão Grande</h3><span class="where">Caué · south São Tomé</span><p>A volcanic plug that rises more than 300&nbsp;m above the forest, with its summit 663&nbsp;m above sea level. You can see it from the road south of São João dos Angolares.</p></div></article><article class="spot rv"><figure class="figure  " data-full="https://upload.wikimedia.org/wikipedia/commons/6/64/S%C3%A3o_Tom%C3%A9_-_Ilh%C3%A9u_das_Rolas_-_Praia_de_Santo_Ant%C3%B3nio_%283%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:S%C3%A3o_Tom%C3%A9_-_Ilh%C3%A9u_das_Rolas_-_Praia_de_Santo_Ant%C3%B3nio_%283%29.jpg" data-t="Ilhéu das Rolas" data-p="Off the southern tip" tabindex="0" role="button" aria-label="Enlarge photo: Ilhéu das Rolas"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/S%C3%A3o_Tom%C3%A9_-_Ilh%C3%A9u_das_Rolas_-_Praia_de_Santo_Ant%C3%B3nio_%283%29.jpg/960px-S%C3%A3o_Tom%C3%A9_-_Ilh%C3%A9u_das_Rolas_-_Praia_de_Santo_Ant%C3%B3nio_%283%29.jpg" alt="Ilhéu das Rolas, Off the southern tip" loading="lazy" decoding="async" data-fade><figcaption>Ilhéu das Rolas</figcaption></figure><div class="body"><span class="num">02</span><h3>Ilhéu das Rolas</h3><span class="where">Off the southern tip</span><p>The islet where the equator crosses the country. A marker lets you stand in both hemispheres at once.</p></div></article><article class="spot rv"><figure class="figure  " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Vue_depuis_la_Pousada_Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg/1920px-Vue_depuis_la_Pousada_Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Vue_depuis_la_Pousada_Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg" data-t="Obô Natural Park &amp; Lagoa Amélia" data-p="Central highlands" tabindex="0" role="button" aria-label="Enlarge photo: Obô Natural Park &amp; Lagoa Amélia"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Vue_depuis_la_Pousada_Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg/960px-Vue_depuis_la_Pousada_Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg" alt="Obô Natural Park & Lagoa Amélia, Central highlands" loading="lazy" decoding="async" data-fade><figcaption>Obô Natural Park &amp; Lagoa Amélia</figcaption></figure><div class="body"><span class="num">03</span><h3>Obô Natural Park &amp; Lagoa Amélia</h3><span class="where">Central highlands</span><p>Cloud forest, endemic birds and a crater lake filled with vegetation. Local guides lead the trails. Pictured: the highland forest seen from Roça Bombaim.</p></div></article><article class="spot text rv"><div class="body"><span class="num">04</span><h3>Pico de São Tomé</h3><span class="where">Highest point, 2,024&nbsp;m</span><p>A demanding climb, usually done over two days, up through primary forest to the summit. Go with a local guide.</p></div></article><article class="spot rv"><figure class="figure  " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Statues_d%27explorateurs_au_fort_de_S%C3%A3o_Sebasti%C3%A3o_de_S%C3%A3o_Tom%C3%A9.jpg/1920px-Statues_d%27explorateurs_au_fort_de_S%C3%A3o_Sebasti%C3%A3o_de_S%C3%A3o_Tom%C3%A9.jpg" data-src="https://commons.wikimedia.org/wiki/File:Statues_d%27explorateurs_au_fort_de_S%C3%A3o_Sebasti%C3%A3o_de_S%C3%A3o_Tom%C3%A9.jpg" data-t="Fort São Sebastião" data-p="São Tomé city" tabindex="0" role="button" aria-label="Enlarge photo: Fort São Sebastião"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Statues_d%27explorateurs_au_fort_de_S%C3%A3o_Sebasti%C3%A3o_de_S%C3%A3o_Tom%C3%A9.jpg/960px-Statues_d%27explorateurs_au_fort_de_S%C3%A3o_Sebasti%C3%A3o_de_S%C3%A3o_Tom%C3%A9.jpg" alt="Fort São Sebastião, São Tomé city" loading="lazy" decoding="async" data-fade><figcaption>Fort São Sebastião</figcaption></figure><div class="body"><span class="num">05</span><h3>Fort São Sebastião</h3><span class="where">São Tomé city</span><p>A 16th-century fort that now holds the National Museum, with collections covering colonial rule, the roças and independence.</p></div></article><article class="spot rv"><figure class="figure  " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg/1920px-Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg" data-t="Roça Agostinho Neto" data-p="Lobata" tabindex="0" role="button" aria-label="Enlarge photo: Roça Agostinho Neto"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg/960px-Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg" alt="Roça Agostinho Neto, Lobata" loading="lazy" decoding="async" data-fade><figcaption>Roça Agostinho Neto</figcaption></figure><div class="body"><span class="num">06</span><h3>Roça Agostinho Neto</h3><span class="where">Lobata</span><p>One of the largest historic plantations, with its grand hospital and long rows of workers' housing.</p></div></article><article class="spot rv"><figure class="figure  " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Pigeonnier_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg/1920px-Pigeonnier_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Pigeonnier_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg" data-t="Roça São João dos Angolares" data-p="Caué · east coast" tabindex="0" role="button" aria-label="Enlarge photo: Roça São João dos Angolares"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Pigeonnier_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg/960px-Pigeonnier_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg" alt="Roça São João dos Angolares, Caué · east coast" loading="lazy" decoding="async" data-fade><figcaption>Roça São João dos Angolares</figcaption></figure><div class="body"><span class="num">07</span><h3>Roça São João dos Angolares</h3><span class="where">Caué · east coast</span><p>A restored plantation house above the Angolares fishing town, known for its island cooking and art.</p></div></article><article class="spot text rv"><div class="body"><span class="num">08</span><h3>Boca do Inferno</h3><span class="where">East coast</span><p>The “Mouth of Hell”, a blowhole where Atlantic swells burst up through black volcanic rock.</p></div></article><article class="spot rv"><figure class="figure  " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/BAN_-_Sandy_shoreline_of_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg/1920px-BAN_-_Sandy_shoreline_of_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" data-src="https://commons.wikimedia.org/wiki/File:BAN_-_Sandy_shoreline_of_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" data-t="Praia Banana" data-p="Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Praia Banana"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/BAN_-_Sandy_shoreline_of_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg/960px-BAN_-_Sandy_shoreline_of_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" alt="Praia Banana, Príncipe" loading="lazy" decoding="async" data-fade><figcaption>Praia Banana</figcaption></figure><div class="body"><span class="num">09</span><h3>Praia Banana</h3><span class="where">Príncipe</span><p>A crescent of sand and palms that has become the image of Príncipe.</p></div></article><article class="spot text rv"><div class="body"><span class="num">10</span><h3>Roça Sundy</h3><span class="where">Príncipe</span><p>The plantation where Eddington photographed the 1919 eclipse and confirmed Einstein's prediction that gravity bends light.</p></div></article><article class="spot rv"><figure class="figure  " data-full="https://upload.wikimedia.org/wikipedia/commons/8/88/Palacio_do_Governo_Regional_%2820911940070%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Palacio_do_Governo_Regional_%2820911940070%29.jpg" data-t="Santo António" data-p="Príncipe&#x27;s capital" tabindex="0" role="button" aria-label="Enlarge photo: Santo António"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Palacio_do_Governo_Regional_%2820911940070%29.jpg/960px-Palacio_do_Governo_Regional_%2820911940070%29.jpg" alt="Santo António, Príncipe's capital" loading="lazy" decoding="async" data-fade><figcaption>Santo António</figcaption></figure><div class="body"><span class="num">11</span><h3>Santo António</h3><span class="where">Príncipe's capital</span><p>One of the smallest capital towns in the world, with colonial streets along a river mouth. Pictured: the regional government palace.</p></div></article><article class="spot rv"><figure class="figure  " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Pr%C3%ADncipe_Island_Biosphere_Reserve_-_Prai_Caix%C3%A3o.jpg/1920px-Pr%C3%ADncipe_Island_Biosphere_Reserve_-_Prai_Caix%C3%A3o.jpg" data-src="https://commons.wikimedia.org/wiki/File:Pr%C3%ADncipe_Island_Biosphere_Reserve_-_Prai_Caix%C3%A3o.jpg" data-t="Turtle beaches" data-p="South São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Turtle beaches"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Pr%C3%ADncipe_Island_Biosphere_Reserve_-_Prai_Caix%C3%A3o.jpg/960px-Pr%C3%ADncipe_Island_Biosphere_Reserve_-_Prai_Caix%C3%A3o.jpg" alt="Turtle beaches, South São Tomé & Príncipe" loading="lazy" decoding="async" data-fade><figcaption>Turtle beaches</figcaption></figure><div class="body"><span class="num">12</span><h3>Turtle beaches</h3><span class="where">South São Tomé &amp; Príncipe</span><p>Nesting beaches where guided night walks, run with local conservation teams, show visitors marine turtles without disturbing them. Pictured: Praia Caixão, Príncipe.</p></div></article></div>
+  </div>
+</section>
+
+<div class="wrap">
+  <a class="next" href="#travel">
+    <span class="eyebrow">Next</span>
+    <b>Plan Your Trip <i>→</i></b>
+  </a>
+</div>
+<footer class="foot">
+  <div class="wrap">
+    <span>São Tomé &amp; Príncipe · Visitor Guide 2026 · ITM01B1 Tech Tourism Fair</span>
+    <nav aria-label="Footer"><a href="#">Home</a> <a href="#islands">The Islands</a> <a href="#travel">Plan Your Trip</a> <a href="#impact">Tourism &amp; the SDGs</a></nav>
+  </div>
+</footer>
+</article>
+<article class="page" id="page-travel" data-title="Plan Your Trip — São Tomé &amp; Príncipe" hidden>
+<section class="hero">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Praia_Ize%2C_Sao_Tome_and_Principe_-_September_2022.jpg/1920px-Praia_Ize%2C_Sao_Tome_and_Principe_-_September_2022.jpg" alt="Praia Ize, a palm-lined beach on São Tomé" loading="lazy" decoding="async" data-fade>
+  <div class="wrap">
+    <span class="eyebrow">Travel · Chapter 02</span>
+    <h1><span style="--i:0">Plan</span> <span style="--i:1">Your</span> <span style="--i:2">Trip</span></h1>
+    <p class="lead">Seasons, flights and roads, roça stays and eco-lodges, the essentials, and a planner that builds your days for you.</p>
+  </div>
+  <a class="credit" href="https://commons.wikimedia.org/wiki/File:Praia_Ize%2C_Sao_Tome_and_Principe_-_September_2022.jpg" target="_blank" rel="noopener">Praia Ize · Wikimedia Commons ↗</a>
+</section>
+
+<section class="sec" id="when">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">When to go</span>
+        <h2 class="big">Two seasons, both green</h2>
+      </div>
+      <div class="prose rv">
+        <p>The islands are warm all year, around 26&nbsp;°C on the coast. The <strong>rainy season runs from October to May</strong>. The drier, slightly cooler months from <strong>June to September</strong> are known locally as the <em>gravana</em>, and they are the best time for hiking and clear views of the peaks. A short, drier spell around <strong>December and January</strong> (the <em>gravanito</em>) is another good window.</p>
+        <p>Wildlife sets its own calendar. <strong>Turtle nesting</strong> is concentrated in the wetter months, roughly November to March, and <strong>humpback whales</strong> pass the islands from about July to October.</p>
+      </div>
+    </div>
+    <div class="months rv" role="img" aria-label="Seasons: June to September is the dry season; December and January are a short drier spell; the other months are the rainy season."><div class="mid">Jan</div><div class="">Feb</div><div class="">Mar</div><div class="">Apr</div><div class="">May</div><div class="dry">Jun</div><div class="dry">Jul</div><div class="dry">Aug</div><div class="dry">Sep</div><div class="">Oct</div><div class="">Nov</div><div class="mid">Dec</div></div>
+    <div class="legend rv"><span><i class="l1"></i>Gravana: dry season</span><span><i class="l2"></i>Gravanito: short dry spell</span><span><i></i>Rainy season</span></div>
+  </div>
+</section>
+
+<section class="sec" id="getting-there">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">Transportation</span>
+        <h2 class="big">Getting there &amp; around</h2>
+      </div>
+      <div class="prose rv">
+        <p>International flights land at <strong>São Tomé International Airport</strong>, near the capital, which has been expanded and modernised. Most visitors connect through <strong>Lisbon</strong> or regional hubs such as <strong>Luanda</strong> and <strong>Libreville</strong>. Routes and airlines change from season to season, so check current schedules before you book.</p>
+        <p>The country's main seaports are in São Tomé city and Neves. Both were modernised in 2014 and mainly handle cargo. Visitors travelling between the two islands usually take the short domestic flight.</p>
+      </div>
+    </div>
+    <div class="grid3">
+      <article class="tile rv"><span class="k">Between islands</span><h3>São Tomé → Príncipe</h3><p>Short domestic flights connect the two islands several times a week. Seats are limited, so book early and allow a spare day in case of changes.</p></article>
+      <article class="tile rv"><span class="k">On the road</span><h3>Taxis &amp; drivers</h3><p>Shared and private taxis are the everyday way to get around. Hiring a driver-guide for a day is good value and puts your money in local hands. Agree the fare before you set off.</p></article>
+      <article class="tile rv"><span class="k">Self-drive</span><h3>Car &amp; 4×4 hire</h3><p>The road network is good by regional standards, but the far south and forest tracks are much easier in a 4×4, especially in the rainy season.</p></article>
+      <article class="tile rv"><span class="k">By sea</span><h3>Boats &amp; islets</h3><p>Local boats run to Ilhéu das Rolas from the south of São Tomé and to the islets around Príncipe. Use operators who carry life jackets.</p></article>
+      <article class="tile rv"><span class="k">On foot</span><h3>Guided trails</h3><p>Obô Natural Park, Lagoa Amélia and Pico de São Tomé should be done with a local guide. It is safer, and it is income for the community.</p></article>
+      <article class="tile rv"><span class="k">Connectivity</span><h3>Phones &amp; internet</h3><p>Mobile phones are widely used and coverage keeps improving. Internet is reliable in towns but patchy in the interior, so download offline maps before you go.</p></article>
+    </div>
+    <div class="duo">
+      <figure class="figure ratio-43 " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Sao_Tome_Airport_1_%2815627228594%29.jpg/1920px-Sao_Tome_Airport_1_%2815627228594%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Sao_Tome_Airport_1_%2815627228594%29.jpg" data-t="São Tomé International Airport" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: São Tomé International Airport"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Sao_Tome_Airport_1_%2815627228594%29.jpg/1280px-Sao_Tome_Airport_1_%2815627228594%29.jpg" alt="The terminal at São Tomé International Airport" loading="lazy" decoding="async" data-fade><figcaption>São Tomé International Airport · <a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Airport_1_%2815627228594%29.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+      <figure class="figure ratio-43 " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sao_Tome_Boat_4_%2816061428938%29.jpg/1920px-Sao_Tome_Boat_4_%2816061428938%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Sao_Tome_Boat_4_%2816061428938%29.jpg" data-t="Boats on the São Tomé coast" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Boats on the São Tomé coast"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sao_Tome_Boat_4_%2816061428938%29.jpg/1280px-Sao_Tome_Boat_4_%2816061428938%29.jpg" alt="A traditional boat on the shore in São Tomé" loading="lazy" decoding="async" data-fade><figcaption>Boats on the São Tomé coast · <a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Boat_4_%2816061428938%29.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="beaches">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">Beaches</span>
+        <h2 class="big">Sand, palms &amp; volcanic rock</h2>
+      </div>
+      <div class="prose rv">
+        <p>Both islands are ringed with quiet beaches, from the palm-fringed crescents of Príncipe to the black-rock coves of São Tomé. Many have no facilities at all, so bring water and shade, and take everything home with you.</p>
+      </div>
+    </div>
+    <div class="gallery rv"><figure class="figure  g-w7 g-wide" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/BAN_-_Palm_trees_and_shelter_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg/1920px-BAN_-_Palm_trees_and_shelter_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" data-src="https://commons.wikimedia.org/wiki/File:BAN_-_Palm_trees_and_shelter_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" data-t="Palms at Praia Banana, Príncipe" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Palms at Praia Banana, Príncipe"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/BAN_-_Palm_trees_and_shelter_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg/960px-BAN_-_Palm_trees_and_shelter_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" alt="Palm trees and a shelter at Praia Banana" loading="lazy" decoding="async" data-fade><figcaption>Palms at Praia Banana, Príncipe</figcaption></figure><figure class="figure  g-w5" data-full="https://upload.wikimedia.org/wikipedia/commons/b/b8/Praia_Rita_%2820582918953%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Praia_Rita_%2820582918953%29.jpg" data-t="Praia Rita, Príncipe" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Praia Rita, Príncipe"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Praia_Rita_%2820582918953%29.jpg/960px-Praia_Rita_%2820582918953%29.jpg" alt="Praia Rita on Príncipe" loading="lazy" decoding="async" data-fade><figcaption>Praia Rita, Príncipe</figcaption></figure><figure class="figure  g-w4" data-full="https://upload.wikimedia.org/wikipedia/commons/7/73/Bom_Bom_Beach_%2821226672491%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Bom_Bom_Beach_%2821226672491%29.jpg" data-t="Bom Bom beach, Príncipe" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Bom Bom beach, Príncipe"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Bom_Bom_Beach_%2821226672491%29.jpg/960px-Bom_Bom_Beach_%2821226672491%29.jpg" alt="The beach at Bom Bom, Príncipe" loading="lazy" decoding="async" data-fade><figcaption>Bom Bom beach, Príncipe</figcaption></figure><figure class="figure  g-w4" data-full="https://upload.wikimedia.org/wikipedia/commons/d/d7/Praia_de_Coco_%2821021209420%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Praia_de_Coco_%2821021209420%29.jpg" data-t="Praia de Coco, Príncipe" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Praia de Coco, Príncipe"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Praia_de_Coco_%2821021209420%29.jpg/960px-Praia_de_Coco_%2821021209420%29.jpg" alt="Praia de Coco, Príncipe" loading="lazy" decoding="async" data-fade><figcaption>Praia de Coco, Príncipe</figcaption></figure><figure class="figure  g-w4" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/BAN_-_Black_volcanic_rocks_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg/1920px-BAN_-_Black_volcanic_rocks_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" data-src="https://commons.wikimedia.org/wiki/File:BAN_-_Black_volcanic_rocks_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" data-t="Volcanic rock, Praia Banana" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Volcanic rock, Praia Banana"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/BAN_-_Black_volcanic_rocks_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg/960px-BAN_-_Black_volcanic_rocks_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" alt="Black volcanic rocks on the shore at Praia Banana" loading="lazy" decoding="async" data-fade><figcaption>Volcanic rock, Praia Banana</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="sec" id="stay">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Accommodation</span>
+      <h2 class="big">Where to stay</h2>
+      <p class="note">These are examples to help you plan, not endorsements. Availability and prices change, so book directly and ask how each place employs local staff and buys local produce.</p>
+    </div>
+    <div class="grid3">
+      <article class="stay rv"><figure class="figure"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Largo_da_Juventude_%2820890338460%29.jpg" alt="A square in central São Tomé city" loading="lazy" decoding="async" data-fade></figure><div class="body"><h3>Capital stays</h3><span class="where">São Tomé city · Água Grande</span><p>Hotels on the bay, from large international properties such as the Pestana São Tomé to small family guesthouses. The city is a short drive from the airport and the natural base for your first and last nights.</p><div class="tags"><span>City</span><span>Mid-range to luxury</span><span>Near airport</span></div></div></article><article class="stay rv"><figure class="figure"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%283%29.jpg/1280px-Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%283%29.jpg" alt="The plantation house at Roça Bombaim" loading="lazy" decoding="async" data-fade></figure><div class="body"><h3>Plantation roças</h3><span class="where">Highlands &amp; south · both islands</span><p>Sleep in a restored colonial estate. Roça Bombaim is deep in the forest, Roça São João dos Angolares is known for its cooking, and Roça Belo Monte is on Príncipe. Each keeps a heritage building in use and employs local staff.</p><div class="tags"><span>Heritage</span><span>Mid-range</span><span>Local jobs</span></div></div></article><article class="stay rv"><figure class="figure"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Vestiges_de_l%27ancienne_ro%C3%A7a_de_Porto_Alegre_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg/1280px-Vestiges_de_l%27ancienne_ro%C3%A7a_de_Porto_Alegre_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg" alt="Ruins of the old Porto Alegre plantation in the south" loading="lazy" decoding="async" data-fade></figure><div class="body"><h3>Eco-lodges</h3><span class="where">Northwest &amp; southern coast</span><p>Small lodges built with local materials. Mucumbli sits on the northwest coast, and Jalé Ecolodge is on a southern turtle-nesting beach, where your stay helps pay for conservation work.</p><div class="tags"><span>Eco</span><span>Budget to mid-range</span><span>Conservation</span></div></div></article><article class="stay rv"><figure class="figure"><img src="https://upload.wikimedia.org/wikipedia/commons/8/80/Praia_de_Coco_on_Bom_Bom_Island_-_Sao_Tome_and_Principe.jpg" alt="Praia de Coco on Bom Bom islet, Príncipe" loading="lazy" decoding="async" data-fade></figure><div class="body"><h3>Príncipe island</h3><span class="where">Inside the Biosphere Reserve</span><p>Beach and forest lodges, including Bom Bom Island, Sundy Praia and the restored Roça Sundy, which run sustainability, community and conservation programmes. Book well ahead, because rooms are few.</p><div class="tags"><span>Biosphere</span><span>Upper-range</span><span>Fly-in</span></div></div></article><article class="stay rv"><figure class="figure"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/S%C3%A3o_Tom%C3%A9_-_Ilh%C3%A9u_das_Rolas_-_Praia_de_Santo_Ant%C3%B3nio_%283%29.jpg" alt="The beach on Ilhéu das Rolas" loading="lazy" decoding="async" data-fade></figure><div class="body"><h3>The equator island</h3><span class="where">Ilhéu das Rolas · Caué</span><p>A resort on the islet the equator crosses (Pestana Equador). It is reached by a short boat transfer from the south of São Tomé, and it makes a good base for the southern beaches.</p><div class="tags"><span>Resort</span><span>Luxury</span><span>Boat transfer</span></div></div></article><article class="stay rv"><figure class="figure"><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Angolares_%2820998698446%29.jpg" alt="The town of São João dos Angolares" loading="lazy" decoding="async" data-fade></figure><div class="body"><h3>Guesthouses &amp; homestays</h3><span class="where">Villages across São Tomé</span><p>Simple rooms kept by families and small associations in towns such as São João dos Angolares or Neves. This is the most direct way for your money to reach local households. Ask local guides for recommendations.</p><div class="tags"><span>Community</span><span>Budget</span><span>Most local</span></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="practical">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">Before you go</span>
+        <h2 class="big">Practical essentials</h2>
+      </div>
+      <dl class="dl rv">
+        <div><dt>Currency</dt><dd><b>Dobra (STN).</b> This is a largely cash economy. Carry euros, which are easy to exchange, because card acceptance outside large hotels is limited.</dd></div>
+        <div><dt>Language</dt><dd><b>Portuguese</b> is spoken almost everywhere, alongside Forro, Angolar and Principense creoles. French and English are taught in schools. A few Portuguese phrases go a long way.</dd></div>
+        <div><dt>Entry</dt><dd>Many nationalities can visit visa-free for short stays, and others apply for an e-visa. Rules change, so check the official requirements for your passport before you travel.</dd></div>
+        <div><dt>Health</dt><dd>A <b>yellow fever vaccination certificate</b> is normally required, and malaria is present. Speak to a travel clinic about prevention and travel insurance before you leave.</dd></div>
+        <div><dt>Time &amp; dialling</dt><dd>UTC+0 (GMT) all year · country code <b>+239</b> · internet domain <b>.st</b></dd></div>
+        <div><dt>Safety</dt><dd>One of Africa's most stable and peaceful countries. Take normal care with valuables in the city.</dd></div>
+        <div><dt>Etiquette</dt><dd>Greet people, take your time, and <b>always ask before photographing someone</b>. Dress modestly away from the beach. Leve-leve applies to service too.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="planner">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">Smart itinerary</span>
+        <h2 class="big">Build your trip</h2>
+        <p class="note">Choose your trip length, month and interests. The planner builds a day-by-day route that spreads your spending across community-run stays, guides and restaurants, which links directly to SDG 8.</p>
+      </div>
+      <form class="planner rv" id="plan" onsubmit="return false">
+        <div class="controls">
+          <fieldset><legend>Trip length</legend><div class="chips">
+            <label class="chip"><input type="radio" name="days" value="3"><span>3 days</span></label>
+            <label class="chip"><input type="radio" name="days" value="5"><span>5 days</span></label>
+            <label class="chip"><input type="radio" name="days" value="7" checked><span>7 days</span></label>
+            <label class="chip"><input type="radio" name="days" value="10"><span>10 days</span></label>
+          </div></fieldset>
+          <fieldset><legend>Interests</legend><div class="chips">
+            <label class="chip"><input type="checkbox" name="int" value="nature" checked><span>Rainforest &amp; hiking</span></label>
+            <label class="chip"><input type="checkbox" name="int" value="beach" checked><span>Beaches</span></label>
+            <label class="chip"><input type="checkbox" name="int" value="culture" checked><span>Culture &amp; roças</span></label>
+            <label class="chip"><input type="checkbox" name="int" value="wildlife"><span>Wildlife</span></label>
+          </div></fieldset>
+          <fieldset><legend>Travel month &amp; islands</legend><div class="chips">
+            <label class="chip"><span style="padding:0 6px 0 16px">Month
+              <select name="month" aria-label="Travel month" style="background:transparent;color:inherit;border:0;font:inherit;padding:10px 8px;min-height:40px;cursor:pointer">
+                <option value="0">January</option><option value="1">February</option><option value="2">March</option><option value="3">April</option><option value="4">May</option><option value="5">June</option><option value="6">July</option><option value="7">August</option><option value="8">September</option><option value="9">October</option><option value="10">November</option><option value="11">December</option>
+              </select></span></label>
+            <label class="chip pnote"><input type="checkbox" name="principe" checked><span>Include Príncipe (5+ days)</span></label>
+          </div></fieldset>
+        </div>
+        <div class="out" id="planOut" aria-live="polite">
+          <h3></h3>
+          <p class="sum"></p>
+          <ol class="days"></ol>
+          <p class="tipline">Tip: book guides through park offices and community associations, eat where locals eat, and bring a refillable bottle. Small choices keep more of your money on the islands.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <a class="next" href="#impact">
+    <span class="eyebrow">Next</span>
+    <b>Tourism &amp; the SDGs <i>→</i></b>
+  </a>
+</div>
+<footer class="foot">
+  <div class="wrap">
+    <span>São Tomé &amp; Príncipe · Visitor Guide 2026 · ITM01B1 Tech Tourism Fair</span>
+    <nav aria-label="Footer"><a href="#">Home</a> <a href="#islands">The Islands</a> <a href="#travel">Plan Your Trip</a> <a href="#impact">Tourism &amp; the SDGs</a></nav>
+  </div>
+</footer>
+</article>
+<article class="page" id="page-impact" data-title="Tourism &amp; the SDGs — São Tomé &amp; Príncipe" hidden>
+<section class="hero">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Sao_Tome_%26_Principe%2C_fishermen%27s_beach_launch_area.jpg/1920px-Sao_Tome_%26_Principe%2C_fishermen%27s_beach_launch_area.jpg" alt="Fishing canoes on a beach in São Tomé" loading="lazy" decoding="async" data-fade>
+  <div class="wrap">
+    <span class="eyebrow">Sustainability · Chapter 03</span>
+    <h1><span style="--i:0">Tourism</span> <span style="--i:1">&amp;</span> <span style="--i:2">the</span> <span style="--i:3">SDGs</span></h1>
+    <p class="lead">How visitors can create decent local jobs, protect turtles and rainforest, and how technology, used carefully, can help.</p>
+  </div>
+  <a class="credit" href="https://commons.wikimedia.org/wiki/File:Sao_Tome_%26_Principe%2C_fishermen%27s_beach_launch_area.jpg" target="_blank" rel="noopener">Fishing beach, São Tomé · Wikimedia Commons ↗</a>
+</section>
+
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">The challenge</span>
+        <h2 class="big">Why tourism matters here</h2>
+      </div>
+      <div class="prose rv">
+        <p>Since the 19th century the islands' economy has depended on plantation agriculture, especially cocoa. The country imports most of its food; in 1997 about 90% of its food needs were met by imports. The biggest economic challenges it faces are a small workforce, a tiny domestic market, the cost of being an archipelago, climatic fluctuations, global warming and poverty.</p>
+        <p>Tourism is widely seen as <strong>the sector with the greatest potential to diversify the economy</strong>. Foreign investment is growing and new lodges are opening. The question this project asks is how that growth can reach families in Neves, Angolares and Santo António, and protect the forests and beaches that visitors come for.</p>
+      </div>
+    </div>
+    <div class="facts rv">
+      <div class="fact"><b>~90%</b><span>Share of food needs met by imports (1997)</span></div>
+      <div class="fact"><b>54%</b><span>Cocoa's share of agricultural exports</span></div>
+      <div class="fact"><b>92.8%</b><span>Adult literacy, one of the highest in sub-Saharan Africa</span></div>
+      <div class="fact"><b>100%</b><span>Land area in the UNESCO Biosphere Reserve (2025)</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="sdgs">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">UN Sustainable Development Goals</span>
+      <h2 class="big">The goals this project supports</h2>
+    </div>
+    <div class="grid2">
+      <article class="tile sdg rv" style="--c:#A21942"><figure class="figure  sdg-photo" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Anciens_logements_ouvriers_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg/1920px-Anciens_logements_ouvriers_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Anciens_logements_ouvriers_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg" data-t="Former workers&#x27; housing, Roça São João dos Angolares" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Former workers&#x27; housing, Roça São João dos Angolares"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Anciens_logements_ouvriers_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg/960px-Anciens_logements_ouvriers_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg" alt="Former workers' housing, Roça São João dos Angolares" loading="lazy" decoding="async" data-fade><figcaption>Former workers' housing, Roça São João dos Angolares</figcaption></figure><div class="num">8<small>SDG</small></div><div>
+        <span class="primary">Primary goal</span>
+        <h3>Decent Work &amp; Economic Growth</h3>
+        <p><b>Target 8.9</b> calls for policies that promote sustainable tourism which creates jobs and promotes local culture and products. In São Tomé that means guides, drivers, cooks, craftspeople and roça staff earning directly from visitors, instead of the money leaving the islands through imports and foreign-owned packages.</p>
+        <ul><li><b>Visitors:</b> hire certified local guides, and buy island chocolate, coffee and crafts.</li><li><b>Businesses:</b> train and promote local staff, and buy from local farmers and fishers.</li></ul>
+      </div></article>
+      <article class="tile sdg rv" style="--c:#0A97D9"><figure class="figure  sdg-photo" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sao_Tome_Boat_4_%2816061428938%29.jpg/1920px-Sao_Tome_Boat_4_%2816061428938%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Sao_Tome_Boat_4_%2816061428938%29.jpg" data-t="A fishing boat on the São Tomé coast" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: A fishing boat on the São Tomé coast"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sao_Tome_Boat_4_%2816061428938%29.jpg/960px-Sao_Tome_Boat_4_%2816061428938%29.jpg" alt="A fishing boat on the São Tomé coast" loading="lazy" decoding="async" data-fade><figcaption>A fishing boat on the São Tomé coast</figcaption></figure><div class="num">14<small>SDG</small></div><div>
+        <h3>Life Below Water</h3>
+        <p>The islands' beaches are nesting grounds for marine turtles, including the critically endangered hawksbill, and the surrounding sea supports the fishing communities. Paid turtle-watching gives a nesting female more value alive than the income she once brought to a hunter.</p>
+        <ul><li><b>Visitors:</b> join guided night walks only, use red light, and never buy turtle-shell products.</li><li><b>Operators:</b> fund beach patrols and hire former hunters as guardians.</li></ul>
+      </div></article>
+      <article class="tile sdg rv" style="--c:#56C02B"><figure class="figure  sdg-photo" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Vestiges_de_l%27ancienne_ro%C3%A7a_%C3%A0_Ribeira_Peixe_%28S%C3%A3o_Tom%C3%A9%29_%285%29.jpg/1920px-Vestiges_de_l%27ancienne_ro%C3%A7a_%C3%A0_Ribeira_Peixe_%28S%C3%A3o_Tom%C3%A9%29_%285%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Vestiges_de_l%27ancienne_ro%C3%A7a_%C3%A0_Ribeira_Peixe_%28S%C3%A3o_Tom%C3%A9%29_%285%29.jpg" data-t="Forest reclaiming the old estate at Ribeira Peixe" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Forest reclaiming the old estate at Ribeira Peixe"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Vestiges_de_l%27ancienne_ro%C3%A7a_%C3%A0_Ribeira_Peixe_%28S%C3%A3o_Tom%C3%A9%29_%285%29.jpg/960px-Vestiges_de_l%27ancienne_ro%C3%A7a_%C3%A0_Ribeira_Peixe_%28S%C3%A3o_Tom%C3%A9%29_%285%29.jpg" alt="Forest reclaiming the old estate at Ribeira Peixe" loading="lazy" decoding="async" data-fade><figcaption>Forest reclaiming the old estate at Ribeira Peixe</figcaption></figure><div class="num">15<small>SDG</small></div><div>
+        <h3>Life on Land</h3>
+        <p>Obô Natural Park protects endemic species such as the giant sunbird and the São Tomé ibis. Park fees and guided hikes give local people a steady income from keeping the forest standing.</p>
+        <ul><li><b>Visitors:</b> stay on the trails, pay park fees and carry your rubbish out.</li><li><b>Planners:</b> set visitor limits for fragile sites such as Lagoa Amélia.</li></ul>
+      </div></article>
+      <article class="tile sdg rv" style="--c:#BF8B2E"><figure class="figure  sdg-photo" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Restauration_des_vestiges_de_l%27ancienne_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg/1920px-Restauration_des_vestiges_de_l%27ancienne_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Restauration_des_vestiges_de_l%27ancienne_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg" data-t="Restoration work at Roça São João dos Angolares" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Restoration work at Roça São João dos Angolares"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Restauration_des_vestiges_de_l%27ancienne_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg/960px-Restauration_des_vestiges_de_l%27ancienne_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg" alt="Restoration work at Roça São João dos Angolares" loading="lazy" decoding="async" data-fade><figcaption>Restoration work at Roça São João dos Angolares</figcaption></figure><div class="num">12<small>SDG</small></div><div>
+        <h3>Responsible Consumption &amp; Production</h3>
+        <p><b>Target 12.b</b> is about developing tools to monitor the effects of sustainable tourism. For a small island state, simple digital monitoring of visitor numbers, spending and waste turns good intentions into evidence.</p>
+        <ul><li><b>Visitors:</b> bring a refillable bottle and avoid single-use plastic.</li><li><b>Government:</b> publish open data on visitor numbers and where their money goes.</li></ul>
+      </div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="community">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">Community &amp; environment</span>
+        <h2 class="big">How tourism can help</h2>
+      </div>
+      <div class="prose rv">
+        <p><strong>Bringing the roças back to life.</strong> Restoring plantation buildings as guesthouses, museums and restaurants keeps heritage alive and creates year-round jobs in villages that grew up around the estates.</p>
+        <p><strong>Adding value to cocoa.</strong> A bag of beans exported in bulk earns little. A tasting, a chocolate workshop or a bar made on the island earns many times more, and it tells visitors the story of the Chocolate Islands.</p>
+        <p><strong>Buying local food.</strong> When hotels buy from local farmers and fishers, the country imports less, farm incomes rise and guests eat better.</p>
+        <p><strong>Paying for conservation.</strong> Park fees, guide wages and turtle-watching income make conservation pay. Forest and beaches then earn more protected than cleared.</p>
+        <p><strong>Cultural pride.</strong> Audiences for Tchiloli, socopé and creole literature give young São Toméans a reason to learn these traditions and a way to earn from them.</p>
+      </div>
+    </div>
+    <div class="duo">
+      <figure class="figure ratio-32 " data-full="https://upload.wikimedia.org/wikipedia/commons/a/a1/Fresh_Cacao_from_S%C3%A3o_Tom%C3%A9_%26_Pr%C3%ADncipe_%284859216391%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Fresh_Cacao_from_S%C3%A3o_Tom%C3%A9_%26_Pr%C3%ADncipe_%284859216391%29.jpg" data-t="Fresh cocoa, the islands&#x27; most important crop" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Fresh cocoa, the islands&#x27; most important crop"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Fresh_Cacao_from_S%C3%A3o_Tom%C3%A9_%26_Pr%C3%ADncipe_%284859216391%29.jpg" alt="Fresh cocoa pods from São Tomé" loading="lazy" decoding="async" data-fade><figcaption>Fresh cocoa, the islands' most important crop · <a href="https://commons.wikimedia.org/wiki/File:Fresh_Cacao_from_S%C3%A3o_Tom%C3%A9_%26_Pr%C3%ADncipe_%284859216391%29.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+      <figure class="figure ratio-32 " data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Sao_Tome_Pier_Jumping_2_%2816248251742%29.jpg/1920px-Sao_Tome_Pier_Jumping_2_%2816248251742%29.jpg" data-src="https://commons.wikimedia.org/wiki/File:Sao_Tome_Pier_Jumping_2_%2816248251742%29.jpg" data-t="Afternoon on the waterfront, São Tomé city" data-p="São Tomé &amp; Príncipe" tabindex="0" role="button" aria-label="Enlarge photo: Afternoon on the waterfront, São Tomé city"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Sao_Tome_Pier_Jumping_2_%2816248251742%29.jpg/1280px-Sao_Tome_Pier_Jumping_2_%2816248251742%29.jpg" alt="Children jumping from a pier into the sea in São Tomé" loading="lazy" decoding="async" data-fade><figcaption>Afternoon on the waterfront, São Tomé city · <a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Pier_Jumping_2_%2816248251742%29.jpg" target="_blank" rel="noopener">Wikimedia Commons ↗</a></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="tech">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Tech-enabled solutions</span>
+      <h2 class="big">Practical ideas for sustainable growth</h2>
+    </div>
+    <ol class="list">
+      <li class="rv"><h3>AI trip personalisation<span class="where">SDG 8 · visibility</span></h3><p>Itinerary tools, like the planner on this site, that deliberately route visitors to community stays, guides and restaurants and spread them across districts and seasons, not just the few best-known beaches.</p></li>
+      <li class="rv"><h3>Multilingual AI concierge<span class="where">Inclusivity</span></h3><p>A chatbot on WhatsApp that answers in Portuguese, English and French, runs on low bandwidth, and hands bookings to local operators who have no website of their own.</p></li>
+      <li class="rv"><h3>Community booking &amp; mobile payments<span class="where">SDG 8 · fair income</span></h3><p>One shared, low-fee listing for guides, homestays and drivers, paid by mobile money, so payments reach families and are not taken by foreign platforms.</p></li>
+      <li class="rv"><h3>AI-assisted wildlife monitoring<span class="where">SDG 14 &amp; 15</span></h3><p>Camera traps and drone surveys analysed by AI to count turtle nests and detect forest loss, giving rangers data they can act on and giving visitors evidence of the impact of their fees.</p></li>
+      <li class="rv"><h3>QR heritage trails<span class="where">Culture</span></h3><p>QR codes at roças, forts and churches linking to short audio stories told by local voices, in Forro as well as Portuguese and English, so heritage can earn income without adding new buildings.</p></li>
+      <li class="rv"><h3>Visitor-impact dashboard<span class="where">SDG 12.b</span></h3><p>Open data on arrivals, local spending, waste and pressure on each site, used to set limits for fragile places such as Lagoa Amélia before damage is done.</p></li>
+    </ol>
+    <div class="grid2">
+      <article class="tile rv"><span class="k">Critical assessment</span><h3>What could go wrong</h3><p>Internet is good in towns but patchy in the interior, and many small operators have limited digital skills. Global booking platforms can take a large share of the money, and data about communities can be collected without consent.</p></article>
+      <article class="tile rv"><span class="k">How to get it right</span><h3>Design principles</h3><p>Build offline-first, low-bandwidth tools. Train local operators and give them ownership of their listings and data. Keep fees low, and measure success by the income that stays on the islands, not by clicks.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ai">
+  <div class="wrap">
+    <div class="split">
+      <div class="side rv">
+        <span class="eyebrow">Use of AI tools</span>
+        <h2 class="big">How this site was made</h2>
+      </div>
+      <div class="rv">
+        <dl class="dl" style="margin-top:0">
+          <div><dt>Research</dt><dd><b>Claude (Anthropic)</b> read the ITM01B1 brief and the Wikipedia article on São Tomé and Príncipe, pulled out the key facts on history, geography, culture and the economy, and matched them to the rubric and SDG targets.</dd></div>
+          <div><dt>Writing</dt><dd>Claude drafted all page copy, captions and itinerary text. The group then checked the facts against the sources below.</dd></div>
+          <div><dt>Design &amp; code</dt><dd>Claude wrote the website in plain HTML, CSS and JavaScript: the 3D photo sphere, flat grid, lightbox, responsive layouts and this page.</dd></div>
+          <div><dt>Intro film</dt><dd>The opening film on the home page was <b>generated with an AI video tool</b>.</dd></div>
+          <div><dt>Smart features</dt><dd>The trip planner's logic was designed with AI. It favours community-run options and adapts to the season. Each browser also resizes the photos to fit the screen, which saves data on slow mobile connections.</dd></div>
+          <div><dt>Human role</dt><dd>Choosing the destination and SDGs, selecting real photographs of the islands, fact-checking, and deciding what the site should say.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="credits">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Sources &amp; credits</span>
+      <h2 class="big">References</h2>
+    </div>
+    <div class="members rv">
+      <b>Group members</b> · <!-- EDIT: replace with each member's name, surname and student number -->Name Surname (student no.) · Name Surname (student no.) · Name Surname (student no.)<br>
+      <span class="muted">ITM01B1 Introduction to Tourism Marketing 1B · Group Assignment · Tech Tourism Fair · October 2026</span>
+    </div>
+    <ul class="credits rv">
+      <li><a href="https://en.wikipedia.org/wiki/S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe" target="_blank" rel="noopener">Wikipedia: São Tomé and Príncipe</a> (accessed 25 September 2026). Main source for history, geography, demographics, culture and the economy.</li>
+      <li><a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">United Nations: the 17 Sustainable Development Goals</a>, including Targets 8.9 and 12.b.</li>
+      <li><a href="https://en.unesco.org/biosphere" target="_blank" rel="noopener">UNESCO Man and the Biosphere Programme</a>: the Island of Príncipe Biosphere Reserve.</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Pico_C%C3%A3o_Grande.jpg" target="_blank" rel="noopener">Pico Cão Grande</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:BAN_-_Panoramic_view_of_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" target="_blank" rel="noopener">BAN - Panoramic view of Praia Banana, Principe, Sao Tome and Principe, 2021</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:S%C3%A3o_Tom%C3%A9_-_Ilh%C3%A9u_das_Rolas_-_Praia_de_Santo_Ant%C3%B3nio_%283%29.jpg" target="_blank" rel="noopener">São Tomé - Ilhéu das Rolas - Praia de Santo António (3)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Forte_de_S%C3%A3o_Sebasti%C3%A3o_%28S%C3%A3o_Tom%C3%A9%29_%288084248638%29.jpg" target="_blank" rel="noopener">Forte de São Sebastião (São Tomé) (8084248638)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%288%29.jpg" target="_blank" rel="noopener">Roça Agostinho Neto (São Tomé) (8)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Dreptes_thomensis_12933301_%28cropped%29.jpg" target="_blank" rel="noopener">Dreptes thomensis 12933301 (cropped)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2856%29.jpg" target="_blank" rel="noopener">Tchiloli à São Tomé (56)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Pr%C3%ADncipe_Island_Biosphere_Reserve_-_Praia_Salgada.jpg" target="_blank" rel="noopener">Príncipe Island Biosphere Reserve - Praia Salgada</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Cathedral_7_%2816223085806%29.jpg" target="_blank" rel="noopener">Sao Tome Cathedral 7 (16223085806)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Bostrychia_bocagei.jpg" target="_blank" rel="noopener">Bostrychia bocagei</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Neves_2_%2816061715170%29.jpg" target="_blank" rel="noopener">Sao Tome Neves 2 (16061715170)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_%26_Principe%2C_fishermen%27s_beach_launch_area.jpg" target="_blank" rel="noopener">Sao Tome & Principe, fishermen's beach launch area</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Casa_da_Cultura_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" target="_blank" rel="noopener">Casa da Cultura à São Tomé (1)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Pier_Jumping_2_%2816248251742%29.jpg" target="_blank" rel="noopener">Sao Tome Pier Jumping 2 (16248251742)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Baia_de_Santo_Antonio_%2820886214659%29.jpg" target="_blank" rel="noopener">Baia de Santo Antonio (20886214659)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Praia_de_Coco_on_Bom_Bom_Island_-_Sao_Tome_and_Principe.jpg" target="_blank" rel="noopener">Praia de Coco on Bom Bom Island - Sao Tome and Principe</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%283%29.jpg" target="_blank" rel="noopener">Roça Bombaim (São Tomé) (3)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Pico_Papagaio_%2820504263334%29.jpg" target="_blank" rel="noopener">Pico Papagaio (20504263334)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Vestiges_de_l%27ancienne_ro%C3%A7a_de_Porto_Alegre_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg" target="_blank" rel="noopener">Vestiges de l'ancienne roça de Porto Alegre (São Tomé) (2)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Waterfall_S%C3%A3o_Tom%C3%A9_Island_I.jpg" target="_blank" rel="noopener">Waterfall São Tomé Island I</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Fresh_Cacao_from_S%C3%A3o_Tom%C3%A9_%26_Pr%C3%ADncipe_%284859216391%29.jpg" target="_blank" rel="noopener">Fresh Cacao from São Tomé & Príncipe (4859216391)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_%C3%A0_S%C3%A3o_Tom%C3%A9.jpg" target="_blank" rel="noopener">Cão Grande à São Tomé</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Vue_depuis_la_Pousada_Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg" target="_blank" rel="noopener">Vue depuis la Pousada Roça Bombaim (São Tomé) (2)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Statues_d%27explorateurs_au_fort_de_S%C3%A3o_Sebasti%C3%A3o_de_S%C3%A3o_Tom%C3%A9.jpg" target="_blank" rel="noopener">Statues d'explorateurs au fort de São Sebastião de São Tomé</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg" target="_blank" rel="noopener">Roça Agostinho Neto (São Tomé) (1)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Pigeonnier_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg" target="_blank" rel="noopener">Pigeonnier de la roça São João dos Angolares (São Tomé) (1)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:BAN_-_Sandy_shoreline_of_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" target="_blank" rel="noopener">BAN - Sandy shoreline of Praia Banana, Principe, Sao Tome and Principe, 2021</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Palacio_do_Governo_Regional_%2820911940070%29.jpg" target="_blank" rel="noopener">Palacio do Governo Regional (20911940070)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Pr%C3%ADncipe_Island_Biosphere_Reserve_-_Prai_Caix%C3%A3o.jpg" target="_blank" rel="noopener">Príncipe Island Biosphere Reserve - Prai Caixão</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" target="_blank" rel="noopener">Cão Grande et Cão Pequeno à São Tomé (1)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%282%29.jpg" target="_blank" rel="noopener">Cão Grande et Cão Pequeno à São Tomé (2)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2810%29.jpg" target="_blank" rel="noopener">Tchiloli à São Tomé (10)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:2017_Guadalupe_STP_DSC_8344_%2832064969063%29.jpg" target="_blank" rel="noopener">2017 Guadalupe STP DSC 8344 (32064969063)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Toitures_%C3%A0_la_ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29.jpg" target="_blank" rel="noopener">Toitures à la roça Agostinho Neto (São Tomé)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" target="_blank" rel="noopener">Tchiloli à São Tomé (1)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:BAN_-_Rocky_cove_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" target="_blank" rel="noopener">BAN - Rocky cove at Praia Banana, Principe, Sao Tome and Principe, 2021</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:V%C3%A9g%C3%A9tation_%C3%A0_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%286%29.jpg" target="_blank" rel="noopener">Végétation à la roça São João dos Angolares (São Tomé) (6)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Airport_1_%2815627228594%29.jpg" target="_blank" rel="noopener">Sao Tome Airport 1 (15627228594)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Boat_4_%2816061428938%29.jpg" target="_blank" rel="noopener">Sao Tome Boat 4 (16061428938)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:BAN_-_Palm_trees_and_shelter_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" target="_blank" rel="noopener">BAN - Palm trees and shelter at Praia Banana, Principe, Sao Tome and Principe, 2021</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Praia_Rita_%2820582918953%29.jpg" target="_blank" rel="noopener">Praia Rita (20582918953)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Bom_Bom_Beach_%2821226672491%29.jpg" target="_blank" rel="noopener">Bom Bom Beach (21226672491)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Praia_de_Coco_%2821021209420%29.jpg" target="_blank" rel="noopener">Praia de Coco (21021209420)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:BAN_-_Black_volcanic_rocks_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" target="_blank" rel="noopener">BAN - Black volcanic rocks at Praia Banana, Principe, Sao Tome and Principe, 2021</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Largo_da_Juventude_%2820890338460%29.jpg" target="_blank" rel="noopener">Largo da Juventude (20890338460)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Angolares_%2820998698446%29.jpg" target="_blank" rel="noopener">Angolares (20998698446)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Praia_Ize%2C_Sao_Tome_and_Principe_-_September_2022.jpg" target="_blank" rel="noopener">Praia Ize, Sao Tome and Principe - September 2022</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Anciens_logements_ouvriers_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg" target="_blank" rel="noopener">Anciens logements ouvriers de la roça São João dos Angolares (São Tomé)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Vestiges_de_l%27ancienne_ro%C3%A7a_%C3%A0_Ribeira_Peixe_%28S%C3%A3o_Tom%C3%A9%29_%285%29.jpg" target="_blank" rel="noopener">Vestiges de l'ancienne roça à Ribeira Peixe (São Tomé) (5)</a> · Wikimedia Commons</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Restauration_des_vestiges_de_l%27ancienne_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg" target="_blank" rel="noopener">Restauration des vestiges de l'ancienne roça São João dos Angolares (São Tomé)</a> · Wikimedia Commons</li>
+    </ul>
+    <p class="note">All photographs are real images of São Tomé and Príncipe from Wikimedia Commons, used under their Creative Commons or public-domain licences. Follow each link for the author and licence. Travel details such as flights, visas and hotels change, so confirm them with official sources before you travel.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <a class="next" href="#">
+    <span class="eyebrow">Next</span>
+    <b>Back to the Archive <i>→</i></b>
+  </a>
+</div>
+<footer class="foot">
+  <div class="wrap">
+    <span>São Tomé &amp; Príncipe · Visitor Guide 2026 · ITM01B1 Tech Tourism Fair</span>
+    <nav aria-label="Footer"><a href="#">Home</a> <a href="#islands">The Islands</a> <a href="#travel">Plan Your Trip</a> <a href="#impact">Tourism &amp; the SDGs</a></nav>
+  </div>
+</footer>
+</article>
+</div>
+
 <header class="chrome">
-  <a class="wordmark" href="index.html" aria-label="São Tomé and Príncipe — home">São Tomé&nbsp;<em>&amp; Príncipe</em></a>
+  <a class="wordmark" href="#" aria-label="São Tomé and Príncipe — home">São Tomé&nbsp;<em>&amp; Príncipe</em></a>
   <button id="menuBtn" class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
     <span class="menu-label">Menu</span>
     <span class="bars" aria-hidden="true"><i></i><i></i></span>
@@ -454,11 +1180,12 @@ body.menu-open #menu{clip-path:inset(0);pointer-events:auto}
 
 <div id="menu" aria-hidden="true">
   <nav aria-label="Main">
-    <a href="#" data-grid>The Archive</a>
-    <a href="islands.html">The Islands</a>
-    <a href="travel.html">Plan Your Trip</a>
-    <a href="impact.html">Tourism &amp; the SDGs</a>
-    <a href="impact.html#credits">Sources</a>
+    <a href="#" data-home>Home</a>
+    <a href="#archive" data-grid>The Archive</a>
+    <a href="#islands">The Islands</a>
+    <a href="#travel">Plan Your Trip</a>
+    <a href="#impact">Tourism &amp; the SDGs</a>
+    <a href="#credits">Sources</a>
   </nav>
   <div class="addr">São Tomé · Santo António · Ilhéu das Rolas<br>Tech Tourism Fair · ITM01B1 · 2026</div>
 </div>
@@ -516,6 +1243,11 @@ var lit = $('#lit'), plate = $('#lit .plate'), litImg = $('#litImg');
 var splash = $('#splash'), bar = $('#bar'), intro = $('#intro'), film = $('#film');
 var menu = $('#menu'), menuBtn = $('#menuBtn'), gridBtn = $('#gridBtn');
 
+var revealed = false;
+function syncOverflow(){
+  var lock = !revealed || body.classList.contains('lit') || body.classList.contains('menu-open') || body.classList.contains('paged');
+  doc.style.overflow = lock ? 'hidden' : '';
+}
 doc.style.overflow = 'hidden';
 
 /* ---------------- breakpoints ---------------- */
@@ -723,7 +1455,7 @@ function maybeEndSplash(force){
 setTimeout(function(){ maybeEndSplash(true); }, 9000);
 
 /* ---------------- intro film ---------------- */
-var revealed = false, filmStarted = false, filmFailed = false, revealTimer = null;
+var filmStarted = false, filmFailed = false, revealTimer = null;
 film.muted = true; film.defaultMuted = true; film.playsInline = true;
 film.setAttribute('muted', ''); film.setAttribute('playsinline', ''); film.setAttribute('webkit-playsinline', '');
 film.playbackRate = 2;
@@ -785,7 +1517,7 @@ function reveal(){
   clearTimeout(revealTimer);
   intro.classList.add('closing');
   body.classList.remove('locked');
-  doc.style.overflow = '';
+  syncOverflow();
   layout(true);
   requestAnimationFrame(function(){ layout(true); });
   setTimeout(function(){
@@ -865,12 +1597,14 @@ rows.addEventListener('keydown', function(e){
 /* ---------------- lightbox ---------------- */
 var openToken = 0, srcEl = null, closeTimer = null; var openedAt = 0;
 function openShot(i, from){
-  var s = SHOTS[i];
+  openPhoto(SHOTS[i], from, from && from.classList.contains('card') ? i : -1, decoded[i]);
+}
+function openPhoto(s, from, focusIdx, quick){
   clearTimeout(closeTimer);
   srcEl = from;
   var token = ++openToken;
   openedAt = performance.now();
-  litImg.src = decoded[i] || s.th;
+  litImg.src = quick || s.th;
   litImg.alt = s.t + ' — ' + s.p;
   $('#litTitle').textContent = s.t;
   $('#litWhere').textContent = s.p;
@@ -880,10 +1614,10 @@ function openShot(i, from){
   hi.onload = function(){ if (token === openToken) litImg.src = s.full; };
   hi.src = s.full;
 
-  focused = from && from.classList.contains('card') ? i : -1;
+  focused = focusIdx;
   frame.dirty = true;
-  doc.style.overflow = 'hidden';
   body.classList.add('lit');
+  syncOverflow();
   lit.setAttribute('aria-hidden', 'false');
   lit.scrollTop = 0;
 
@@ -911,7 +1645,7 @@ function closeShot(){
   focused = -1; frame.dirty = true;
   body.classList.remove('lit');
   lit.setAttribute('aria-hidden', 'true');
-  if (!body.classList.contains('menu-open')) doc.style.overflow = '';
+  syncOverflow();
   if (from){
     var r0 = from.getBoundingClientRect(), r1 = plate.getBoundingClientRect();
     var dx = (r0.left + r0.width / 2) - (r1.left + r1.width / 2);
@@ -941,25 +1675,198 @@ function setMenu(on){
   menuBtn.setAttribute('aria-expanded', on ? 'true' : 'false');
   menuBtn.setAttribute('aria-label', on ? 'Close menu' : 'Open menu');
   menu.setAttribute('aria-hidden', on ? 'false' : 'true');
-  if (!body.classList.contains('lit')) doc.style.overflow = on ? 'hidden' : (revealed ? '' : 'hidden');
+  syncOverflow();
 }
 menuBtn.addEventListener('click', function(){ setMenu(!body.classList.contains('menu-open')); });
 menu.addEventListener('click', function(e){
   var a = e.target.closest('a'); if (!a) return;
   e.preventDefault();
   setMenu(false);
-  if (a.hasAttribute('data-grid')){ setGrid(true); return; }
-  if (a.hasAttribute('data-close-menu')) return;
   var href = a.getAttribute('href');
-  setTimeout(function(){ location.href = href; }, 420);
+  setTimeout(function(){
+    if (a.hasAttribute('data-home')){ goHome(); return; }
+    if (location.hash === href) route(); else location.hash = href;
+  }, 380);
 });
+function goHome(){
+  if (body.classList.contains('gridview')) setGrid(false);
+  if (location.hash && location.hash !== '#'){
+    history.pushState ? history.pushState('', document.title, location.pathname + location.search) : (location.hash = '');
+  }
+  showPage('');
+}
+$('.wordmark').addEventListener('click', function(e){ e.preventDefault(); if (body.classList.contains('menu-open')) setMenu(false); goHome(); });
 
 addEventListener('keydown', function(e){
   if (e.key !== 'Escape') return;
   if (body.classList.contains('lit')) closeShot();
   else if (body.classList.contains('menu-open')) setMenu(false);
   else if (body.classList.contains('gridview')) setGrid(false);
+  else if (body.classList.contains('paged')) goHome();
 });
+
+
+/* ---------------- in-page chapters ---------------- */
+var pagesEl = $('#pages'), current = '';
+var PAGES = {};
+Array.prototype.forEach.call(document.querySelectorAll('#pages .page'), function(p){
+  var key = p.id.replace('page-', '');
+  PAGES[key] = key;
+  Array.prototype.forEach.call(p.querySelectorAll('[id]'), function(el){ PAGES[el.id] = key; });
+});
+function showPage(key, anchor){
+  var pages = document.querySelectorAll('#pages .page');
+  Array.prototype.forEach.call(pages, function(p){
+    var on = p.id === 'page-' + key;
+    if (on){ p.hidden = false; } else { p.hidden = true; p.classList.remove('ready'); }
+  });
+  var wasPaged = body.classList.contains('paged');
+  current = key;
+  if (key){
+    if (body.classList.contains('gridview')) setGrid(false);
+    body.classList.add('paged');
+    pagesEl.setAttribute('aria-hidden', 'false');
+    var art = $('#page-' + key);
+    var target = anchor && anchor !== key ? document.getElementById(anchor) : null;
+    if (key !== showPage.last || !target) pagesEl.scrollTop = 0;
+    showPage.last = key;
+    requestAnimationFrame(function(){
+      art.classList.add('ready');
+      if (target) setTimeout(function(){ target.scrollIntoView({ behavior: wasPaged ? 'smooth' : 'auto' }); }, 60);
+    });
+    document.title = art.getAttribute('data-title');
+  } else {
+    body.classList.remove('paged');
+    pagesEl.setAttribute('aria-hidden', 'true');
+    document.title = HOME_TITLE;
+    showPage.last = '';
+  }
+  syncOverflow();
+}
+var HOME_TITLE = document.title;
+function route(){
+  var h = decodeURIComponent((location.hash || '').replace(/^#\/?/, ''));
+  if (h === 'archive'){ showPage(''); setGrid(true); return; }
+  if (PAGES[h]) showPage(PAGES[h], h);
+  else showPage('');
+}
+addEventListener('hashchange', route);
+addEventListener('popstate', route);
+route();
+
+/* page photos open in the same lightbox as the archive */
+pagesEl.addEventListener('click', function(e){
+  var f = e.target.closest('.figure[data-full]');
+  if (!f || e.target.closest('a')) return;
+  var im = f.querySelector('img');
+  openPhoto({ t: f.getAttribute('data-t'), p: f.getAttribute('data-p'), n: im ? im.alt + '.' : '', th: im ? im.currentSrc || im.src : '', full: f.getAttribute('data-full'), src: f.getAttribute('data-src') }, f, -1);
+});
+pagesEl.addEventListener('keydown', function(e){
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('.figure[data-full]')){ e.preventDefault(); e.target.click(); }
+});
+
+/* fade-in for page images and scroll reveal */
+Array.prototype.forEach.call(document.querySelectorAll('#pages img[data-fade]'), function(im){
+  function on(){ im.classList.add('in'); }
+  if (im.complete && im.naturalWidth) on(); else { im.addEventListener('load', on); im.addEventListener('error', on); }
+});
+var rvs = document.querySelectorAll('#pages .rv');
+if ('IntersectionObserver' in window){
+  var rio = new IntersectionObserver(function(es){
+    es.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('on'); rio.unobserve(en.target); } });
+  }, { root: pagesEl, rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  Array.prototype.forEach.call(rvs, function(el){ rio.observe(el); });
+} else Array.prototype.forEach.call(rvs, function(el){ el.classList.add('on'); });
+
+
+var form = document.getElementById('plan');
+if (form){
+  var P = {
+    city:   { t:'São Tomé city', d:'Walk the bay, visit Fort São Sebastião and the National Museum, see the cathedral, and taste local chocolate. Eat at a family-run restaurant.' },
+    rolas:  { t:'Ilhéu das Rolas & the equator', d:'Drive the south coast past Pico Cão Grande, then take the short boat from Porto Alegre to stand on the equator marker.' },
+    nature: [
+      { t:'Obô Natural Park · Lagoa Amélia', d:'Hike through cloud forest to the crater lake with a certified local guide. Book the guide through the park or a community association.' },
+      { t:'Cascata São Nicolau & Bom Sucesso', d:'A waterfall hidden in the highland forest, then the botanical garden at Bom Sucesso on the edge of Obô.' },
+      { t:'Pico de São Tomé (overnight)', d:'A two-day climb to 2,024 m through primary forest. Use a local guide and porters, and carry all your waste out.', long:1 }
+    ],
+    beach: [
+      { t:'North coast · Lagoa Azul', d:'Snorkel the clear bay at Lagoa Azul, then have a slow lunch of grilled fish in a fishing village.' },
+      { t:'East coast · Boca do Inferno', d:'Watch the blowhole, then swim at the quieter beaches along the road south.' },
+      { t:'Praia Jalé & Praia Piscina', d:'Remote southern beaches. Stay at a community eco-lodge and let the tide set your schedule.' }
+    ],
+    culture: [
+      { t:'Roça Agostinho Neto & Monte Café', d:'Two plantations, two crops: cocoa and coffee. Pay for a local guide to tell the story of the people who worked there.' },
+      { t:'Roça São João dos Angolares', d:'Lunch in a restored plantation house known for its island cooking, then visit the Angolares fishing town below.' },
+      { t:'Tchiloli & live music', d:'Ask locally for a Tchiloli or Danço-Congo performance, or a night of socopé music. Always ask before you film.' }
+    ],
+    wildlife: [
+      { t:'Endemic birding at dawn', d:'Go out early with a bird guide to look for the giant sunbird, the São Tomé oriole and, if you are lucky, the São Tomé ibis.' },
+      { t:'Turtle night walk', d:'In nesting season, join a guided night patrol on a southern beach. Use red light only and keep your distance.' },
+      { t:'Whale & dolphin watching', d:'From July to October humpback whales pass the islands. Choose an operator who keeps to responsible distances.' }
+    ],
+    principe: [
+      { t:'Fly to Príncipe · Santo António', d:'A short domestic flight. Walk the tiny capital and the river mouth, and spend your money in local cafés.' },
+      { t:'Praia Banana & Bom Bom', d:'Beach day on the north coast inside the Biosphere Reserve. Take your plastic back with you.' },
+      { t:'Roça Sundy & the 1919 eclipse', d:'Stand where Eddington tested general relativity, then take a forest walk toward Pico Papagaio.' },
+      { t:'Príncipe by boat', d:'Take a boat along the south coast, past volcanic spires and empty coves, with a local skipper.' }
+    ]
+  };
+  var MONTH = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function monthNote(m){
+    if (m >= 5 && m <= 8) return 'Gravana (June to September) is the drier, cooler season, the best time for hiking. Humpback whales pass from July to October.';
+    if (m === 11 || m <= 1) return 'The short dry spell around December and January is a good time to visit. It is also the peak of turtle nesting season.';
+    if (m === 9) return 'October brings the start of the rains. Humpback whales are still around, and the first turtles arrive on the beaches.';
+    return 'This is the rainy season. The forest is at its greenest and there are fewer visitors, but pack for heavy afternoon showers and slower roads.';
+  }
+  function render(){
+    var days = +form.querySelector('[name=days]:checked').value;
+    var ints = Array.prototype.map.call(form.querySelectorAll('[name=int]:checked'), function(x){ return x.value; });
+    if (!ints.length) ints = ['nature','beach','culture'];
+    var withP = form.querySelector('[name=principe]').checked && days >= 5;
+    var m = +form.querySelector('[name=month]').value;
+    var plan = [];
+    plan.push({ t:'Arrive · ' + P.city.t, d:P.city.d });
+    var pDays = withP ? Math.max(2, Math.round(days * 0.35)) : 0;
+    var mid = days - 2 - pDays;
+    var pools = ints.map(function(k){ return P[k].filter(function(a){ return !a.long || days >= 7; }).slice(); });
+    var picks = [];
+    if (mid > 0) picks.push({ t:P.rolas.t, d:P.rolas.d });
+    var i = 0, guard = 0;
+    while (picks.length < mid && guard++ < 50){
+      var pool = pools[i % pools.length];
+      if (pool.length) picks.push(pool.shift());
+      i++;
+      if (pools.every(function(p){ return !p.length; })) break;
+    }
+    while (picks.length < mid) picks.push({ t:'Leve-leve day', d:'Nothing planned. Take a shared taxi to a village, buy fruit at the market and sit by the sea. This is the point of the islands.' });
+    plan = plan.concat(picks);
+    for (var j = 0; j < pDays; j++){
+      var a = P.principe[j] || { t:'Príncipe at your own pace', d:'Another slow day on the island, with a forest walk, a swim and dinner at a family-run place.' };
+      plan.push(a);
+    }
+    plan.push({ t:'Market & departure', d:'Browse the municipal market, buy local chocolate, coffee or crafts, and head to São Tomé International Airport.' });
+    plan = plan.slice(0, days);
+    if (days === 3) plan[2] = { t:'Market & departure', d:'Browse the municipal market for chocolate, coffee and crafts, then head to the airport.' };
+    var out = document.getElementById('planOut');
+    var labels = { nature:'nature', beach:'beaches', culture:'culture', wildlife:'wildlife' };
+    out.querySelector('h3').textContent = days + ' days in ' + MONTH[m] + (withP ? ' · São Tomé + Príncipe' : ' · São Tomé');
+    out.querySelector('.sum').textContent = 'Interests: ' + ints.map(function(k){ return labels[k]; }).join(', ') + '. ' + monthNote(m);
+    var ol = out.querySelector('ol'); ol.innerHTML = '';
+    plan.forEach(function(p, n){
+      var li = document.createElement('li'); li.style.setProperty('--i', n);
+      li.innerHTML = '<b>Day ' + (n + 1) + '</b><div><strong></strong><span></span></div>';
+      li.querySelector('strong').textContent = p.t; li.querySelector('span').textContent = p.d;
+      ol.appendChild(li);
+    });
+    var pn = form.querySelector('.pnote');
+    pn.style.opacity = days < 5 ? '.45' : '1';
+  }
+  form.addEventListener('change', render);
+  var now = new Date().getMonth();
+  form.querySelector('[name=month]').value = String(now);
+  render();
+}
+
 
 /* ---------------- cursor ---------------- */
 if (matchMedia('(hover:hover) and (pointer:fine)').matches){
@@ -969,7 +1876,7 @@ if (matchMedia('(hover:hover) and (pointer:fine)').matches){
     mx = e.clientX; my = e.clientY;
     if (!seen){ seen = true; cx = mx; cy = my; dot.classList.add('on'); }
     var t = e.target;
-    dot.classList.toggle('wide', !!(t && t.closest && t.closest('.card, a, button, #grid figure')));
+    dot.classList.toggle('wide', !!(t && t.closest && t.closest('.card, a, button, label, #grid figure, #pages .figure')));
   }, { passive:true });
   document.addEventListener('mouseleave', function(){ dot.classList.remove('on'); seen = false; });
   (function follow(){
