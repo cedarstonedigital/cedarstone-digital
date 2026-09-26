@@ -269,6 +269,39 @@ body.lit .gridbtn{opacity:0 !important;pointer-events:none !important}
 @keyframes sweep{0%{transform:translateX(-100%)}55%{transform:translateX(0)}100%{transform:translateX(100%)}}
 body.deep .cue, body.gridview .cue, body.lit .cue{opacity:0}
 
+/* ---------- onward: home -> archive -> islands ---------- */
+.onward{
+  position:fixed;left:50%;bottom:calc(var(--pad) + var(--safe-bottom));z-index:57;
+  display:flex;align-items:center;gap:14px;min-height:48px;padding:10px 22px 10px 20px;
+  border:1px solid rgba(244,242,239,.34);border-radius:999px;
+  background:rgba(0,0,0,.38);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  color:#f4f2ef;white-space:nowrap;
+  opacity:0;pointer-events:none;transform:translate(-50%, 10px);
+  transition:opacity .6s var(--ease), transform .6s var(--ease), border-color .3s ease, background .3s ease;
+}
+.onward span{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,242,239,.6)}
+.onward b{font-family:var(--serif);font-weight:400;font-size:17px;letter-spacing:.005em}
+.onward i{font-style:normal;display:inline-block;animation:nudge 1.8s var(--ease) infinite}
+.onward:hover{border-color:#f4f2ef;background:rgba(0,0,0,.6)}
+@keyframes nudge{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+body.revealed.deep .onward{opacity:1;pointer-events:auto;transform:translate(-50%, 0)}
+body.gridview .onward, body.paged .onward, body.lit .onward, body.menu-open .onward{opacity:0 !important;pointer-events:none !important}
+.onward-bar{position:fixed;left:0;right:0;bottom:0;height:2px;z-index:95;pointer-events:none;background:#f4f2ef;transform:scaleX(0);transform-origin:left center;opacity:.85;transition:transform .18s linear, opacity .3s ease}
+
+.gridnext{
+  display:block;max-width:1680px;margin:clamp(56px, 9vw, 120px) auto 0;padding:clamp(40px, 6vw, 80px) 0 clamp(16px, 3vw, 30px);
+  border-top:1px solid rgba(244,242,239,.14);text-decoration:none;color:#f4f2ef;
+}
+.gridnext .k{display:inline-flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(244,242,239,.6)}
+.gridnext .k::before{content:"";width:28px;height:1px;background:rgba(244,242,239,.5)}
+.gridnext b{display:block;margin-top:16px;font-family:var(--serif);font-weight:400;font-size:clamp(40px, 8vw, 116px);line-height:1;letter-spacing:-.015em;transition:letter-spacing .6s var(--ease)}
+.gridnext b i{font-style:normal;display:inline-block;transition:transform .6s var(--ease)}
+.gridnext:hover b{letter-spacing:.004em}
+.gridnext:hover b i{transform:translateX(12px)}
+.gridnext em{display:block;margin-top:14px;font-style:normal;font-size:13px;color:rgba(244,242,239,.6)}
+@media (max-width:640px){ .onward b{font-size:15px} .onward{padding:9px 18px} }
+@media (max-height:520px) and (orientation:landscape){ .onward{bottom:calc(10px + var(--safe-bottom))} }
+
 /* ---------- flat grid ---------- */
 #grid{
   position:fixed;inset:0;z-index:20;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
@@ -621,6 +654,11 @@ body.paged.lit #pages{pointer-events:none}
     <p>Twenty-one places across both islands, from Pico Cão Grande to the equator on Ilhéu das Rolas. Select any photo to read about it.</p>
   </div>
   <div class="rows"></div>
+  <a class="gridnext" href="#islands">
+    <span class="k">Next · Chapter 01</span>
+    <b>The Islands <i>→</i></b>
+    <em>Geography, history, culture and twelve places to know</em>
+  </a>
 </section>
 
 <div id="pages" aria-hidden="true">
@@ -1178,6 +1216,9 @@ body.paged.lit #pages{pointer-events:none}
 
 <div class="cue chrome" aria-hidden="true"><s></s>Drag to rotate</div>
 
+<button id="onward" class="onward" aria-label="Continue to The Archive"><span>Continue</span><b>The Archive</b><i aria-hidden="true">↓</i></button>
+<div class="onward-bar" id="onwardBar" aria-hidden="true"></div>
+
 <div id="menu" aria-hidden="true">
   <nav aria-label="Main">
     <a href="#" data-home>Home</a>
@@ -1578,10 +1619,12 @@ stage.addEventListener('lostpointercapture', function(){ dragging = false; });
 
 /* ---------------- grid ---------------- */
 function setGrid(on){
+  var was = body.classList.contains('gridview');
   body.classList.toggle('gridview', on);
   gridEl.setAttribute('aria-hidden', on ? 'false' : 'true');
   gridBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
-  if (on) gridEl.scrollTop = 0;
+  if (on && !was) gridEl.scrollTop = setGrid.atEnd ? gridEl.scrollHeight : 0;
+  setGrid.atEnd = false;
 }
 gridBtn.addEventListener('click', function(){ setGrid(!body.classList.contains('gridview')); });
 rows.addEventListener('click', function(e){
@@ -1866,6 +1909,91 @@ if (form){
   form.querySelector('[name=month]').value = String(now);
   render();
 }
+
+/* ---------------- continuous flow: Home -> Archive -> The Islands ---------------- */
+/* Keep scrolling past the end of a view and the next one takes over; scroll back past
+   the top and the previous one returns. The thin bar at the bottom fills as you push. */
+var onwardBar = $('#onwardBar'), flowLock = 0, acc = 0, accKey = '', accT = 0, barTimer = null;
+var FLOW_PUSH = 280;
+function flowView(){
+  if (!revealed || body.classList.contains('lit') || body.classList.contains('menu-open')) return '';
+  if (body.classList.contains('paged')) return 'page:' + current;
+  if (body.classList.contains('gridview')) return 'grid';
+  return 'home';
+}
+function flowEdges(v){
+  if (v === 'home') return { down: scrollY >= innerHeight * 0.16 - 2, up: false };
+  if (v === 'grid') return { down: gridEl.scrollTop + gridEl.clientHeight >= gridEl.scrollHeight - 2, up: gridEl.scrollTop <= 0 };
+  if (v === 'page:islands') return { down: false, up: pagesEl.scrollTop <= 0 };
+  return { down: false, up: false };
+}
+function toArchive(atEnd){
+  setGrid.atEnd = !!atEnd;
+  if (location.hash === '#archive') route(); else location.hash = '#archive';
+}
+function flowGo(v, dir){
+  flowLock = performance.now() + 1100;
+  flowReset();
+  if (v === 'home' && dir > 0) toArchive(false);
+  else if (v === 'grid' && dir > 0) location.hash = '#islands';
+  else if (v === 'grid' && dir < 0) goHome();
+  else if (v === 'page:islands' && dir < 0) toArchive(true);
+}
+function flowReset(){
+  acc = 0; accKey = '';
+  onwardBar.style.transform = 'scaleX(0)';
+}
+addEventListener('wheel', function(e){
+  var v = flowView(), now = performance.now();
+  if (!v || now < flowLock) return;
+  var dy = e.deltaY * (e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? innerHeight : 1);
+  var dir = dy > 0 ? 1 : dy < 0 ? -1 : 0;
+  if (!dir) return;
+  var ed = flowEdges(v);
+  if (!(dir > 0 ? ed.down : ed.up)){ if (acc) flowReset(); return; }
+  var key = v + dir;
+  if (key !== accKey || now - accT > 260) acc = 0;
+  accKey = key; accT = now;
+  acc += Math.min(120, Math.abs(dy));
+  onwardBar.style.transformOrigin = dir > 0 ? 'left center' : 'right center';
+  onwardBar.style.transform = 'scaleX(' + Math.min(1, acc / FLOW_PUSH).toFixed(3) + ')';
+  clearTimeout(barTimer);
+  barTimer = setTimeout(flowReset, 320);
+  if (acc >= FLOW_PUSH) flowGo(v, dir);
+}, { passive: true, capture: true });
+
+var flowTouch = null;
+addEventListener('touchstart', function(e){
+  var v = flowView();
+  if (!v || e.touches.length > 1){ flowTouch = null; return; }
+  flowTouch = { x: e.touches[0].clientX, y: e.touches[0].clientY, v: v, ed: flowEdges(v) };
+}, { passive: true, capture: true });
+addEventListener('touchend', function(e){
+  var t0 = flowTouch; flowTouch = null;
+  if (!t0 || performance.now() < flowLock) return;
+  var t = e.changedTouches[0];
+  var dy = t0.y - t.clientY, dx = t0.x - t.clientX;
+  if (Math.abs(dy) < 70 || Math.abs(dx) > Math.abs(dy)) return;
+  var v = flowView(); if (v !== t0.v) return;
+  var ed = flowEdges(v);
+  if (dy > 0 && t0.ed.down && ed.down) flowGo(v, 1);
+  else if (dy < 0 && t0.ed.up && ed.up) flowGo(v, -1);
+}, { passive: true, capture: true });
+
+addEventListener('keydown', function(e){
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  var tag = (e.target && e.target.tagName) || '';
+  if (/^(INPUT|SELECT|TEXTAREA|BUTTON)$/.test(tag) && e.key === ' ') return;
+  if (/^(INPUT|SELECT|TEXTAREA)$/.test(tag)) return;
+  var dir = (e.key === 'PageDown' || e.key === 'ArrowDown' || (e.key === ' ' && !e.shiftKey)) ? 1
+          : (e.key === 'PageUp' || e.key === 'ArrowUp' || (e.key === ' ' && e.shiftKey)) ? -1 : 0;
+  var v = flowView();
+  if (!dir || !v || performance.now() < flowLock) return;
+  var ed = flowEdges(v);
+  if (dir > 0 ? ed.down : ed.up){ e.preventDefault(); flowGo(v, dir); }
+});
+
+$('#onward').addEventListener('click', function(){ toArchive(false); });
 
 
 /* ---------------- cursor ---------------- */
