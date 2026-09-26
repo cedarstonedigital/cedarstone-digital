@@ -497,7 +497,7 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
     var parts, out = {}, i, p;
     try {
       parts = new Intl.DateTimeFormat('en-GB', {
-        timeZone:'Europe/London', weekday:'short', hour:'2-digit', minute:'2-digit', hourCycle:'h23'
+        timeZone:'Europe/London', weekday:'short', hour:'2-digit', minute:'2-digit', second:'2-digit', hourCycle:'h23'
       }).formatToParts(new Date());
     } catch (e) {
       return null;
@@ -507,8 +507,10 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
       if (p.type === 'weekday') out.day = DAYS[p.value.slice(0,3)];
       if (p.type === 'hour') out.hour = parseInt(p.value, 10);
       if (p.type === 'minute') out.minute = parseInt(p.value, 10);
+      if (p.type === 'second') out.second = parseInt(p.value, 10);
     }
     if (out.day === undefined || isNaN(out.hour) || isNaN(out.minute)) return null;
+    if (isNaN(out.second)) out.second = 0;
     if (out.hour === 24) out.hour = 0;
     return out;
   }
@@ -526,7 +528,23 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
     return "We’re shut for the day. Back at nine tomorrow morning.";
   }
 
-  /* Resolves once and holds. No interval, no ticking. */
+  /* The sentence must never outlive its truth. It resolves on load and then
+     re-resolves exactly once at each boundary where the wording would change,
+     which is 09:00, 16:30 when "till half five" becomes "we shut at half
+     five", 17:30, and midnight for the day rollover. That is a single pending
+     timeout, not a ticking clock, so the line is still a statement rather than
+     a widget. A tab left open from Saturday evening to Monday morning now
+     tells the truth when its owner comes back to it. */
+  var MARKS = [OPEN, CLOSE - 60, CLOSE, 24 * 60];
+  function msToNextBoundary(t){
+    var mins = t.hour * 60 + t.minute;
+    for (var i = 0; i < MARKS.length; i++){
+      if (mins < MARKS[i]) return (MARKS[i] - mins) * 60000 - t.second * 1000;
+    }
+    return (24 * 60 - mins) * 60000;
+  }
+
+  /* Resolves once and holds between boundaries. No interval, no ticking. */
   var el = document.getElementById('status');
   var t = el ? londonNow() : null;
   if (el && t){
@@ -608,6 +626,33 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
       }
     }
 
+    /* Re-mark when the clock crosses a boundary, so an open tab does not keep
+       pointing at an hour the shop has already left. */
+    document.addEventListener('wd:timechange', function(){
+      var cur = document.querySelector('.hour.is-now');
+      if (cur){
+        cur.classList.remove('is-now');
+        var old = cur.querySelector('.now-tag');
+        if (old) old.parentNode.removeChild(old);
+      }
+      var n = londonNow(), h = null;
+      if (n && n.day !== 0){
+        var mm = n.hour * 60 + n.minute;
+        if (!(mm < OPEN) && mm < CLOSE) h = n.hour;
+      }
+      if (h === null) return;
+      for (var j = 0; j < N; j++){
+        if (parseInt(hours[j].getAttribute('data-h'), 10) === h){
+          hours[j].classList.add('is-now');
+          var nt = document.createElement('span');
+          nt.className = 'now-tag';
+          nt.textContent = 'right now';
+          hours[j].appendChild(nt);
+          break;
+        }
+      }
+    });
+
     var still = window.matchMedia &&
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (still){
@@ -654,6 +699,42 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
     window.addEventListener('load', function(){ measure(); frame(); });
     window.addEventListener('scroll', onScroll, {passive:true});
     window.addEventListener('resize', function(){ measure(); frame(); }, {passive:true});
+  })();
+
+  /* Re-resolve at the next boundary, and again whenever the tab is brought
+     back, because a sleeping device fires its timers late. Both paths route
+     through the same function and reschedule from a fresh London reading, so
+     drift cannot accumulate. */
+  (function keepTrue(){
+    var el = document.getElementById('status');
+    if (!el) return;
+    var timer = null;
+
+    function resolve(){
+      var t = londonNow();
+      if (!t) return;
+      el.textContent = stateLine(t);
+      /* Let the day ribbon re-mark the hour it is now in. */
+      try {
+        document.dispatchEvent(new CustomEvent('wd:timechange', {detail:t}));
+      } catch (e) {}
+      schedule(t);
+    }
+
+    function schedule(t){
+      clearTimeout(timer);
+      /* One second past the boundary, so the new state is unambiguous. */
+      var ms = msToNextBoundary(t) + 1000;
+      if (ms < 1000) ms = 1000;
+      timer = setTimeout(resolve, ms);
+    }
+
+    var t0 = londonNow();
+    if (t0) schedule(t0);
+
+    document.addEventListener('visibilitychange', function(){
+      if (document.visibilityState === 'visible') resolve();
+    });
   })();
 
   /* Press feedback on pointer down, not on release. */
