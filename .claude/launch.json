@@ -145,6 +145,18 @@
         "C:/Users/tumel/cedarstone-digital/equal-rights-center-immersive"
       ],
       "port": 8424
+    },
+    {
+      "name": "equal-rights-center-editorial",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8425",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/equal-rights-center-editorial"
+      ],
+      "port": 8425
     }
   ]
 }
