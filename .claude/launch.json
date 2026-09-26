@@ -157,6 +157,18 @@
         "C:/Users/tumel/cedarstone-digital/equal-rights-center-editorial"
       ],
       "port": 8425
+    },
+    {
+      "name": "white-dragon",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8426",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/white-dragon-tattoo"
+      ],
+      "port": 8426
     }
   ]
 }

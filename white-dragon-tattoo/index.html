@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>White Dragon Tattoo Studio, Lower Hillgate, Stockport</title>
+<meta name="description" content="White Dragon Tattoo Studio, 19 Lower Hillgate, Stockport SK1 1JQ. Tattooing, piercing and tattoo removal. Nine till half five, Monday to Saturday. Ring 0161 477 2050.">
+<meta name="theme-color" content="#F2EADE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oat-00:#F2EADE; --oat-10:#E7DDCE; --oat-20:#D6C9B6; --oat-30:#8F7B62;
+  --oat-40:#B5A596; --oat-60:#675A50; --aubergine:#3A2233; --aubergine-border:#8B7382;
+  --peacock:#0B666F; --peacock-hover:#095760; --accent-tint:#3FB0B4;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  --mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  /* One curve for the whole page. easeOutQuart: fast departure, long settle. */
+  --ease:cubic-bezier(.165,.84,.44,1);
+  /* Tones that are not named tokens are derived as alphas of the aubergine,
+     so every neutral stays in one hue family. Anything carrying text uses a
+     named, measured token instead. */
+  --ink-06:rgba(58,34,51,.06);
+  --ink-10:rgba(58,34,51,.10);
+  --lift-07:rgba(242,234,222,.07);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--oat-00); color:var(--aubergine);
+  font-family:var(--serif); font-optical-sizing:auto;
+  font-size:1rem; line-height:1.5; letter-spacing:-.01em; font-weight:400;
+  font-synthesis-weight:none; -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+h1,h2,h3{margin:0; font-family:var(--serif); font-weight:700; text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+/* Mono carries the data: hours, address, phone, captions, small labels.
+   Fixed rem, never vw. These are read, not performed. */
+.standing,.fine,.addr,.hours,.tel-big,.plate span,.door-note,.foot-links{
+  font-family:var(--mono); letter-spacing:.01em;
+}
+
+/* Layout ------------------------------------------------------------ */
+.wrap{width:100%; max-width:64rem; margin-inline:auto; padding-inline:1.25rem}
+@media (min-width:48rem){.wrap{padding-inline:2.5rem}}
+section{position:relative; padding-block:clamp(3.5rem,9vw,7rem)}
+.band{background:var(--oat-10)}
+.dark{background:var(--aubergine); color:var(--oat-00)}
+.grain::after{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:var(--grain); opacity:.05; mix-blend-mode:multiply;
+}
+.grain > *{position:relative; z-index:1}
+.measure{max-width:62ch}
+.rule{border:0; border-top:1px solid var(--oat-20); margin:0}
+
+/* Type -------------------------------------------------------------- */
+/* Tracking scales inversely with size: caps label +.01em, body -.01em,
+   section headings -.02em, the status line -.04em. */
+.standing{
+  font-size:.75rem; line-height:1.4; text-transform:uppercase;
+  font-weight:400; color:var(--oat-60);
+}
+.status{
+  font-size:clamp(2.6rem,9.1vw,6.75rem);
+  line-height:.98; letter-spacing:-.04em;
+  margin-block:1rem 1.5rem;
+}
+h2{
+  font-size:clamp(1.875rem,4.5vw,3.15rem);
+  line-height:1.06; letter-spacing:-.02em;
+}
+h3{font-size:1.0625rem; line-height:1.35; letter-spacing:-.01em; font-weight:700}
+.sub{margin-top:1.125rem; font-size:1.0625rem; line-height:1.55; color:var(--oat-60)}
+.dark .sub{color:var(--oat-40)}
+.fine{font-size:.8125rem; line-height:1.55; color:var(--oat-60)}
+.dark .fine{color:var(--oat-40)}
+
+/* Controls ---------------------------------------------------------- */
+.act{display:inline-flex; align-items:center; gap:.5rem; text-decoration:none; border-radius:2px}
+.btn{
+  padding:.875rem 1.5rem; font-weight:700; font-size:1rem;
+  border:1px solid transparent;
+  transition:background-color .3s var(--ease), transform .3s var(--ease);
+}
+.btn-primary{background:var(--peacock); color:var(--oat-00)}
+.btn-primary:hover{background:var(--peacock-hover)}
+.btn-ghost{border-color:var(--oat-30); color:var(--aubergine); background:transparent}
+.btn-ghost:hover{background:var(--ink-06)}
+.dark .btn-ghost{border-color:var(--aubergine-border); color:var(--oat-00)}
+.dark .btn-ghost:hover{background:var(--lift-07)}
+.btn.is-press{transform:scale(.978)}
+/* The phone number is read aloud off a screen, so it is fixed rem, not vw. */
+.tel-big{font-size:1.375rem; padding:.8125rem 1.5rem}
+.lnk{
+  color:var(--peacock); text-decoration:underline; text-underline-offset:.18em;
+  text-decoration-thickness:.07em; transition:color .3s var(--ease);
+}
+.lnk:hover{color:var(--peacock-hover)}
+.dark .lnk{color:var(--accent-tint)}
+.dark .lnk:hover{color:var(--oat-00)}
+/* Footer navigation stays neutral so the accent is spent once per screen. */
+.foot-links .lnk{
+  color:var(--oat-40); font-size:.8125rem;
+  text-decoration-color:var(--aubergine-border);
+}
+.foot-links .lnk:hover{color:var(--oat-00); text-decoration-color:currentColor}
+:focus-visible{outline:2px solid var(--peacock); outline-offset:3px; border-radius:2px}
+.dark :focus-visible{outline-color:var(--accent-tint)}
+
+/* 1. The door ------------------------------------------------------- */
+.door{
+  min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:center;
+  padding-block:clamp(3rem,10vh,6rem);
+}
+.door .wrap{width:100%}
+.door-act{margin-top:2.25rem; display:flex; flex-wrap:wrap; gap:1rem; align-items:baseline}
+.door-note{font-size:.8125rem; color:var(--oat-60)}
+.secondary{margin-top:1rem}
+.reviews-act{margin-top:2rem}
+
+/* 2. What we do ----------------------------------------------------- */
+.svc{list-style:none; margin:2.5rem 0 0; padding:0; display:grid; gap:0; border-top:1px solid var(--oat-20)}
+.svc li{padding-block:1.125rem; border-bottom:1px solid var(--oat-20)}
+.svc p{margin-top:.25rem; color:var(--oat-60); font-size:.9375rem}
+@media (min-width:40rem){
+  .svc li{display:grid; grid-template-columns:14rem 1fr; gap:1.5rem; align-items:baseline}
+  .svc p{margin-top:0}
+}
+.quote{margin:3rem 0 0; max-width:34rem}
+.quote blockquote{margin:0}
+.quote q{
+  font-weight:400; font-size:clamp(1.5rem,3.6vw,2.25rem);
+  line-height:1.2; letter-spacing:-.02em;
+}
+.quote figcaption{margin-top:1rem}
+
+/* 3. The work ------------------------------------------------------- */
+.mounts{list-style:none; margin:2.5rem 0 0; padding:0; display:grid; gap:.75rem; grid-template-columns:repeat(2,1fr)}
+@media (min-width:48rem){.mounts{gap:1.25rem; grid-template-columns:repeat(3,1fr)}}
+.mount{
+  background:var(--aubergine); padding:10px; border:1px solid var(--aubergine-border);
+  border-radius:2px; aspect-ratio:4/5;
+}
+.plate{
+  height:100%; display:grid; place-items:center; text-align:center; padding:.5rem;
+  border:1px dashed var(--aubergine-border);
+}
+.plate span{font-size:.75rem; text-transform:uppercase; color:var(--oat-40)}
+
+/* 5. The shop and the street ---------------------------------------- */
+.ctx{position:relative; isolation:isolate; margin:2.5rem 0 0; border-radius:2px; overflow:hidden}
+.ctx img{filter:grayscale(1) contrast(1.08) brightness(1.02)}
+.ctx::before,.ctx::after{content:''; position:absolute; inset:0; pointer-events:none}
+.ctx::before{background:var(--oat-10); mix-blend-mode:multiply}
+.ctx::after{background:var(--aubergine); mix-blend-mode:screen}
+.credit{margin-top:.75rem}
+
+/* 7. Find us -------------------------------------------------------- */
+.find{display:grid; gap:2.5rem; margin-top:2.5rem}
+@media (min-width:48rem){.find{grid-template-columns:1fr 1fr; gap:3rem}}
+.block{display:grid; gap:1rem; justify-items:start}
+.block-act{display:flex; flex-wrap:wrap; gap:.75rem}
+.addr{font-style:normal; font-size:1rem; line-height:1.6}
+.hours{margin:0; font-size:.9375rem; border-top:1px solid var(--oat-20)}
+.hours div{
+  display:flex; justify-content:space-between; gap:1rem;
+  padding-block:.6875rem; border-bottom:1px solid var(--oat-20);
+}
+.hours dt{font-weight:400}
+.hours dd{margin:0; color:var(--oat-60)}
+.hours .shut dd{color:var(--aubergine); font-weight:700}
+
+/* Footer ------------------------------------------------------------ */
+footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
+.foot{display:grid; gap:1.5rem}
+.foot-links{display:flex; flex-wrap:wrap; gap:.375rem 1.5rem; margin:0; padding:0; list-style:none}
+.foot .rule{border-color:var(--aubergine-border)}
+.foot-name{color:var(--oat-40)}
+
+/* Motion ------------------------------------------------------------ */
+/* The status line has NO entrance animation in CSS, deliberately.
+   Its resting state is visible. The fade is applied by script through the Web
+   Animations API, so if the animation never runs, is throttled, or the script
+   fails, the sentence is simply there. Never gate the most important line on
+   the page behind an animation completing. */
+
+/* Reduced motion keeps the feedback and drops only the movement. The press
+   still answers, in colour rather than in scale. */
+@media (prefers-reduced-motion:reduce){
+  .btn{transition:background-color .3s var(--ease)}
+  .btn.is-press{transform:none}
+  .btn-primary.is-press{background:var(--peacock-hover)}
+  .btn-ghost.is-press{background:var(--ink-10)}
+  .dark .btn-ghost.is-press{background:var(--lift-07)}
+  html{scroll-behavior:auto}
+}
+
+/* ==================================================================
+   THE DAY. Ink rises.
+   Nine numerals, one for each trading hour. Each inks from the bottom
+   up as it passes the centre, the way ink goes into skin. The hour the
+   shop is actually in inks in peacock and says so, and that is this
+   section's single accent use. At the end the dark rises and the phone
+   number is left alone in it.
+   The ribbon repeats information already stated in full in the hours
+   grid below, so it is aria-hidden and the section still reads as a
+   sentence to a screen reader.
+   ================================================================== */
+.day{position:relative;height:320vh;padding:0}
+/* padding:0 is load bearing. The generic section rule sets a large block
+   padding, which offsets the sticky stage's static position and pushes the
+   pinned phone bar below the fold. */
+.day-stage{position:sticky;top:0;height:100svh;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--oat-00)}
+.day-inner{position:relative;z-index:1;padding:0 clamp(1rem,4vw,3rem)}
+.day-standing{margin:0 0 .75rem}
+.day-h{font-family:var(--serif);font-weight:700;
+  font-size:clamp(1.35rem,2.4vw,2rem);letter-spacing:-.02em;line-height:1.1;
+  color:var(--aubergine);margin:0 0 clamp(1.5rem,5vh,3rem)}
+.ribbon{display:flex;align-items:flex-end;
+  transform:translate3d(calc(var(--shift,0px) * -1),0,0);will-change:transform}
+.hour{position:relative;flex:0 0 clamp(5.25rem,24vw,16rem);
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(4.25rem,20vw,13.5rem);line-height:.9;letter-spacing:-.05em;
+  opacity:var(--o,1);font-variant-numeric:tabular-nums}
+.hour .ghost{display:block;color:transparent;-webkit-text-stroke:1px var(--oat-30)}
+.hour .inked{position:absolute;left:0;top:0;display:block;color:var(--aubergine);
+  clip-path:inset(calc(100% - var(--f,0) * 100%) 0 0 0)}
+.hour.is-now .inked{color:var(--peacock)}
+.hour .now-tag{position:absolute;left:0;top:calc(100% + .5rem);
+  font-family:var(--mono);font-weight:400;font-size:.75rem;letter-spacing:.01em;
+  color:var(--peacock);opacity:var(--f,0);white-space:nowrap}
+.shutter{position:absolute;left:0;right:0;bottom:0;height:100%;z-index:2;
+  background:var(--aubergine);
+  transform:translate3d(0,calc((1 - var(--s,0)) * 100%),0);will-change:transform}
+.day-bar{position:absolute;left:0;right:0;bottom:0;z-index:3;
+  background:var(--aubergine);
+  padding:clamp(1rem,3vh,1.75rem) clamp(1rem,4vw,3rem);
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1.5rem}
+.day-bar p{margin:0;font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.1rem,2vw,1.6rem);letter-spacing:-.02em;color:var(--oat-00)}
+.tel-day{font-family:var(--mono);font-weight:700;
+  font-size:clamp(1rem,1.8vw,1.35rem);letter-spacing:.01em;color:var(--oat-00);
+  text-decoration:underline;text-underline-offset:.25em;text-decoration-thickness:1px}
+.tel-day:focus-visible{outline:2px solid var(--accent-tint);outline-offset:3px}
+.day-big{display:none}
+
+/* THE DAY, reduced. A composed still rather than the effect removed: the
+   whole day laid out at once, every hour already inked, and the hour the
+   shop is in standing colossal above it.
+   This block sits AFTER the base rules deliberately. Same specificity means
+   source order decides, and when it sat earlier in the sheet every
+   conflicting property lost and the still silently half applied. */
+@media (prefers-reduced-motion:reduce){
+  .day{height:auto}
+  .day-stage{position:static;height:auto;overflow:visible;
+    padding:clamp(3rem,10vh,6rem) 0 clamp(2rem,6vh,4rem)}
+  .ribbon{flex-wrap:wrap;justify-content:center;gap:.25rem 1rem;
+    transform:none;will-change:auto}
+  .hour{flex:0 0 auto;opacity:1;
+    font-size:clamp(2rem,6vw,3.5rem);letter-spacing:-.03em}
+  .hour .ghost{display:none}
+  .hour .inked{position:static;clip-path:none}
+  .hour .now-tag{display:none}
+  .day-big{display:block;text-align:center;font-family:var(--serif);
+    font-weight:700;font-size:clamp(5rem,22vw,14rem);line-height:.9;
+    letter-spacing:-.05em;color:var(--peacock);font-variant-numeric:tabular-nums;
+    margin:0 0 clamp(1rem,3vh,2rem)}
+  .day-big[hidden]{display:none}
+  .shutter{display:none}
+  .day-bar{position:static;justify-content:center;text-align:center;
+    margin-top:clamp(2rem,6vh,4rem)}
+}
+</style>
+</head>
+<body>
+
+<!-- 1. THE DOOR ===================================================== -->
+<header class="door grain">
+  <div class="wrap">
+    <p class="standing">White Dragon Tattoo Studio, Lower Hillgate</p>
+    <!-- The h1 ships with the plain hours line. Script swaps it for the live
+         state. With scripting off, the useful sentence is already here. -->
+    <h1 class="status" id="status">Nine till half five, Monday to Saturday. Closed Sundays.</h1>
+    <p class="sub measure">19 Lower Hillgate, Stockport. Nine till half five, Monday to Saturday.</p>
+    <div class="door-act">
+      <a class="act btn btn-primary tel-big" href="tel:+441614772050">0161 477 2050</a>
+      <span class="door-note">Ring the shop.</span>
+    </div>
+  </div>
+</header>
+
+<!-- 2. THE DAY ====================================================== -->
+<section class="day" id="the-day" aria-labelledby="day-h">
+  <div class="day-stage">
+    <div class="day-inner">
+      <p class="standing day-standing">Monday to Saturday</p>
+      <h2 class="day-h" id="day-h">The day, hour by hour.</h2>
+      <p class="day-big" id="day-big" hidden></p>
+      <div class="ribbon" id="ribbon" aria-hidden="true">
+        <span class="hour" data-h="9"><span class="ghost">09</span><span class="inked">09</span></span>
+        <span class="hour" data-h="10"><span class="ghost">10</span><span class="inked">10</span></span>
+        <span class="hour" data-h="11"><span class="ghost">11</span><span class="inked">11</span></span>
+        <span class="hour" data-h="12"><span class="ghost">12</span><span class="inked">12</span></span>
+        <span class="hour" data-h="13"><span class="ghost">13</span><span class="inked">13</span></span>
+        <span class="hour" data-h="14"><span class="ghost">14</span><span class="inked">14</span></span>
+        <span class="hour" data-h="15"><span class="ghost">15</span><span class="inked">15</span></span>
+        <span class="hour" data-h="16"><span class="ghost">16</span><span class="inked">16</span></span>
+        <span class="hour" data-h="17"><span class="ghost">17</span><span class="inked">17</span></span>
+      </div>
+    </div>
+    <div class="shutter" id="shutter" aria-hidden="true"></div>
+    <div class="day-bar">
+      <p>And then half five.</p>
+      <a class="tel-day" href="tel:+441614772050">0161 477 2050</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHAT WE DO =================================================== -->
+<section class="band grain" id="what-we-do">
+  <div class="wrap">
+    <h2>Tattoos, piercings, and taking them off again.</h2>
+    <p class="sub measure">Five things, all under the one roof on Lower Hillgate.</p>
+    <ul class="svc">
+      <li>
+        <h3>Tattooing.</h3>
+        <p>Big pieces, small pieces, and first ones.</p>
+      </li>
+      <li><h3>Body piercing.</h3></li>
+      <li><h3>Ear piercing.</h3></li>
+      <li><h3>Nose piercing.</h3></li>
+      <li>
+        <h3>Tattoo removal.</h3>
+        <p>If it isn’t right, it doesn’t have to stay.</p>
+      </li>
+    </ul>
+    <figure class="quote">
+      <blockquote><q>Tattoos are for everyone nowadays.</q></blockquote>
+      <figcaption class="fine">Damien, an artist at the shop, speaking to Talking About My Generation, January 2023.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 3. THE WORK ===================================================== -->
+<section class="dark" id="work">
+  <div class="wrap">
+    <h2>The work.</h2>
+    <p class="sub measure">Six spaces here for the shop’s own photographs. Nothing is in them yet, and we are not going to fill them with somebody else’s tattoos.</p>
+
+    <!-- REAL PHOTOS DROP IN HERE.
+         Replace each .plate with:
+           <img src="assets/img/work-01.jpg" alt="[describe the piece]" width="" height="" loading="lazy" decoding="async">
+         and delete the .plate element. Keep the .mount wrapper, its padding,
+         border and 4/5 ratio.
+
+         DO NOT GRADE THESE PHOTOGRAPHS. No duotone, no greyscale, no filter.
+         Three reasons. The tattoo is the product, so it has to be shown as it
+         is. A duotone misrepresents ink density and skin tone, which is the
+         one thing a customer is actually judging. And an ungraded photograph
+         reads as evidence sitting next to a 4.8 rating, where a treated one
+         reads as an advert. The street photograph further down is graded
+         because it is context, not product. -->
+    <ul class="mounts">
+      <li class="mount"><div class="plate"><span>Photo to come</span></div></li>
+      <li class="mount"><div class="plate"><span>Photo to come</span></div></li>
+      <li class="mount"><div class="plate"><span>Photo to come</span></div></li>
+      <li class="mount"><div class="plate"><span>Photo to come</span></div></li>
+      <li class="mount"><div class="plate"><span>Photo to come</span></div></li>
+      <li class="mount"><div class="plate"><span>Photo to come</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4. HOW TO GET SEEN ============================================== -->
+<section id="get-seen" class="grain">
+  <div class="wrap">
+    <h2>Give us a ring.</h2>
+    <p class="sub measure">We’re not going to guess your price or your date on a website. Ring the shop, tell us what you’re after, and we’ll tell you where we stand.</p>
+    <p class="door-act"><a class="act btn btn-primary tel-big" href="tel:+441614772050">0161 477 2050</a></p>
+    <p class="fine secondary">We’re on the phone nine till half five, Monday to Saturday.</p>
+  </div>
+</section>
+
+<!-- 5. THE SHOP AND THE STREET ====================================== -->
+<section class="band grain" id="the-street">
+  <div class="wrap">
+    <h2>Nineteen Lower Hillgate.</h2>
+    <p class="sub measure">Down in the Underbanks, in Stockport’s old town. Talking About My Generation called us Stockport’s longest established tattoo shop when they came round in January 2023.</p>
+    <figure class="ctx">
+      <img src="assets/img/underbanks.jpg" width="1920" height="1440" loading="lazy" decoding="async"
+           alt="Looking up Little Underbank towards Lower Hillgate in Stockport. Red brick and black and white timbered buildings line a narrow street, with a painted Rediscover Stockport Underbanks hoarding on the right and a large yellow smiley sculpture on the pavement.">
+    </figure>
+    <p class="credit fine">Street photograph: Gerald England, CC BY-SA 2.0, via Wikimedia Commons.</p>
+  </div>
+</section>
+
+<!-- 6. WHAT PEOPLE SAY ============================================== -->
+<section id="reviews" class="grain">
+  <div class="wrap">
+    <h2>4.8 out of 5, from 368 reviews.</h2>
+    <p class="sub measure">That’s our Google score as this page was written. The number moves. The link’s there so you can go and check it yourself.</p>
+    <p class="reviews-act">
+      <a class="act btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=White+Dragon+Tattoo+Studio+Stockport">Read the reviews on Google</a>
+    </p>
+  </div>
+</section>
+
+<!-- 7. FIND US ====================================================== -->
+<section class="band grain" id="find-us">
+  <div class="wrap">
+    <h2>Nine till half five, Monday to Saturday.</h2>
+    <p class="sub measure">Closed Sundays.</p>
+    <div class="find">
+      <div class="block">
+        <address class="addr">
+          19 Lower Hillgate<br>Stockport<br>SK1 1JQ
+        </address>
+        <p class="addr"><a class="lnk" href="tel:+441614772050">0161 477 2050</a></p>
+        <div class="block-act">
+          <a class="act btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=White+Dragon+Tattoo+Studio%2C+19+Lower+Hillgate%2C+Stockport+SK1+1JQ">Open in Maps</a>
+          <a class="act btn btn-ghost" href="https://m.facebook.com/pages/White-Dragon-Tattoo-Studio/309851272846967">Find us on Facebook</a>
+        </div>
+      </div>
+      <dl class="hours">
+        <div><dt>Monday</dt><dd>09:00 to 17:30</dd></div>
+        <div><dt>Tuesday</dt><dd>09:00 to 17:30</dd></div>
+        <div><dt>Wednesday</dt><dd>09:00 to 17:30</dd></div>
+        <div><dt>Thursday</dt><dd>09:00 to 17:30</dd></div>
+        <div><dt>Friday</dt><dd>09:00 to 17:30</dd></div>
+        <div><dt>Saturday</dt><dd>09:00 to 17:30</dd></div>
+        <div class="shut"><dt>Sunday</dt><dd>Closed</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- The .dark class is load bearing, not decorative. It switches muted text to
+     --oat-40, links to --accent-tint and the focus ring to the tint. Without it
+     the peacock lands on the aubergine at 2.16:1 and the ring disappears. -->
+<footer class="dark">
+  <div class="wrap foot">
+    <p class="standing foot-name">White Dragon Tattoo Studio</p>
+    <address class="addr">19 Lower Hillgate, Stockport, SK1 1JQ<br><a class="lnk" href="tel:+441614772050">0161 477 2050</a></address>
+    <ul class="foot-links">
+      <li><a class="lnk" href="#what-we-do">What we do</a></li>
+      <li><a class="lnk" href="#work">The work</a></li>
+      <li><a class="lnk" href="#the-street">The street</a></li>
+      <li><a class="lnk" href="#find-us">Find us</a></li>
+      <li><a class="lnk" href="https://m.facebook.com/pages/White-Dragon-Tattoo-Studio/309851272846967">Facebook</a></li>
+    </ul>
+    <hr class="rule">
+    <p class="fine">Nine till half five, Monday to Saturday. Closed Sundays.</p>
+    <p class="fine">Street photograph: Gerald England, CC BY-SA 2.0, via Wikimedia Commons.</p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"TattooParlor",
+  "name":"White Dragon Tattoo Studio",
+  "telephone":"+44 161 477 2050",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"19 Lower Hillgate",
+    "addressLocality":"Stockport",
+    "postalCode":"SK1 1JQ",
+    "addressCountry":"GB"
+  },
+  "openingHoursSpecification":[{
+    "@type":"OpeningHoursSpecification",
+    "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens":"09:00",
+    "closes":"17:30"
+  }],
+  "sameAs":["https://m.facebook.com/pages/White-Dragon-Tattoo-Studio/309851272846967"]
+}
+</script>
+
+<script>
+(function(){
+  'use strict';
+
+  var OPEN = 9 * 60;        /* 09:00 */
+  var CLOSE = 17 * 60 + 30; /* 17:30 */
+  var DAYS = {Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6};
+
+  /* Weekday and time in Europe/London, never the visitor's own clock. */
+  function londonNow(){
+    var parts, out = {}, i, p;
+    try {
+      parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone:'Europe/London', weekday:'short', hour:'2-digit', minute:'2-digit', hourCycle:'h23'
+      }).formatToParts(new Date());
+    } catch (e) {
+      return null;
+    }
+    for (i = 0; i < parts.length; i++){
+      p = parts[i];
+      if (p.type === 'weekday') out.day = DAYS[p.value.slice(0,3)];
+      if (p.type === 'hour') out.hour = parseInt(p.value, 10);
+      if (p.type === 'minute') out.minute = parseInt(p.value, 10);
+    }
+    if (out.day === undefined || isNaN(out.hour) || isNaN(out.minute)) return null;
+    if (out.hour === 24) out.hour = 0;
+    return out;
+  }
+
+  function stateLine(t){
+    var mins = t.hour * 60 + t.minute;
+    if (t.day === 0) return "Closed Sundays. Back at nine tomorrow morning.";
+    if (mins < OPEN) return "We’re shut. We open at nine this morning.";
+    if (mins < CLOSE){
+      return (CLOSE - mins) > 60
+        ? "We’re open till half five."
+        : "We’re open. We shut at half five.";
+    }
+    if (t.day === 6) return "We’re shut for the weekend. Back at nine on Monday morning.";
+    return "We’re shut for the day. Back at nine tomorrow morning.";
+  }
+
+  /* Resolves once and holds. No interval, no ticking. */
+  var el = document.getElementById('status');
+  var t = el ? londonNow() : null;
+  if (el && t){
+    /* Text first. The sentence is on screen whether or not anything animates. */
+    el.textContent = stateLine(t);
+
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!still && typeof el.animate === 'function'){
+      el.style.willChange = 'opacity, transform';
+      var a = el.animate(
+        [{opacity:0, transform:'translate3d(0,0.375rem,0)'}, {opacity:1, transform:'none'}],
+        {duration:300, easing:'cubic-bezier(.165,.84,.44,1)'}
+      );
+      /* Drop the compositor hint once it has played, and do it on failure too,
+         so the largest element on the page is not left on its own layer. */
+      var safety;
+      var clear = function(){
+        clearTimeout(safety);
+        el.style.willChange = 'auto';
+      };
+      /* Bounded worst case. If the animation is throttled and never ticks, the
+         element would sit on its opening keyframe, which is invisible.
+         Cancelling drops the effect and the sentence returns to its resting,
+         visible state. The fade is an enhancement and is allowed to be lost,
+         the sentence is not. */
+      safety = setTimeout(function(){
+        try { a.cancel(); } catch (err) {}
+        el.style.willChange = 'auto';
+      }, 700);
+      if (a.finished && a.finished.then) a.finished.then(clear, clear);
+      else a.onfinish = clear;
+    }
+  }
+
+
+  /* ================================================================
+     THE DAY. Ink rises.
+     Scroll drives a ribbon of nine numerals. Each inks bottom-up as it
+     nears the centre. Past 86 percent the aubergine rises and the phone
+     number is left alone in the dark.
+     Clamping uses Math.min and Math.max rather than the greater-than
+     operator, because a hook in this project pipes file content through
+     a shell where a bare angle bracket creates junk files.
+     ================================================================ */
+  (function theDay(){
+    var sec = document.getElementById('the-day');
+    var ribbon = document.getElementById('ribbon');
+    var shutter = document.getElementById('shutter');
+    var big = document.getElementById('day-big');
+    if (!sec || !ribbon || !shutter) return;
+
+    var hours = [].slice.call(ribbon.querySelectorAll('.hour'));
+    if (!hours.length) return;
+    var N = hours.length;   /* nine trading hours, 09 to 17 */
+    var SPAN = N - 1;       /* eight steps end to end */
+    var LAND = 0.82;        /* 17 lands centred here */
+    var SHUT = 0.86;        /* the dark starts rising here */
+
+    function clamp01(v){ return Math.min(1, Math.max(0, v)); }
+
+    /* Mark the hour the shop is actually in. When it is shut there is no
+       current hour and nothing is marked, which is the honest state. */
+    var t = londonNow();
+    var nowHour = null;
+    if (t && t.day !== 0){
+      var mins = t.hour * 60 + t.minute;
+      if (!(mins < OPEN) && mins < CLOSE) nowHour = t.hour;
+    }
+    if (nowHour !== null){
+      for (var k = 0; k < N; k++){
+        if (parseInt(hours[k].getAttribute('data-h'), 10) === nowHour){
+          hours[k].classList.add('is-now');
+          var tag = document.createElement('span');
+          tag.className = 'now-tag';
+          tag.textContent = 'right now';
+          hours[k].appendChild(tag);
+          break;
+        }
+      }
+    }
+
+    var still = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (still){
+      /* The composed still. One colossal numeral for the hour we are in,
+         the whole day inked beneath it. Everything else is CSS. */
+      if (big && nowHour !== null){
+        big.textContent = (nowHour < 10 ? '0' : '') + nowHour;
+        big.removeAttribute('hidden');
+      }
+      return;
+    }
+
+    var step = 0, ticking = false;
+    function measure(){ step = hours[0].getBoundingClientRect().width; }
+
+    function frame(){
+      ticking = false;
+      var travel = sec.offsetHeight - window.innerHeight;
+      if (travel <= 0) return;
+      var p = clamp01(-sec.getBoundingClientRect().top / travel);
+      var c = Math.min(SPAN, (p / LAND) * SPAN);
+      ribbon.style.setProperty('--shift', (c * step).toFixed(2) + 'px');
+      for (var i = 0; i < N; i++){
+        var d = Math.abs(i - c);
+        hours[i].style.setProperty('--f', clamp01(1.25 - 1.25 * d).toFixed(4));
+        hours[i].style.setProperty('--o', (0.14 + 0.86 * clamp01(1.55 - 1.15 * d)).toFixed(4));
+      }
+      shutter.style.setProperty('--s', clamp01((p - SHUT) / (1 - SHUT)).toFixed(4));
+    }
+
+    function onScroll(){
+      if (!ticking){ ticking = true; requestAnimationFrame(frame); }
+    }
+
+    measure();
+    frame();
+    /* Measure again once the display face has loaded. The step comes from a
+       rendered numeral, so measuring against the fallback font yields a step
+       that is wrong by a few percent and the ribbon then sits misaligned
+       until a resize. Observed at 269.8px against a true 256px. */
+    if (document.fonts && document.fonts.ready && document.fonts.ready.then){
+      document.fonts.ready.then(function(){ measure(); frame(); });
+    }
+    window.addEventListener('load', function(){ measure(); frame(); });
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', function(){ measure(); frame(); }, {passive:true});
+  })();
+
+  /* Press feedback on pointer down, not on release. */
+  var press = null;
+  function down(e){
+    var b = e.target.closest ? e.target.closest('.btn') : null;
+    if (!b) return;
+    press = b;
+    b.classList.add('is-press');
+  }
+  function up(){
+    if (press){ press.classList.remove('is-press'); press = null; }
+  }
+  document.addEventListener('pointerdown', down, {passive:true});
+  document.addEventListener('pointerup', up, {passive:true});
+  document.addEventListener('pointercancel', up, {passive:true});
+  document.addEventListener('blur', up, true);
+})();
+</script>
+</body>
+</html>
