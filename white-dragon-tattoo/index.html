@@ -397,6 +397,56 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
   .machines .m-b{display:none}
   .machines .m-a{right:-4%; bottom:2%; width:96%; opacity:.30}
 }
+
+/* ==================================================================
+   BOOK IN.
+   A real enquiry, not a fake booking. There is no backend here and the
+   shop's walk-in versus appointment policy could not be verified, so
+   the form does not pretend to hold a slot. It composes a structured
+   message to the address the shop publishes on its own Facebook page
+   and hands it to the visitor's mail client. Nothing is posted
+   anywhere, nothing is stored, and no confirmation is implied.
+
+   A form that submits into nowhere would repeat the exact failure this
+   site exists to fix, so with scripting off the form is replaced by
+   the address and the number rather than left as a dead control.
+   ================================================================== */
+.book-h{margin:2.5rem 0 0; font-size:1.0625rem; line-height:1.35;
+  letter-spacing:-.01em; font-weight:700; color:var(--aubergine)}
+.book{margin-top:1.5rem; max-width:34rem}
+.book .row{display:grid; gap:1.25rem; grid-template-columns:1fr 1fr}
+@media (max-width:34rem){ .book .row{grid-template-columns:1fr} }
+.field{display:block; margin-bottom:1.25rem}
+/* :not(.err) matters. Without it this rule is more specific than .err and
+   forces every error message visible on a pristine form, which is how it
+   shipped the first time. */
+.field > span:not(.err){
+  display:block; margin-bottom:.4rem;
+  font-family:var(--mono); font-size:.75rem; letter-spacing:.01em;
+  text-transform:uppercase; color:var(--oat-60);
+}
+.field input, .field select, .field textarea{
+  width:100%; box-sizing:border-box;
+  font-family:var(--serif); font-size:1rem; line-height:1.4;
+  color:var(--aubergine); background:var(--oat-00);
+  border:1px solid var(--oat-30);   /* 3.40:1 on oat, passes 1.4.11 */
+  border-radius:2px; padding:.7rem .8rem;
+}
+.field textarea{min-height:6.5rem; resize:vertical}
+.field select{appearance:none; background-image:none}
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible{
+  outline:2px solid var(--peacock); outline-offset:2px; border-color:var(--aubergine);
+}
+.field.bad input, .field.bad select, .field.bad textarea{border-color:#8B2F3C}
+.field > .err{
+  display:none; margin-top:.35rem;
+  font-family:var(--mono); font-size:.75rem; letter-spacing:.01em;
+  text-transform:none; color:#8B2F3C;   /* 5.38:1 on oat, computed */
+}
+.field.bad > .err{display:block}
+.book-act{display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-top:.25rem}
+.book-note{font-size:.8125rem; color:var(--oat-60); margin:.9rem 0 0}
+.nojs-book{display:none}
 </style>
 </head>
 <body>
@@ -509,6 +559,52 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
     <p class="sub measure">We’re not going to guess your price or your date on a website. Ring the shop, tell us what you’re after, and we’ll tell you where we stand.</p>
     <p class="door-act"><a class="act btn btn-primary tel-big" href="tel:+441614772050">0161 477 2050</a></p>
     <p class="fine secondary">We’re on the phone nine till half five, Monday to Saturday.</p>
+
+    <h3 class="book-h">Or send it over and we’ll ring you back.</h3>
+    <form class="book" id="book" novalidate hidden>
+      <div class="row">
+        <label class="field" for="bk-name">
+          <span>Your name</span>
+          <input id="bk-name" name="name" type="text" autocomplete="name" required>
+          <span class="err" id="e-name">We need a name to ask for.</span>
+        </label>
+        <label class="field" for="bk-tel">
+          <span>Your number</span>
+          <input id="bk-tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" required>
+          <span class="err" id="e-tel">We need a number to ring you back on.</span>
+        </label>
+      </div>
+      <label class="field" for="bk-what">
+        <span>What you’re after</span>
+        <select id="bk-what" name="what" required>
+          <option value="">Pick one</option>
+          <option>Tattoo</option>
+          <option>Body piercing</option>
+          <option>Ear piercing</option>
+          <option>Nose piercing</option>
+          <option>Tattoo removal</option>
+          <option>Not sure yet</option>
+        </select>
+        <span class="err" id="e-what">Tell us which one and we can put you with the right person.</span>
+      </label>
+      <label class="field" for="bk-idea">
+        <span>Roughly what you have in mind</span>
+        <textarea id="bk-idea" name="idea" placeholder="Size, where on you it is going, and anything you have seen that you like."></textarea>
+      </label>
+      <label class="field" for="bk-when">
+        <span>Best days to reach you</span>
+        <input id="bk-when" name="when" type="text" placeholder="Weekday mornings, Saturdays, whenever.">
+      </label>
+      <div class="book-act">
+        <button class="act btn btn-primary" type="submit">Send it to the shop</button>
+        <span class="fine secondary">Opens your email, nothing is sent until you press send.</span>
+      </div>
+      <p class="book-note">This is a message, not a booked slot. We will ring you back to sort the details.</p>
+    </form>
+    <p class="nojs-book fine" id="nojs-book" style="display:block">
+      Send the details to <a href="mailto:whitedragonstockport@gmail.com">whitedragonstockport@gmail.com</a>,
+      or ring 0161 477 2050, nine till half five, Monday to Saturday.
+    </p>
   </div>
 </section>
 
@@ -858,6 +954,90 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
 
     document.addEventListener('visibilitychange', function(){
       if (document.visibilityState === 'visible') resolve();
+    });
+  })();
+
+
+  /* ================================================================
+     BOOK IN.
+     Composes a structured enquiry and hands it to the visitor's mail
+     client. Nothing is posted, nothing is stored, and no slot is
+     claimed. The address is the one the shop publishes itself.
+
+     With scripting off the form is swapped for the address and the
+     number, because a control that cannot do anything is worse than no
+     control. That swap happens here rather than in CSS so that the
+     no-script path is the default in the markup and the form is the
+     enhancement.
+     ================================================================ */
+  (function book(){
+    var f = document.getElementById('book');
+    if (!f) return;
+    f.removeAttribute('hidden');
+    var nj = document.getElementById('nojs-book');
+    if (nj) nj.style.display = 'none';
+    var TO = 'whitedragonstockport@gmail.com';
+
+    function field(id){ return document.getElementById(id); }
+    function wrap(el){ return el.closest ? el.closest('.field') : null; }
+
+    function clearErr(el){
+      var w = wrap(el);
+      if (w) w.classList.remove('bad');
+      el.removeAttribute('aria-invalid');
+    }
+    function setErr(el, msgId){
+      var w = wrap(el);
+      if (w) w.classList.add('bad');
+      el.setAttribute('aria-invalid','true');
+      el.setAttribute('aria-describedby', msgId);
+    }
+
+    ['bk-name','bk-tel','bk-what'].forEach(function(id){
+      var el = field(id);
+      if (el) el.addEventListener('input', function(){ clearErr(el); });
+      if (el) el.addEventListener('change', function(){ clearErr(el); });
+    });
+
+    f.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var checks = [['bk-name','e-name'],['bk-tel','e-tel'],['bk-what','e-what']];
+      var first = null;
+      checks.forEach(function(pair){
+        var el = field(pair[0]);
+        if (!el) return;
+        if (!el.value.trim()){
+          setErr(el, pair[1]);
+          if (!first) first = el;
+        } else {
+          clearErr(el);
+        }
+      });
+      if (first){ first.focus(); return; }
+
+      var name = field('bk-name').value.trim();
+      var tel  = field('bk-tel').value.trim();
+      var what = field('bk-what').value.trim();
+      var idea = field('bk-idea') ? field('bk-idea').value.trim() : '';
+      var when = field('bk-when') ? field('bk-when').value.trim() : '';
+
+      var lines = [
+        'Name: ' + name,
+        'Number: ' + tel,
+        'After: ' + what
+      ];
+      if (idea) lines.push('', 'What they have in mind:', idea);
+      if (when) lines.push('', 'Best days to reach them: ' + when);
+      lines.push('', 'Sent from the White Dragon website.');
+
+      var href = 'mailto:' + TO
+               + '?subject=' + encodeURIComponent('Enquiry from the website: ' + what)
+               /* String.fromCharCode(10) rather than a backslash escape: a hook
+                  in this project pipes tool input through a shell and collapsed
+                  the escape into a real newline, which broke the string literal
+                  and took the whole script down with it. */
+               + '&body='    + encodeURIComponent(lines.join(String.fromCharCode(10)));
+      window.location.href = href;
     });
   })();
 
