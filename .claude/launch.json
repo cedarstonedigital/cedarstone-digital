@@ -169,6 +169,18 @@
         "C:/Users/tumel/cedarstone-digital/white-dragon-tattoo"
       ],
       "port": 8426
+    },
+    {
+      "name": "barbarian",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8427",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/barbarian-barbershop"
+      ],
+      "port": 8427
     }
   ]
 }
