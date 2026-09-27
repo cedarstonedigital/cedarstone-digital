@@ -337,12 +337,76 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
 @supports not ((-webkit-background-clip:text) or (background-clip:text)){
   .status{color:var(--aubergine); -webkit-text-fill-color:var(--aubergine)}
 }
+
+/* ==================================================================
+   THE MACHINES.
+   Two coil machines in the lower right of the hero, a solid tool and
+   an outline study of the same tool. Both derived from one CC0 photo
+   on Wikimedia Commons, threshold traced to ink and recoloured, so
+   they are drawings made from a real machine rather than a drawing of
+   an imagined one. An earlier hand drawn SVG attempt was abandoned:
+   sixty paths inside a 250px rotated box read as abstract clutter at
+   ship scale, and the frame traced as an enclosing rectangle.
+
+   CC0 carries no attribution requirement and no share alike, so the
+   derivation and recolour are unencumbered.
+
+   They frame the type and never crowd it. The safe box is the lower
+   right quadrant, derived from measurement: the h1's deepest reach is
+   64.5 percent of the hero and the sub's lowest is 71.7 percent, so
+   nothing starts above 76 percent. Opacity is low because a solid
+   stencil at line art alpha would dominate the page, and the accent is
+   already spent on the phone button.
+
+   Both are decorative, so both carry aria-hidden and pointer-events
+   none, and neither may intercept a tap aimed at the number.
+   ================================================================== */
+.machines{
+  position:absolute; z-index:0; pointer-events:none; display:none;
+  right:0; bottom:0;
+  /* overflow:hidden is load bearing. The tools are rotated, so a corner
+     swings past the hero's right edge and put the whole document into
+     horizontal scroll by 5px. Clipping at the edge also reads better
+     than fitting them in: the tools run off the corner rather than
+     sitting politely inside it. */
+  overflow:hidden;
+}
+.machines img{
+  position:absolute; display:block; width:100%; height:auto;
+  /* Not the only place any fact lives, so it may fail silently. */
+}
+.machines .m-a{
+  right:1%; bottom:30%; width:62%;
+  opacity:.30; transform:rotate(-7deg); transform-origin:100% 50%;
+}
+.machines .m-b{
+  right:41%; bottom:2%; width:54%;
+  opacity:.46; transform:rotate(5deg); transform-origin:100% 50%;
+}
+/* Tablet and up: both tools. */
+@media (min-width:48rem) and (min-height:43rem){
+  .machines{display:block; left:56%; top:72%}
+}
+/* Phone: the solid tool alone. Two at this width forces a scale where
+   the detail collapses, which is the failure this replaced. */
+@media (max-width:47.9375rem) and (min-height:41.5rem){
+  /* 82 not 80. At 375x667 the note's bottom sits at 535.9px and 80%
+     put the box at 533.8, overlapping it by 2px. 82% gives 547.0 and
+     the 11px clearance the placement spec called for. */
+  .machines{display:block; left:36%; top:82%}
+  .machines .m-b{display:none}
+  .machines .m-a{right:-4%; bottom:2%; width:96%; opacity:.30}
+}
 </style>
 </head>
 <body>
 
 <!-- 1. THE DOOR ===================================================== -->
 <header class="door grain">
+  <div class="machines" aria-hidden="true">
+    <img class="m-a" src="assets/img/machine-A.png" alt="" loading="lazy" decoding="async" width="1240" height="652">
+    <img class="m-b" src="assets/img/machine-B.png" alt="" loading="lazy" decoding="async" width="1100" height="578">
+  </div>
   <div class="wrap">
     <p class="standing">White Dragon Tattoo Studio, Lower Hillgate</p>
     <!-- The h1 ships with the plain hours line. Script swaps it for the live

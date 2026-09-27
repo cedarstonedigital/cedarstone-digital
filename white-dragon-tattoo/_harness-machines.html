@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Harness: coil machines</title>
+<style>
+:root{ --oat-00:#F2EADE; }
+body{margin:0;background:var(--oat-00);font-family:ui-monospace,monospace}
+.row{display:flex;gap:18px;align-items:flex-start;padding:10px 14px;flex-wrap:wrap}
+.cell p{margin:0 0 4px;font-size:10px;color:#675A50;text-transform:uppercase}
+.s292 svg{width:292px;height:auto;display:block}
+.s334 svg{width:334px;height:auto;display:block}
+.s375 svg{width:375px;height:auto;display:block}
+.s219 svg{width:219px;height:auto;display:block}
+.s600 svg{width:600px;height:auto;display:block}
+.mach{fill:none}
+.mach [class]{vector-effect:non-scaling-stroke}
+.t1{stroke:rgba(58,34,51,.48); stroke-width:1.75; stroke-linecap:butt}
+.t2{stroke:rgba(58,34,51,.40); stroke-width:1.25; stroke-linecap:round}
+.t3{stroke:rgba(58,34,51,.35); stroke-width:.90; stroke-linecap:round}
+.sol{fill:rgba(58,34,51,.48); stroke:none}
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div class="cell s292"><p>Pair 292px = 0.999x (768 wide)</p>
+    <svg viewBox="0 0 292 168" xmlns="http://www.w3.org/2000/svg" class="mach" stroke-linejoin="round"><use href="#wd-pair"/></svg></div>
+  <div class="cell s334"><p>Pair 334px = 1.143x (1280 wide)</p>
+    <svg viewBox="0 0 292 168" xmlns="http://www.w3.org/2000/svg" class="mach" stroke-linejoin="round"><use href="#wd-pair"/></svg></div>
+  <div class="cell s375"><p>Pair 375px = 1.286x (1440 wide)</p>
+    <svg viewBox="0 0 292 168" xmlns="http://www.w3.org/2000/svg" class="mach" stroke-linejoin="round"><use href="#wd-pair"/></svg></div>
+  <div class="cell s219"><p>A only 219px, phone crop</p>
+    <svg viewBox="0 8 270 148" xmlns="http://www.w3.org/2000/svg" class="mach" stroke-linejoin="round"><use href="#wd-A-only"/></svg></div>
+</div>
+<div class="row">
+  <div class="cell s600"><p>Pair 600px, for inspection</p>
+    <svg viewBox="0 0 292 168" xmlns="http://www.w3.org/2000/svg" class="mach" stroke-linejoin="round"><use href="#wd-pair"/></svg></div>
+  <div class="cell s600"><p>A alone 600px</p>
+    <svg viewBox="0 0 292 168" xmlns="http://www.w3.org/2000/svg" class="mach" stroke-linejoin="round"><use href="#wd-A-only"/></svg></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+
+<g id="wd-B-sil">
+  <path d="M144 -82 H178 V-74 H158 L156 -20 H219 V-12 H142 Z"/>
+  <path d="M116 -11 H136 V11 H116 Z"/>
+  <path d="M68 -11 H114 V11 H68 Z"/>
+  <path d="M2 -5 H68 V5 H2 Z"/>
+  <path d="M204 -20 V-70 H213 V-20"/>
+</g>
+
+<mask id="wd-knock" maskUnits="userSpaceOnUse" x="0" y="0" width="292" height="168">
+  <rect x="0" y="0" width="292" height="168" fill="#fff"/>
+  <g transform="translate(62,134) rotate(-12.1)" fill="none" stroke="#000" stroke-width="7.75" stroke-linejoin="round">
+    <use href="#wd-B-sil"/>
+  </g>
+</mask>
+
+<!-- MACHINE A. The shader. Local x 0 (needle tip) to 259 (back of frame),
+     y negative is up. Flat mag tube bore 14 with a flare. Grip 64 x 26.
+     Coils 22 wide, 34 tall, ten wrap. Long deck, shallow raked front arm. -->
+<g id="wd-A">
+  <path class="t3" d="M0 -3 H10 M0 0 H10 M0 3 H10"/>
+  <path class="t1" d="M8 -9 L18 -7 V7 L8 9"/>
+  <path class="t1" d="M18 -7 H76.5 M18 7 H76.5"/>
+  <path class="t1" d="M80.5 -13 H139.5 A2.5 2.5 0 0 1 142 -10.5 V10.5 A2.5 2.5 0 0 1 139.5 13 H80.5"/>
+  <rect class="sol" x="78" y="-13" width="38" height="26" rx="2.5"/>
+  <path class="t3" d="M120 -12 L124 12 M126 -12 L130 12 M132 -12 L136 12"/>
+  <path class="t2" d="M140 -22 H162 V15 H140 Z"/>
+  <path class="t3" d="M162 5 H170 M170 1 V9"/>
+  <!-- frame: raked front arm, boss, deck ending just past the rear coil -->
+  <path class="t1" d="M154 -82 H198 V-74 H168 L160 -22 H240 V-14 H144 Z"/>
+  <path class="t2" d="M166 -26 H192 V-23.5 M166 -26 V-23.5"/>
+  <path class="t2" d="M168 -60 H190 V-26 H168 Z"/>
+  <path class="t2" d="M166 -64 H192 V-60 H166 Z"/>
+  <path class="t2" d="M176 -67 H182 V-64 H176 Z"/>
+  <path class="t3" d="M168 -28.1 L190 -31.2 M168 -32.0 L190 -34.9 M168 -35.5 L190 -38.8
+                      M168 -39.4 L190 -42.4 M168 -43.1 L190 -46.3 M168 -47.0 L190 -49.9
+                      M168 -50.6 L190 -53.8 M168 -54.5 L190 -57.4 M168 -58.2 L190 -61.3"/>
+  <path class="t2" d="M196 -26 H222 V-23.5 M196 -26 V-23.5"/>
+  <path class="t2" d="M198 -60 H220 V-26 H198 Z"/>
+  <path class="t2" d="M196 -64 H222 V-60 H196 Z"/>
+  <path class="t2" d="M206 -67 H212 V-64 H206 Z"/>
+  <path class="t3" d="M198 -28.4 L220 -31.3 M198 -31.9 L220 -35.1 M198 -35.8 L220 -38.7
+                      M198 -39.3 L220 -42.5 M198 -43.2 L220 -46.1 M198 -46.8 L220 -50.0
+                      M198 -50.7 L220 -53.6 M198 -54.3 L220 -57.5 M198 -58.2 L220 -61.1"/>
+  <!-- armature bar, front end pulled down, stopping short of the frame -->
+  <path class="t2" d="M230 -75 L163 -68 L163 -62 L230 -69 Z"/>
+  <path class="t2" d="M159 -62 H167 V-55 H159 Z"/>
+  <!-- rear post carrying the armature -->
+  <path class="t2" d="M226 -22 V-73 H236 V-22"/>
+  <!-- front spring reaching back under the contact screw -->
+  <path class="t3" d="M200 -70 L176 -66 L176 -63 L200 -67 Z"/>
+  <path class="t2" d="M180 -74 H188 V-64 H180 Z"/>
+  <path class="t3" d="M178 -82 H190 V-75 H178 Z"/>
+  <!-- the two solids on this machine: grip wrap above, elastic band here -->
+  <rect class="sol" x="229" y="-79" width="7" height="14" rx="1.5"/>
+  <!-- two clip cord posts on the back of the rear post -->
+  <path class="t2" d="M242 -20 V-50 M247 -20 V-50"/>
+  <path class="t3" d="M241 -42 H248"/>
+  <path class="t2" d="M250 -20 V-46 M255 -20 V-46"/>
+  <path class="t3" d="M249 -39 H256"/>
+  <path class="t3" d="M240 -20 H256"/>
+</g>
+
+<!-- MACHINE B. The liner. Length 219, 85 percent of A. Round tube bore 10,
+     parallel. Grip 50 x 22. Coils 16 wide, 34 tall, eight wrap. Short deck,
+     steep front arm, one rear binding post with a cord stub. -->
+<g id="wd-B">
+  <path class="t3" d="M0 0 H8"/>
+  <path class="t1" d="M2 -5 H66.5 M2 5 H66.5"/>
+  <path class="t1" d="M68.5 -11 H113.5 A2.5 2.5 0 0 1 116 -8.5 V8.5 A2.5 2.5 0 0 1 113.5 11 H68.5"/>
+  <rect class="sol" x="66" y="-11" width="30" height="22" rx="2.5"/>
+  <path class="t3" d="M100 -10 L103 10 M106 -10 L109 10"/>
+  <path class="t2" d="M116 -18 H136 V13 H116 Z"/>
+  <path class="t3" d="M136 4 H143 M143 0 V8"/>
+  <path class="t1" d="M144 -82 H178 V-74 H158 L156 -20 H219 V-12 H142 Z"/>
+  <path class="t2" d="M162 -24 H182 V-21.5 M162 -24 V-21.5"/>
+  <path class="t2" d="M164 -58 H180 V-24 H164 Z"/>
+  <path class="t2" d="M162 -62 H182 V-58 H162 Z"/>
+  <path class="t2" d="M170 -65 H176 V-62 H170 Z"/>
+  <path class="t3" d="M164 -26.4 L180 -28.6 M164 -30.3 L180 -32.5 M164 -34.0 L180 -36.4
+                      M164 -38.2 L180 -40.1 M164 -41.9 L180 -44.3 M164 -45.6 L180 -48.0
+                      M164 -49.8 L180 -51.9 M164 -53.5 L180 -55.7"/>
+  <path class="t2" d="M186 -24 H204 V-21.5 M186 -24 V-21.5"/>
+  <path class="t2" d="M188 -58 H202 V-24 H188 Z"/>
+  <path class="t2" d="M186 -62 H204 V-58 H186 Z"/>
+  <path class="t2" d="M192 -65 H198 V-62 H192 Z"/>
+  <path class="t3" d="M188 -26.1 L202 -28.5 M188 -30.2 L202 -32.2 M188 -33.9 L202 -36.3
+                      M188 -37.8 L202 -40.0 M188 -41.7 L202 -43.9 M188 -45.4 L202 -47.8
+                      M188 -49.5 L202 -51.5 M188 -53.2 L202 -55.6"/>
+  <path class="t2" d="M204 -71 L149 -64 L149 -58 L204 -65 Z"/>
+  <path class="t2" d="M145 -58 H153 V-51 H145 Z"/>
+  <path class="t2" d="M204 -20 V-70 H213 V-20"/>
+  <path class="t3" d="M182 -66 L162 -63 L162 -60 L182 -63 Z"/>
+  <path class="t2" d="M164 -74 H172 V-62 H164 Z"/>
+  <path class="t3" d="M162 -82 H174 V-75 H162 Z"/>
+  <rect class="sol" x="205" y="-76" width="7" height="14" rx="1.5"/>
+  <path class="t2" d="M215 -20 V-44 M219 -20 V-44"/>
+  <path class="t3" d="M214 -37 H220"/>
+  <path class="t3" d="M217 -44 C217 -54 225 -58 233 -56"/>
+</g>
+
+<g id="wd-pair">
+  <g mask="url(#wd-knock)" transform="translate(10,46) rotate(16.6)"><use href="#wd-A"/></g>
+  <g transform="translate(62,134) rotate(-12.1)"><use href="#wd-B"/></g>
+</g>
+<g id="wd-A-only"><g transform="translate(10,46) rotate(16.6)"><use href="#wd-A"/></g></g>
+
+</defs></svg>
+</body>
+</html>
