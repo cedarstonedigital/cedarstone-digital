@@ -591,10 +591,33 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
         <span>Roughly what you have in mind</span>
         <textarea id="bk-idea" name="idea" placeholder="Size, where on you it is going, and anything you have seen that you like."></textarea>
       </label>
-      <label class="field" for="bk-when">
-        <span>Best days to reach you</span>
-        <input id="bk-when" name="when" type="text" placeholder="Weekday mornings, Saturdays, whenever.">
-      </label>
+      <!-- The time options stop at half five because the shop does, and
+           Sunday is absent because they are closed. Offering a slot nobody
+           is there to answer would be the same species of lie as a form
+           that posts into nowhere. -->
+      <div class="row">
+        <label class="field" for="bk-day">
+          <span>Best day to reach you</span>
+          <select id="bk-day" name="day">
+            <option value="">Any day</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+          </select>
+        </label>
+        <label class="field" for="bk-time">
+          <span>Best time</span>
+          <select id="bk-time" name="time">
+            <option value="">Any time we’re open</option>
+            <option>Morning, nine till twelve</option>
+            <option>Early afternoon, twelve till three</option>
+            <option>Late afternoon, three till half five</option>
+          </select>
+        </label>
+      </div>
       <div class="book-act">
         <button class="act btn btn-primary" type="submit">Send it to the shop</button>
         <span class="fine secondary">Opens your email, nothing is sent until you press send.</span>
@@ -1019,7 +1042,15 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
       var tel  = field('bk-tel').value.trim();
       var what = field('bk-what').value.trim();
       var idea = field('bk-idea') ? field('bk-idea').value.trim() : '';
-      var when = field('bk-when') ? field('bk-when').value.trim() : '';
+      var day  = field('bk-day')  ? field('bk-day').value.trim()  : '';
+      var time = field('bk-time') ? field('bk-time').value.trim() : '';
+      /* Either half may be left on its default, so build only what was
+         actually chosen rather than emitting "Any day, Any time", which
+         tells the shop nothing it did not already assume. */
+      var when = '';
+      if (day && time)      when = day + ', ' + time.charAt(0).toLowerCase() + time.slice(1);
+      else if (day)         when = day + ', any time we are open';
+      else if (time)        when = 'Any day, ' + time.charAt(0).toLowerCase() + time.slice(1);
 
       var lines = [
         'Name: ' + name,
@@ -1027,7 +1058,7 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
         'After: ' + what
       ];
       if (idea) lines.push('', 'What they have in mind:', idea);
-      if (when) lines.push('', 'Best days to reach them: ' + when);
+      if (when) lines.push('', 'When to reach them: ' + when);
       lines.push('', 'Sent from the White Dragon website.');
 
       var href = 'mailto:' + TO
