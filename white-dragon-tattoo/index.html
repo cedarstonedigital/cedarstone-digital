@@ -114,6 +114,13 @@ h3{font-size:1.0625rem; line-height:1.35; letter-spacing:-.01em; font-weight:700
 
 /* 1. The door ------------------------------------------------------- */
 .door{
+  /* position:relative is load bearing. The hero is a header, not a section, so
+     the generic section{position:relative} rule never reached it and its
+     .grain::after overlay was resolving against the initial containing block.
+     It lined up only because the hero happens to be one viewport tall at the
+     top of the document. Anything else positioned in here needs a real
+     containing block. */
+  position:relative;
   min-height:100vh; min-height:100svh; display:flex; flex-direction:column; justify-content:center;
   padding-block:clamp(3rem,10vh,6rem);
 }
@@ -277,12 +284,59 @@ footer{background:var(--aubergine); color:var(--oat-00); padding-block:3rem}
   .day-bar{position:static;justify-content:center;text-align:center;
     margin-top:clamp(2rem,6vh,4rem)}
 }
+
+/* ==================================================================
+   THE BLEED.
+   Ink that soaked in from the top edge, travelled as far as the fibre
+   let it, and stopped. Not drips: drips say the ink is still wet,
+   which says the shop is new, and they carry a horror register this
+   palette has spent real effort avoiding. A bleed is the printer's
+   word and the tattooist's word for the same event, ink migrating
+   into a substrate over time, which is the longest established claim
+   rendered as texture rather than asserted.
+
+   It is the counter-motion to section 2, where the ink rises from
+   below through the hour numerals. Neither is animated. The rhyme is
+   in the substance, not in the movement.
+
+   Height is a proof, not a preference. Clear space above the standing
+   line is never less than the header's own padding, so deriving the
+   height from that same expression minus 8px makes collision with the
+   type geometrically impossible at every viewport. A fixed vh value
+   was measured colliding at 320x568 and on every landscape phone.
+
+   CSS owns density, the mask owns silhouette. A gradient alone gives a
+   straight boundary, which reads as a banner rather than as ink.
+   ================================================================== */
+.bleed{
+  position:absolute; inset:0 0 auto 0;
+  height:calc(clamp(3rem,10vh,6rem) - 8px);
+  /* z-index:0 is mandatory. .grain > * sets z-index:1 on every direct
+     child, so without this the bleed lands on top of the type. */
+  z-index:0; pointer-events:none;
+  background-image:linear-gradient(to bottom,
+    rgba(58,34,51,.46) 0%,
+    rgba(58,34,51,.40) 6%,
+    rgba(58,34,51,.27) 22%,
+    rgba(58,34,51,.17) 38%,
+    rgba(58,34,51,.10) 54%,
+    rgba(58,34,51,.05) 70%,
+    rgba(58,34,51,.02) 86%,
+    rgba(58,34,51,0)  100%);
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201200%20160%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22d%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FFFFFF%22%2F%3E%3Cstop%20offset%3D%2217%25%22%20stop-color%3D%22%23E0E0E0%22%2F%3E%3Cstop%20offset%3D%2238%25%22%20stop-color%3D%22%23FFFFFF%22%2F%3E%3Cstop%20offset%3D%2259%25%22%20stop-color%3D%22%23D4D4D4%22%2F%3E%3Cstop%20offset%3D%2278%25%22%20stop-color%3D%22%23F5F5F5%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23E8E8E8%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url%28%23d%29%22%20d%3D%22M%200%200%20H%201200%20V%20112%20C%201150%20138%2C%201100%2084%2C%201050%2096%20C%201000%20108%2C%20968%20158%2C%20900%20149%20C%20832%20140%2C%20812%20106%2C%20760%20121%20C%20708%20136%2C%20690%20172%2C%20620%20160%20C%20550%20148%2C%20532%2096%2C%20470%20103%20C%20408%20110%2C%20392%20152%2C%20330%20138%20C%20268%20124%2C%20248%2084%2C%20180%2091%20C%20112%2098%2C%2060%20142%2C%200%20126%20Z%22%2F%3E%3C%2Fsvg%3E"); mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201200%20160%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22d%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23FFFFFF%22%2F%3E%3Cstop%20offset%3D%2217%25%22%20stop-color%3D%22%23E0E0E0%22%2F%3E%3Cstop%20offset%3D%2238%25%22%20stop-color%3D%22%23FFFFFF%22%2F%3E%3Cstop%20offset%3D%2259%25%22%20stop-color%3D%22%23D4D4D4%22%2F%3E%3Cstop%20offset%3D%2278%25%22%20stop-color%3D%22%23F5F5F5%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23E8E8E8%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url%28%23d%29%22%20d%3D%22M%200%200%20H%201200%20V%20112%20C%201150%20138%2C%201100%2084%2C%201050%2096%20C%201000%20108%2C%20968%20158%2C%20900%20149%20C%20832%20140%2C%20812%20106%2C%20760%20121%20C%20708%20136%2C%20690%20172%2C%20620%20160%20C%20550%20148%2C%20532%2096%2C%20470%20103%20C%20408%20110%2C%20392%20152%2C%20330%20138%20C%20268%20124%2C%20248%2084%2C%20180%2091%20C%20112%2098%2C%2060%20142%2C%200%20126%20Z%22%2F%3E%3C%2Fsvg%3E");
+  -webkit-mask-size:100% 100%; mask-size:100% 100%;
+  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
+}
 </style>
 </head>
 <body>
 
 <!-- 1. THE DOOR ===================================================== -->
 <header class="door grain">
+  <!-- Sits before .wrap so the existing grain overlay multiplies over
+       it. One noise field across ink and ground is what makes the ink
+       read as soaked into the paper rather than laid on top of it. -->
+  <div class="bleed" aria-hidden="true"></div>
   <div class="wrap">
     <p class="standing">White Dragon Tattoo Studio, Lower Hillgate</p>
     <!-- The h1 ships with the plain hours line. Script swaps it for the live
