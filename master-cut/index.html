@@ -12,9 +12,16 @@
 <style>
 /* ------------------------------------------------------------------
    Master Cut, speculative concept. CedarStone Digital.
-   No accent colour anywhere. Emphasis is inversion and weight only.
+
+   One idea: the whole page is the shop's price board. A name on the
+   left, a fact on the right, a ruled line drawn between them. The
+   hero uses it, the board uses it sixteen times, the hours use it
+   seven times.
+
+   No accent colour anywhere. Emphasis is inversion, scale and weight.
    The single saturated colour on the page is the red of the shop's
-   own sign inside the photograph.
+   own sign inside the photograph, which is why the photograph is now
+   the first thing on the page and runs the full width of it.
 ------------------------------------------------------------------ */
 
 :root{
@@ -32,12 +39,16 @@
   --muted:var(--moss);
   --rule:var(--moss);
 
-  /* one duration, one curve, and that is the whole motion budget */
+  /* interface feedback */
   --t:150ms;
   --ease:cubic-bezier(.2,0,0,1);
+  /* the one entrance on the page: the board's leader rules */
+  --draw:260ms;
+  --step:36ms;
 
   --shell:clamp(1.25rem,5vw,4rem);
   --max:74rem;
+  --max-board:110rem;
 
   --display:"Big Shoulders","Arial Narrow",Arial,sans-serif;
   --text:"Source Serif 4",Georgia,"Times New Roman",serif;
@@ -45,7 +56,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 
-html{background:var(--stone);-webkit-text-size-adjust:100%}
+html{background:var(--forest-2);-webkit-text-size-adjust:100%}
 
 body{
   margin:0;
@@ -75,6 +86,7 @@ img{display:block;max-width:100%;height:auto}
   margin-inline:auto;
   padding-inline:var(--shell);
 }
+.shell--board{max-width:var(--max-board)}
 
 section.band{padding-block:clamp(3.25rem,8.5vw,6.5rem)}
 
@@ -94,7 +106,7 @@ section.band{padding-block:clamp(3.25rem,8.5vw,6.5rem)}
 h1{
   font-family:var(--display);
   font-weight:800;
-  font-size:clamp(3.25rem,14.5vw,11rem);
+  font-size:clamp(3.25rem,14.5vw,9rem);
   line-height:.84;
   letter-spacing:-.022em;
   text-transform:uppercase;
@@ -122,6 +134,16 @@ p:last-child{margin-bottom:0}
 .note{font-size:.9375rem;color:var(--muted);max-width:50ch}
 .fine{font-size:.875rem;line-height:1.6;color:var(--muted);max-width:62ch}
 
+.label{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.8125rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  line-height:1.4;
+  color:var(--muted);
+}
+
 /* ---- links ------------------------------------------------------ */
 
 a{color:inherit}
@@ -143,67 +165,9 @@ a:focus-visible,
   text-decoration-color:var(--fg);
 }
 
-/* ---- 1. the door ------------------------------------------------ */
-
-.door{padding-block:clamp(3rem,8vw,5.5rem) clamp(2.5rem,7vw,5rem)}
-
-.door__meta{
-  margin-top:2.25rem;
-  padding-top:1.5rem;
-  border-top:1px solid var(--rule);
-  display:flex;
-  flex-wrap:wrap;
-  gap:.6rem 3rem;
-  align-items:baseline;
-}
-
-.tel{
-  font-family:var(--display);
-  font-weight:700;
-  font-size:clamp(1.5rem,3.6vw,2.125rem);
-  letter-spacing:-.01em;
-  line-height:1.05;
-  text-decoration:none;
-  border-bottom:2px solid var(--rule);
-  padding-bottom:.08em;
-  transition:border-color var(--t) var(--ease);
-  white-space:nowrap;
-}
-.tel:hover{border-color:var(--fg)}
-.tel:focus-visible{outline:2px solid var(--fg);outline-offset:4px}
-
-.rating{margin:0;font-size:1rem;color:var(--muted);max-width:34ch}
-
-.shot{margin:clamp(2.5rem,6vw,4rem) 0 0}
-.shot img{width:100%;border:1px solid var(--forest)}
-.shot figcaption{
-  margin-top:.85rem;
-  font-size:.875rem;
-  color:var(--muted);
-  max-width:56ch;
-}
-
-/* ---- 2. the board ----------------------------------------------- */
-
-.board__head{margin-bottom:clamp(2rem,4.5vw,3rem)}
-.board__head h2{margin-bottom:1.1rem}
-
-.board{
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:grid;
-  grid-template-columns:1fr;
-  column-gap:clamp(2rem,6vw,5rem);
-}
-
-@media (min-width:820px){
-  .board{
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:repeat(8,auto);
-    grid-auto-flow:column;
-  }
-}
+/* ---- the ruled row, the page's one structural device -------------
+   Used by the hero phone band, the sixteen prices and the seven days.
+------------------------------------------------------------------ */
 
 .rate{
   display:flex;
@@ -223,9 +187,178 @@ a:focus-visible,
 
 .from{font-size:.75em;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding-right:.06em}
 
-/* ---- 3. how it works -------------------------------------------- */
+/* ---- 1. the door ------------------------------------------------
+   The photograph is now full bleed and is the first thing on the
+   page. It dissolves into the dark field beneath it, and the
+   headline, the phone number and the address sit on the part of that
+   dissolve that is fully opaque, so the type is never measured
+   against the photograph.
+------------------------------------------------------------------ */
+
+.band.hero{padding-block:0;position:relative}
+
+.hero__shot{position:relative;margin:0}
+
+.hero__img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  object-position:50% 50%;
+  display:block;
+}
+
+/* --op is the share of the image height that is fully opaque
+   forest-2, measured up from the bottom. --clear is where the
+   photograph is completely untouched. Both are percentages of the
+   image height, and the image height is a fixed ratio of its width,
+   so the geometry below is decided by viewport width alone. */
+.hero__fade{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:100%;
+  background:linear-gradient(to top,
+    #0E2415 0%,
+    #0E2415 var(--op,30%),
+    rgba(14,36,21,0) var(--clear,68%));
+  pointer-events:none;
+}
+
+/* Pulls the type up onto that opaque foot. Percentages resolve
+   against the width, so at 1/1 a pull of 22% of width is 22% of the
+   image height, against an opaque foot of 30%. Every breakpoint
+   below keeps pull < --op with margin to spare. */
+.hero__body{position:relative;margin-top:-22%}
+
+.hero__head{padding-bottom:clamp(1.25rem,3vw,2rem)}
+
+.hero__band{
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+
+.hero__row{
+  display:flex;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:.5rem 1.5rem;
+  padding-block:clamp(.9rem,2vw,1.4rem);
+}
+
+.tel{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.75rem,4.4vw,3rem);
+  letter-spacing:-.01em;
+  line-height:1.05;
+  text-decoration:none;
+  border-bottom:2px solid var(--rule);
+  padding-bottom:.08em;
+  transition:border-color var(--t) var(--ease);
+  white-space:nowrap;
+}
+.tel:hover{border-color:var(--fg)}
+.tel:focus-visible{outline:2px solid var(--fg);outline-offset:4px}
+
+.rating{margin:0;font-size:1rem;color:var(--muted);max-width:34ch}
+
+.hero__labels{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.35rem 1.5rem;
+  justify-content:space-between;
+  padding-block:.9rem clamp(2rem,5vw,3.25rem);
+}
+
+@media (max-width:719px){
+  .hero__row .rate__lead{display:none}
+}
+
+/* 16/9 is the photograph's own ratio, so nothing is cropped here. */
+@media (min-width:720px){
+  .hero__img{aspect-ratio:16/9}
+  .hero__body{margin-top:-12.3%}   /* 21.9% of the image height */
+}
+
+/* Wide screens get a 3/1 letterbox. It crops the sidewalk and the
+   lower window panels, which the dissolve was burying anyway, keeps
+   the red sign and the awnings, and costs 120px less height than a
+   21/9 band did, which is what keeps the phone number above the
+   fold on a laptop. */
+@media (min-width:1200px){
+  .hero__img{aspect-ratio:3/1;object-position:50% 10%}
+  .hero__body{margin-top:-9.4%}    /* 28.2% of the image height */
+  /* --clear 72% puts the dissolve's first touch at natural y 149,
+     which is 16px below the bottom of the red letters (measured
+     bbox: x 345 to 953, y 51 to 133). The sign is never scrimmed. */
+  .hero__fade{--op:38%;--clear:72%}
+}
+
+/* ---- 2. the board -----------------------------------------------
+   Sixteen services on one column, set in the display face at signage
+   scale, with the leader rules running the full width of a wider
+   shell. Every price is the same size and the same weight, so the $5
+   nose wax sits level with the $35 cut.
+------------------------------------------------------------------ */
+
+.board__head{margin-bottom:clamp(2rem,4.5vw,3rem)}
+.board__head h2{margin-bottom:1.1rem}
+
+.board{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.board .rate{
+  font-family:var(--display);
+  text-transform:uppercase;
+  font-size:clamp(1.375rem,3.4vw,2.5rem);
+  letter-spacing:.002em;
+  gap:clamp(.6rem,1.6vw,1.25rem);
+  padding-block:clamp(.5rem,1.15vw,.8rem);
+}
+
+.board .rate__name{font-weight:700;line-height:1.02}
+.board .rate__price{font-weight:700;line-height:1.02}
+.board .rate__lead{margin-bottom:.28em}
+.board .from{font-size:.5em;letter-spacing:.12em}
+.board .d{font-size:.78em}
+
+/* The one entrance. Resting state is a full width rule: the arming
+   class below is only ever applied by script, only ever after two
+   painted frames, only ever when the board is off screen, and only
+   ever to an aria-hidden decoration, so nothing that carries meaning
+   can be caught by it.
+
+   Arming carries NO transition, so the rules snap to zero off screen
+   rather than animating down and back up. The transition is attached
+   by .is-drawn, which is the only thing the eye ever sees. */
+#board.is-armed .rate__lead{
+  transform:scaleX(0);
+  transform-origin:left center;
+}
+#board.is-armed.is-drawn .rate__lead{
+  transform:scaleX(1);
+  transition:transform var(--draw) var(--ease);
+  transition-delay:calc(var(--i,0) * var(--step));
+}
+
+/* the release. Deletes the hiding mechanism AND the transition, so
+   getting back to visible never depends on a frame being painted. */
+.motion-done #board .rate__lead{transform:none !important;transition:none !important}
+
+/* ---- 3. how it works --------------------------------------------
+   The bright breath between the two dark, loud sections.
+------------------------------------------------------------------ */
 
 .works p{max-width:50ch}
+.works h2{
+  font-size:clamp(2.75rem,9vw,7rem);
+  line-height:.86;
+  letter-spacing:-.025em;
+  max-width:14ch;
+  margin-bottom:clamp(1.75rem,4vw,2.75rem);
+}
 .works .big{
   font-family:var(--text);
   font-size:clamp(1.125rem,2vw,1.5rem);
@@ -233,7 +366,42 @@ a:focus-visible,
   font-weight:400;
 }
 
-/* ---- 4. what people say ----------------------------------------- */
+/* ---- 4. what people say -----------------------------------------
+   455 is an enormous number for a barbershop, so it is set as one.
+------------------------------------------------------------------ */
+
+.tally{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.5rem clamp(1.25rem,4vw,3rem);
+  border-bottom:1px solid var(--rule);
+  padding-bottom:clamp(1rem,2.5vw,1.75rem);
+  margin-bottom:clamp(2rem,5vw,3.25rem);
+}
+
+.tally__n{
+  font-family:var(--display);
+  font-weight:800;
+  font-size:clamp(5rem,19vw,13rem);
+  line-height:.76;
+  letter-spacing:-.035em;
+  font-variant-numeric:tabular-nums lining-nums;
+  margin:0;
+  color:var(--fg);
+}
+
+.tally__key{list-style:none;margin:0;padding:0}
+.tally__key li{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.8125rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  line-height:1.95;
+  color:var(--muted);
+}
+.tally__key li:first-child{color:var(--fg)}
 
 .says{
   display:grid;
@@ -323,12 +491,14 @@ a:focus-visible,
 .foot p + p{margin-top:.85rem}
 
 /* ---- reduced motion ---------------------------------------------
-   Nothing on this page is hidden by motion, nothing rests at
-   opacity 0, and there are no scroll-triggered reveals, so there is
-   no hiding mechanism to delete. What is left is hover and focus
-   feedback. Under reduce, those state changes still happen, they
-   simply arrive instantly: the underline still thickens, the phone
-   rule still darkens, the focus ring still appears.
+   Placed last so it wins on source order against everything above.
+
+   The reduced version is the composed one, not the stripped one: the
+   board arrives with all sixteen leader rules already drawn, which is
+   the letterpress board the section was designed as. The script does
+   not even install the entrance when reduce is set, and this block is
+   the second guard behind that, because a transition:none alone would
+   strand a collapsed rule at scaleX(0) forever.
 ------------------------------------------------------------------ */
 
 @media (prefers-reduced-motion:reduce){
@@ -337,58 +507,71 @@ a:focus-visible,
     transition:none !important;
     scroll-behavior:auto !important;
   }
+  #board .rate__lead{transform:none !important}
 }
 </style>
 </head>
 <body>
 
 <!-- 1. THE DOOR -->
-<section class="band tone-stone door" aria-labelledby="h-door">
-  <div class="shell">
-    <p class="eyebrow">Rockford, Illinois</p>
-    <h1 id="h-door"><span>Walk in.</span>
-      <span>Sit down.</span></h1>
-    <p class="lede">Master Cut, 5801 Columbia Pkwy, Rockford. Seven days a week, no appointments.</p>
+<section class="band tone-deep hero" aria-labelledby="h-door">
 
-    <div class="door__meta">
-      <a class="tel" href="tel:+17794232245">(779) 423-2245</a>
-      <p class="rating">4.7 on Google, from 455 reviews.</p>
+  <figure class="hero__shot">
+    <img class="hero__img" src="assets/img/storefront.jpg" width="1280" height="720" fetchpriority="high"
+         alt="The Master Cut shopfront: red block lettering on a cream facade above a row of glass doors, with haircut posters in the windows labelled taper, fade, mohawk and line up.">
+    <span class="hero__fade" aria-hidden="true"></span>
+  </figure>
+
+  <div class="hero__body">
+    <div class="shell hero__head">
+      <p class="eyebrow">Rockford, Illinois</p>
+      <h1 id="h-door"><span>Walk in.</span>
+        <span>Sit down.</span></h1>
+      <p class="lede">Master Cut, 5801 Columbia Pkwy, Rockford. Seven days a week, no appointments.</p>
     </div>
 
-    <figure class="shot">
-      <img src="assets/img/storefront.jpg" width="1280" height="720"
-           alt="The Master Cut shopfront: red block lettering on a cream facade above a row of glass doors, with haircut posters in the windows labelled taper, fade, mohawk and line up.">
-      <figcaption>The shop on Columbia Parkway. Suite 129, under the red sign.</figcaption>
-    </figure>
+    <div class="hero__band">
+      <div class="shell rate hero__row">
+        <a class="tel" href="tel:+17794232245">(779) 423-2245</a>
+        <span class="rate__lead" aria-hidden="true"></span>
+        <p class="rating">4.7 on Google, from 455 reviews.</p>
+      </div>
+    </div>
+
+    <div class="shell hero__labels">
+      <span class="label">The shop on Columbia Parkway, Suite 129</span>
+      <span class="label">Walk-ins only, seven days</span>
+    </div>
   </div>
+
 </section>
 
 <!-- 2. THE BOARD -->
 <section class="band tone-dark" aria-labelledby="h-board">
-  <div class="shell">
+  <div class="shell shell--board">
     <div class="board__head">
       <p class="eyebrow">The board</p>
       <h2 id="h-board">Everything we do, and what it costs.</h2>
       <p class="note">Copied from the board on the wall in the shop. Prices change, so check them on the day.</p>
     </div>
 
-    <ul class="board">
-      <li class="rate"><span class="rate__name">Haircut</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>25</span></li>
-      <li class="rate"><span class="rate__name">Haircut &amp; shave</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>35</span></li>
-      <li class="rate"><span class="rate__name">Shave</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>15</span></li>
-      <li class="rate"><span class="rate__name">Hair lineup</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>12</span></li>
-      <li class="rate"><span class="rate__name">Facial steamer</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>30</span></li>
-      <li class="rate"><span class="rate__name">Black mask</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
-      <li class="rate"><span class="rate__name">Beard color</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
-      <li class="rate"><span class="rate__name">Hair color</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>25</span></li>
-      <li class="rate"><span class="rate__name">Face wax</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
-      <li class="rate"><span class="rate__name">Ears wax</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>5</span></li>
-      <li class="rate"><span class="rate__name">Nose wax</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>5</span></li>
-      <li class="rate"><span class="rate__name">Eyebrows</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
-      <li class="rate"><span class="rate__name">Facial cream</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>5</span></li>
-      <li class="rate"><span class="rate__name">Hair design</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="from">From</span> <span class="d">$</span>5</span></li>
-      <li class="rate"><span class="rate__name">Threading</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
-      <li class="rate"><span class="rate__name">Wash &amp; style</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+    <ul class="board" id="board">
+      <li class="rate" style="--i:0"><span class="rate__name">Haircut</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>25</span></li>
+      <li class="rate" style="--i:1"><span class="rate__name">Haircut &amp; shave</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>35</span></li>
+      <li class="rate" style="--i:2"><span class="rate__name">Shave</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>15</span></li>
+      <li class="rate" style="--i:3"><span class="rate__name">Hair lineup</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>12</span></li>
+      <li class="rate" style="--i:4"><span class="rate__name">Facial steamer</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>30</span></li>
+      <li class="rate" style="--i:5"><span class="rate__name">Black mask</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+      <li class="rate" style="--i:6"><span class="rate__name">Beard color</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+      <li class="rate" style="--i:7"><span class="rate__name">Hair color</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>25</span></li>
+      <li class="rate" style="--i:8"><span class="rate__name">Face wax</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+      <li class="rate" style="--i:9"><span class="rate__name">Ears wax</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>5</span></li>
+      <li class="rate" style="--i:10"><span class="rate__name">Nose wax</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>5</span></li>
+      <li class="rate" style="--i:11"><span class="rate__name">Eyebrows</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+      <li class="rate" style="--i:12"><span class="rate__name">Facial cream</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>5</span></li>
+      <li class="rate" style="--i:13"><span class="rate__name">Hair design</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="from">From</span> <span class="d">$</span>5</span></li>
+      <li class="rate" style="--i:14"><span class="rate__name">Threading</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+      <li class="rate" style="--i:15"><span class="rate__name">Wash &amp; style</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
     </ul>
   </div>
 </section>
@@ -406,7 +589,15 @@ a:focus-visible,
 <!-- 4. WHAT PEOPLE SAY -->
 <section class="band tone-stone" aria-labelledby="h-says">
   <div class="shell">
-    <p class="eyebrow">4.7 from 455 reviews</p>
+    <div class="tally">
+      <p class="tally__n">455</p>
+      <ul class="tally__key">
+        <li>Google reviews</li>
+        <li>4.7 average</li>
+        <li>Nine years</li>
+      </ul>
+    </div>
+
     <h2 id="h-says">What people say.</h2>
 
     <div class="says">
@@ -485,6 +676,60 @@ a:focus-visible,
     <p class="fine">The photograph of the shopfront is the shop's own, used here for this concept.</p>
   </div>
 </footer>
+
+<script>
+/* The whole motion budget. Sixteen aria-hidden leader rules draw
+   themselves across the board, once, left to right, 36ms apart.
+
+   Four guards, in order:
+   1. bail entirely if the reader asked for reduced motion;
+   2. arm nothing until two real animation frames have been painted,
+      so a renderer that is not painting never hides anything;
+   3. arm nothing if the board is already on screen, so the rules are
+      never seen to vanish;
+   4. a timer deletes the collapsed state AND its transition, so
+      getting back to visible never depends on a frame being painted.
+   Worst case is sixteen missing hairlines for six seconds. No price,
+   no service name and no contact detail is ever inside the effect. */
+(function(){
+  var root = document.documentElement;
+  var board = document.getElementById('board');
+  if (!board || !window.requestAnimationFrame) { return; }
+
+  var mq = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  if (mq && mq.matches) { return; }
+  if (!('IntersectionObserver' in window)) { return; }
+
+  var done = false;
+  function release(){
+    if (done) { return; }
+    done = true;
+    root.classList.add('motion-done');
+  }
+
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      var armed = false;
+      var io = new IntersectionObserver(function(entries, obs){
+        var seen = entries[entries.length - 1].isIntersecting;
+        if (!armed){
+          armed = true;
+          if (seen){ obs.disconnect(); release(); return; }
+          board.classList.add('is-armed');
+          return;
+        }
+        if (seen){
+          obs.disconnect();
+          board.classList.add('is-drawn');
+          setTimeout(release, 1400);
+        }
+      }, { rootMargin: '0px 0px -12% 0px' });
+      io.observe(board);
+      setTimeout(release, 6000);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
