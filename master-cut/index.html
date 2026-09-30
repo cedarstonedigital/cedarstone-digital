@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Master Cut, Rockford. Walk in. Sit down.</title>
+<meta name="description" content="A speculative concept page for Master Cut, a walk-ins-only barbershop on Columbia Parkway in Rockford, Illinois. Built by CedarStone Digital. Not affiliated with the shop.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@400..800&family=Source+Serif+4:opsz,wght@8..60,400..700&display=swap">
+<style>
+/* ------------------------------------------------------------------
+   Master Cut, speculative concept. CedarStone Digital.
+   No accent colour anywhere. Emphasis is inversion and weight only.
+   The single saturated colour on the page is the red of the shop's
+   own sign inside the photograph.
+------------------------------------------------------------------ */
+
+:root{
+  --stone:#DCE0D8;
+  --stone-2:#CDD3C9;
+  --forest:#16341F;
+  --forest-2:#0E2415;
+  --moss:#4A5A4E;
+  --chalk:#E7EBE3;
+  --chalk-2:#A9B6A8;
+
+  /* resolved per section by the tone classes */
+  --bg:var(--stone);
+  --fg:var(--forest);
+  --muted:var(--moss);
+  --rule:var(--moss);
+
+  /* one duration, one curve, and that is the whole motion budget */
+  --t:150ms;
+  --ease:cubic-bezier(.2,0,0,1);
+
+  --shell:clamp(1.25rem,5vw,4rem);
+  --max:74rem;
+
+  --display:"Big Shoulders","Arial Narrow",Arial,sans-serif;
+  --text:"Source Serif 4",Georgia,"Times New Roman",serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{background:var(--stone);-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--stone);
+  color:var(--forest);
+  font-family:var(--text);
+  font-size:1.0625rem;
+  line-height:1.62;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+img{display:block;max-width:100%;height:auto}
+
+/* ---- tones ------------------------------------------------------ */
+
+.tone-stone{--bg:var(--stone);--fg:var(--forest);--muted:var(--moss);--rule:var(--moss)}
+.tone-panel{--bg:var(--stone-2);--fg:var(--forest);--muted:var(--moss);--rule:var(--moss)}
+.tone-dark {--bg:var(--forest);--fg:var(--chalk);--muted:var(--chalk-2);--rule:var(--chalk-2)}
+.tone-deep {--bg:var(--forest-2);--fg:var(--chalk);--muted:var(--chalk-2);--rule:var(--chalk-2)}
+
+.band{background:var(--bg);color:var(--fg)}
+
+.shell{
+  max-width:var(--max);
+  margin-inline:auto;
+  padding-inline:var(--shell);
+}
+
+section.band{padding-block:clamp(3.25rem,8.5vw,6.5rem)}
+
+/* ---- type ------------------------------------------------------- */
+
+.eyebrow{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.8125rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 1.15rem;
+  line-height:1.2;
+}
+
+h1{
+  font-family:var(--display);
+  font-weight:800;
+  font-size:clamp(3.25rem,14.5vw,11rem);
+  line-height:.84;
+  letter-spacing:-.022em;
+  text-transform:uppercase;
+  margin:0 0 1.5rem;
+  color:var(--fg);
+}
+h1 span{display:block}
+
+h2{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(2rem,5vw,3.25rem);
+  line-height:.95;
+  letter-spacing:-.014em;
+  text-transform:uppercase;
+  margin:0 0 1.5rem;
+  max-width:22ch;
+  color:var(--fg);
+}
+
+p{margin:0 0 1.1rem;max-width:60ch}
+p:last-child{margin-bottom:0}
+
+.lede{font-size:clamp(1.125rem,1.9vw,1.375rem);line-height:1.5;max-width:40ch}
+.note{font-size:.9375rem;color:var(--muted);max-width:50ch}
+.fine{font-size:.875rem;line-height:1.6;color:var(--muted);max-width:62ch}
+
+/* ---- links ------------------------------------------------------ */
+
+a{color:inherit}
+
+.link{
+  color:var(--fg);
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-underline-offset:.22em;
+  text-decoration-color:var(--rule);
+  transition:text-decoration-color var(--t) var(--ease), text-underline-offset var(--t) var(--ease);
+}
+.link:hover{text-decoration-color:var(--fg);text-underline-offset:.32em}
+
+a:focus-visible,
+.link:focus-visible{
+  outline:2px solid var(--fg);
+  outline-offset:3px;
+  text-decoration-color:var(--fg);
+}
+
+/* ---- 1. the door ------------------------------------------------ */
+
+.door{padding-block:clamp(3rem,8vw,5.5rem) clamp(2.5rem,7vw,5rem)}
+
+.door__meta{
+  margin-top:2.25rem;
+  padding-top:1.5rem;
+  border-top:1px solid var(--rule);
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem 3rem;
+  align-items:baseline;
+}
+
+.tel{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(1.5rem,3.6vw,2.125rem);
+  letter-spacing:-.01em;
+  line-height:1.05;
+  text-decoration:none;
+  border-bottom:2px solid var(--rule);
+  padding-bottom:.08em;
+  transition:border-color var(--t) var(--ease);
+  white-space:nowrap;
+}
+.tel:hover{border-color:var(--fg)}
+.tel:focus-visible{outline:2px solid var(--fg);outline-offset:4px}
+
+.rating{margin:0;font-size:1rem;color:var(--muted);max-width:34ch}
+
+.shot{margin:clamp(2.5rem,6vw,4rem) 0 0}
+.shot img{width:100%;border:1px solid var(--forest)}
+.shot figcaption{
+  margin-top:.85rem;
+  font-size:.875rem;
+  color:var(--muted);
+  max-width:56ch;
+}
+
+/* ---- 2. the board ----------------------------------------------- */
+
+.board__head{margin-bottom:clamp(2rem,4.5vw,3rem)}
+.board__head h2{margin-bottom:1.1rem}
+
+.board{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr;
+  column-gap:clamp(2rem,6vw,5rem);
+}
+
+@media (min-width:820px){
+  .board{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:repeat(8,auto);
+    grid-auto-flow:column;
+  }
+}
+
+.rate{
+  display:flex;
+  align-items:flex-end;
+  gap:.75rem;
+  padding-block:.68rem;
+  font-size:clamp(1rem,1.4vw,1.125rem);
+}
+
+.rate__name{font-weight:500;line-height:1.2;letter-spacing:.005em}
+
+.rate__lead{flex:1 1 auto;min-width:1.25rem;border-bottom:1px solid var(--rule);margin-bottom:.34em}
+
+.rate__price{font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+
+.d{font-size:.82em;padding-right:.03em}
+
+.from{font-size:.75em;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding-right:.06em}
+
+/* ---- 3. how it works -------------------------------------------- */
+
+.works p{max-width:50ch}
+.works .big{
+  font-family:var(--text);
+  font-size:clamp(1.125rem,2vw,1.5rem);
+  line-height:1.45;
+  font-weight:400;
+}
+
+/* ---- 4. what people say ----------------------------------------- */
+
+.says{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0 clamp(2.5rem,6vw,5rem);
+}
+
+@media (min-width:860px){
+  .says{grid-template-columns:1fr 1fr}
+}
+
+.say{
+  margin:0;
+  padding-block:1.75rem;
+  border-top:1px solid var(--rule);
+}
+
+.say blockquote{margin:0}
+
+.quote{
+  margin:0 0 1rem;
+  max-width:46ch;
+  font-size:1.0625rem;
+  line-height:1.6;
+  white-space:pre-wrap;
+  overflow-wrap:break-word;
+}
+
+.say figcaption{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.875rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  line-height:1.4;
+}
+.say figcaption .when{
+  display:block;
+  font-weight:400;
+  letter-spacing:.11em;
+  color:var(--muted);
+  margin-top:.2rem;
+}
+
+/* ---- 5. find us ------------------------------------------------- */
+
+.find__grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(2.5rem,5vw,4rem);
+  align-items:start;
+}
+
+@media (min-width:820px){
+  .find__grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+}
+
+.addr{font-style:normal;font-size:1.0625rem;line-height:1.7;margin:0 0 1.5rem}
+
+.hours{list-style:none;margin:0;padding:0;max-width:30rem}
+.hours .rate{font-size:1.0625rem;padding-block:.52rem}
+.hours .rate__name{font-weight:400}
+.hours .rate__price{font-weight:500}
+
+.hours__label{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:.8125rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 .5rem;
+}
+
+/* ---- footer ----------------------------------------------------- */
+
+.foot{padding-block:clamp(2.75rem,6vw,4rem)}
+.foot__mark{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:1rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  margin:0 0 1.25rem;
+  color:var(--fg);
+}
+.foot p + p{margin-top:.85rem}
+
+/* ---- reduced motion ---------------------------------------------
+   Nothing on this page is hidden by motion, nothing rests at
+   opacity 0, and there are no scroll-triggered reveals, so there is
+   no hiding mechanism to delete. What is left is hover and focus
+   feedback. Under reduce, those state changes still happen, they
+   simply arrive instantly: the underline still thickens, the phone
+   rule still darkens, the focus ring still appears.
+------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation:none !important;
+    transition:none !important;
+    scroll-behavior:auto !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 1. THE DOOR -->
+<section class="band tone-stone door" aria-labelledby="h-door">
+  <div class="shell">
+    <p class="eyebrow">Rockford, Illinois</p>
+    <h1 id="h-door"><span>Walk in.</span>
+      <span>Sit down.</span></h1>
+    <p class="lede">Master Cut, 5801 Columbia Pkwy, Rockford. Seven days a week, no appointments.</p>
+
+    <div class="door__meta">
+      <a class="tel" href="tel:+17794232245">(779) 423-2245</a>
+      <p class="rating">4.7 on Google, from 455 reviews.</p>
+    </div>
+
+    <figure class="shot">
+      <img src="assets/img/storefront.jpg" width="1280" height="720"
+           alt="The Master Cut shopfront: red block lettering on a cream facade above a row of glass doors, with haircut posters in the windows labelled taper, fade, mohawk and line up.">
+      <figcaption>The shop on Columbia Parkway. Suite 129, under the red sign.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2. THE BOARD -->
+<section class="band tone-dark" aria-labelledby="h-board">
+  <div class="shell">
+    <div class="board__head">
+      <p class="eyebrow">The board</p>
+      <h2 id="h-board">Everything we do, and what it costs.</h2>
+      <p class="note">Copied from the board on the wall in the shop. Prices change, so check them on the day.</p>
+    </div>
+
+    <ul class="board">
+      <li class="rate"><span class="rate__name">Haircut</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>25</span></li>
+      <li class="rate"><span class="rate__name">Haircut &amp; shave</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>35</span></li>
+      <li class="rate"><span class="rate__name">Shave</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>15</span></li>
+      <li class="rate"><span class="rate__name">Hair lineup</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>12</span></li>
+      <li class="rate"><span class="rate__name">Facial steamer</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>30</span></li>
+      <li class="rate"><span class="rate__name">Black mask</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+      <li class="rate"><span class="rate__name">Beard color</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+      <li class="rate"><span class="rate__name">Hair color</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>25</span></li>
+      <li class="rate"><span class="rate__name">Face wax</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+      <li class="rate"><span class="rate__name">Ears wax</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>5</span></li>
+      <li class="rate"><span class="rate__name">Nose wax</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>5</span></li>
+      <li class="rate"><span class="rate__name">Eyebrows</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+      <li class="rate"><span class="rate__name">Facial cream</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>5</span></li>
+      <li class="rate"><span class="rate__name">Hair design</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="from">From</span> <span class="d">$</span>5</span></li>
+      <li class="rate"><span class="rate__name">Threading</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+      <li class="rate"><span class="rate__name">Wash &amp; style</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price"><span class="d">$</span>10</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3. HOW IT WORKS -->
+<section class="band tone-panel works" aria-labelledby="h-works">
+  <div class="shell">
+    <p class="eyebrow">How it works</p>
+    <h2 id="h-works">There is nothing to book.</h2>
+    <p class="big">No appointments. No app. No booking. Master Cut is walk-ins only, seven days a week.</p>
+    <p class="big">Monday to Saturday, ten in the morning until eight at night. Sunday, ten until six.</p>
+  </div>
+</section>
+
+<!-- 4. WHAT PEOPLE SAY -->
+<section class="band tone-stone" aria-labelledby="h-says">
+  <div class="shell">
+    <p class="eyebrow">4.7 from 455 reviews</p>
+    <h2 id="h-says">What people say.</h2>
+
+    <div class="says">
+      <figure class="say">
+        <blockquote><p class="quote">We went there for the first time today, they did such a great job. My husband and son both got a haircut and we were in and out in 30 minutes. No wait and quality cut!</p></blockquote>
+        <figcaption>Kayla Mazzari-Bankson<span class="when">6 months ago</span></figcaption>
+      </figure>
+
+      <figure class="say">
+        <blockquote><p class="quote">Took my 5 year old son for his first barber shop experience this past week. Jafar was so good with him and even gave him a little green in his hair at the end. That truly made my son's day and he can't wait to go back. Cut was done exactly the way I had asked. No complaints! Thank you!</p></blockquote>
+        <figcaption>Aryanna Thompson<span class="when">7 months ago</span></figcaption>
+      </figure>
+
+      <figure class="say">
+        <blockquote><p class="quote">My son insists on coming here for his fade and cut. Everyone here is very talented and each and everyone is unique in their cut. I highly recommend for your boys!</p></blockquote>
+        <figcaption>Sungazing Lioness<span class="when">3 weeks ago</span></figcaption>
+      </figure>
+
+      <figure class="say">
+        <blockquote><p class="quote">I've been coming here since 2023 and I haven't gone to another barber since. I've always been very happy with the cuts I get here. 10/10 recommend this location!</p></blockquote>
+        <figcaption>Hayden Brongiel<span class="when">a month ago</span></figcaption>
+      </figure>
+
+      <figure class="say">
+        <blockquote><p class="quote">Just went in for 1st time 3/28/26 Saturday.  Very busy and I know why now.  Probably the best haircut I've received.  Great attention to giving you the best service.  I'm very happy.</p></blockquote>
+        <figcaption>Adrean Mineau<span class="when">5 months ago</span></figcaption>
+      </figure>
+
+      <figure class="say">
+        <blockquote><p class="quote">This place is great. No matter how busy it is I usually only have to wait one or two cuts to get into the chair. Mohammed in the second chair and AHMED, his cousin both get my fades right.</p></blockquote>
+        <figcaption>billy shabatura<span class="when">a year ago</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FIND US -->
+<section class="band tone-dark" aria-labelledby="h-find">
+  <div class="shell">
+    <p class="eyebrow">Find us</p>
+    <h2 id="h-find">Columbia Parkway, Rockford.</h2>
+
+    <div class="find__grid">
+      <div>
+        <address class="addr">
+          Master Cut<br>
+          5801 Columbia Pkwy, Ste 129<br>
+          Rockford, IL 61108<br>
+          <a class="link" href="tel:+17794232245">(779) 423-2245</a>
+        </address>
+        <p><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Master%20Cut%205801%20Columbia%20Pkwy%20Ste%20129%20Rockford%20IL%2061108" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></p>
+        <p class="note">Master Cut has been at this address since at least 2017. The Google listing is under the name &ldquo;Master Cut( Walk-Ins Only)&rdquo;.</p>
+      </div>
+
+      <div>
+        <p class="hours__label">Hours</p>
+        <ul class="hours">
+          <li class="rate"><span class="rate__name">Monday</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price">10am to 8pm</span></li>
+          <li class="rate"><span class="rate__name">Tuesday</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price">10am to 8pm</span></li>
+          <li class="rate"><span class="rate__name">Wednesday</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price">10am to 8pm</span></li>
+          <li class="rate"><span class="rate__name">Thursday</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price">10am to 8pm</span></li>
+          <li class="rate"><span class="rate__name">Friday</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price">10am to 8pm</span></li>
+          <li class="rate"><span class="rate__name">Saturday</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price">10am to 8pm</span></li>
+          <li class="rate"><span class="rate__name">Sunday</span><span class="rate__lead" aria-hidden="true"></span><span class="rate__price">10am to 6pm</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="band tone-deep foot">
+  <div class="shell">
+    <p class="foot__mark">A concept by CedarStone Digital</p>
+    <p class="fine">This page is speculative. CedarStone Digital is not affiliated with Master Cut, was not commissioned by the shop, and is not endorsed by it. It was built to show what a site for the shop could be.</p>
+    <p class="fine">The address, phone number, hours, prices and reviews on this page are the shop's own published details, reproduced as found. The prices are as published on the board in the shop and should be confirmed on the day. Nothing on this page books anything.</p>
+    <p class="fine">The photograph of the shopfront is the shop's own, used here for this concept.</p>
+  </div>
+</footer>
+
+</body>
+</html>

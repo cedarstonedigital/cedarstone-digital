@@ -169,6 +169,18 @@
         "C:/Users/tumel/cedarstone-digital/white-dragon-tattoo"
       ],
       "port": 8426
+    },
+    {
+      "name": "master-cut",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8428",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/master-cut"
+      ],
+      "port": 8428
     }
   ]
 }
