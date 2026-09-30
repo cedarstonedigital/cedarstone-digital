@@ -623,6 +623,14 @@ body.paged.lit #pages{pointer-events:none}
 #pages .spot.text{justify-content:flex-end;background:linear-gradient(160deg, #0d1a10, #050505 70%)}
 #pages .spot.text .body{padding-top:48px}
 
+/* team */
+#pages .team{list-style:none;display:flex;flex-wrap:wrap;gap:1px;background:rgba(244,242,239,.12);border:1px solid rgba(244,242,239,.12);margin-top:clamp(32px, 4.5vw, 56px)}
+#pages .team li{flex:1 1 210px;background:#000;padding:clamp(22px, 2.6vw, 32px);display:flex;flex-direction:column;gap:10px;min-height:170px}
+#pages .team .n{font-size:11px;letter-spacing:.16em;color:var(--dim)}
+#pages .team b{margin-top:auto;font-family:var(--serif);font-weight:400;font-size:clamp(22px, 2.2vw, 30px);line-height:1.1;letter-spacing:-.005em}
+#pages .team .sn{font-size:12.5px;letter-spacing:.06em;color:var(--soft)}
+@media (max-width:640px){ #pages .team li{flex-basis:100%;min-height:0} }
+
 /* sdg photo */
 #pages .sdg-photo{grid-column:1 / -1;margin:-4px 0 6px;border-radius:3px;aspect-ratio:21/9}
 #pages .sdgcard{display:flex;flex-direction:column;gap:18px}
@@ -1099,7 +1107,7 @@ body.paged.lit #pages{pointer-events:none}
       <div class="rv">
         <dl class="dl" style="margin-top:0">
           <div><dt>Research</dt><dd><b>Claude (Anthropic)</b> read the ITM01B1 brief and the Wikipedia article on São Tomé and Príncipe, pulled out the key facts on history, geography, culture and the economy, and matched them to the rubric and SDG targets.</dd></div>
-          <div><dt>Writing</dt><dd>Claude drafted all page copy, captions and itinerary text. The group then checked the facts against the sources below.</dd></div>
+          <div><dt>Writing</dt><dd>Claude drafted all page copy, captions and itinerary text. The group then checked the facts against the original sources.</dd></div>
           <div><dt>Design &amp; code</dt><dd>Claude wrote the website in plain HTML, CSS and JavaScript: the 3D photo sphere, flat grid, lightbox, responsive layouts and this page.</dd></div>
           <div><dt>Intro film</dt><dd>The opening film on the home page was <b>generated with an AI video tool</b>.</dd></div>
           <div><dt>Smart features</dt><dd>The trip planner's logic was designed with AI. It favours community-run options and adapts to the season. Each browser also resizes the photos to fit the screen, which saves data on slow mobile connections.</dd></div>
@@ -1110,72 +1118,16 @@ body.paged.lit #pages{pointer-events:none}
   </div>
 </section>
 
-<section class="sec" id="credits">
+<section class="sec" id="team">
   <div class="wrap">
     <div class="rv">
-      <span class="eyebrow">Sources &amp; credits</span>
-      <h2 class="big">References</h2>
+      <span class="eyebrow">Group members</span>
+      <h2 class="big">The team</h2>
+      <p class="note">ITM01B1 Introduction to Tourism Marketing 1B · Group Assignment · Tech Tourism Fair · October 2026</p>
     </div>
-    <div class="members rv">
-      <b>Group members</b> · <!-- EDIT: replace with each member's name, surname and student number -->Name Surname (student no.) · Name Surname (student no.) · Name Surname (student no.)<br>
-      <span class="muted">ITM01B1 Introduction to Tourism Marketing 1B · Group Assignment · Tech Tourism Fair · October 2026</span>
-    </div>
-    <ul class="credits rv">
-      <li><a href="https://en.wikipedia.org/wiki/S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe" target="_blank" rel="noopener">Wikipedia: São Tomé and Príncipe</a> (accessed 25 September 2026). Main source for history, geography, demographics, culture and the economy.</li>
-      <li><a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">United Nations: the 17 Sustainable Development Goals</a>, including Targets 8.9 and 12.b.</li>
-      <li><a href="https://en.unesco.org/biosphere" target="_blank" rel="noopener">UNESCO Man and the Biosphere Programme</a>: the Island of Príncipe Biosphere Reserve.</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Pico_C%C3%A3o_Grande.jpg" target="_blank" rel="noopener">Pico Cão Grande</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:BAN_-_Panoramic_view_of_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" target="_blank" rel="noopener">BAN - Panoramic view of Praia Banana, Principe, Sao Tome and Principe, 2021</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:S%C3%A3o_Tom%C3%A9_-_Ilh%C3%A9u_das_Rolas_-_Praia_de_Santo_Ant%C3%B3nio_%283%29.jpg" target="_blank" rel="noopener">São Tomé - Ilhéu das Rolas - Praia de Santo António (3)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Forte_de_S%C3%A3o_Sebasti%C3%A3o_%28S%C3%A3o_Tom%C3%A9%29_%288084248638%29.jpg" target="_blank" rel="noopener">Forte de São Sebastião (São Tomé) (8084248638)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%288%29.jpg" target="_blank" rel="noopener">Roça Agostinho Neto (São Tomé) (8)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Dreptes_thomensis_12933301_%28cropped%29.jpg" target="_blank" rel="noopener">Dreptes thomensis 12933301 (cropped)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2856%29.jpg" target="_blank" rel="noopener">Tchiloli à São Tomé (56)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Pr%C3%ADncipe_Island_Biosphere_Reserve_-_Praia_Salgada.jpg" target="_blank" rel="noopener">Príncipe Island Biosphere Reserve - Praia Salgada</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Cathedral_7_%2816223085806%29.jpg" target="_blank" rel="noopener">Sao Tome Cathedral 7 (16223085806)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Bostrychia_bocagei.jpg" target="_blank" rel="noopener">Bostrychia bocagei</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Neves_2_%2816061715170%29.jpg" target="_blank" rel="noopener">Sao Tome Neves 2 (16061715170)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_%26_Principe%2C_fishermen%27s_beach_launch_area.jpg" target="_blank" rel="noopener">Sao Tome & Principe, fishermen's beach launch area</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Casa_da_Cultura_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" target="_blank" rel="noopener">Casa da Cultura à São Tomé (1)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Pier_Jumping_2_%2816248251742%29.jpg" target="_blank" rel="noopener">Sao Tome Pier Jumping 2 (16248251742)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Baia_de_Santo_Antonio_%2820886214659%29.jpg" target="_blank" rel="noopener">Baia de Santo Antonio (20886214659)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Praia_de_Coco_on_Bom_Bom_Island_-_Sao_Tome_and_Principe.jpg" target="_blank" rel="noopener">Praia de Coco on Bom Bom Island - Sao Tome and Principe</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%283%29.jpg" target="_blank" rel="noopener">Roça Bombaim (São Tomé) (3)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Pico_Papagaio_%2820504263334%29.jpg" target="_blank" rel="noopener">Pico Papagaio (20504263334)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Vestiges_de_l%27ancienne_ro%C3%A7a_de_Porto_Alegre_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg" target="_blank" rel="noopener">Vestiges de l'ancienne roça de Porto Alegre (São Tomé) (2)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Waterfall_S%C3%A3o_Tom%C3%A9_Island_I.jpg" target="_blank" rel="noopener">Waterfall São Tomé Island I</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Fresh_Cacao_from_S%C3%A3o_Tom%C3%A9_%26_Pr%C3%ADncipe_%284859216391%29.jpg" target="_blank" rel="noopener">Fresh Cacao from São Tomé & Príncipe (4859216391)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_%C3%A0_S%C3%A3o_Tom%C3%A9.jpg" target="_blank" rel="noopener">Cão Grande à São Tomé</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Vue_depuis_la_Pousada_Ro%C3%A7a_Bombaim_%28S%C3%A3o_Tom%C3%A9%29_%282%29.jpg" target="_blank" rel="noopener">Vue depuis la Pousada Roça Bombaim (São Tomé) (2)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Statues_d%27explorateurs_au_fort_de_S%C3%A3o_Sebasti%C3%A3o_de_S%C3%A3o_Tom%C3%A9.jpg" target="_blank" rel="noopener">Statues d'explorateurs au fort de São Sebastião de São Tomé</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg" target="_blank" rel="noopener">Roça Agostinho Neto (São Tomé) (1)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Pigeonnier_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%281%29.jpg" target="_blank" rel="noopener">Pigeonnier de la roça São João dos Angolares (São Tomé) (1)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:BAN_-_Sandy_shoreline_of_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" target="_blank" rel="noopener">BAN - Sandy shoreline of Praia Banana, Principe, Sao Tome and Principe, 2021</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Palacio_do_Governo_Regional_%2820911940070%29.jpg" target="_blank" rel="noopener">Palacio do Governo Regional (20911940070)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Pr%C3%ADncipe_Island_Biosphere_Reserve_-_Prai_Caix%C3%A3o.jpg" target="_blank" rel="noopener">Príncipe Island Biosphere Reserve - Prai Caixão</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" target="_blank" rel="noopener">Cão Grande et Cão Pequeno à São Tomé (1)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:C%C3%A3o_Grande_et_C%C3%A3o_Pequeno_%C3%A0_S%C3%A3o_Tom%C3%A9_%282%29.jpg" target="_blank" rel="noopener">Cão Grande et Cão Pequeno à São Tomé (2)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%2810%29.jpg" target="_blank" rel="noopener">Tchiloli à São Tomé (10)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:2017_Guadalupe_STP_DSC_8344_%2832064969063%29.jpg" target="_blank" rel="noopener">2017 Guadalupe STP DSC 8344 (32064969063)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Toitures_%C3%A0_la_ro%C3%A7a_Agostinho_Neto_%28S%C3%A3o_Tom%C3%A9%29.jpg" target="_blank" rel="noopener">Toitures à la roça Agostinho Neto (São Tomé)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Tchiloli_%C3%A0_S%C3%A3o_Tom%C3%A9_%281%29.jpg" target="_blank" rel="noopener">Tchiloli à São Tomé (1)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:BAN_-_Rocky_cove_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" target="_blank" rel="noopener">BAN - Rocky cove at Praia Banana, Principe, Sao Tome and Principe, 2021</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:V%C3%A9g%C3%A9tation_%C3%A0_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29_%286%29.jpg" target="_blank" rel="noopener">Végétation à la roça São João dos Angolares (São Tomé) (6)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Airport_1_%2815627228594%29.jpg" target="_blank" rel="noopener">Sao Tome Airport 1 (15627228594)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Sao_Tome_Boat_4_%2816061428938%29.jpg" target="_blank" rel="noopener">Sao Tome Boat 4 (16061428938)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:BAN_-_Palm_trees_and_shelter_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" target="_blank" rel="noopener">BAN - Palm trees and shelter at Praia Banana, Principe, Sao Tome and Principe, 2021</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Praia_Rita_%2820582918953%29.jpg" target="_blank" rel="noopener">Praia Rita (20582918953)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Bom_Bom_Beach_%2821226672491%29.jpg" target="_blank" rel="noopener">Bom Bom Beach (21226672491)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Praia_de_Coco_%2821021209420%29.jpg" target="_blank" rel="noopener">Praia de Coco (21021209420)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:BAN_-_Black_volcanic_rocks_at_Praia_Banana%2C_Principe%2C_Sao_Tome_and_Principe%2C_2021.jpg" target="_blank" rel="noopener">BAN - Black volcanic rocks at Praia Banana, Principe, Sao Tome and Principe, 2021</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Largo_da_Juventude_%2820890338460%29.jpg" target="_blank" rel="noopener">Largo da Juventude (20890338460)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Angolares_%2820998698446%29.jpg" target="_blank" rel="noopener">Angolares (20998698446)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Praia_Ize%2C_Sao_Tome_and_Principe_-_September_2022.jpg" target="_blank" rel="noopener">Praia Ize, Sao Tome and Principe - September 2022</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Anciens_logements_ouvriers_de_la_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg" target="_blank" rel="noopener">Anciens logements ouvriers de la roça São João dos Angolares (São Tomé)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Vestiges_de_l%27ancienne_ro%C3%A7a_%C3%A0_Ribeira_Peixe_%28S%C3%A3o_Tom%C3%A9%29_%285%29.jpg" target="_blank" rel="noopener">Vestiges de l'ancienne roça à Ribeira Peixe (São Tomé) (5)</a> · Wikimedia Commons</li>
-      <li><a href="https://commons.wikimedia.org/wiki/File:Restauration_des_vestiges_de_l%27ancienne_ro%C3%A7a_S%C3%A3o_Jo%C3%A3o_dos_Angolares_%28S%C3%A3o_Tom%C3%A9%29.jpg" target="_blank" rel="noopener">Restauration des vestiges de l'ancienne roça São João dos Angolares (São Tomé)</a> · Wikimedia Commons</li>
-    </ul>
-    <p class="note">All photographs are real images of São Tomé and Príncipe from Wikimedia Commons, used under their Creative Commons or public-domain licences. Follow each link for the author and licence. Travel details such as flights, visas and hotels change, so confirm them with official sources before you travel.</p>
+    <ol class="team">
+      <li class="rv"><span class="n">01</span><b>Lisakhanya Vumazonke</b><span class="sn">Student no. 225019796</span></li><li class="rv"><span class="n">02</span><b>Peo Pule</b><span class="sn">Student no. 226302447</span></li><li class="rv"><span class="n">03</span><b>Oratile Ranoha</b><span class="sn">Student no. 226210062</span></li><li class="rv"><span class="n">04</span><b>Lerato Lelake</b><span class="sn">Student no. 225051643</span></li><li class="rv"><span class="n">05</span><b>Bella Khumalo</b><span class="sn">Student no. 226003043</span></li>
+    </ol>
   </div>
 </section>
 
@@ -1226,7 +1178,7 @@ body.paged.lit #pages{pointer-events:none}
     <a href="#islands">The Islands</a>
     <a href="#travel">Plan Your Trip</a>
     <a href="#impact">Tourism &amp; the SDGs</a>
-    <a href="#credits">Sources</a>
+    <a href="#team">The Team</a>
   </nav>
   <div class="addr">São Tomé · Santo António · Ilhéu das Rolas<br>Tech Tourism Fair · ITM01B1 · 2026</div>
 </div>
