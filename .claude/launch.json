@@ -181,6 +181,30 @@
         "C:/Users/tumel/cedarstone-digital/master-cut"
       ],
       "port": 8428
+    },
+    {
+      "name": "cedarstone",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8433",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital"
+      ],
+      "port": 8433
+    },
+    {
+      "name": "malawi",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8429",
+        "--directory",
+        "C:/Users/tumel/cedarstone-digital/malawi"
+      ],
+      "port": 8429
     }
   ]
 }

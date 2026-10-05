@@ -2,1446 +2,905 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CedarStone Digital (Pty) Ltd | Website Design, AI Automation & SEO South Africa</title>
-<meta name="description" content="CedarStone Digital — South Africa's AI-powered digital agency. Custom website design, AI automation, SEO, and intelligent digital solutions for South African businesses. Free consultation. Call 082 061 3598.">
-<meta name="keywords" content="CedarStone Digital, CedarStone, Cedar Stone Digital, website design South Africa, web development South Africa, AI automation South Africa, SEO South Africa, digital agency South Africa, website builder South Africa, AI chatbot South Africa, custom website South Africa, affordable website South Africa, small business website South Africa">
-<meta name="robots" content="index, follow">
-<meta name="author" content="CedarStone Digital">
-<meta name="geo.region" content="ZA">
-<meta name="geo.placename" content="South Africa">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="CedarStone Digital">
-<meta property="og:title" content="CedarStone Digital | Website Design, AI Automation & SEO South Africa">
-<meta property="og:description" content="Custom websites, AI automation, and intelligent digital solutions for South African businesses. Free consultation — call 082 061 3598.">
-<meta property="og:url" content="https://cedarstonedigital.co.za/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CedarStone Digital | Website Design & AI Automation South Africa">
-<meta name="twitter:description" content="Custom websites, AI automation, and SEO for South African businesses. Free consultation available.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CedarStone Digital. Everything we have built, one page.</title>
+<meta name="description" content="A web studio in Johannesburg. Two online shops for two Lesotho clothing labels, both live, shown at the size we built them. Phone 082 061 3598.">
 <link rel="canonical" href="https://cedarstonedigital.co.za/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#F2EEE6">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="CedarStone Digital. Everything we have built, one page.">
+<meta property="og:description" content="A web studio in Johannesburg. Two online shops for two Lesotho clothing labels, both live, shown at the size we built them. Phone 082 061 3598.">
+<meta property="og:url" content="https://cedarstonedigital.co.za/">
+<meta property="og:image" content="https://cedarstonedigital.co.za/assets/work/sesotho-fashioneng-desktop.png">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
 <style>
-/* ── DESIGN SYSTEM: Deep Navy × Liquid Gold × CedarStone ── */
+/* ---------------------------------------------------------------
+   CedarStone Digital. Proof sheet.
+   Palette locked 4 Oct 2026. Cedar never touches a client plate:
+   plate frames, plate captions and the index rule are slate or sage.
+   Cedar appears on the open frame and frame 12's bracket only.
+   Exactly three transitions exist on this page. See the three
+   `transition:` declarations below. Nothing else moves.
+   --------------------------------------------------------------- */
+
 :root{
-  --gold:    #C9A84C;
-  --goldL:   #E2C98A;
-  --goldD:   #9B7B2C;
-  --goldXL:  #F0E0A0;
-  --navy:    #0D1B3E;
-  --navyL:   #162C5E;
-  --navyD:   #070B18;
-  --ink:     #EAD9B5;
-  --inkL:    #F5EED8;
-  --muted:   #8A9DB8;
-  --dim:     #4A5A7A;
-  --bdr:     rgba(200,165,90,.18);
-  --bdrH:    rgba(200,165,90,.52);
-  --grad:    linear-gradient(135deg,#E2C98A,#C9A84C);
-  --glass:   rgba(8,14,30,.70);
-  --glassH:  rgba(12,22,48,.90);
-  --blur:    blur(16px) saturate(1.4);
-  --blurH:   blur(24px) saturate(1.5);
-  --morph:   440ms cubic-bezier(0.34,1.26,0.64,1);
-  --micro:   200ms ease;
-  --sec1:    rgba(7,11,22,.99);
-  --sec2:    rgba(10,15,28,.99);
-  --card:    rgba(12,20,44,.72);
+  --limestone:#F2EEE6;
+  --slate:#1F2628;
+  --cedar:#A14A26;
+  --cedar-300:#DFA081;
+  --sage:#5B6B5E;
+  --moss:#4C5B4E;
+  --mist:#C9CFD0;
+  --cell-hair:rgba(31,38,40,.20);
+  --gap:14px;
+  --ease-draw:cubic-bezier(.22,.61,.36,1);
+  --ease-link:cubic-bezier(.4,0,.2,1);
 }
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#070B18;color:var(--ink);overflow-x:clip}
 
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:#0D1B3E}
-::-webkit-scrollbar-thumb{background:var(--goldD);border-radius:2px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--limestone);
+  color:var(--slate);
+  font-family:'Archivo',system-ui,sans-serif;
+  font-size:1.0625rem;
+  line-height:1.62;
+  font-synthesis:none;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
 
-/* ── ICON ── */
-.icon{display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.icon svg{width:22px;height:22px;stroke:var(--gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke var(--micro)}
+:focus-visible{outline:2px solid var(--cedar);outline-offset:3px}
+a:focus-visible{outline:2px solid var(--cedar);outline-offset:3px}
+/* Cedar measures 2.58:1 on slate and fails as an indicator there.
+   The inverted block gets cedar-300, which measures 6.94:1. */
+#writing :focus-visible,#writing a:focus-visible{outline-color:var(--cedar-300)}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;width:100%;z-index:1000;
-  padding:1.2rem 3rem;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(7,11,24,.82);
-  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
-  border-bottom:1px solid rgba(200,165,90,.10);
-  transition:padding var(--morph),box-shadow var(--morph),background var(--morph);
+/* ---- type helpers ---- */
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.lbl{
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--sage);line-height:1.5;
 }
-nav.scrolled{padding:.8rem 3rem;background:rgba(5,8,18,.94);box-shadow:0 2px 40px rgba(0,0,0,.4),0 1px 0 rgba(200,165,90,.10)}
-.nav-logo{display:flex;align-items:center;gap:.85rem;text-decoration:none;cursor:pointer}
-.logo-text{display:flex;flex-direction:column;line-height:1.1}
-.lt{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--goldL);letter-spacing:.4px}
-.lb{font-family:'Inter',sans-serif;font-weight:400;font-size:.55rem;color:var(--muted);letter-spacing:4px;text-transform:uppercase;margin-top:2px}
-.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:400;letter-spacing:.2px;transition:color var(--micro);position:relative;cursor:pointer}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--grad);transition:width 300ms ease}
-.nav-links a:hover{color:var(--goldL)}
-.nav-links a:hover::after{width:100%}
-.nav-cta{border:1px solid var(--gold)!important;color:var(--gold)!important;padding:.45rem 1.4rem;border-radius:3px;font-weight:500!important;transition:background var(--micro),box-shadow var(--micro)!important}
-.nav-cta::after{display:none!important}
-.nav-cta:hover{background:rgba(200,165,90,.12)!important;box-shadow:0 0 20px rgba(200,165,90,.22)!important}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--gold);transition:.3s}
+.note{
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:13px;line-height:1.7;color:var(--moss);
+}
+h1{
+  font-weight:800;font-stretch:88%;
+  font-size:clamp(2.05rem,5.1vw,4.1rem);
+  line-height:1.02;letter-spacing:-.022em;
+}
+h2{
+  font-weight:700;font-stretch:92%;
+  font-size:clamp(1.75rem,3.5vw,2.85rem);
+  line-height:1.08;letter-spacing:-.018em;
+}
+.lede{font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.5;max-width:34ch}
+.prose p+p{margin-top:1.05em}
+.prose{max-width:62ch}
 
-/* ── HERO SEQUENCE ── */
-#hero-sequence{position:relative;height:400vh}
-#hero-pin{
-  position:sticky;top:0;width:100%;height:100vh;
-  overflow:hidden;
+/* The one link treatment. Underline present at rest, thickens on
+   hover and focus. Transition 1 of 3. */
+.u{
+  text-decoration:none;
+  background-image:linear-gradient(currentColor,currentColor);
+  background-repeat:no-repeat;
+  background-position:0 100%;
+  background-size:100% 1px;
+  transition:background-size 180ms var(--ease-link);
 }
-#heroCanvas{
-  position:absolute;inset:0;width:100%;height:100%;
-  display:block;
+.u:hover,.u:focus-visible{background-size:100% 2px}
+
+/* Domains are mono text, never anchors. The page does not send its
+   own traffic away at the moment it is winning. */
+.dom{
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:.92em;color:var(--moss);
 }
-.hero-overlay{
-  position:absolute;inset:0;pointer-events:none;z-index:1;
-  background:radial-gradient(ellipse 75% 65% at 50% 50%,
-    rgba(7,11,24,.38) 0%,
-    rgba(7,11,24,.65) 65%,
-    rgba(7,11,24,.88) 100%);
+
+section{padding-block:clamp(3.5rem,9vw,7rem)}
+.wrap{width:min(1240px,92vw);margin-inline:auto}
+
+/* =============== 1. THE SHEET =============== */
+#sheet{padding-block:clamp(2rem,4.5vw,3.5rem) clamp(3rem,7vw,5.5rem)}
+#sheet-head{border-bottom:1px solid var(--cell-hair);padding-bottom:1rem;margin-bottom:clamp(2rem,5vw,3.4rem)}
+#sheet h1{margin-bottom:1.1rem;max-width:22ch}
+.sheet-intro{margin-bottom:clamp(2.2rem,5vw,3.6rem)}
+
+.sheet{
+  position:relative;
+  width:min(1240px,92vw);margin-inline:auto;
+  display:grid;grid-template-columns:repeat(6,1fr);gap:var(--gap);
 }
-.hero-vignette{
-  position:absolute;bottom:0;left:0;right:0;height:180px;
-  background:linear-gradient(to bottom,transparent,#070B18);
-  pointer-events:none;z-index:2;
+.f{
+  position:relative;aspect-ratio:4/3;
+  background:var(--limestone);
+  border:1px solid var(--cell-hair);
 }
-/* Phase wrappers */
-.hero-phase{
-  position:absolute;inset:0;z-index:3;
+.f img{width:100%;height:100%;object-fit:contain}
+.f__n{
+  position:absolute;left:6px;bottom:4px;
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:12px;line-height:1;color:var(--sage);
+}
+.f--open{display:grid;place-items:center}
+.f--open .f__open{
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:12px;letter-spacing:.16em;color:var(--cedar);
+}
+
+/* Corner brackets, 2px, 18px arms, drawn in the gutter 7px outside
+   each pair. Negative margin places them mid-gutter. No mark
+   touches a capture. */
+/* Absolutely positioned, so the brackets are NOT grid items and do
+   not occupy cells. Measured: as in-flow items with explicit
+   placement they pushed the sheet to three rows and moved the
+   captures into the wrong columns. An abspos grid child is still
+   positioned to its grid area, which is exactly what is wanted. */
+.br{position:absolute;inset:-7px;pointer-events:none;z-index:2}
+.br i{position:absolute;width:18px;height:18px;border:0 solid var(--slate)}
+.br i:nth-child(1){top:0;left:0;border-top-width:2px;border-left-width:2px}
+.br i:nth-child(2){top:0;right:0;border-top-width:2px;border-right-width:2px}
+.br i:nth-child(3){bottom:0;right:0;border-bottom-width:2px;border-right-width:2px}
+.br i:nth-child(4){bottom:0;left:0;border-bottom-width:2px;border-left-width:2px}
+/* Explicit END lines on both axes. For an absolutely positioned
+   grid child `grid-row: 1` resolves its end to the container's
+   padding edge, not to a single track, so bracket A spanned both
+   rows. Measured at 246px tall against a 109px row. */
+.br--a{grid-column:3/5;grid-row:1/2}
+.br--b{grid-column:2/4;grid-row:2/3}
+.br--c{grid-column:6/7;grid-row:2/3}
+.br--c i{border-color:var(--cedar)}
+
+/* =============== 2 and 3. THE PLATES =============== */
+.plates{position:relative}
+
+/* The index rule. A 1px sage hairline down the left margin,
+   terminating at the top edge of the open frame. Resting value
+   is 03 / 12, so with no JavaScript it is a label, never blank. */
+.idx{
+  position:absolute;left:clamp(14px,3vw,44px);top:0;bottom:0;
+  width:1px;
+}
+/* The hairline is a pseudo-element, not the wrapper's own
+   background, so the counter beside it sits plainly on limestone
+   and measures against limestone. */
+.idx::before{content:"";position:absolute;inset:0;background:var(--sage)}
+.idx__n{
+  position:sticky;top:50vh;display:block;
+  width:max-content;margin-left:12px;white-space:nowrap;
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:13px;color:var(--sage);
+  transition:opacity 160ms linear;   /* Transition 2 of 3 */
+}
+
+/* Explicit padding-block on the sections beside the sticky child,
+   rather than inheriting the generic section rule. */
+#plate-01,#plate-02{padding-block:clamp(2.6rem,6.5vw,5rem)}
+#plate-02{border-top:1px solid var(--cell-hair)}
+
+.plate-head{width:min(1400px,92vw);margin-inline:auto;margin-bottom:clamp(1.6rem,3.5vw,2.6rem)}
+.plate-head .lbl{margin-bottom:.7rem}
+.plate-head h2{margin-bottom:.75rem}
+.plate-head .lede{color:var(--slate)}
+
+/* The capture already contains a browser's worth of design.
+   No shadow, no rounded corners, no browser-chrome mockup. */
+.plate-row{
+  width:min(1400px,92vw);margin-inline:auto;
+  display:flex;align-items:flex-end;gap:20px;
+}
+.plate-desk{
+  flex:1 1 auto;min-width:0;width:min(1120px,88vw);max-width:min(1120px,88vw);
+  aspect-ratio:16/10;border:1px solid var(--slate);background:var(--limestone);
+}
+.plate-mob{
+  flex:0 0 min(260px,26vw);
+  aspect-ratio:780/1688;border:1px solid var(--slate);background:var(--limestone);
+}
+.plate-row img{width:100%;height:100%;object-fit:contain}
+.plate-body{
+  width:min(1400px,92vw);margin-inline:auto;
+  margin-top:clamp(1.6rem,3.5vw,2.4rem);
+}
+.plate-body .prose{max-width:66ch}
+
+/* =============== 4. THE OPEN FRAME =============== */
+#open{
+  min-height:100vh;min-height:100svh;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:2rem 2rem 6rem;
-  opacity:0;
-  transition:opacity .5s ease,transform .5s ease;
-  will-change:opacity,transform;
-  pointer-events:none;
+  gap:clamp(1.3rem,2.6vw,2rem);
+  padding-block:clamp(3rem,6vw,5rem);
+  padding-inline:4vw;text-align:center;
 }
-.hero-phase.p-active{pointer-events:auto}
-.phase-eyebrow{
-  display:inline-flex;align-items:center;gap:.65rem;
-  border:1px solid rgba(200,165,90,.3);
-  font-family:'Inter',sans-serif;font-size:.68rem;font-weight:600;
-  letter-spacing:3.5px;padding:.4rem 1.2rem;margin-bottom:2rem;
-  text-transform:uppercase;
-  background:rgba(7,11,24,.55);backdrop-filter:blur(12px);
-  color:transparent;
-  background-clip:text;-webkit-background-clip:text;
-  background-image:linear-gradient(90deg,#C9A84C,#E2C98A,#C9A84C,#8B6B1C,#C9A84C);
-  background-size:250% auto;
-  animation:eyebrowShimmer 6s linear infinite;
+#open h2{max-width:26ch}
+.frame{
+  position:relative;
+  width:min(1120px,88vw,(100vh - 280px) * 1.6);
+  width:min(1120px,88vw,(100svh - 280px) * 1.6);
+  aspect-ratio:16/10;
+  border:1px solid var(--cedar);
+  background:var(--limestone);   /* 1:1 against the page. It is a hole. */
 }
-@keyframes eyebrowShimmer{0%{background-position:0% center}100%{background-position:250% center}}
-.phase-h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.6rem,6vw,5.4rem);font-weight:900;line-height:1.08;
-  color:var(--inkL);
-  max-width:900px;margin-bottom:1.5rem;
-  text-shadow:0 4px 40px rgba(0,0,0,.6);
+/* Explicit width and height, not `inset`. An <svg> with no width,
+   height or viewBox is a replaced element and `inset` leaves it at
+   the default 300x150 object size. Measured, not assumed. */
+.frame__draw{
+  position:absolute;left:-1px;top:-1px;
+  width:calc(100% + 2px);height:calc(100% + 2px);
+  overflow:visible;pointer-events:none;
 }
-.phase-h1 em{
-  font-style:italic;
-  background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  filter:drop-shadow(0 0 18px rgba(200,165,90,.4));
+.frame__draw line{
+  stroke:var(--cedar);stroke-width:1;stroke-linecap:square;
+  transition:stroke-dashoffset 520ms var(--ease-draw);  /* Transition 3 of 3 */
 }
-.phase-sub{
-  font-size:1.05rem;color:var(--muted);max-width:560px;
-  line-height:1.82;font-weight:300;
-  text-shadow:0 2px 12px rgba(0,0,0,.5);
+.frame__meta{
+  position:absolute;left:40px;bottom:40px;right:40px;
+  text-align:left;
+}
+.frame__meta .lbl{margin-bottom:.45rem}
+.tel{
+  display:inline-block;
+  font-weight:600;font-stretch:96%;
+  font-size:clamp(1.8rem,3.4vw,3rem);
+  line-height:1.05;letter-spacing:-.02em;
+  color:var(--slate);
+}
+.frame__meta .note{font-size:12px;margin-top:.5rem;color:var(--moss)}
+.frame__note{font-size:13px;max-width:56ch;color:var(--moss)}
+
+/* =============== 5. WHAT IS IN WRITING. Inverted. =============== */
+#writing{background:var(--slate);color:var(--limestone)}
+#writing .lbl{color:var(--mist)}
+#writing h2{margin:.9rem 0 .9rem}
+#writing .lede{color:var(--mist);max-width:56ch}
+.clauses{list-style:none;margin:clamp(2rem,4vw,2.8rem) 0 clamp(1.8rem,3.5vw,2.4rem);max-width:70ch}
+.clauses li{
+  position:relative;padding-left:1.9rem;
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:14px;line-height:1.72;color:var(--limestone);
+}
+.clauses li+li{margin-top:1.1rem}
+.clauses li::before{
+  content:"";position:absolute;left:0;top:.62em;
+  width:11px;height:1px;background:var(--cedar-300);
+}
+#writing .u{color:var(--cedar-300)}
+
+/* =============== 6 to 9 =============== */
+#cost .prose,#who .prose,#first .prose{max-width:60ch}
+#cost h2,#who h2,#first h2{margin-bottom:1.1rem;max-width:26ch}
+.fig{font-weight:600;font-stretch:96%}
+#who,#first{border-top:1px solid var(--cell-hair)}
+
+#contact{border-top:1px solid var(--cell-hair);padding-bottom:clamp(2.5rem,6vw,4.5rem)}
+#contact h2{margin-bottom:1.3rem}
+.contact-tel{
+  display:inline-block;margin-bottom:1.1rem;
+  font-weight:700;font-stretch:90%;
+  font-size:clamp(2.2rem,6vw,4.4rem);
+  line-height:1;letter-spacing:-.03em;color:var(--slate);
+}
+.contact-alt{
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:14px;color:var(--moss);margin-bottom:1.6rem;
+  overflow-wrap:break-word;
+}
+.dom{overflow-wrap:break-word}
+.contact-alt .u{color:var(--moss)}
+.contact-alt span{color:var(--sage);padding-inline:.15rem}
+
+footer{
+  border-top:1px solid var(--cell-hair);
+  padding-block:clamp(1.6rem,3vw,2.2rem);
+}
+.foot{
+  width:min(1240px,92vw);margin-inline:auto;
+  display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;justify-content:space-between;
+  font-family:'JetBrains Mono',ui-monospace,monospace;
+  font-size:12px;color:var(--moss);
 }
 
-/* Scroll hint */
-.scroll-hint{
-  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:.5rem;
-  z-index:4;animation:bounce 2.8s ease-in-out infinite;
-}
-.scroll-hint span{font-size:.6rem;color:var(--dim);letter-spacing:2.5px;text-transform:uppercase}
-.scroll-arrow{width:1px;height:30px;background:linear-gradient(to bottom,transparent,var(--gold));position:relative}
-.scroll-arrow::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%) rotate(45deg);width:6px;height:6px;border-right:1px solid var(--gold);border-bottom:1px solid var(--gold)}
-
-/* ── PROGRESS BAR ── */
-#progress-bar{
-  position:fixed;top:0;left:0;right:0;height:2px;
-  background:var(--grad);transform-origin:left;
-  z-index:9999;transform:scaleX(0);
+/* =============== RESPONSIVE =============== */
+@media (max-width:1039px){
+  .plate-row{flex-direction:column;align-items:flex-start}
+  .plate-desk{width:min(1120px,88vw);max-width:100%;flex:0 0 auto}
+  .plate-mob{flex:0 0 auto;width:min(220px,46vw)}
 }
 
-/* ── SERVICES TICKER ── */
-.ticker-wrap{
-  background:rgba(10,15,28,.99);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);
-  padding:.85rem 0;overflow:hidden;position:relative;z-index:1;
-}
-.ticker-wrap::before,.ticker-wrap::after{
-  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
-}
-.ticker-wrap::before{left:0;background:linear-gradient(to right,rgba(10,15,28,1),transparent)}
-.ticker-wrap::after{right:0;background:linear-gradient(to left,rgba(10,15,28,1),transparent)}
-.ticker-track{
-  display:flex;align-items:center;gap:2.5rem;white-space:nowrap;
-  width:max-content;
-}
-.ticker-track span{font-size:.72rem;color:var(--muted);letter-spacing:2.5px;text-transform:uppercase;font-weight:400}
-.ticker-track .t-dot{color:var(--gold);font-size:.65rem;flex-shrink:0}
-
-/* ── SECTIONS ── */
-section{padding:7rem 2rem;position:relative;z-index:1}
-section+section::before,section+div+section::before{
-  content:'';display:block;height:1px;position:absolute;top:0;left:5%;right:5%;
-  background:linear-gradient(90deg,transparent,rgba(200,165,90,.14),transparent)
-}
-.wrap{max-width:1180px;margin:0 auto}
-.eyebrow{
-  display:inline-block;font-family:'Inter',sans-serif;font-size:.67rem;
-  font-weight:600;letter-spacing:3.5px;text-transform:uppercase;margin-bottom:.8rem;
-  color:var(--gold);
-}
-.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:700;line-height:1.2;margin-bottom:1rem;color:var(--inkL)}
-.sec-title em{font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.sec-sub{color:var(--muted);font-size:.975rem;line-height:1.82;max-width:580px;font-weight:300}
-
-/* ── ABOUT ── */
-#about{background:var(--sec1)}
-.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center}
-.about-text p{color:var(--muted);font-size:.975rem;line-height:1.85;font-weight:300;margin-bottom:1rem}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.75rem}
-.stat{
-  text-align:center;padding:1.5rem 1rem;
-  background:var(--card);
-  border:1px solid var(--bdr);transition:all var(--morph);cursor:default;
-}
-.stat:hover{border-color:var(--bdrH);background:var(--glassH);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.35)}
-.stat-n{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.stat-l{font-size:.68rem;color:var(--muted);margin-top:.3rem;letter-spacing:1.5px;text-transform:uppercase}
-
-/* ── LOGO DISPLAY ── */
-.about-visual{display:flex;justify-content:center;align-items:center;height:320px}
-.logo-display{display:flex;flex-direction:column;align-items:center;gap:1.5rem}
-.logo-display-svg{animation:logoPulse 5s ease-in-out infinite}
-@keyframes logoPulse{
-  0%,100%{filter:drop-shadow(0 0 6px rgba(200,165,90,.2))}
-  50%    {filter:drop-shadow(0 0 22px rgba(200,165,90,.55)) drop-shadow(0 0 40px rgba(200,165,90,.22))}
+/* Below 980 the sheet becomes a horizontal strip. The open frame is
+   what you arrive at when you reach the end. */
+@media (max-width:979px){
+  .sheet{
+    width:auto;margin-inline:0;
+    grid-template-columns:none;grid-auto-flow:column;
+    grid-auto-columns:200px;grid-template-rows:150px;
+    overflow-x:auto;overflow-y:hidden;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:4vw;
+    padding-inline:4vw;padding-block:10px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .f{aspect-ratio:auto;height:150px;scroll-snap-align:center}
+  .br--a{grid-row:1/2;grid-column:3/5}
+  .br--b{grid-row:1/2;grid-column:8/10}
+  .br--c{grid-row:1/2;grid-column:12/13}
 }
 
-/* ── SERVICES ── */
-#services{background:var(--sec2)}
-.svc-hdr{text-align:center;margin-bottom:4rem}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1.5rem}
-.svc-card{
-  border:1px solid var(--bdr);padding:2rem;
-  position:relative;overflow:hidden;cursor:pointer;
-  background:var(--card);
-  transition:all var(--morph);
-}
-.svc-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--grad);transition:width 500ms ease}
-.svc-card:hover{
-  border-color:var(--bdrH);transform:translateY(-6px);
-  background:var(--glassH);backdrop-filter:var(--blurH);-webkit-backdrop-filter:var(--blurH);
-  box-shadow:0 24px 64px rgba(0,0,0,.5),0 8px 24px rgba(200,165,90,.12);
-}
-.svc-card:hover::after{width:100%}
-.svc-card:hover .icon svg{stroke:var(--goldL)}
-.svc-icon-wrap{
-  width:52px;height:52px;border:1px solid var(--bdr);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:1.4rem;transition:all var(--morph);
-  background:rgba(200,165,90,.06);
-}
-.svc-card:hover .svc-icon-wrap{border-color:var(--bdrH);background:rgba(200,165,90,.1)}
-.svc-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:.65rem;color:var(--inkL)}
-.svc-desc{font-size:.875rem;color:var(--muted);line-height:1.78;font-weight:300}
-.explain{margin-top:1.25rem;padding:.9rem 1rem;border-left:2px solid var(--gold);background:rgba(200,165,90,.05)}
-.explain-lbl{font-size:.62rem;color:var(--goldL);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:.4rem}
-.explain p{font-size:.8rem;color:var(--muted);line-height:1.72;font-weight:300}
-
-/* ── WHY US ── */
-#why{background:var(--sec1)}
-.why-hdr{text-align:center;margin-bottom:3.5rem}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.25rem}
-.why-card{
-  padding:2rem 1.75rem;border:1px solid var(--bdr);cursor:pointer;
-  background:var(--card);
-  transition:all var(--morph);text-align:center;
-}
-.why-card:hover{border-color:var(--bdrH);transform:translateY(-4px);background:var(--glassH);backdrop-filter:var(--blurH);-webkit-backdrop-filter:var(--blurH);box-shadow:0 16px 48px rgba(0,0,0,.4)}
-.why-card:hover .icon svg{stroke:var(--goldL)}
-.why-icon-box{width:52px;height:52px;border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;transition:all var(--morph);background:rgba(200,165,90,.06)}
-.why-card:hover .why-icon-box{border-color:var(--bdrH);background:rgba(200,165,90,.1)}
-.why-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--goldL);margin-bottom:.6rem}
-.why-desc{font-size:.83rem;color:var(--muted);line-height:1.72;font-weight:300}
-
-/* ── CONTACT ── */
-#contact{background:var(--sec2)}
-.contact-wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:5rem;align-items:start}
-.cinfo{display:flex;flex-direction:column;gap:1.25rem}
-.ci{
-  display:flex;align-items:center;gap:1rem;padding:1.25rem;cursor:default;
-  border:1px solid var(--bdr);background:var(--card);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
-  transition:all var(--morph);
-}
-.ci:hover{border-color:var(--bdrH);background:var(--glassH);box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.ci-icon{width:42px;height:42px;border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all var(--morph)}
-.ci:hover .ci-icon{border-color:var(--bdrH)}
-.ci-lbl{font-size:.65rem;color:var(--dim);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.2rem}
-.ci-val{font-weight:500;color:var(--inkL);font-size:.9rem}
-.cta-note{padding:1.5rem;border:1px solid var(--bdr);background:rgba(200,165,90,.05);backdrop-filter:var(--blur)}
-.cta-note p{font-size:.875rem;color:var(--muted);line-height:1.78;font-weight:300}
-.cta-note strong{color:var(--goldL);font-weight:500}
-.cform{display:flex;flex-direction:column;gap:1.1rem}
-.fg{display:flex;flex-direction:column;gap:.42rem}
-.fg label{font-size:.7rem;color:var(--muted);font-weight:500;letter-spacing:1px;text-transform:uppercase}
-.fg input,.fg textarea,.fg select{
-  background:rgba(10,18,40,.85);border:1px solid var(--bdr);
-  padding:.85rem 1rem;color:var(--inkL);
-  font-family:'Inter',sans-serif;font-size:.9rem;outline:none;
-  transition:border-color var(--micro),box-shadow var(--micro);
-  border-radius:0;-webkit-appearance:none;appearance:none;
-}
-.fg input::placeholder,.fg textarea::placeholder{color:var(--dim)}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gold);box-shadow:0 0 0 2px rgba(200,165,90,.12)}
-.fg textarea{resize:vertical;min-height:120px}
-.fg select option{background:#0D1B3E;color:var(--inkL)}
-.fg select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A9DB8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
-.form-btn{background:var(--grad);color:#070B18;padding:.9rem 2rem;border:none;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;transition:all var(--morph);letter-spacing:.5px;border-radius:0;margin-top:.25rem}
-.form-btn:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(200,165,90,.35)}
-
-/* ── CTA BUTTONS ── */
-.btn-gold{
-  background:var(--grad);color:#070B18;padding:.9rem 2.4rem;
-  text-decoration:none;font-weight:600;font-size:.9rem;letter-spacing:.5px;
-  border-radius:3px;transition:transform var(--morph),box-shadow var(--morph);
-  box-shadow:0 4px 22px rgba(200,165,90,.3);cursor:pointer;display:inline-block;
-}
-.btn-gold:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(200,165,90,.5)}
-.btn-outline{
-  background:rgba(10,18,40,.6);color:var(--inkL);padding:.9rem 2.4rem;
-  border-radius:3px;text-decoration:none;font-weight:400;font-size:.9rem;
-  border:1px solid rgba(200,165,90,.3);transition:all var(--morph);backdrop-filter:blur(8px);cursor:pointer;display:inline-block;
-}
-.btn-outline:hover{border-color:rgba(200,165,90,.6);background:rgba(15,28,60,.8);transform:translateY(-3px)}
-
-/* ── DIVIDER ── */
-.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(200,165,90,.14),transparent);position:relative;z-index:1}
-
-/* ── FOOTER ── */
-footer{background:rgba(5,8,16,.99);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-top:1px solid var(--bdr);padding:4rem 2rem 2.5rem;position:relative;z-index:1}
-.f-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:3rem}
-.f-brand-desc{color:var(--muted);font-size:.875rem;line-height:1.8;margin-top:1rem;font-weight:300;max-width:320px}
-.f-col h4{font-size:.65rem;font-weight:600;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.1rem}
-.f-col ul{list-style:none;display:flex;flex-direction:column;gap:.65rem}
-.f-col a{color:var(--muted);text-decoration:none;font-size:.875rem;font-weight:300;transition:color var(--micro);cursor:pointer}
-.f-col a:hover{color:var(--goldL)}
-.f-bot{max-width:1180px;margin:0 auto;padding-top:1.5rem;border-top:1px solid rgba(200,165,90,.08);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.f-bot p,.f-bot .pw{color:var(--dim);font-size:.78rem;font-weight:300}
-.f-bot .pw span{color:var(--gold)}
-
-/* ── CHAT ── */
-.chat-widget{position:fixed;bottom:2rem;right:2rem;z-index:9999}
-.chat-btn{width:58px;height:58px;background:rgba(10,16,34,.95);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;box-shadow:0 4px 28px rgba(200,165,90,.22);transition:all var(--morph)}
-.chat-btn:hover{background:rgba(200,165,90,.12);box-shadow:0 8px 40px rgba(200,165,90,.42);transform:translateY(-2px)}
-.chat-btn-pulse{position:absolute;inset:-4px;border:1px solid rgba(200,165,90,.28);animation:chatpulse 2.5s ease-out infinite}
-.chat-btn-lbl{position:absolute;bottom:calc(100% + 10px);right:0;background:rgba(8,14,30,.97);border:1px solid var(--bdr);color:var(--goldL);padding:.3rem .9rem;font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateY(6px);transition:all var(--micro);pointer-events:none}
-.chat-btn:hover .chat-btn-lbl{opacity:1;transform:translateY(0)}
-.chat-win{position:absolute;bottom:calc(100% + 1rem);right:0;width:375px;height:min(530px,80vh);background:rgba(6,9,18,.98);border:1px solid rgba(200,165,90,.2);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5);opacity:0;transform:translateY(20px) scale(.93);transition:.38s cubic-bezier(.34,1.56,.64,1);pointer-events:none}
-.chat-win.open{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
-.chat-head{padding:1rem 1.25rem;background:rgba(5,8,14,.99);border-bottom:1px solid rgba(200,165,90,.18);display:flex;align-items:center;gap:.9rem}
-.chat-avatar{width:36px;height:36px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:#070B18;flex-shrink:0}
-.chat-name{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:var(--inkL)}
-.chat-online{display:flex;align-items:center;gap:5px;font-size:.65rem;color:#5CB85C;margin-top:1px}
-.chat-online::before{content:'';width:5px;height:5px;background:#5CB85C;border-radius:50%;animation:statusblink 2s infinite}
-.chat-close{margin-left:auto;background:none;border:none;color:var(--dim);cursor:pointer;font-size:1.1rem;transition:color var(--micro);line-height:1}
-.chat-close:hover{color:var(--inkL)}
-.chat-msgs{flex:1;overflow-y:auto;padding:1.1rem;display:flex;flex-direction:column;gap:.75rem}
-.chat-msgs::-webkit-scrollbar{width:3px}
-.chat-msgs::-webkit-scrollbar-thumb{background:rgba(200,165,90,.2)}
-.msg{max-width:88%;padding:.7rem 1rem;font-size:.82rem;line-height:1.6}
-.msg.bot{background:rgba(200,165,90,.07);border:1px solid rgba(200,165,90,.12);border-radius:0 8px 8px 8px;align-self:flex-start;color:var(--inkL)}
-.msg.usr{background:var(--grad);color:#070B18;border-radius:8px 8px 0 8px;align-self:flex-end;font-weight:500}
-.typing{display:flex;gap:5px;padding:.7rem 1rem;background:rgba(200,165,90,.07);border:1px solid rgba(200,165,90,.12);border-radius:0 8px 8px 8px;width:fit-content}
-.td{width:5px;height:5px;background:var(--gold);border-radius:50%;animation:typebounce 1.2s ease-in-out infinite}
-.td:nth-child(2){animation-delay:.2s}.td:nth-child(3){animation-delay:.4s}
-.chat-sugg{padding:.6rem 1rem;display:flex;flex-wrap:wrap;gap:.4rem;border-top:1px solid rgba(200,165,90,.15)}
-.sugg-btn{background:transparent;border:1px solid rgba(200,165,90,.2);color:var(--gold);padding:.3rem .8rem;font-size:.7rem;letter-spacing:.5px;cursor:pointer;transition:all var(--micro);font-family:'Inter',sans-serif;font-weight:500}
-.sugg-btn:hover{background:rgba(200,165,90,.1);border-color:var(--gold)}
-.chat-input-row{padding:.8rem 1rem;border-top:1px solid rgba(200,165,90,.15);display:flex;gap:.6rem;align-items:center}
-.chat-input{flex:1;background:rgba(200,165,90,.05);border:1px solid rgba(200,165,90,.18);padding:.55rem .9rem;color:var(--inkL);font-family:'Inter',sans-serif;font-size:.85rem;outline:none;transition:border-color var(--micro)}
-.chat-input::placeholder{color:var(--dim)}
-.chat-input:focus{border-color:var(--gold)}
-.chat-send{width:34px;height:34px;flex-shrink:0;background:var(--grad);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--micro)}
-.chat-send:hover{transform:scale(1.08);box-shadow:0 4px 14px rgba(200,165,90,.35)}
-.chat-send svg{width:14px;height:14px;fill:#070B18}
-
-/* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-.rv.vis{opacity:1;transform:translateY(0)}
-
-/* ── GUARANTEE ── */
-#guarantee{background:var(--sec2)}
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin-top:3.5rem}
-.testi-card{padding:2rem;border:1px solid var(--bdr);background:var(--card);position:relative}
-.testi-card::before{content:'\201C';font-family:'Playfair Display',serif;font-size:4rem;color:var(--gold);opacity:.22;position:absolute;top:.5rem;left:1.25rem;line-height:1}
-.testi-quote{font-size:.9rem;color:var(--muted);line-height:1.82;font-weight:300;margin-bottom:1.5rem;padding-top:1.5rem}
-.testi-author{display:flex;align-items:center;gap:.85rem;border-top:1px solid var(--bdr);padding-top:1.1rem}
-.testi-avatar{width:40px;height:40px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:#070B18;font-size:.95rem;flex-shrink:0}
-.testi-name{font-weight:600;font-size:.88rem;color:var(--inkL)}
-.testi-biz{font-size:.75rem;color:var(--dim);margin-top:.1rem}
-
-/* ── PROCESS ── */
-#process{background:var(--sec1)}
-.process-steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0;margin-top:3.5rem;border:1px solid var(--bdr)}
-.process-step{padding:2rem 1.75rem;border-right:1px solid var(--bdr);position:relative;background:var(--card)}
-.process-step:last-child{border-right:none}
-.process-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.85rem}
-.process-title{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--inkL);margin-bottom:.6rem}
-.process-desc{font-size:.82rem;color:var(--muted);line-height:1.72;font-weight:300}
-
-/* ── FAQ ── */
-#faq{background:var(--sec2)}
-.faq-list{max-width:780px;margin:3.5rem auto 0;display:flex;flex-direction:column;gap:.75rem}
-.faq-item{border:1px solid var(--bdr);background:var(--card)}
-.faq-q{width:100%;background:none;border:none;padding:1.25rem 1.5rem;text-align:left;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:500;color:var(--inkL);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:color var(--micro)}
-.faq-q:hover{color:var(--goldL)}
-.faq-q::after{content:'+';font-size:1.2rem;font-weight:300;color:var(--gold);flex-shrink:0;transition:transform var(--morph)}
-.faq-item.open .faq-q::after{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
-.faq-item.open .faq-a{max-height:300px}
-.faq-a-inner{padding:0 1.5rem 1.25rem;font-size:.875rem;color:var(--muted);line-height:1.82;font-weight:300}
-
-/* ── WHATSAPP FLOAT ── */
-.wa-float{position:fixed;bottom:6.5rem;right:2rem;z-index:9998;display:flex;align-items:center;gap:.75rem}
-.wa-float a{width:52px;height:52px;background:#25D366;display:flex;align-items:center;justify-content:center;border-radius:50%;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all var(--morph);flex-shrink:0}
-.wa-float a:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(37,211,102,.5)}
-.wa-float-lbl{background:rgba(8,14,30,.97);border:1px solid var(--bdr);color:var(--goldL);padding:.3rem .9rem;font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateX(6px);transition:all var(--micro);pointer-events:none}
-.wa-float:hover .wa-float-lbl{opacity:1;transform:translateX(0)}
-
-/* ── REVIEWS ── */
-#reviews{background:var(--sec1)}
-.reviews-empty{text-align:center;padding:3.5rem 2rem;border:1px dashed rgba(200,165,90,.25);background:rgba(200,165,90,.03);margin:3rem 0 2.5rem}
-.reviews-empty p{color:var(--muted);font-size:.9rem;font-weight:300;line-height:1.8;margin-bottom:1.5rem}
-.review-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;margin:3rem 0}
-.review-card-submitted{padding:2rem;border:1px solid var(--bdr);background:var(--card);position:relative}
-.review-card-submitted::before{content:'\201C';font-family:'Playfair Display',serif;font-size:4rem;color:var(--gold);opacity:.22;position:absolute;top:.5rem;left:1.25rem;line-height:1}
-.rev-stars-display{display:flex;gap:3px;margin-bottom:1rem}
-.rev-stars-display svg{width:14px;height:14px;fill:var(--gold)}
-.rev-quote{font-size:.875rem;color:var(--muted);line-height:1.82;font-weight:300;margin-bottom:1.25rem;padding-top:1.25rem}
-.rev-author-name{font-weight:600;font-size:.85rem;color:var(--inkL)}
-.rev-author-biz{font-size:.72rem;color:var(--dim);margin-top:.1rem}
-.star-rating{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:.25rem;margin-top:.25rem}
-.star-rating input{display:none}
-.star-rating label{font-size:1.5rem;color:rgba(200,165,90,.3);cursor:pointer;transition:color var(--micro);line-height:1}
-.star-rating label:hover,.star-rating label:hover~label,.star-rating input:checked~label{color:var(--gold)}
-.review-form-wrap{max-width:680px;margin:0 auto;padding:2.5rem;border:1px solid var(--bdr);background:var(--card)}
-.review-form-wrap h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--inkL);margin-bottom:.4rem}
-.review-form-wrap p{color:var(--muted);font-size:.85rem;line-height:1.75;font-weight:300;margin-bottom:1.5rem}
-.google-rev-row{text-align:center;margin-top:2.5rem;display:flex;flex-direction:column;align-items:center;gap:.75rem}
-.google-rev-row p{font-size:.8rem;color:var(--dim);font-weight:300}
-
-/* ── FOCUS VISIBLE ── */
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.fg input:focus-visible,.fg textarea:focus-visible,.fg select:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(200,165,90,.25)}
-.hamburger:focus-visible,.chat-btn:focus-visible,.form-btn:focus-visible,.btn-gold:focus-visible,.btn-outline:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-
-/* ── KEYFRAMES ── */
-@keyframes bounce  {0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-8px)}60%{transform:translateX(-50%) translateY(-4px)}}
-@keyframes chatpulse{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.5);opacity:0}}
-@keyframes statusblink{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes typebounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
-
-/* ── REDUCED MOTION ── */
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+/* No left margin to spare for a spine on a narrow screen. */
+@media (max-width:859px){
+  .idx{display:none}
 }
 
-/* ── RESPONSIVE ── */
-@media(max-width:980px){
-  .about-grid,.contact-wrap{grid-template-columns:1fr}
-  .about-visual{display:none}
-  .f-grid{grid-template-columns:1fr 1fr;gap:2rem}
-  nav{padding:1rem 1.5rem}
-  nav.scrolled{padding:.75rem 1.5rem}
-  .process-steps{grid-template-columns:1fr 1fr}
-  .process-step:nth-child(2){border-right:none}
-  .process-step:nth-child(3){border-top:1px solid var(--bdr)}
-  .nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(5,8,18,.97);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);flex-direction:column;padding:1.5rem 2rem;gap:1.25rem;border-bottom:1px solid var(--bdr)}
-  .nav-links.open{display:flex}
-  .hamburger{display:flex}
+@media (max-width:559px){
+  .frame__meta{left:22px;bottom:22px;right:22px}
 }
-@media(max-width:768px){
-  .svc-grid{grid-template-columns:1fr}
-  .process-steps{grid-template-columns:1fr;border:1px solid var(--bdr)}
-  .process-step{border-right:none;border-bottom:1px solid var(--bdr)}
-  .process-step:last-child{border-bottom:none}
-  .phase-h1{font-size:clamp(2rem,8vw,3.5rem)}
+
+/* =============== THE RING =============== */
+/* The twelve cells of the proof sheet ARE the twelve cards of the ring.
+   One set of nodes, two layouts, no duplicated markup and no second
+   portfolio section. The 6x2 grid above is the resting state: it is what
+   a visitor with no JavaScript or a narrow screen gets, complete and
+   above the fold. `.sheet.is-ring` lifts those same twelve elements onto
+   a cylinder whose camera sits at its own centre, so each card is
+   tangent to the cylinder and faces the camera exactly. Vertical sides
+   with a slanted top edge is perspective, not rotation.
+
+   R, the card, the stage and the cull angle are measured, not authored,
+   so they arrive as custom properties from the script.
+
+   ONLY the ring writes `transform` on `.f`. Nothing else may touch it. */
+.sheet.is-ring{
+  display:block;position:relative;
+  width:var(--stage-w);height:var(--stage-h);
+  margin-inline:auto;
+  overflow:hidden;
+  perspective:var(--ring-r);
+  perspective-origin:50% 60%;
+  cursor:grab;touch-action:pan-y;
+  -webkit-user-select:none;user-select:none;
 }
-@media(max-width:620px){
-  .svc-grid{grid-template-columns:1fr}
-  .f-grid{grid-template-columns:1fr}
-  .stats{grid-template-columns:repeat(3,1fr);gap:.6rem}
-  .stat{padding:1rem .5rem}
-  .stat-n{font-size:1.75rem}
-  .stat-l{font-size:.6rem;letter-spacing:.8px}
-  .chat-win{width:calc(100vw - 3rem);right:0}
-  section{padding:5rem 1.5rem}
-  footer{padding:3rem 1.5rem 2rem}
-  .phase-eyebrow{letter-spacing:1.5px;padding:.38rem 1rem}
-  .f-bot{flex-direction:column;align-items:flex-start;gap:.5rem}
-  #hero-sequence{height:500vh}
+.sheet.is-ring.is-drag{cursor:grabbing}
+.sheet.is-ring .f{
+  position:absolute;left:50%;top:50%;
+  width:var(--card-w);height:var(--card-h);
+  margin-left:calc(var(--card-w) * -0.5);
+  margin-top:calc(var(--card-h) * -0.5);
+  aspect-ratio:auto;
+  transform-origin:50% 50%;
 }
-@media(max-width:400px){
-  .stats{grid-template-columns:1fr}
-  .stat{text-align:left;display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem}
-  .stat-n{font-size:2rem}
-  .stat-l{margin-top:0}
+/* Aerial perspective, applied to the capture and nothing else.
+   Putting the recede on the card itself was measured first and it
+   dragged the sage frame numbers down with it: 4.05:1 at 30 degrees
+   and 1.94:1 at the cull, against 4.89:1 flat. Both fail AA. A
+   limestone wash under the numbers leaves them at their authored
+   4.89:1 at every angle, and the capture still recedes into the page's
+   own ground. The studio's own marks hold their weight; the client's
+   photograph is what moves away. */
+.sheet.is-ring .f::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:var(--limestone);opacity:var(--veil,0);
+}
+.sheet.is-ring .f__n{z-index:2}
+.sheet.is-ring .f__open{position:relative;z-index:2}
+/* The pair brackets are placed on grid areas and have none to sit on
+   here, so the frame weight carries the marking instead: the plates'
+   own 1px slate hairline on the four exposed frames, cedar on frame 12
+   alone. Frame 12 and a capture CAN be on screen together: the cull is
+   a half angle, so the visible arc is about 114 degrees and spans three
+   steps. Measured over 1,681 phases, that happens in 315 of them and
+   the closest the cedar frame ever comes to a capture is 659px, more
+   than two card widths. The flat grid above puts them three cells apart
+   permanently, so the ring is no closer than the sheet it replaces. */
+.sheet.is-ring .br{display:none}
+/* A 1px hairline carries less weight on a 333px card than on a 195px
+   grid cell, and the blanks have to stay countable. */
+.sheet.is-ring .f{border-color:rgba(31,38,40,.30)}
+.sheet.is-ring .f--w{border-color:var(--slate)}
+.sheet.is-ring .f--open{border-color:var(--cedar)}
+/* The ring dissolves into the page's own ground instead of popping at
+   the cull angle. Load-bearing rather than decorative: measured, a card
+   is hidden while a sliver of it is still inside the stage, and the
+   outer 38% of this band is fully opaque limestone exactly there. */
+.sheet.is-ring::before,.sheet.is-ring::after{
+  content:"";position:absolute;top:-2px;bottom:-2px;
+  width:var(--veil-w);z-index:3;pointer-events:none;
+}
+.sheet.is-ring::before{left:0;background:linear-gradient(to right,var(--limestone) 0 38%,rgba(242,238,230,0) 100%)}
+.sheet.is-ring::after{right:0;background:linear-gradient(to left,var(--limestone) 0 38%,rgba(242,238,230,0) 100%)}
+/* Written by the script, so the no-JavaScript document carries no
+   instruction for a control that does not exist. */
+.ring-hint{width:min(1240px,92vw);margin:1.1rem auto 0}
+
+/* This block sits after every rule it overrides. Source order
+   decides at equal specificity. */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    transition-duration:1ms !important;
+    transition-delay:0ms !important;
+    animation-duration:1ms !important;
+    scroll-behavior:auto !important;
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- ── SCROLL PROGRESS BAR ── -->
-<div id="progress-bar" aria-hidden="true"></div>
+<main>
 
-<!-- ══ NAV ══ -->
-<nav id="nav">
-  <a href="#top" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-    <svg width="46" height="46" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-      <polygon points="32,3 61,32 32,61 3,32" fill="none" stroke="url(#nav-logo-grad)" stroke-width="1.2"/>
-      <polygon points="32,11 27,22 37,22" fill="url(#nav-logo-grad)" opacity=".92"/>
-      <polygon points="32,18 20,33 44,33" fill="url(#nav-logo-grad)" opacity=".82"/>
-      <polygon points="32,27 13,46 51,46" fill="url(#nav-logo-grad)" opacity=".74"/>
-      <rect x="30" y="46" width="4" height="5" rx=".6" fill="#C8A55A" opacity=".88"/>
-      <path d="M 22,51 L 26,47 L 32,46 L 38,47 L 42,51 L 41,57 Q 32,61 32,61 Q 23,57 22,51 Z" fill="none" stroke="url(#nav-logo-grad)" stroke-width=".75"/>
-      <path d="M 25,53 Q 32,51 39,53" stroke="#E2C98A" stroke-width=".35" fill="none" opacity=".45"/>
-      <defs>
-        <linearGradient id="nav-logo-grad" x1="3" y1="3" x2="61" y2="61" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stop-color="#E2C98A"/><stop offset="100%" stop-color="#C8A55A"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <div class="logo-text">
-      <span class="lt">CedarStone</span>
-      <span class="lb">Digital</span>
-    </div>
-  </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact" class="nav-cta">Get Started</a></li>
-  </ul>
-  <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks" onclick="var o=document.getElementById('navLinks').classList.toggle('open');this.setAttribute('aria-expanded',o)">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- ══ HERO SEQUENCE ══ -->
-<div id="hero-sequence">
-  <div id="hero-pin">
-    <canvas id="heroCanvas" aria-hidden="true"></canvas>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-vignette" aria-hidden="true"></div>
-
-    <!-- Phase 1: Brand reveal -->
-    <div class="hero-phase" id="p1" aria-live="polite">
-      <div class="phase-eyebrow">CedarStone Digital · South Africa</div>
-      <h1 class="phase-h1">We build the <em>future</em><br>your business is waiting for.</h1>
-      <p class="phase-sub">A digital agency where world-class craft meets African ambition. Websites, AI, and design — engineered to make you unforgettable.</p>
-    </div>
-
-    <!-- Phase 2: The problem -->
-    <div class="hero-phase" id="p2">
-      <div class="phase-eyebrow">The Uncomfortable Truth</div>
-      <h2 class="phase-h1">Your competitors aren't <em>better</em>.<br>They're just easier to find.</h2>
-      <p class="phase-sub">A slow site, a quiet inbox, a brand that blends in. Every day you stay invisible, someone else gets the call that should have been yours.</p>
-    </div>
-
-    <!-- Phase 3: The promise -->
-    <div class="hero-phase" id="p3">
-      <div class="phase-eyebrow">The Promise</div>
-      <h2 class="phase-h1">We don't make you <em>online</em>.<br>We make you the obvious choice.</h2>
-      <p class="phase-sub">Beautiful is the floor, not the ceiling. We build presence that ranks, converts, and works while you sleep.</p>
-    </div>
-
-    <!-- Phase 4: What we build -->
-    <div class="hero-phase" id="p4">
-      <div class="phase-eyebrow">What We Build</div>
-      <h2 class="phase-h1">Nine ways to <em>outgrow</em> the rest.</h2>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 28px;max-width:720px;margin-top:8px">
-        <span style="font-family:'Inter',sans-serif;font-weight:300;color:#EAD9B5;font-size:15px;letter-spacing:.02em">Website Development</span>
-        <span style="font-family:'Inter',sans-serif;font-weight:300;color:#EAD9B5;font-size:15px;letter-spacing:.02em">Website Enhancement</span>
-        <span style="font-family:'Inter',sans-serif;font-weight:300;color:#EAD9B5;font-size:15px;letter-spacing:.02em">SEO</span>
-        <span style="font-family:'Inter',sans-serif;font-weight:300;color:#EAD9B5;font-size:15px;letter-spacing:.02em">AI Automation</span>
-        <span style="font-family:'Inter',sans-serif;font-weight:300;color:#EAD9B5;font-size:15px;letter-spacing:.02em">Staff AI Assistant</span>
-        <span style="font-family:'Inter',sans-serif;font-weight:300;color:#EAD9B5;font-size:15px;letter-spacing:.02em">Document Intelligence</span>
-        <span style="font-family:'Inter',sans-serif;font-weight:300;color:#EAD9B5;font-size:15px;letter-spacing:.02em">Conversational &amp; Voice AI</span>
-        <span style="font-family:'Inter',sans-serif;font-weight:300;color:#EAD9B5;font-size:15px;letter-spacing:.02em">Review Analysis</span>
-        <span style="font-family:'Inter',sans-serif;font-weight:300;color:#EAD9B5;font-size:15px;letter-spacing:.02em">Poster &amp; Graphic Design</span>
-      </div>
-      <p class="phase-sub" style="margin-top:22px">From <em style="font-style:italic;color:#E2C98A">R3,500</em> — one team, one standard, every solution under one roof.</p>
-    </div>
-
-    <!-- Phase 5: Differentiator -->
-    <div class="hero-phase" id="p5">
-      <div class="phase-eyebrow">Why CedarStone</div>
-      <h2 class="phase-h1">No templates. No outsourcing.<br><em>No middlemen.</em></h2>
-      <p class="phase-sub">Three founders. You speak to the people who build it. Every line of code and every pixel made by hand — with a guaranteed reply in 48 hours.</p>
-    </div>
-
-    <!-- Phase 6: CTA -->
-    <div class="hero-phase" id="p6">
-      <div class="phase-eyebrow">Let's Begin</div>
-      <h2 class="phase-h1">Your <em>unfair advantage</em><br>starts with one call.</h2>
-      <p class="phase-sub">Free consultation. No pressure, no jargon — just a clear plan for what your business could become.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:28px;justify-content:center">
-        <a href="#contact" class="btn-gold" data-magnetic data-press>Book Your Free Consultation</a>
-        <a href="#services" class="btn-outline">See What We Build</a>
-      </div>
-      <p style="font-family:'Inter',sans-serif;font-weight:300;font-size:.78rem;letter-spacing:.06em;color:rgba(234,217,181,.5);margin-top:18px">082 061 3598 · We reply within 48 hours, guaranteed.</p>
-    </div>
-
-    <!-- Scroll hint visible on phase 1 -->
-    <div class="scroll-hint" id="scrollHint" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="scroll-arrow"></div>
-    </div>
+<!-- ============ 1. THE SHEET ============ -->
+<section id="sheet">
+  <div class="wrap">
+    <header id="sheet-head">
+      <p class="lbl">CedarStone Digital (Pty) Ltd &middot; Johannesburg &middot; Proof sheet &middot; 12 frames &middot; 2 exposed</p>
+    </header>
+    <h1>Everything we have built is on this page.</h1>
+    <p class="lede sheet-intro">Two online shops for two Lesotho clothing labels. Both are live. Both are below, at the size we built them.</p>
   </div>
+
+  <div class="sheet">
+    <div class="f"><span class="f__n">01</span></div>
+    <div class="f"><span class="f__n">02</span></div>
+    <div class="f f--w"><img src="assets/work/sesotho-fashioneng-desktop.png" width="2880" height="1800" alt="Sesotho Fashioneng home page on a desktop screen: a mountain photograph behind the words Culture. Pride. and Luxury."><span class="f__n">03</span></div>
+    <div class="f f--w"><img src="assets/work/sesotho-fashioneng-mobile.png" width="780" height="1688" alt="Sesotho Fashioneng home page on a phone screen."><span class="f__n">04</span></div>
+    <div class="f"><span class="f__n">05</span></div>
+    <div class="f"><span class="f__n">06</span></div>
+    <div class="f"><span class="f__n">07</span></div>
+    <div class="f f--w"><img src="assets/work/lrt-threadz-desktop.png" width="2880" height="1800" alt="LRT Threadz home page on a desktop screen: the word SLOUCHY in heavy condensed type behind a portrait, slide three of seven."><span class="f__n">08</span></div>
+    <div class="f f--w"><img src="assets/work/lrt-threadz-mobile.png" width="780" height="1688" alt="LRT Threadz home page on a phone screen."><span class="f__n">09</span></div>
+    <div class="f"><span class="f__n">10</span></div>
+    <div class="f"><span class="f__n">11</span></div>
+    <div class="f f--open"><span class="f__n">12</span><span class="f__open">OPEN</span></div>
+    <div class="br br--a" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="br br--b" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="br br--c" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <!-- THE RING. Enhancement over the flat proof sheet above.
+
+       This script sits here, immediately after the sheet, rather than at
+       the foot of the document, for one reason: it must promote the grid
+       to the ring in the same synchronous block that writes the twelve
+       transforms, before the first paint. Done later it would shift the
+       page down by the difference between the grid's height and the
+       stage's, on the first screen. Done in two steps it would paint
+       twelve cards stacked on each other.
+
+       It never hides anything. If it throws, if JavaScript is off, if
+       the screen is under 980px, the 6x2 grid above stays exactly as it
+       is: twelve numbered frames, four exposed, all countable. If the
+       script runs but requestAnimationFrame never fires a callback, the
+       ring renders once and stands still at its start phase, which is
+       composed on purpose: frame 03, the Sesotho desktop capture, dead
+       centre at a = 0, where its transform is the identity and the
+       capture is pixel exact and ungraded. -->
+  <script>
+  (function(){
+    'use strict';
+
+    /* Swap this string in a harness to exercise the frozen branch. */
+    var MQ_REDUCE = '(prefers-reduced-motion: reduce)';
+
+    var MIN_W  = 980;   /* below this the flat grid and strip stay      */
+    var N      = 12;    /* twelve frames. Not 37. Four of them exposed. */
+    var STEP   = 30;    /* 360 / 12                                     */
+    var SPEED  = 4.2;   /* deg/s. See the report for why not 1.9.       */
+    var GUT    = 14;    /* angular gutter, matches --gap                */
+    var HFACT  = 1.58;  /* stage height / card height. Measured below.  */
+    var WFRAC  = 0.40;  /* card width ceiling as a fraction of stage    */
+    var VEILF  = 0.11;  /* edge veil width as a fraction of stage       */
+    var OPAQUE = 0.38;  /* fully opaque fraction of that veil           */
+    var RECEDE = 0.62;  /* how far a card recedes into the ground       */
+    var TAU    = 0.26;  /* speed approach time constant, seconds        */
+    var START  = -60;   /* puts card index 2, frame 03, at a = 0        */
+    var D2R    = Math.PI / 180;
+
+    var sheet = document.querySelector('.sheet');
+    if (!sheet) return;
+    var cards = [].slice.call(sheet.querySelectorAll('.f'));
+    if (cards.length !== N) return;
+
+    var reduce = false;
+    try { reduce = !!(window.matchMedia && window.matchMedia(MQ_REDUCE).matches); }
+    catch (e) { reduce = true; }
+
+    var R = 0, Wc = 0, Hc = 0, CULL = 50, stageH = 0, stageW = 0, halfW = 0, veilW = 0;
+    var phase = START, vel = -SPEED, held = false, dragging = false;
+    var on = false, running = false, lastT = 0, visCount = 0;
+    var hint = null, pid = null, px = 0, pt = 0, rzT = 0;
+
+    function vpW(){ return document.documentElement.clientWidth || window.innerWidth || 0; }
+    function vpH(){ return document.documentElement.clientHeight || window.innerHeight || 700; }
+
+    /* A card is tangent to the cylinder, so a point at offset u along it
+       sits at world x = R*sin(a) + u*cos(a), z = R(1-cos a) + u*sin(a).
+       The camera is at z = R, so the projection scale is R/(R*cos(a) -
+       u*sin(a)). This returns the projected x of the card's inner edge,
+       which is what decides where it is safe to cull. */
+    function edgeX(a, u){
+      var r = a * D2R;
+      var num = R * Math.sin(r) + u * Math.cos(r);
+      var den = R * Math.cos(r) - u * Math.sin(r);
+      return num * R / den;
+    }
+    function innerEdgeX(a){ return edgeX(a, -Wc / 2); }
+    function outerEdgeX(a){ return edgeX(a,  Wc / 2); }
+
+    function geom(){
+      /* Mirrors `.sheet { width: min(1240px, 92vw) }`. It must not read
+         back the stage's own clientWidth: once the ring has narrowed
+         the stage, a refit would narrow it again from the new value and
+         keep ratcheting it down. */
+      var sw = Math.min(1240, Math.round(vpW() * 0.92));
+      /* Measure the room left under the headline rather than guessing a
+         fraction of the viewport. Promotion happens in place, so the
+         grid's own top is the stage's top, and 56px covers the hint
+         line beneath it. Measured at 1440x900 a fixed 0.56 fraction put
+         52px of the stage below the fold. */
+      var docTop = sheet.getBoundingClientRect().top + (window.pageYOffset || 0);
+      var budget = Math.max(240, Math.min(620, Math.round(vpH() - docTop - 56)));
+      Hc = Math.floor(budget / HFACT);
+      Wc = Math.round(Hc * 4 / 3);
+      var cap = Math.round(sw * WFRAC);
+      if (Wc > cap) { Wc = cap; Hc = Math.round(Wc * 3 / 4); }
+      /* Twelve cards plus their gutters must close the circumference. */
+      R = Math.round((N / (2 * Math.PI)) * (Wc + GUT));
+      stageH = Math.ceil(Hc * HFACT);
+
+      /* Two things follow from twelve cards at a 30 degree step, and
+         neither applies to the 37 the source prompt used.
+
+         One. The worst case for coverage is a phase where cards sit at
+         0 and +/-30, because the next pair is at +/-60 and contributes
+         nothing. So the ring only reaches the stage edge if the stage
+         is no wider than twice the projected outer edge of a card at
+         30 degrees. Narrow the stage to that rather than leave open
+         limestone at the edge. Measured before this: 57px of it.
+
+         Two. The cull then has to hold a card until its inner edge has
+         genuinely left the stage, otherwise culling punches a hole at
+         the edge. Measured before this: up to 83px wide. */
+      stageW = Math.min(sw, Math.floor(2 * outerEdgeX(STEP)));
+      halfW = stageW / 2;
+      veilW = Math.round(stageW * VEILF);
+
+      var a;
+      CULL = 59.5;
+      for (a = 40; a <= 59.5; a += 0.25) {
+        if (innerEdgeX(a) >= halfW) { CULL = a; break; }
+      }
+
+      sheet.style.setProperty('--stage-w', stageW + 'px');
+      sheet.style.setProperty('--card-w', Wc + 'px');
+      sheet.style.setProperty('--card-h', Hc + 'px');
+      sheet.style.setProperty('--ring-r', R + 'px');
+      sheet.style.setProperty('--stage-h', stageH + 'px');
+      sheet.style.setProperty('--veil-w', veilW + 'px');
+    }
+
+    function render(){
+      var i, a, r, c, el, v = 0;
+      for (i = 0; i < N; i++) {
+        el = cards[i];
+        a = ((i * STEP + phase) % 360 + 540) % 360 - 180;
+        if (Math.abs(a) > CULL) {
+          /* clip-path rather than visibility, so a culled frame stays in
+             the accessibility tree and keeps its alt text. */
+          if (el.__vis !== 0) { el.style.clipPath = 'inset(100%)'; el.__vis = 0; }
+          continue;
+        }
+        r = a * D2R; c = Math.cos(r);
+        el.style.transform =
+          'translate3d(' + (R * Math.sin(r)).toFixed(2) + 'px,0px,' +
+          (R * (1 - c)).toFixed(2) + 'px) rotateY(' + (-a).toFixed(3) + 'deg)';
+        /* The source formula is brightness(0.84 + 0.5*(1/c - 1)). On a
+           limestone ground that is wrong in both directions: 0.84 dims
+           the capture at the moment the visitor is looking at it, and
+           1.28 at the cull multiplies limestone's 242 past 255, so the
+           blank frames would clip to white and glow brighter than the
+           page. Receding into the ground is the light ground
+           equivalent of the same curve, and it is exactly 0 at a = 0,
+           where the capture is therefore pixel exact. */
+        el.style.setProperty('--veil', (RECEDE * (1 / c - 1)).toFixed(4));
+        if (el.__vis !== 1) { el.style.clipPath = 'none'; el.__vis = 1; }
+        v++;
+      }
+      visCount = v;
+    }
+
+    function onScreen(){
+      var r = sheet.getBoundingClientRect();
+      return r.bottom > -120 && r.top < vpH() + 120;
+    }
+
+    function tick(t){
+      var dt = lastT ? Math.min((t - lastT) / 1000, 0.1) : 0;
+      lastT = t;
+      if (!reduce && !dragging) {
+        var want = held ? 0 : -SPEED;
+        vel += (want - vel) * (1 - Math.exp(-dt / TAU));
+        phase += vel * dt;
+      }
+      render();
+      /* Reduced motion freezes phase and still renders. Nothing can
+         change until the visitor drags it, so the loop stops rather
+         than spending frames on an identical result. */
+      if (reduce || document.hidden || !onScreen()) { running = false; return; }
+      requestAnimationFrame(tick);
+    }
+
+    function start(){
+      if (running || !on) return;
+      if (!window.requestAnimationFrame) { render(); return; }
+      running = true; lastT = 0;
+      requestAnimationFrame(tick);
+    }
+
+    function wake(){ lastT = 0; if (!document.hidden && onScreen()) start(); }
+
+    function promote(){
+      if (on || vpW() < MIN_W) return;
+      geom();
+      sheet.classList.add('is-ring');
+      on = true;
+      render();
+      if (!hint) {
+        hint = document.createElement('p');
+        hint.className = 'lbl ring-hint';
+        hint.textContent = reduce
+          ? 'Twelve frames on a ring. Drag it to turn.'
+          : 'Twelve frames on a ring. Drag it to turn. Hold it to stop.';
+        sheet.parentNode.insertBefore(hint, sheet.nextSibling);
+      }
+      start();
+    }
+
+    function demote(){
+      if (!on) return;
+      on = false; running = false; dragging = false;
+      sheet.classList.remove('is-ring');
+      sheet.classList.remove('is-drag');
+      var i, j, el, props = ['--card-w','--card-h','--ring-r','--stage-h','--stage-w','--veil-w'];
+      for (i = 0; i < N; i++) {
+        el = cards[i];
+        el.style.transform = ''; el.style.clipPath = '';
+        el.style.removeProperty('--veil');
+        el.__vis = -1;
+      }
+      for (j = 0; j < props.length; j++) sheet.style.removeProperty(props[j]);
+      if (hint && hint.parentNode) { hint.parentNode.removeChild(hint); hint = null; }
+    }
+
+    /* ---------- the visitor's hands on it ---------- */
+    function pdown(e){
+      if (!on) return;
+      if (e.button != null && e.button !== 0) return;
+      pid = (e.pointerId == null ? 1 : e.pointerId);
+      dragging = true;
+      px = e.clientX; pt = (e.timeStamp || Date.now());
+      sheet.classList.add('is-drag');
+      if (sheet.setPointerCapture && e.pointerId != null) {
+        try { sheet.setPointerCapture(e.pointerId); } catch (err) {}
+      }
+      start();
+    }
+    function pmove(e){
+      if (!dragging || !on) return;
+      if (e.pointerId != null && e.pointerId !== pid) return;
+      var now = (e.timeStamp || Date.now());
+      var dx = e.clientX - px;
+      var dt = Math.max(now - pt, 1) / 1000;
+      /* One pixel of drag turns the ring by one pixel of its own
+         circumference at the centre card. */
+      var da = dx * 180 / (Math.PI * R);
+      phase += da;
+      vel = Math.max(-240, Math.min(240, da / dt));
+      px = e.clientX; pt = now;
+      start();
+    }
+    function pup(){
+      if (!dragging) return;
+      dragging = false; pid = null;
+      sheet.classList.remove('is-drag');
+      start();
+    }
+    function enter(e){ if (e && e.pointerType === 'touch') return; held = true;  start(); }
+    function leave(e){ if (e && e.pointerType === 'touch') return; held = false; start(); }
+
+    if (window.PointerEvent) {
+      sheet.addEventListener('pointerdown', pdown);
+      sheet.addEventListener('pointermove', pmove);
+      window.addEventListener('pointerup', pup);
+      window.addEventListener('pointercancel', pup);
+      sheet.addEventListener('pointerenter', enter);
+      sheet.addEventListener('pointerleave', leave);
+    } else {
+      sheet.addEventListener('mousedown', pdown);
+      window.addEventListener('mousemove', pmove);
+      window.addEventListener('mouseup', pup);
+      sheet.addEventListener('mouseenter', enter);
+      sheet.addEventListener('mouseleave', leave);
+    }
+
+    window.addEventListener('scroll', wake, { passive: true });
+    document.addEventListener('visibilitychange', wake);
+    window.addEventListener('resize', function(){
+      clearTimeout(rzT);
+      rzT = setTimeout(function(){
+        if (vpW() < MIN_W) { demote(); return; }
+        if (!on) { promote(); return; }
+        geom(); render(); wake();
+      }, 120);
+    }, { passive: true });
+
+    /* The stage height is measured against the headline above it, and
+       the headline's wrap can change when Archivo replaces the fallback
+       face. Re-fit once the real face is in. */
+    if (document.fonts && document.fonts.ready && document.fonts.ready.then) {
+      document.fonts.ready.then(function(){
+        if (on) { geom(); render(); }
+      })['catch'](function(){});
+    }
+
+    /* Test hook, deliberate. The Browser pane runs frames
+       intermittently, so the ring is checked by driving phase directly
+       and reading back each card's computed transform and opacity. */
+    window.__ring = {
+      set: function(p){ phase = p; render(); return visCount; },
+      hold: function(v){ held = !!v; start(); },
+      edge: innerEdgeX,
+      render: render, promote: promote, demote: demote,
+      get: function(){
+        return { phase:phase, start:START, R:R, step:STEP, cull:CULL,
+                 speed:SPEED, cardW:Wc, cardH:Hc, stageH:stageH,
+                 veilW:veilW, halfW:halfW, visible:visCount, on:on,
+                 reduce:reduce, held:held, vel:vel, running:running };
+      }
+    };
+
+    promote();
+  })();
+  </script>
+</section>
+
+<!-- ============ 2 and 3. THE PLATES ============ -->
+<div class="plates">
+  <div class="idx" aria-hidden="true"><span class="idx__n">03 / 12</span></div>
+
+  <section id="plate-01" data-idx="03 / 12">
+    <div class="plate-head">
+      <p class="lbl">Frame 03 / 04 &middot; 2026</p>
+      <h2>Sesotho Fashioneng</h2>
+      <p class="lede">The SS26 collection site for a fashion label out of Lesotho. Live at <span class="dom">sesothofashioneng.co.za</span>.</p>
+    </div>
+    <div class="plate-row">
+      <figure class="plate-desk"><img src="assets/work/sesotho-fashioneng-desktop.png" width="2880" height="1800" alt="Sesotho Fashioneng home page at desktop width. A mountain photograph fills the screen behind the words Culture. Pride. and Luxury. set in a high contrast display serif, with two pill buttons beneath."></figure>
+      <figure class="plate-mob"><img src="assets/work/sesotho-fashioneng-mobile.png" width="780" height="1688" alt="The same Sesotho Fashioneng page at phone width."></figure>
+    </div>
+    <div class="plate-body">
+      <div class="prose">
+        <p>Fifteen pieces. Every price is looked up on our server when you check out, so a tampered request cannot buy a R2,200 hoodie for one rand.</p>
+        <p>M-Pesa at checkout as well as card, because a lot of this label's customers pay by phone.</p>
+        <p>The whole page is written into the HTML before any JavaScript runs. Over five thousand characters of readable text sit in the source itself. Google reads it, and so does a phone on a bad signal.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="plate-02" data-idx="08 / 12">
+    <div class="plate-head">
+      <p class="lbl">Frame 08 / 09 &middot; 2026</p>
+      <h2>LRT Threadz</h2>
+      <p class="lede">An online shop for handmade crochet streetwear from Lesotho. Live at <span class="dom">lrtthreadz.com</span>.</p>
+    </div>
+    <div class="plate-row">
+      <figure class="plate-desk"><img src="assets/work/lrt-threadz-desktop.png" width="2880" height="1800" alt="LRT Threadz home page at desktop width. The word SLOUCHY in giant condensed type sits behind a portrait plate, with slide three of seven marked by yellow progress ticks and a SHOP NOW button."></figure>
+      <figure class="plate-mob"><img src="assets/work/lrt-threadz-mobile.png" width="780" height="1688" alt="The same LRT Threadz page at phone width."></figure>
+    </div>
+    <div class="plate-body">
+      <div class="prose">
+        <p>Twenty-seven pieces, priced on the server, so the amount charged is never the amount the browser sent.</p>
+        <p>Checkout offers 2,353 PUDO locker pickup points across nine provinces, searchable by name or town. The whole list ships inside the page, so the picker answers instantly.</p>
+        <p>The front page opens on a seven-slide carousel. Arrows, swipe and autoplay, built from scratch.</p>
+      </div>
+    </div>
+  </section>
 </div>
 
-<!-- ══ SERVICES TICKER ══ -->
-<div class="ticker-wrap" aria-hidden="true">
-  <div data-marquee class="ticker-track">
-    <span>Website Development</span><span class="t-dot">✦</span>
-    <span>AI Automation</span><span class="t-dot">✦</span>
-    <span>SEO Optimisation</span><span class="t-dot">✦</span>
-    <span>Staff AI Assistant</span><span class="t-dot">✦</span>
-    <span>Document Intelligence</span><span class="t-dot">✦</span>
-    <span>Conversational &amp; Voice AI</span><span class="t-dot">✦</span>
-    <span>Review Management</span><span class="t-dot">✦</span>
-    <span>Poster &amp; Graphic Design</span><span class="t-dot">✦</span>
-    <span>Website Enhancement</span><span class="t-dot">✦</span>
+<!-- ============ 4. THE OPEN FRAME ============ -->
+<section id="open">
+  <h2>The third frame is open.</h2>
+
+  <div class="frame" id="frame-03">
+    <svg class="frame__draw" aria-hidden="true" focusable="false"></svg>
+    <div class="frame__meta">
+      <p class="lbl">Frame 03</p>
+      <a class="tel u" href="tel:+27820613598">082&nbsp;061&nbsp;3598</a>
+      <p class="note">Johannesburg. We answer it ourselves.</p>
+    </div>
   </div>
-</div>
 
-<div class="divider"></div>
+  <p class="note frame__note">Same size as the two above it. We have not built it yet.</p>
+</section>
 
-<!-- ══ ABOUT ══ -->
-<section id="about">
+<!-- ============ 5. WHAT IS IN WRITING ============ -->
+<section id="writing">
   <div class="wrap">
-    <div class="about-grid">
-      <div class="about-text">
-        <span class="eyebrow">Who We Are</span>
-        <h2 class="sec-title rv" data-split-text>Your <em>Digital Partners</em><br>for Growth</h2>
-        <p class="sec-sub rv" style="margin-bottom:1.1rem">We're three South Africans who got tired of watching local businesses get left behind while their competition ran on modern websites and AI. So we built CedarStone Digital to fix that.</p>
-        <p class="rv" style="color:var(--muted);font-size:.975rem;line-height:1.85;font-weight:300">We build the digital systems — custom websites, AI tools, intelligent automation — that let your business run leaner, convert more visitors, and look world-class. You work directly with our founders, not an outsourced team, and we stay personally invested from the first call to final delivery.</p>
-        <div class="stats" data-animate="stagger">
-          <div class="stat"><div class="stat-n" data-counter="0" data-suffix="">R0</div><div class="stat-l">Consultation Fee</div></div>
-          <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Custom — No Templates</div></div>
-          <div class="stat"><div class="stat-n">48hr</div><div class="stat-l">Guaranteed Response</div></div>
-        </div>
-      </div>
-      <div class="about-visual">
-        <div class="logo-display">
-          <svg class="logo-display-svg" width="260" height="260" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <polygon points="100,5 195,100 100,195 5,100" fill="rgba(12,20,44,.85)"/>
-            <polygon points="100,5 195,100 100,195 5,100" fill="none" stroke="url(#about-logo-grad)" stroke-width="1.5"/>
-            <polygon points="100,14 186,100 100,186 14,100" fill="none" stroke="rgba(200,165,90,.18)" stroke-width=".55"/>
-            <polygon points="100,34 91,54 109,54" fill="rgba(12,20,44,.9)" stroke="url(#about-logo-grad)" stroke-width=".8"/>
-            <polygon points="100,46 80,70 120,70" fill="rgba(12,20,44,.9)" stroke="url(#about-logo-grad)" stroke-width=".8"/>
-            <polygon points="100,60 64,92 136,92" fill="rgba(12,20,44,.9)" stroke="url(#about-logo-grad)" stroke-width=".8"/>
-            <polygon points="100,77 50,114 150,114" fill="rgba(12,20,44,.9)" stroke="url(#about-logo-grad)" stroke-width=".8"/>
-            <rect x="96" y="114" width="8" height="14" rx="1.5" fill="#C9A84C" opacity=".9"/>
-            <path d="M 56,130 L 68,120 L 100,116 L 132,120 L 144,130 L 143,152 L 132,162 Q 116,168 100,169 Q 84,168 68,162 L 57,152 Z" fill="rgba(12,20,44,.9)" stroke="url(#about-logo-grad)" stroke-width=".95"/>
-            <path d="M 66,133 Q 82,129 98,133" stroke="#C9A84C" stroke-width=".48" fill="none" opacity=".4"/>
-            <path d="M 102,133 Q 118,129 132,133" stroke="#C9A84C" stroke-width=".48" fill="none" opacity=".4"/>
-            <path d="M 63,145 Q 82,141 100,145 Q 118,141 137,145" stroke="#C9A84C" stroke-width=".45" fill="none" opacity=".38"/>
-            <path d="M 68,157 Q 84,153 100,156 Q 116,153 130,157" stroke="#C9A84C" stroke-width=".42" fill="none" opacity=".34"/>
-            <path d="M 68,120 Q 76,133 72,149 Q 70,159 76,167" stroke="#C9A84C" stroke-width="1.35" fill="none" stroke-linecap="round"/>
-            <path d="M 72,149 Q 59,153 49,163" stroke="#C9A84C" stroke-width=".7" fill="none" stroke-linecap="round" opacity=".72"/>
-            <path d="M 114,74 Q 121,85 117,97 Q 113,109 117,122" stroke="#C9A84C" stroke-width=".92" fill="none" stroke-linecap="round" opacity=".84"/>
-            <path d="M 117,97 Q 128,101 136,93" stroke="#C9A84C" stroke-width=".58" fill="none" stroke-linecap="round" opacity=".65"/>
-            <path d="M 93,46 Q 90,53 92,63" stroke="#C9A84C" stroke-width=".48" fill="none" stroke-linecap="round" opacity=".56"/>
-            <path d="M 131,137 Q 138,146 134,156" stroke="#C9A84C" stroke-width=".5" fill="none" stroke-linecap="round" opacity=".54"/>
-            <path d="M 68,120 Q 76,133 72,149 Q 59,153 49,163 Z" fill="#C9A84C" opacity=".2"/>
-            <path d="M 114,74 Q 121,85 117,97 Q 128,101 136,93 Z" fill="#C9A84C" opacity=".15"/>
-            <circle cx="100" cy="5"   r="2.5" fill="#E2C98A"/>
-            <circle cx="195" cy="100" r="2.5" fill="#E2C98A"/>
-            <circle cx="100" cy="195" r="2.5" fill="#E2C98A"/>
-            <circle cx="5"   cy="100" r="2.5" fill="#E2C98A"/>
-            <defs>
-              <linearGradient id="about-logo-grad" x1="5" y1="5" x2="195" y2="195" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#E2C98A"/>
-                <stop offset="100%" stop-color="#C9A84C"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <div style="text-align:center">
-            <span style="font-family:'Playfair Display',serif;font-size:.7rem;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold)">CedarStone Digital</span>
-          </div>
-        </div>
-      </div>
+    <p class="lbl">Our terms, unchanged since May 2026</p>
+    <h2>Read the contract before you phone us.</h2>
+    <p class="lede">Most agencies promise in marketing copy and qualify in the contract. Ours is one click away and these four clauses are in it word for word.</p>
+    <ul class="clauses">
+      <li>Fifty percent before we start, fifty percent on delivery, before files or credentials change hands.</li>
+      <li>If the finished work does not match the agreed scope, we rebuild it at no cost.</li>
+      <li>The intellectual property in everything we make transfers to you in full on final payment.</li>
+      <li>Prices are in rand and exclude VAT unless the proposal says otherwise.</li>
+    </ul>
+    <p><a class="u" href="terms.html">Read the full terms</a></p>
+  </div>
+</section>
+
+<!-- ============ 6. WHAT IT COSTS ============ -->
+<section id="cost">
+  <div class="wrap">
+    <h2>Three numbers, no discovery call needed to hear them.</h2>
+    <div class="prose">
+      <p>A single-page site starts at <span class="fig">R3,500</span>. A multi-page build starts at <span class="fig">R6,000</span>. The first call is free and takes about <span class="fig">thirty minutes</span>.</p>
+      <p>We will not quote the exact figure here, because we have not seen your business yet. We will quote it in writing before anyone pays anything.</p>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ══ SERVICES ══ -->
-<section id="services">
+<!-- ============ 7. WHO ANSWERS THE PHONE ============ -->
+<section id="who">
   <div class="wrap">
-    <div class="svc-hdr rv">
-      <span class="eyebrow">What We Do</span>
-      <h2 class="sec-title">Our <em>Services</em></h2>
-      <p class="sec-sub" style="margin:0 auto">From custom websites to intelligent AI ecosystems — every dimension of your digital strategy, handled.</p>
-    </div>
-    <div class="svc-grid">
-
-      <div class="svc-card rv" data-spring-card>
-        <div class="svc-icon-wrap icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <h3 class="svc-name">Website Development</h3>
-        <p class="svc-desc">We design and build beautiful, fast, and fully responsive websites from the ground up — crafted precisely around your brand, your goals, and the customers you want to attract.</p>
-        <div class="explain"><div class="explain-lbl">Starting From</div><p>Single-page landing sites from R3,500. Multi-page builds from R6,000. Free quote after discovery call — no obligation.</p></div>
-      </div>
-
-      <div class="svc-card rv" data-spring-card>
-        <div class="svc-icon-wrap icon">
-          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <h3 class="svc-name">Website Enhancement</h3>
-        <p class="svc-desc">Already have a website? We audit, redesign, and upgrade existing sites to sharpen speed, refine design, improve user experience, and increase conversion rates.</p>
-      </div>
-
-      <div class="svc-card rv" data-spring-card>
-        <div class="svc-icon-wrap icon">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </div>
-        <h3 class="svc-name">SEO Optimization</h3>
-        <p class="svc-desc">We optimise your website to rank higher on Google and other search engines — driving more organic visitors without relying solely on paid advertising.</p>
-        <div class="explain"><div class="explain-lbl">What is SEO?</div><p>SEO (Search Engine Optimization) is the art of making your website appear at the top of Google when people search for services like yours. Good SEO means more visitors, more leads, and more customers — entirely organically, without paying per click. We handle keyword research, technical SEO, on-page optimisation, and more.</p></div>
-      </div>
-
-      <div class="svc-card rv" data-spring-card>
-        <div class="svc-icon-wrap icon">
-          <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
-        </div>
-        <h3 class="svc-name">AI Automation</h3>
-        <p class="svc-desc">We identify the repetitive, time-consuming tasks in your business and automate them intelligently — freeing your team to focus on what genuinely drives growth.</p>
-      </div>
-
-      <div class="svc-card rv" data-spring-card>
-        <div class="svc-icon-wrap icon">
-          <svg viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-1.66z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-1.66z"/></svg>
-        </div>
-        <h3 class="svc-name">Staff AI Assistant</h3>
-        <p class="svc-desc">We build private AI assistants trained on your specific business knowledge — helping your team find answers, handle enquiries, and complete tasks faster than ever.</p>
-        <div class="explain"><div class="explain-lbl">What is this?</div><p>A Customer Internal AI Assistant is a private AI built exclusively for your company. It learns from your products, services, policies, and documents — then becomes an always-available expert your staff can consult instantly. It stays within your organisation and is never shared publicly.</p></div>
-      </div>
-
-      <div class="svc-card rv" data-spring-card>
-        <div class="svc-icon-wrap icon">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
-        </div>
-        <h3 class="svc-name">Document Intelligence</h3>
-        <p class="svc-desc">We implement AI that automatically reads, understands, and extracts key information from your business documents — eliminating manual data entry and dramatically reducing error.</p>
-        <div class="explain"><div class="explain-lbl">What is this?</div><p>Document Intelligence uses AI to process documents like invoices, contracts, reports, and forms automatically. Instead of staff manually reading through paperwork, the AI extracts important data, flags critical details, and organises everything in seconds.</p></div>
-      </div>
-
-      <div class="svc-card rv" data-spring-card>
-        <div class="svc-icon-wrap icon">
-          <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-        </div>
-        <h3 class="svc-name">Conversational &amp; Voice AI</h3>
-        <p class="svc-desc">We build intelligent chat and voice assistants that hold natural conversations with your customers or staff — delivering instant support around the clock, without rest.</p>
-        <div class="explain"><div class="explain-lbl">What is this?</div><p>Conversational &amp; Voice AI are systems that communicate naturally through text chat or spoken voice. Unlike rigid chatbots, these understand context, follow-up questions, and nuance. They take bookings, answer complex queries, and guide customers 24/7 — even on public holidays.</p></div>
-      </div>
-
-      <div class="svc-card rv" data-spring-card>
-        <div class="svc-icon-wrap icon">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <h3 class="svc-name">Review Analysis &amp; Reputation Management</h3>
-        <p class="svc-desc">We read and analyse your online reviews, identify recurring problems, and build targeted strategies to resolve complaints, improve your ratings, and strengthen your reputation.</p>
-        <div class="explain"><div class="explain-lbl">What is this?</div><p>We collect your reviews from Google, social media, and other platforms and use AI to identify patterns — spotting common complaints and problem areas. We then help you respond professionally, resolve root causes, and encourage satisfied customers to leave positive feedback.</p></div>
-      </div>
-
-      <div class="svc-card rv" data-spring-card>
-        <div class="svc-icon-wrap icon">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-        </div>
-        <h3 class="svc-name">Poster &amp; Graphic Design</h3>
-        <p class="svc-desc">Striking posters, banners, social media graphics, flyers, and branding materials — all crafted to make your business visually unforgettable and leave a lasting impression.</p>
-      </div>
-
+    <h2>Three people. Two clients. One phone number.</h2>
+    <div class="prose">
+      <p>We are three people in Johannesburg. You talk to the ones who write the code, because there is nobody else to hand you to. That is the whole arrangement, and it is the reason we can show you our entire body of work on one screen.</p>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ══ WHY US ══ -->
-<section id="why">
+<!-- ============ 8. NOBODY HAS REVIEWED US ============ -->
+<section id="first">
   <div class="wrap">
-    <div class="why-hdr rv">
-      <span class="eyebrow">Why CedarStone</span>
-      <h2 class="sec-title">Built Different. <em>By Design.</em></h2>
-    </div>
-    <div class="why-grid">
-
-      <div class="why-card rv" data-spring-card>
-        <div class="why-icon-box icon">
-          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <h3 class="why-title">Scoped in Writing, Delivered on Time</h3>
-        <p class="why-desc">Before we touch a single pixel, you have a written proposal with scope, timeline, and cost. We do not move goalposts and we do not charge for scope changes we initiated.</p>
-      </div>
-
-      <div class="why-card rv" data-spring-card>
-        <div class="why-icon-box icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        </div>
-        <h3 class="why-title">We Explain Everything in Plain Language</h3>
-        <p class="why-desc">No jargon, no confusing reports. You'll understand exactly what we're building, why it matters, and what you're getting — at every stage of the project.</p>
-      </div>
-
-      <div class="why-card rv" data-spring-card>
-        <div class="why-icon-box icon">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <h3 class="why-title">Built for SMB Budgets</h3>
-        <p class="why-desc">We price for the South African market. You get world-class quality because we're efficient, not because we're cheap. Every rand spent should generate more than it costs.</p>
-      </div>
-
-      <div class="why-card rv" data-spring-card>
-        <div class="why-icon-box icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3 class="why-title">We're Here After Launch Too</h3>
-        <p class="why-desc">We offer support packages and stay available via WhatsApp. We want to be the digital team your business calls first — not a contractor who disappears at go-live.</p>
-      </div>
-
+    <h2>Nobody has reviewed us.</h2>
+    <div class="prose">
+      <p>Two clients, two live sites, and not one written review. We would rather tell you that than borrow somebody else's words. Work with us and you will be the first, and you can say whatever you like.</p>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ══ GUARANTEE ══ -->
-<section id="guarantee">
-  <div class="wrap">
-    <div style="text-align:center" class="rv">
-      <span class="eyebrow">Our Commitment</span>
-      <h2 class="sec-title">Our <em>Guarantee</em> to Every Client</h2>
-      <p class="sec-sub" style="margin:0 auto">We're a new agency — and we're not going to pretend otherwise. What we can offer is something most established agencies won't: your success is directly tied to ours. These aren't marketing promises. They are commitments we put in writing.</p>
-    </div>
-    <div class="why-grid" style="margin-top:3.5rem">
-      <div class="why-card rv" data-spring-card>
-        <div class="why-icon-box icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3 class="why-title">Satisfaction or We Rework It — Free</h3>
-        <p class="why-desc">If the final deliverable does not match the agreed scope and quality standard, we rebuild or revise it at zero cost. No arguments, no invoices.</p>
-      </div>
-      <div class="why-card rv" data-spring-card>
-        <div class="why-icon-box icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h3 class="why-title">48-Hour Response, Always</h3>
-        <p class="why-desc">Every message, query, or concern you send us gets a substantive response within 48 business hours. Not an auto-reply — an actual answer from one of the founders.</p>
-      </div>
-      <div class="why-card rv" data-spring-card>
-        <div class="why-icon-box icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <h3 class="why-title">You Deal With the Founders. Always.</h3>
-        <p class="why-desc">You will never be handed off to a junior, a contractor, or an automated pipeline. Every project is personally built and delivered by the people who started this company.</p>
-      </div>
-    </div>
-    <div class="rv" style="text-align:center;margin-top:3rem">
-      <p style="color:var(--muted);font-size:.975rem;margin-bottom:1.5rem;font-weight:300">Be among our first clients — and hold us to every word above.</p>
-      <a href="#contact" class="btn-gold" data-magnetic data-press>Book Your Free Discovery Call</a>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══ REVIEWS ══ -->
-<section id="reviews">
-  <div class="wrap">
-    <div style="text-align:center" class="rv">
-      <span class="eyebrow">Client Reviews</span>
-      <h2 class="sec-title">What Our <em>Clients Say</em></h2>
-      <p class="sec-sub" style="margin:0 auto">We're building our track record one client at a time. Be among the first — and hold us to every standard we've promised.</p>
-    </div>
-
-    <div class="reviews-empty rv" id="reviewsDisplay">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(200,165,90,.45)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin:0 auto 1rem;display:block"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      <p>No reviews yet — be our first client to share your experience.<br>Every review is read personally by our founders.</p>
-    </div>
-
-    <div class="review-form-wrap rv">
-      <h3>Leave a Review</h3>
-      <p>Worked with us? We'd love to hear about your experience. Reviews are sent directly to our team and published after verification.</p>
-      <form id="reviewForm" novalidate>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.1rem">
-          <div class="fg"><label for="rv-name">Your Name</label><input id="rv-name" name="name" type="text" placeholder="e.g. Sipho Dlamini" required></div>
-          <div class="fg"><label for="rv-company">Business / Company</label><input id="rv-company" name="company" type="text" placeholder="e.g. Dlamini Consulting"></div>
-        </div>
-        <div class="fg" style="margin-bottom:1.1rem">
-          <label>Star Rating</label>
-          <div class="star-rating" role="radiogroup" aria-label="Star rating">
-            <input type="radio" id="s5" name="rating" value="5"><label for="s5" title="5 stars">★</label>
-            <input type="radio" id="s4" name="rating" value="4"><label for="s4" title="4 stars">★</label>
-            <input type="radio" id="s3" name="rating" value="3"><label for="s3" title="3 stars">★</label>
-            <input type="radio" id="s2" name="rating" value="2"><label for="s2" title="2 stars">★</label>
-            <input type="radio" id="s1" name="rating" value="1"><label for="s1" title="1 star">★</label>
-          </div>
-        </div>
-        <div class="fg" style="margin-bottom:1.1rem"><label for="rv-msg">Your Review</label><textarea id="rv-msg" name="review" placeholder="Tell us about your experience working with CedarStone Digital..." required style="min-height:110px"></textarea></div>
-        <input type="text" name="_honey" style="display:none" aria-hidden="true">
-        <button class="form-btn" id="rvBtn" type="submit" style="width:100%">Submit Review →</button>
-      </form>
-      <div id="rv-success" style="display:none;text-align:center;padding:2rem 1rem">
-        <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem">Thank you!</div>
-        <p style="color:var(--muted);font-size:.875rem;font-weight:300;line-height:1.75">Your review has been received and will be published after verification by our team.</p>
-      </div>
-    </div>
-
-    <div class="google-rev-row rv">
-      <p>Also find us and leave a review on Google</p>
-      <a href="https://www.google.com/search?q=CedarStone+Digital+%28Pty%29+Ltd+South+Africa" target="_blank" rel="noopener noreferrer"
-        style="display:inline-flex;align-items:center;gap:.65rem;border:1px solid var(--gold);color:var(--goldL);padding:.6rem 1.5rem;font-size:.8rem;font-weight:600;letter-spacing:.5px;text-decoration:none;background:rgba(200,165,90,.05);transition:all var(--morph)"
-        onmouseover="this.style.background='rgba(200,165,90,.12)'" onmouseout="this.style.background='rgba(200,165,90,.05)'">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Review Us on Google
-      </a>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══ PROCESS ══ -->
-<section id="process">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:0" class="rv">
-      <span class="eyebrow">How We Work</span>
-      <h2 class="sec-title">From First Call to <em>Final Launch</em></h2>
-      <p class="sec-sub" style="margin:0 auto">A clear, structured process so you always know what happens next.</p>
-    </div>
-    <div class="process-steps" data-animate="stagger">
-      <div class="process-step">
-        <div class="process-num">01</div>
-        <div class="process-title">Discovery Call</div>
-        <p class="process-desc">We start with a free 30-minute call to understand your business, your goals, and the specific problems you need solved. No pitch — just honest conversation.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-num">02</div>
-        <div class="process-title">Strategy &amp; Proposal</div>
-        <p class="process-desc">Within 48 hours we send you a clear proposal: scope, timeline, and transparent pricing. No hidden fees, no surprises.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-num">03</div>
-        <div class="process-title">Build &amp; Refine</div>
-        <p class="process-desc">We build your solution and share progress at every milestone. You review, provide feedback, and we refine until it's exactly right.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-num">04</div>
-        <div class="process-title">Launch &amp; Support</div>
-        <p class="process-desc">We launch your project and stay available for support. You're never handed a finished product and left alone — we're your ongoing digital partners.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══ FAQ ══ -->
-<section id="faq">
-  <div class="wrap">
-    <div style="text-align:center" class="rv">
-      <span class="eyebrow">Common Questions</span>
-      <h2 class="sec-title">Frequently Asked <em>Questions</em></h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item rv">
-        <button class="faq-q" onclick="toggleFaq(this)">How much does a website cost?</button>
-        <div class="faq-a"><div class="faq-a-inner">Every business is different, and so is every quote. Websites start from R3,500 for a clean single-page site, with multi-page builds varying widely based on your goals, functionality, and content — there's no one-size-fits-all number. The best way to find out what your project would cost is a free, no-obligation discovery call where we scope everything together and give you a clear, itemised quote.</div></div>
-      </div>
-      <div class="faq-item rv">
-        <button class="faq-q" onclick="toggleFaq(this)">How long does it take to build a website?</button>
-        <div class="faq-a"><div class="faq-a-inner">A single-page landing site is typically completed within 5–7 business days. Multi-page websites with CMS integration take 2–4 weeks. Timeline depends on how quickly we receive your content and feedback. We give you a specific deadline in the proposal.</div></div>
-      </div>
-      <div class="faq-item rv">
-        <button class="faq-q" onclick="toggleFaq(this)">Do I need to prepare anything before we start?</button>
-        <div class="faq-a"><div class="faq-a-inner">Not necessarily. We'll guide you through everything. It helps to have your logo, brand colours, and any photos or text you want to use — but if you don't have those yet, we can work with you to create them as part of the project.</div></div>
-      </div>
-      <div class="faq-item rv">
-        <button class="faq-q" onclick="toggleFaq(this)">What is AI automation and does my business need it?</button>
-        <div class="faq-a"><div class="faq-a-inner">AI automation uses software to handle repetitive tasks your team currently does manually — things like responding to common customer enquiries, processing forms, generating reports, or following up with leads. If your team spends more than 5 hours a week on tasks that follow a predictable pattern, automation will almost certainly pay for itself within months.</div></div>
-      </div>
-      <div class="faq-item rv">
-        <button class="faq-q" onclick="toggleFaq(this)">Do you work with small businesses and startups?</button>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely. Most of our clients are small and medium businesses across South Africa. We deliberately keep our pricing accessible because we believe every business deserves a world-class digital presence — not just large corporates with big budgets.</div></div>
-      </div>
-      <div class="faq-item rv">
-        <button class="faq-q" onclick="toggleFaq(this)">What happens after the project is launched?</button>
-        <div class="faq-a"><div class="faq-a-inner">We offer ongoing support and maintenance packages. At minimum, we're available via WhatsApp for questions after launch. We won't disappear — we want to be your long-term digital partners as your business grows.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══ CONTACT ══ -->
+<!-- ============ 9. CONTACT ============ -->
 <section id="contact">
   <div class="wrap">
-    <div style="text-align:center;margin-bottom:4rem" class="rv">
-      <span class="eyebrow">Get In Touch</span>
-      <h2 class="sec-title">Let's Build <em>Something Great</em></h2>
-      <p class="sec-sub" style="margin:0 auto">Ready to transform your digital presence? We'd love to hear about your project.</p>
-    </div>
-    <div class="contact-wrap">
-      <div class="cinfo rv">
-        <div class="ci">
-          <div class="ci-icon icon">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="var(--gold)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.9-.91a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.6 16.92z"/></svg>
-          </div>
-          <div>
-            <div class="ci-lbl">Phone &amp; WhatsApp</div>
-            <div class="ci-val">
-              <a href="tel:0820613598" style="color:var(--goldL);text-decoration:none;cursor:pointer">082 061 3598</a>
-              &nbsp;·&nbsp;
-              <a href="https://wa.me/27820613598" target="_blank" rel="noopener noreferrer" style="color:var(--goldL);font-size:.8rem;font-weight:500">WhatsApp →</a>
-            </div>
-          </div>
-        </div>
-        <a class="ci" href="mailto:cedarstonedigital77@gmail.com" target="_blank" rel="noopener noreferrer" style="cursor:pointer;text-decoration:none">
-          <div class="ci-icon icon">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="var(--gold)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div><div class="ci-lbl">Email</div><div class="ci-val" style="color:var(--goldL)">cedarstonedigital77@gmail.com</div></div>
-        </a>
-        <div class="ci">
-          <div class="ci-icon icon">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="var(--gold)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <div><div class="ci-lbl">AI Support</div><div class="ci-val">Chat with Jarvis — available 24/7</div></div>
-        </div>
-        <div class="cta-note"><p>Not sure which service suits your needs? <strong>Open the Jarvis chat</strong> in the bottom-right corner — our AI assistant will guide you to the right solution for your business.</p></div>
-      </div>
-      <form class="cform rv" id="contactForm" novalidate>
-        <div class="fg"><label for="f-name">Full Name</label><input id="f-name" name="name" type="text" placeholder="e.g. Sipho Dlamini" required></div>
-        <div class="fg"><label for="f-email">Email Address</label><input id="f-email" name="email" type="email" placeholder="you@email.com" required></div>
-        <div class="fg"><label for="f-phone">Phone Number</label><input id="f-phone" name="phone" type="tel" placeholder="+27 ..."></div>
-        <div class="fg">
-          <label for="f-service">Service of Interest</label>
-          <select id="f-service" name="service">
-            <option disabled selected value="">Select a service</option>
-            <option>Website Development</option><option>Website Enhancement</option>
-            <option>SEO Optimization</option><option>AI Automation</option>
-            <option>Staff AI Assistant</option><option>Document Intelligence</option>
-            <option>Conversational &amp; Voice AI</option>
-            <option>Review Analysis &amp; Reputation Management</option>
-            <option>Poster &amp; Graphic Design</option><option>Multiple Services</option>
-          </select>
-        </div>
-        <div class="fg"><label for="f-msg">Message</label><textarea id="f-msg" name="message" placeholder="Tell us about your business or project..." required></textarea></div>
-        <input type="text" name="_honey" style="display:none" aria-hidden="true">
-        <p style="font-size:.72rem;color:var(--dim);font-weight:300;line-height:1.6">By submitting this form you agree to our <a href="terms.html" target="_blank" style="color:var(--goldL);text-underline-offset:3px">Terms &amp; Conditions</a>.</p>
-        <button class="form-btn" id="formBtn" type="submit" data-press>Send Message →</button>
-      </form>
-    </div>
+    <h2>Phone it.</h2>
+    <a class="contact-tel u" href="tel:+27820613598">082&nbsp;061&nbsp;3598</a>
+    <p class="contact-alt">
+      <a class="u" href="https://wa.me/27820613598">WhatsApp</a>
+      <span>&middot;</span>
+      <a class="u" href="mailto:cedarstonedigital77@gmail.com">cedarstonedigital77@gmail.com</a>
+    </p>
+    <p class="note">There is no form on this page. A form is a way of not giving you a number.</p>
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+</main>
+
 <footer>
-  <div class="f-grid">
-    <div>
-      <a href="#top" class="nav-logo" style="display:inline-flex" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-        <svg width="36" height="36" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <polygon points="32,3 61,32 32,61 3,32" fill="none" stroke="url(#footer-logo-grad)" stroke-width="1.2"/>
-          <polygon points="32,11 27,22 37,22" fill="url(#footer-logo-grad)" opacity=".92"/>
-          <polygon points="32,18 20,33 44,33" fill="url(#footer-logo-grad)" opacity=".82"/>
-          <polygon points="32,27 13,46 51,46" fill="url(#footer-logo-grad)" opacity=".74"/>
-          <rect x="30" y="46" width="4" height="5" rx=".6" fill="#C8A55A" opacity=".88"/>
-          <path d="M 22,51 L 26,47 L 32,46 L 38,47 L 42,51 L 41,57 Q 32,61 32,61 Q 23,57 22,51 Z" fill="none" stroke="url(#footer-logo-grad)" stroke-width=".75"/>
-          <path d="M 25,53 Q 32,51 39,53" stroke="#E2C98A" stroke-width=".35" fill="none" opacity=".45"/>
-          <defs><linearGradient id="footer-logo-grad" x1="3" y1="3" x2="61" y2="61" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E2C98A"/><stop offset="100%" stop-color="#C8A55A"/></linearGradient></defs>
-        </svg>
-        <div class="logo-text" style="margin-left:.75rem"><span class="lt">CedarStone</span><span class="lb">Digital</span></div>
-      </a>
-      <p class="f-brand-desc">Empowering businesses through intelligent digital solutions. We build the websites, AI systems, and creative assets that move your brand forward.</p>
-    </div>
-    <div class="f-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#services">Website Development</a></li><li><a href="#services">Website Enhancement</a></li>
-        <li><a href="#services">SEO Optimization</a></li><li><a href="#services">AI Automation</a></li>
-        <li><a href="#services">Document Intelligence</a></li><li><a href="#services">Review Management</a></li>
-      </ul>
-    </div>
-    <div class="f-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="tel:0820613598">082 061 3598</a></li>
-        <li><a href="https://wa.me/27820613598" target="_blank" rel="noopener noreferrer">WhatsApp Us</a></li>
-        <li><a href="mailto:cedarstonedigital77@gmail.com" target="_blank" rel="noopener noreferrer">cedarstonedigital77@gmail.com</a></li>
-        <li><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top ↑</a></li>
-      </ul>
-      <div style="display:flex;gap:.75rem;margin-top:1.25rem">
-        <a href="https://www.facebook.com/cedarstonedigital" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="color:var(--muted);transition:color var(--micro)" onmouseover="this.style.color='var(--goldL)'" onmouseout="this.style.color='var(--muted)'">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/cedarstonedigital" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="color:var(--muted);transition:color var(--micro)" onmouseover="this.style.color='var(--goldL)'" onmouseout="this.style.color='var(--muted)'">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/company/cedarstonedigital" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="color:var(--muted);transition:color var(--micro)" onmouseover="this.style.color='var(--goldL)'" onmouseout="this.style.color='var(--muted)'">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-  <div class="f-bot">
-    <p>© <span id="copy-yr"></span> CedarStone Digital (Pty) Ltd. All rights reserved. &nbsp;·&nbsp; <a href="terms.html" style="color:var(--dim);text-decoration:none;transition:color var(--micro)" onmouseover="this.style.color='var(--goldL)'" onmouseout="this.style.color='var(--dim)'">Terms &amp; Conditions</a></p>
-    <div class="pw">Powered by <span>Jarvis AI</span></div>
+  <div class="foot">
+    <span>CedarStone Digital (Pty) Ltd</span>
+    <a class="u" href="terms.html">Terms</a>
   </div>
 </footer>
-
-<!-- ══ JARVIS CHAT ══ -->
-<div class="chat-widget">
-  <div class="chat-win" id="chatWin">
-    <div class="chat-head">
-      <div class="chat-avatar">J</div>
-      <div><div class="chat-name">Jarvis</div><div class="chat-online">Online &bull; Ready to assist</div></div>
-      <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">✕</button>
-    </div>
-    <div class="chat-msgs" id="chatMsgs"></div>
-    <div class="chat-sugg" id="chatSugg">
-      <button class="sugg-btn" onclick="suggest('What services do you offer?')">Services</button>
-      <button class="sugg-btn" onclick="suggest('What is SEO?')">What is SEO?</button>
-      <button class="sugg-btn" onclick="suggest('How do I contact you?')">Contact</button>
-      <button class="sugg-btn" onclick="suggest('Tell me about AI automation')">AI Automation</button>
-    </div>
-    <div class="chat-input-row">
-      <input class="chat-input" id="chatInput" type="text" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter')sendMsg()">
-      <button class="chat-send" onclick="sendMsg()" aria-label="Send message"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
-    </div>
-  </div>
-  <button class="chat-btn" onclick="toggleChat()" aria-label="Open Jarvis chat" aria-expanded="false" id="chatToggleBtn">
-    <div class="chat-btn-pulse" aria-hidden="true"></div>
-    <span class="chat-btn-lbl">Ask Jarvis</span>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A55A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-    </svg>
-  </button>
-</div>
-
-<!-- ══ WHATSAPP FLOAT ══ -->
-<div class="wa-float">
-  <span class="wa-float-lbl">Chat on WhatsApp</span>
-  <a href="https://wa.me/27820613598" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-  </a>
-</div>
-
-<script>
-/* ── INIT ── */
-document.getElementById('copy-yr').textContent = new Date().getFullYear();
-
-/* ── CANVAS FRAME-SCRUB HERO ── */
-(function(){
-  var TOTAL      = 240;
-  var canvas     = document.getElementById('heroCanvas');
-  var ctx        = canvas.getContext('2d', { alpha: false });
-  /* bitmaps[n]: GPU-decoded ImageBitmap (instant draw, no CPU decode on scroll)
-     imgs[n]:    fallback HTMLImageElement for browsers without createImageBitmap  */
-  var bitmaps    = new Array(TOTAL).fill(null);
-  var imgs       = new Array(TOTAL).fill(null);
-  var dpr        = 1;
-  var curProgress = 0;
-  var rafPending = false;
-  var seq        = document.getElementById('hero-sequence');
-  var hint       = document.getElementById('scrollHint');
-
-  /* ── DPR-AWARE RESIZE (makes canvas native-pixel-density — crisp on 4K/Retina) ── */
-  function resize(){
-    dpr = Math.min(window.devicePixelRatio || 1, 3); /* cap at 3× for perf */
-    canvas.width  = Math.round(window.innerWidth  * dpr);
-    canvas.height = Math.round(window.innerHeight * dpr);
-    canvas.style.width  = window.innerWidth  + 'px';
-    canvas.style.height = window.innerHeight + 'px';
-    render(curProgress);
-  }
-
-  /* ── COVER-FIT DRAW onto physical-pixel canvas ── */
-  function blit(src){
-    if(!src) return;
-    var sw = src.width  || src.naturalWidth;
-    var sh = src.height || src.naturalHeight;
-    if(!sw || !sh) return;
-    var cw = canvas.width, ch = canvas.height;
-    var scale = Math.max(cw / sw, ch / sh);
-    var dw = sw * scale, dh = sh * scale;
-    ctx.drawImage(src, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
-  }
-
-  /* ── RENDER WITH INTER-FRAME BLEND (sub-frame interpolation → buttery smooth) ── */
-  function render(progress){
-    var exact = progress * (TOTAL - 1);
-    var i0    = Math.floor(exact);
-    var i1    = Math.min(i0 + 1, TOTAL - 1);
-    var alpha = exact - i0; /* 0–1 blend toward next frame */
-
-    var src0  = bitmaps[i0] || imgs[i0];
-    var src1  = bitmaps[i1] || imgs[i1];
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    if(!src0) return;
-
-    blit(src0);
-    /* Blend the next frame in proportionally — eliminates the discrete "jump"
-       between frames so the animation looks continuous even at slow scroll speeds */
-    if(alpha > 0.01 && src1){
-      ctx.globalAlpha = alpha;
-      blit(src1);
-      ctx.globalAlpha = 1;
-    }
-  }
-
-  /* ── PRELOAD: HTMLImageElement first (shows frames as they arrive),
-     then promote each to ImageBitmap (GPU-resident, zero-decode-cost on draw) ── */
-  for(var i = 0; i < TOTAL; i++){
-    (function(n){
-      var img = new Image();
-      img.onload = function(){
-        imgs[n] = img;
-        if(n === 0){ resize(); } /* draw first frame the moment it lands */
-        /* Async GPU upload — doesn't block main thread */
-        if(typeof createImageBitmap === 'function'){
-          createImageBitmap(img).then(function(bm){
-            bitmaps[n] = bm;
-            img.onload = null; /* allow GC of raw image data */
-          }).catch(function(){});
-        }
-      };
-      img.src = 'frames/frame_' + String(n + 1).padStart(4, '0') + '.png';
-    })(i);
-  }
-
-  /* ── PHASE DEFINITIONS ── */
-  var phaseDefs = [
-    { id:'p1', start:0,    end:0.22 },
-    { id:'p2', start:0.18, end:0.40 },
-    { id:'p3', start:0.36, end:0.57 },
-    { id:'p4', start:0.53, end:0.72 },
-    { id:'p5', start:0.68, end:0.87 },
-    { id:'p6', start:0.83, end:1.00 },
-  ];
-
-  function updatePhases(progress){
-    if(hint) hint.style.opacity = Math.max(0, 1 - progress * 8);
-    phaseDefs.forEach(function(phase){
-      var el = document.getElementById(phase.id);
-      if(!el) return;
-      var fade = Math.min(0.06, (phase.end - phase.start) * 0.25);
-      var opacity = 0, ty = 18;
-      if(progress >= phase.start && progress <= phase.end){
-        var inP  = (progress - phase.start) / fade;
-        var outP = (phase.end - progress)    / fade;
-        opacity  = Math.min(1, inP, outP);
-        ty       = (1 - opacity) * 18;
-      }
-      el.style.opacity   = opacity;
-      el.style.transform = 'translateY(' + ty + 'px)';
-      if(opacity > 0.05) el.classList.add('p-active');
-      else               el.classList.remove('p-active');
-    });
-  }
-
-  /* ── SCROLL HANDLER (rAF-throttled, stores float progress for interpolation) ── */
-  function onScroll(){
-    if(!seq) return;
-    var st       = seq.getBoundingClientRect().top * -1;
-    var maxSt    = seq.offsetHeight - window.innerHeight;
-    var progress = Math.max(0, Math.min(1, st / Math.max(1, maxSt)));
-    curProgress  = progress;
-    render(progress);
-    updatePhases(progress);
-  }
-
-  window.addEventListener('scroll', function(){
-    if(!rafPending){
-      rafPending = true;
-      requestAnimationFrame(function(){
-        rafPending = false;
-        onScroll();
-      });
-    }
-  }, { passive: true });
-
-  window.addEventListener('resize', resize);
-  resize();
-  updatePhases(0);
-})();
-
-/* ── NAV ── */
-window.addEventListener('scroll', function(){
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY>50);
-});
-document.querySelectorAll('.nav-links a').forEach(function(a){
-  a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
-});
-
-/* ── SCROLL REVEAL ── */
-var ro = new IntersectionObserver(function(entries){
-  entries.forEach(function(e,i){
-    if(e.isIntersecting) setTimeout(function(){ e.target.classList.add('vis'); }, i*65);
-  });
-},{ threshold:0.08, rootMargin:'0px 0px -40px 0px' });
-document.querySelectorAll('.rv').forEach(function(el){ ro.observe(el); });
-
-/* ── CONTACT FORM ── */
-(function(){
-  var form = document.getElementById('contactForm');
-  if(!form) return;
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var btn     = document.getElementById('formBtn');
-    var name    = document.getElementById('f-name').value.trim();
-    var email   = document.getElementById('f-email').value.trim();
-    var phone   = document.getElementById('f-phone').value.trim();
-    var service = document.getElementById('f-service').value;
-    var message = document.getElementById('f-msg').value.trim();
-    if(!name||!email||!message){ alert('Please fill in your name, email, and message.'); return; }
-    btn.textContent='Sending…'; btn.disabled=true;
-    fetch('https://formsubmit.co/ajax/cedarstonedigital77@gmail.com',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({name:name,email:email,phone:phone,service:service,message:message})
-    })
-    .then(function(r){ return r.json(); })
-    .then(function(){
-      btn.textContent='✓ Message Sent';
-      btn.style.background='linear-gradient(135deg,#2E7D32,#4CAF50)';
-      btn.style.color='#fff';
-      form.reset();
-      setTimeout(function(){ btn.textContent='Send Message →'; btn.style.background=''; btn.style.color=''; btn.disabled=false; },4000);
-    })
-    .catch(function(){
-      btn.textContent='Send Message →'; btn.disabled=false;
-      alert('Something went wrong. Please email us directly at cedarstonedigital77@gmail.com');
-    });
-  });
-})();
-
-/* ── FAQ ── */
-function toggleFaq(btn){
-  var item=btn.closest('.faq-item');
-  var wasOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(function(el){ el.classList.remove('open'); });
-  if(!wasOpen) item.classList.add('open');
-}
-
-/* ── JARVIS CHAT ── */
-var chatOpen=false,chatStarted=false;
-function toggleChat(){
-  chatOpen=!chatOpen;
-  document.getElementById('chatWin').classList.toggle('open',chatOpen);
-  document.getElementById('chatToggleBtn').setAttribute('aria-expanded',chatOpen);
-  if(chatOpen&&!chatStarted){
-    chatStarted=true;
-    setTimeout(function(){
-      addMsg('bot',"Good day. I'm <strong>Jarvis</strong>, CedarStone Digital's AI assistant. I can answer questions about our services, team, pricing, or anything else. How may I assist you?");
-    },420);
-  }
-  if(chatOpen) setTimeout(function(){ document.getElementById('chatInput').focus(); },380);
-}
-function addMsg(type,html){
-  var w=document.getElementById('chatMsgs');
-  var d=document.createElement('div'); d.className='msg '+type; d.innerHTML=html;
-  w.appendChild(d); w.scrollTop=w.scrollHeight;
-}
-function showTyping(){
-  var w=document.getElementById('chatMsgs');
-  var d=document.createElement('div'); d.className='typing'; d.id='ty';
-  d.innerHTML='<div class="td"></div><div class="td"></div><div class="td"></div>';
-  w.appendChild(d); w.scrollTop=w.scrollHeight;
-}
-function clearTyping(){ var t=document.getElementById('ty'); if(t)t.remove(); }
-function getReply(input){
-  var q=input.toLowerCase();
-  if(/(hello|hi|hey|howzit|greetings|morning|afternoon|evening)/.test(q)) return "Good day! I'm Jarvis — CedarStone Digital's AI assistant. Feel free to ask me anything about our services, pricing, or how we can help your business grow.";
-  if(/(service|offer|what do|help with|capabilities|do you do|what can)/.test(q)) return "CedarStone Digital offers nine services:<br><br><strong>Website Development &amp; Enhancement</strong><br><strong>SEO Optimization</strong><br><strong>AI Automation</strong><br><strong>Internal AI Assistants</strong><br><strong>Document Intelligence</strong><br><strong>Conversational &amp; Voice AI</strong><br><strong>Review Analysis &amp; Reputation Management</strong><br><strong>Poster &amp; Graphic Design</strong><br><br>Which would you like to know more about?";
-  if(/(seo|search engine|google|rank|organic|traffic)/.test(q)) return "<strong>SEO</strong> (Search Engine Optimization) improves your website's visibility on Google so more people find you organically — without paying for ads. We handle keyword research, technical SEO, on-page content, and more.";
-  if(/(automat|workflow|repetit|process)/.test(q)) return "<strong>AI Automation</strong> takes repetitive tasks off your team's plate — auto-responding to enquiries, processing bookings, generating reports, sending follow-ups. More growth, less admin.";
-  if(/(internal|private ai|staff|team|employee)/.test(q)) return "A <strong>Customer Internal AI Assistant</strong> is a private AI trained on YOUR company's data — documents, FAQs, policies. Your staff can ask it anything, instantly, 24/7. It never leaves your organisation.";
-  if(/(document|invoice|contract|report|paper|form)/.test(q)) return "<strong>Document Intelligence</strong> automates reading and extracting data from invoices, contracts, forms, and reports — replacing manual data entry with AI that works in seconds, without errors.";
-  if(/(voice|conversational|chatbot|24.7|natural)/.test(q)) return "<strong>Conversational &amp; Voice AI</strong> holds natural conversations with your customers through chat or voice — taking bookings, answering questions, and providing support 24/7, every day of the year.";
-  if(/(review|reputation|rating|feedback|complaint)/.test(q)) return "We analyse your online reviews using AI — spotting recurring complaints, identifying root causes, helping you respond professionally, and building strategies to earn more positive reviews and a stronger reputation.";
-  if(/(poster|graphic|design|banner|visual|brand)/.test(q)) return "We create marketing posters, social media graphics, banners, business cards, and branding materials — all designed to make your business visually unforgettable.";
-  if(/(contact|phone|email|number|call|whatsapp|reach)/.test(q)) return "You can reach us directly:<br><br><strong>Phone &amp; WhatsApp:</strong> 082 061 3598<br><strong>Email:</strong> cedarstonedigital77@gmail.com<br><br>Or fill in the contact form on this page.";
-  if(/(price|cost|how much|quote|pricing|rate|package)/.test(q)) return "Every business is different, and so is every quote. Websites start from R3,500 for a single-page site, with multi-page builds varying based on your goals and functionality. The best way to find out is a free, no-obligation discovery call — we scope everything together and give you a clear, itemised quote.<br><br><strong>Call or WhatsApp:</strong> 082 061 3598";
-  if(/(who|about|founder|team|owner|cedarstone|company)/.test(q)) return "CedarStone Digital was founded by <strong>three passionate co-owners</strong> who believe powerful digital solutions should be accessible to every business. When you work with us, you deal directly with the founders — no middlemen.";
-  if(/(website|web|build|develop|redesign|new site)/.test(q)) return "We build fully custom, mobile-responsive websites from scratch, redesign existing ones, or make targeted enhancements. Every site includes SEO foundations so you rank on Google from day one.";
-  if(/(thank|thanks|great|awesome|perfect|amazing)/.test(q)) return "Thank you — that genuinely means a lot. If you're ready to start a project, don't hesitate to reach out. We look forward to working with you.";
-  if(/(bye|goodbye|later|see you)/.test(q)) return "It was a pleasure. CedarStone Digital is here whenever you're ready. Have a wonderful day — goodbye.";
-  return "Great question! For the most accurate answer, reach out directly:<br><br><strong>Phone &amp; WhatsApp:</strong> 082 061 3598<br><strong>Email:</strong> cedarstonedigital77@gmail.com<br><br>Or ask me about our services, SEO, AI, pricing, or the team.";
-}
-function sendMsg(){
-  var inp=document.getElementById('chatInput');
-  var txt=inp.value.trim(); if(!txt)return;
-  addMsg('usr',txt); inp.value='';
-  document.getElementById('chatSugg').style.display='none';
-  showTyping();
-  setTimeout(function(){ clearTyping(); addMsg('bot',getReply(txt)); },850+Math.random()*500);
-}
-function suggest(txt){ document.getElementById('chatInput').value=txt; sendMsg(); }
-
-/* ── REVIEW FORM ── */
-(function(){
-  var form=document.getElementById('reviewForm');
-  if(!form) return;
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var btn=document.getElementById('rvBtn');
-    var name   =document.getElementById('rv-name').value.trim();
-    var company=document.getElementById('rv-company').value.trim();
-    var msg    =document.getElementById('rv-msg').value.trim();
-    var rating =(form.querySelector('input[name="rating"]:checked')||{}).value||'Not selected';
-    if(!name||!msg){ alert('Please enter your name and review.'); return; }
-    btn.textContent='Submitting…'; btn.disabled=true;
-    fetch('https://formsubmit.co/ajax/cedarstonedigital77@gmail.com',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body:JSON.stringify({_subject:'New Client Review — CedarStone Digital',name:name,company:company,rating:rating+' stars',review:msg})
-    })
-    .then(function(r){ return r.json(); })
-    .then(function(){
-      form.style.display='none';
-      document.getElementById('rv-success').style.display='block';
-    })
-    .catch(function(){
-      btn.textContent='Submit Review →'; btn.disabled=false;
-      alert('Something went wrong. Please email us at cedarstonedigital77@gmail.com');
-    });
-  });
-})();
-</script>
-
-<!-- ══ MOTION TOOLKIT ══ -->
-<script type="module">
-  import { initAll } from "./motion-animations.js";
-  document.addEventListener("DOMContentLoaded", initAll);
-</script>
 
 <script type="application/ld+json">
 {
@@ -1450,16 +909,15 @@ function suggest(txt){ document.getElementById('chatInput').value=txt; sendMsg()
   "name": "CedarStone Digital",
   "legalName": "CedarStone Digital (Pty) Ltd",
   "alternateName": ["Cedar Stone Digital", "CedarStone"],
-  "description": "CedarStone Digital is a South African AI-powered digital agency offering custom website design, AI automation, SEO optimisation, internal AI assistants, document intelligence, conversational AI, review management, and graphic design for small and medium businesses.",
+  "description": "CedarStone Digital is a web studio in Johannesburg, South Africa. It has built and shipped two online shops for two Lesotho clothing labels, Sesotho Fashioneng and LRT Threadz, both live.",
   "telephone": "+27820613598",
   "email": "cedarstonedigital77@gmail.com",
   "url": "https://cedarstonedigital.co.za",
-  "logo": "https://www.cedarstonedigital.co.za/favicon.svg",
+  "logo": "https://cedarstonedigital.co.za/favicon.svg",
   "areaServed": {"@type":"Country","name":"South Africa"},
-  "priceRange": "R3500 - R18000",
   "currenciesAccepted": "ZAR",
   "paymentAccepted": "EFT, Bank Transfer",
-  "knowsLanguage": ["en","af"],
+  "knowsLanguage": ["en"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Digital Services",
@@ -1471,9 +929,190 @@ function suggest(txt){ document.getElementById('chatInput').value=txt; sendMsg()
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Poster & Graphic Design","description":"Marketing materials, social media graphics and branding"}}
     ]
   },
-  "contactPoint": {"@type":"ContactPoint","telephone":"+27820613598","contactType":"customer service","availableLanguage":"English","contactOption":"TollFree"},
-  "sameAs": ["https://www.facebook.com/cedarstonedigital","https://www.instagram.com/cedarstonedigital","https://www.linkedin.com/company/cedarstonedigital"]
+  "contactPoint": {"@type":"ContactPoint","telephone":"+27820613598","contactType":"customer service","availableLanguage":"English"}
 }
 </script>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ------------------------------------------------------------
+     Everything below is enhancement. The page is complete without
+     it: the cedar border is a CSS border, the frame counter reads
+     03 / 12 from the markup, and nothing rests invisible.
+     ------------------------------------------------------------ */
+
+  var reduce = false;
+  try {
+    reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  } catch (e) { reduce = true; }
+
+  function vh(){
+    return document.documentElement.clientHeight || window.innerHeight || 0;
+  }
+
+  /* ---------- the index counter ---------- */
+  var idx  = document.querySelector('.idx');
+  var idxN = idx ? idx.querySelector('.idx__n') : null;
+  var p1   = document.getElementById('plate-01');
+  var p2   = document.getElementById('plate-02');
+  var fadeTimer = null, holdTimer = null;
+
+  function forceVisible(){
+    if (idxN) idxN.style.opacity = '1';
+  }
+
+  function setIndex(v){
+    if (!idxN || !v) return;
+    if (idxN.textContent.trim() === v) return;
+    if (reduce) { idxN.textContent = v; forceVisible(); return; }
+    idxN.style.opacity = '0';
+    clearTimeout(fadeTimer); clearTimeout(holdTimer);
+    fadeTimer = setTimeout(function(){ idxN.textContent = v; forceVisible(); }, 160);
+    /* Second, independent restore. If the transition never advances,
+       the counter still ends up readable rather than faded out. */
+    holdTimer = setTimeout(forceVisible, 1200);
+  }
+
+  /* Test hook, deliberate: lets the counter be driven directly and
+     read back, because IntersectionObserver is unreliable here. */
+  if (idx) idx.__setIndex = setIndex;
+
+  /* Geometric midline test. This is what actually drives the
+     counter, because an observer can report present and never fire
+     again on scroll. It asks whether the plate crosses the midline,
+     not whether a callback happened. */
+  var midQueued = false;
+  function midline(){
+    midQueued = false;
+    var mid = vh() / 2, hit = null, i, r, els = [p1, p2];
+    for (i = 0; i < els.length; i++) {
+      if (!els[i]) continue;
+      r = els[i].getBoundingClientRect();
+      if (r.top <= mid && r.bottom >= mid) hit = els[i];
+    }
+    if (hit) setIndex(hit.getAttribute('data-idx'));
+  }
+  function queueMid(){
+    if (midQueued) return;
+    midQueued = true;
+    if (window.requestAnimationFrame) requestAnimationFrame(midline);
+    else setTimeout(midline, 16);
+  }
+  window.addEventListener('scroll', queueMid, { passive: true });
+  window.addEventListener('resize', queueMid, { passive: true });
+
+  if (window.IntersectionObserver && p1 && p2) {
+    try {
+      var io = new IntersectionObserver(function(entries){
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) setIndex(entries[i].target.getAttribute('data-idx'));
+        }
+      }, { rootMargin: '-50% 0px -50% 0px' });
+      io.observe(p1); io.observe(p2);
+    } catch (e) {}
+  }
+
+  /* ---------- the border draw ---------- */
+  /* The frame's cedar border is a plain CSS border and is the
+     resting state. The four SVG lines do not exist in the markup;
+     they are created only when motion is armed, and removed again
+     afterwards. So there is nothing to leave behind and nothing
+     that can rest invisible. */
+
+  var frame = document.getElementById('frame-03');
+  var svg   = frame ? frame.querySelector('.frame__draw') : null;
+  var SEG   = 520, STAGGER = 90, WATCHDOG = 2500;
+  var state = 'idle';
+  var lines = [];
+
+  function restore(){
+    if (state === 'done') return;
+    state = 'done';
+    if (frame) frame.style.borderColor = '';
+    if (svg) { while (svg.firstChild) svg.removeChild(svg.firstChild); }
+    lines = [];
+  }
+
+  function frameVisible(){
+    if (!frame) return false;
+    var r = frame.getBoundingClientRect(), h = vh();
+    return r.top < h && r.bottom > 0;
+  }
+
+  function arm(){
+    if (state !== 'idle' || !frame || !svg) return false;
+    var r = svg.getBoundingClientRect();
+    var W = Math.round(r.width), H = Math.round(r.height);
+    if (W < 40 || H < 40) return false;
+
+    /* Clockwise from top-left: top, right, bottom, left. */
+    var segs = [
+      [0, 0.5, W, 0.5, W],
+      [W - 0.5, 0, W - 0.5, H, H],
+      [W, H - 0.5, 0, H - 0.5, W],
+      [0.5, H, 0.5, 0, H]
+    ];
+    var ns = 'http://www.w3.org/2000/svg', i, ln, s;
+    for (i = 0; i < segs.length; i++) {
+      s = segs[i];
+      ln = document.createElementNS(ns, 'line');
+      ln.setAttribute('x1', s[0]); ln.setAttribute('y1', s[1]);
+      ln.setAttribute('x2', s[2]); ln.setAttribute('y2', s[3]);
+      /* Hidden state only. No transition yet, so nothing animates
+         backwards out of its resting position. */
+      ln.style.strokeDasharray  = s[4] + 'px';
+      ln.style.strokeDashoffset = s[4] + 'px';
+      ln.style.transitionDuration = '0ms';
+      ln.style.transitionDelay = (i * STAGGER) + 'ms';
+      svg.appendChild(ln);
+      lines.push(ln);
+    }
+    frame.style.borderColor = 'transparent';
+    state = 'armed';
+    setTimeout(function(){ if (state === 'armed') restore(); }, WATCHDOG);
+    return true;
+  }
+
+  function draw(){
+    if (state !== 'armed') return;
+    state = 'drawing';
+    void svg.getBoundingClientRect().width;   /* flush the start value */
+    for (var i = 0; i < lines.length; i++) {
+      lines[i].style.transitionDuration = SEG + 'ms';
+      lines[i].style.strokeDashoffset = '0px';
+    }
+    setTimeout(restore, WATCHDOG);
+  }
+
+  function onScrollDraw(){
+    if (state === 'armed' && frameVisible()) draw();
+    if (state === 'done') window.removeEventListener('scroll', onScrollDraw);
+  }
+
+  if (!reduce && frame && svg && window.requestAnimationFrame) {
+    requestAnimationFrame(function(){
+      /* Confirmed rAF callback. Ask whether the frame is actually
+         on screen, not whether an observer fired. Arming an element
+         the visitor can already see would make it vanish. */
+      if (frameVisible()) { restore(); return; }
+      requestAnimationFrame(function(){
+        if (frameVisible()) { restore(); return; }
+        if (arm()) window.addEventListener('scroll', onScrollDraw, { passive: true });
+      });
+    });
+  } else {
+    restore();
+  }
+
+  window.addEventListener('resize', function(){
+    if (state === 'armed' || state === 'drawing') restore();
+  }, { passive: true });
+
+  queueMid();
+})();
+</script>
+
 </body>
 </html>
