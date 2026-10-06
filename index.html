@@ -26,7 +26,7 @@
    CedarStone Digital. Proof sheet.
    Palette locked 4 Oct 2026. Cedar never touches a client plate:
    plate frames, plate captions and the index rule are slate or sage.
-   Cedar appears on the open frame and frame 12's bracket only.
+   Cedar appears on the open frame and frame 05's bracket only.
    Exactly three transitions exist on this page. See the three
    `transition:` declarations below. Nothing else moves.
    --------------------------------------------------------------- */
@@ -167,7 +167,7 @@ section{padding-block:clamp(3.5rem,9vw,7rem)}
 
 /* The index rule. A 1px sage hairline down the left margin,
    terminating at the top edge of the open frame. Resting value
-   is 03 / 12, so with no JavaScript it is a label, never blank. */
+   is 01 / 05, so with no JavaScript it is a label, never blank. */
 .idx{
   position:absolute;left:clamp(14px,3vw,44px);top:0;bottom:0;
   width:1px;
@@ -347,7 +347,7 @@ footer{
 }
 
 /* =============== THE RING =============== */
-/* The twelve cells of the proof sheet ARE the twelve cards of the ring.
+/* The five cells of the proof sheet ARE the five cards of the ring.
    One set of nodes, two layouts, no duplicated markup and no second
    portfolio section. The 6x2 grid above is the resting state: it is what
    a visitor with no JavaScript or a narrow screen gets, complete and
@@ -395,8 +395,8 @@ footer{
 .sheet.is-ring .f__open{position:relative;z-index:2}
 /* The pair brackets are placed on grid areas and have none to sit on
    here, so the frame weight carries the marking instead: the plates'
-   own 1px slate hairline on the four exposed frames, cedar on frame 12
-   alone. Frame 12 and a capture CAN be on screen together: the cull is
+   own 1px slate hairline on the four exposed frames, cedar on frame 05
+   alone. Frame 05 and a capture CAN be on screen together: the cull is
    a half angle, so the visible arc is about 114 degrees and spans three
    steps. Measured over 1,681 phases, that happens in 315 of them and
    the closest the cedar frame ever comes to a capture is 659px, more
@@ -442,25 +442,18 @@ footer{
 <section id="sheet">
   <div class="wrap">
     <header id="sheet-head">
-      <p class="lbl">CedarStone Digital (Pty) Ltd &middot; Johannesburg &middot; Proof sheet &middot; 12 frames &middot; 2 exposed</p>
+      <p class="lbl">CedarStone Digital (Pty) Ltd &middot; Johannesburg &middot; Proof sheet &middot; 5 frames &middot; 4 exposed</p>
     </header>
     <h1>Everything we have built is on this page.</h1>
     <p class="lede sheet-intro">Two online shops for two Lesotho clothing labels. Both are live. Both are below, at the size we built them.</p>
   </div>
 
   <div class="sheet">
-    <div class="f"><span class="f__n">01</span></div>
-    <div class="f"><span class="f__n">02</span></div>
-    <div class="f f--w"><img src="assets/work/sesotho-fashioneng-desktop.png" width="2880" height="1800" alt="Sesotho Fashioneng home page on a desktop screen: a mountain photograph behind the words Culture. Pride. and Luxury."><span class="f__n">03</span></div>
-    <div class="f f--w"><img src="assets/work/sesotho-fashioneng-mobile.png" width="780" height="1688" alt="Sesotho Fashioneng home page on a phone screen."><span class="f__n">04</span></div>
-    <div class="f"><span class="f__n">05</span></div>
-    <div class="f"><span class="f__n">06</span></div>
-    <div class="f"><span class="f__n">07</span></div>
-    <div class="f f--w"><img src="assets/work/lrt-threadz-desktop.png" width="2880" height="1800" alt="LRT Threadz home page on a desktop screen: the word SLOUCHY in heavy condensed type behind a portrait, slide three of seven."><span class="f__n">08</span></div>
-    <div class="f f--w"><img src="assets/work/lrt-threadz-mobile.png" width="780" height="1688" alt="LRT Threadz home page on a phone screen."><span class="f__n">09</span></div>
-    <div class="f"><span class="f__n">10</span></div>
-    <div class="f"><span class="f__n">11</span></div>
-    <div class="f f--open"><span class="f__n">12</span><span class="f__open">OPEN</span></div>
+    <div class="f f--w"><img src="assets/work/sesotho-fashioneng-desktop.png" width="2880" height="1800" alt="Sesotho Fashioneng home page on a desktop screen: a mountain photograph behind the words Culture. Pride. and Luxury."><span class="f__n">01</span></div>
+    <div class="f f--w"><img src="assets/work/sesotho-fashioneng-mobile.png" width="780" height="1688" alt="Sesotho Fashioneng home page on a phone screen."><span class="f__n">02</span></div>
+    <div class="f f--w"><img src="assets/work/lrt-threadz-desktop.png" width="2880" height="1800" alt="LRT Threadz home page on a desktop screen: the word SLOUCHY in heavy condensed type behind a portrait, slide three of seven."><span class="f__n">03</span></div>
+    <div class="f f--w"><img src="assets/work/lrt-threadz-mobile.png" width="780" height="1688" alt="LRT Threadz home page on a phone screen."><span class="f__n">04</span></div>
+    <div class="f f--open"><span class="f__n">05</span><span class="f__open">OPEN</span></div>
     <div class="br br--a" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     <div class="br br--b" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     <div class="br br--c" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
@@ -492,17 +485,17 @@ footer{
     var MQ_REDUCE = '(prefers-reduced-motion: reduce)';
 
     var MIN_W  = 980;   /* below this the flat grid and strip stay      */
-    var N      = 12;    /* twelve frames. Not 37. Four of them exposed. */
-    var STEP   = 30;    /* 360 / 12                                     */
+    var N      = 5;     /* five frames. Four exposed, one open.         */
+    var STEP   = 72;    /* 360 / 5                                      */
     var SPEED  = 4.2;   /* deg/s. See the report for why not 1.9.       */
     var GUT    = 14;    /* angular gutter, matches --gap                */
-    var HFACT  = 1.58;  /* stage height / card height. Measured below.  */
-    var WFRAC  = 0.40;  /* card width ceiling as a fraction of stage    */
+    var HFACT  = 1.14;  /* one card at a time, so it fills more of it.  */
+    var WFRAC  = 0.56;  /* card width ceiling as a fraction of stage    */
     var VEILF  = 0.11;  /* edge veil width as a fraction of stage       */
     var OPAQUE = 0.38;  /* fully opaque fraction of that veil           */
     var RECEDE = 0.62;  /* how far a card recedes into the ground       */
     var TAU    = 0.26;  /* speed approach time constant, seconds        */
-    var START  = -60;   /* puts card index 2, frame 03, at a = 0        */
+    var START  = 0;     /* puts card index 0, frame 01, at a = 0        */
     var D2R    = Math.PI / 180;
 
     var sheet = document.querySelector('.sheet');
@@ -658,8 +651,8 @@ footer{
         hint = document.createElement('p');
         hint.className = 'lbl ring-hint';
         hint.textContent = reduce
-          ? 'Twelve frames on a ring. Drag it to turn.'
-          : 'Twelve frames on a ring. Drag it to turn. Hold it to stop.';
+          ? 'Five frames on a ring. Drag it to turn.'
+          : 'Five frames on a ring. Drag it to turn. Hold it to stop.';
         sheet.parentNode.insertBefore(hint, sheet.nextSibling);
       }
       start();
@@ -775,11 +768,11 @@ footer{
 
 <!-- ============ 2 and 3. THE PLATES ============ -->
 <div class="plates">
-  <div class="idx" aria-hidden="true"><span class="idx__n">03 / 12</span></div>
+  <div class="idx" aria-hidden="true"><span class="idx__n">01 / 05</span></div>
 
-  <section id="plate-01" data-idx="03 / 12">
+  <section id="plate-01" data-idx="01 / 05">
     <div class="plate-head">
-      <p class="lbl">Frame 03 / 04 &middot; 2026</p>
+      <p class="lbl">Frame 05 / 04 &middot; 2026</p>
       <h2>Sesotho Fashioneng</h2>
       <p class="lede">The SS26 collection site for a fashion label out of Lesotho. Live at <span class="dom">sesothofashioneng.co.za</span>.</p>
     </div>
@@ -796,7 +789,7 @@ footer{
     </div>
   </section>
 
-  <section id="plate-02" data-idx="08 / 12">
+  <section id="plate-02" data-idx="03 / 05">
     <div class="plate-head">
       <p class="lbl">Frame 08 / 09 &middot; 2026</p>
       <h2>LRT Threadz</h2>
@@ -818,12 +811,12 @@ footer{
 
 <!-- ============ 4. THE OPEN FRAME ============ -->
 <section id="open">
-  <h2>The third frame is open.</h2>
+  <h2>The next frame is open.</h2>
 
   <div class="frame" id="frame-03">
     <svg class="frame__draw" aria-hidden="true" focusable="false"></svg>
     <div class="frame__meta">
-      <p class="lbl">Frame 03</p>
+      <p class="lbl">Frame 05</p>
       <a class="tel u" href="tel:+27820613598">082&nbsp;061&nbsp;3598</a>
       <p class="note">Johannesburg. We answer it ourselves.</p>
     </div>
@@ -940,7 +933,7 @@ footer{
   /* ------------------------------------------------------------
      Everything below is enhancement. The page is complete without
      it: the cedar border is a CSS border, the frame counter reads
-     03 / 12 from the markup, and nothing rests invisible.
+     01 / 05 from the markup, and nothing rests invisible.
      ------------------------------------------------------------ */
 
   var reduce = false;
